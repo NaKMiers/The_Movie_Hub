@@ -18,7 +18,67 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult PromotionProgram()
+    {
+        return View();
+    }
+
+    public IActionResult Event()
+    {
+        return View();
+    }
+
+    public IActionResult Entertaiment()
+    {
+        return View();
+    }
+
+    public IActionResult AboutUs()
+    {
+        return View();
+    }
+
+    public IActionResult Contact()
+    {
+        return View();
+    }
+
+    public IActionResult Restaurant()
+    {
+        return View();
+    }
+
+    public IActionResult Bowling()
+    {
+        return View();
+    }
+
+    public IActionResult Gym()
+    {
+        return View();
+    }
+
+    public IActionResult Coffee()
+    {
+        return View();
+    }
+
+    public IActionResult KidZone()
+    {
+        return View();
+    }
+
+    public IActionResult Billiard()
+    {
+        return View();
+    }
+
+    public IActionResult Opera()
+    {
+        return View();
+    }
+
+    public IActionResult PageNotFound()
     {
         return View();
     }

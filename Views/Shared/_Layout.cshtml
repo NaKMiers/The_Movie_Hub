@@ -11,19 +11,18 @@
 </head>
 
 <body class="bg-black text-white m-0">
-    <header
-        class="h-[72px] flex items-center fixed top-0 left-0 w-full bg-slate-200 text-dark rounded-b-lg shadow-lg px-21">
-        Header
-    </header>
+    @* Header *@
+    <partial name="../../Partials/Header.cshtml" />
 
+    @* Main *@
     <main role="main" class="mt-[72px] px-21 min-h-screen">
-        <div class="mx-1200 mx-auto"> @RenderBody()</div>
+        @RenderBody()
     </main>
 
-    <footer class="w-full bg-slate-200 text-dark rounded-t-lg px-21 min-h-[100px]">
-        Footer
-    </footer>
+    @* Footer *@
+    <partial name="../../Partials/Footer.cshtml" />
 
+    @* Scripts *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

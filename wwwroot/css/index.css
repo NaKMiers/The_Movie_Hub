@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 380px;
+    position: relative;
+  }
+  .Book-your-tiket-now {
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+     padding: 10px 70px;
+    display: inline-block; 
+    position: absolute;
+    bottom: 50px;
+    right: 280px;
+    background-color: #F3EA28;
+    color: black ;
+    font-weight: bold;
+    transition: background-color 1s ease-in-out;
+  }
+  .Book-your-tiket-now:hover
+    {
+      background-color:rgb(118, 44, 118);
+      font-weight: bold;
+      color: #fff;
+      transition: all .4s ease-in-out;
+      background-image: 0 100%;
+      background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1))
+    }

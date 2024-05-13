@@ -27,3 +27,165 @@
       background-image: 0 100%;
       background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1))
     }
+   .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 380px;
+      position: relative;
+   }
+   .Book-your-tiket-now {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px 70px;
+      display: inline-block;
+      position: absolute;
+      bottom: 50px;
+      right: 280px;
+      background-color: #f3ea28;
+      color: black;
+      font-weight: bold;
+      transition: background-color 1s ease-in-out;
+   }
+   .Book-your-tiket-now:hover {
+      background-color: rgb(118, 44, 118);
+      font-weight: bold;
+      color: #fff;
+      transition: all 0.4s ease-in-out;
+      background-image: 0 100%;
+      background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
+   }
+   .All-Offers
+   {
+    border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px 70px;
+      display: inline-block;
+      position: absolute;
+      bottom:1100px;
+      margin-left: 600px;
+      background-color: #f3ea28;
+      color: black;
+      font-weight: bold;
+      transition: background-color 1s ease-in-out;
+   }
+   .All-Offers:hover
+    {
+      background-color:rgb(118, 44, 118);
+      font-weight: bold;
+      color: #fff;
+      transition: all .4s ease-in-out;
+      background-image: 0 100%;
+      background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1))
+    }
+    .Find-Out-Now-Friend
+    {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px 70px;
+      display: inline-block;
+      position: absolute;
+      background-color: #f3ea28;
+     
+      color: black;
+      font-weight: bold;
+      transition: background-color 1s ease-in-out;
+      
+    }
+    .Find-Out-Now-Friend:hover
+    {
+      background-color:rgb(118, 44, 118);
+      font-weight: bold;
+      color: #fff;
+      transition: all .4s ease-in-out;
+      background-image: 0 100%;
+      background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1))
+    }
+    .Find-Out-Now-Vip
+    {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px 70px;
+      display: inline-block;
+      position: absolute;
+      background-color: #f3ea28;
+     
+      color: black;
+      font-weight: bold;
+      transition: background-color 1s ease-in-out;
+      
+    }
+    .Find-Out-Now-Vip:hover
+    {
+      background-color:rgb(118, 44, 118);
+      font-weight: bold;
+      color: #fff;
+      transition: all .4s ease-in-out;
+      background-image: 0 100%;
+      background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1))
+    }
+   .DiscountCarousel h2 {
+      color: #fff;
+      font-weight: bold;
+      margin-top: 100px;
+   }
+   
+   .carousel_image {
+      width: 40%;
+      padding: 30px;
+   }
+   .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+   }
+   
+   .slide_nomain_four_image {
+      display: flex;
+      transition: transform 0.5s ease; /* Added transition for smoother animation */
+   }
+   
+   .slide_nomain_four_image img {
+      flex-shrink: 0; /* Prevent images from shrinking */
+      width: 30%; /* Ensure images fill their container */
+      height: auto;
+      object-fit: cover; /* Maintain aspect ratio */
+      padding: 30px;
+   }
+   
+   .prev,
+   .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+   }
+   
+   .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+   }
+   
+   .prev:hover,
+   .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+   }
+    .MemberProgramBanner {
+      background-image: url( 'https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75' );
+      background-size: cover; 
+      background-position: center;
+      color: white; 
+      text-align: center; 
+      height: 950px;
+      width: 100%;
+      margin-top: 100px;
+      padding-top: 50px;
+  }
+  

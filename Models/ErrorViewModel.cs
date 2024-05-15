@@ -1,8 +1,9 @@
-namespace the_movie_hub.Models;
-
-public class ErrorViewModel
+namespace the_movie_hub.Models
 {
-    public string? RequestId { get; set; }
+    public class ErrorViewModel
+    {
+        public string? RequestId { get; set; }
 
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    }
 }

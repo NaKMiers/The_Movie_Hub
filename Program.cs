@@ -1,3 +1,8 @@
+using the_movie_hub.Models.Main;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,25 +11,25 @@ builder.Services.AddControllersWithViews();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// builder.Services.AddDbContext<DeathWishCoffeeDbContext>(options =>
-//     {
-//         options.UseSqlServer(builder.Configuration.GetConnectionString("azureDB"));
-//         options.EnableSensitiveDataLogging(false);
-//     }
-// );
+builder.Services.AddDbContext<TheMovieHubDbContext>(options =>
+    {
+        options.UseSqlServer(builder.Configuration.GetConnectionString("localDB"));
+        options.EnableSensitiveDataLogging(false);
+    }
+);
 
-// // config sesstion
-// builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-// builder.Services.AddDistributedMemoryCache();
-// builder.Services.AddSession(options =>
-// {
-//     options.IdleTimeout = TimeSpan.FromMinutes(120);
-// });
-// JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-// {
-//     Formatting = Formatting.Indented,
-//     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-// };
+// config sesstion
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(120);
+});
+JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+{
+    Formatting = Formatting.Indented,
+    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+};
 
 var app = builder.Build();
 

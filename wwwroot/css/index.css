@@ -238,6 +238,7 @@
 .contact-form {
   background-color: #3366CCCC;
   color: #fff;
+  z-index: 0;
 }
 
 .contact-form h2 {

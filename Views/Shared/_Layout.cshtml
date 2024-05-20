@@ -11,16 +11,18 @@
 </head>
 
 <body class="bg-black text-white m-0">
-    @* Header *@
-    <partial name="../../Partials/Header.cshtml" />
+    @{
+        var headerData = new { Title = "Hawdawdawome", Subtitle = "Welcome to the home page" };
+    }
+
+    <!-- Header -->
+    <partial name="../../Partials/Header.cshtml" model="headerData" />
+
 
     @* Main *@
     <main role="main" class="mt-[72px]  min-h-screen">
         @RenderBody()
     </main>
-
-    @* Footer *@
-    <partial name="../../Partials/Footer.cshtml" />
 
     @* Scripts *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

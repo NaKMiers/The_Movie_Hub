@@ -1,20 +1,29 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using the_movie_hub.Models;
+using the_movie_hub.Models.Main;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace the_movie_hub.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private readonly TheMovieHubDbContext DB;
+    private readonly IHttpContextAccessor _httpContext;
+
+    public HomeController(TheMovieHubDbContext databaseContext, IHttpContextAccessor httpContextAccessor)
     {
-        _logger = logger;
+        DB = databaseContext;
+        _httpContext = httpContextAccessor;
     }
 
     public IActionResult Index()
     {
+        var movies = DB.Movies.ToList();
+
+        Console.WriteLine(movies);
+
         return View();
     }
 

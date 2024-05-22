@@ -22,8 +22,6 @@ public class HomeController : Controller
     {
         var movies = DB.Movies.ToList();
 
-        Console.WriteLine(movies);
-
         return View();
     }
 

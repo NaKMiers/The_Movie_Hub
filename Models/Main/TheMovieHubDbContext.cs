@@ -35,13 +35,13 @@ public partial class TheMovieHubDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=ANPHA-RC-DEVICE\\SQLEXPRESS;Database=TheMovieHub;MultipleActiveResultSets=true;User ID=admin;Password=asdasd;Trusted_Connection=True;TrustServerCertificate=Yes");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-C8F8CM6;Database=TheMovieHub;MultipleActiveResultSets=true;User ID=admin;Password=asdasd;Trusted_Connection=True;TrustServerCertificate=Yes");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Genre>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Genre__3213E83F3832E41F");
+            entity.HasKey(e => e.Id).HasName("PK__Genre__3213E83FF8C772EC");
 
             entity.ToTable("Genre");
 
@@ -57,7 +57,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<Movie>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Movie__3213E83F992EAE1E");
+            entity.HasKey(e => e.Id).HasName("PK__Movie__3213E83F7B4B077F");
 
             entity.ToTable("Movie");
 
@@ -103,7 +103,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<MovieGenre>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MovieGen__3213E83F7074F372");
+            entity.HasKey(e => e.Id).HasName("PK__MovieGen__3213E83FF1F6377F");
 
             entity.ToTable("MovieGenre");
 
@@ -134,7 +134,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<Room>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Room__3213E83F00F12916");
+            entity.HasKey(e => e.Id).HasName("PK__Room__3213E83FEB762314");
 
             entity.ToTable("Room");
 
@@ -160,7 +160,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<Seat>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Seat__3213E83F461795FB");
+            entity.HasKey(e => e.Id).HasName("PK__Seat__3213E83F986DE9F6");
 
             entity.ToTable("Seat");
 
@@ -191,7 +191,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<Showtime>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Showtime__3213E83F06041218");
+            entity.HasKey(e => e.Id).HasName("PK__Showtime__3213E83F875868AA");
 
             entity.ToTable("Showtime");
 
@@ -234,7 +234,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<Theater>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Theater__3213E83F10D44610");
+            entity.HasKey(e => e.Id).HasName("PK__Theater__3213E83F57659694");
 
             entity.ToTable("Theater");
 
@@ -259,7 +259,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Ticket__3213E83FF5A7FB2B");
+            entity.HasKey(e => e.Id).HasName("PK__Ticket__3213E83F0087E428");
 
             entity.ToTable("Ticket");
 
@@ -308,7 +308,7 @@ public partial class TheMovieHubDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3213E83F6D2CAA6C");
+            entity.HasKey(e => e.Id).HasName("PK__User__3213E83F2F7D34B7");
 
             entity.ToTable("User");
 

@@ -1,1 +1,261 @@
-<header>Header</header>
+<header class="fixed top-0 left-0 right-0 w-full bg-secondary-tw text-light fill-white">
+  @* Main Header *@
+  <div class="max-w-1200 mx-auto px-4">
+    @* Top *@
+    <div class="h-[60px] md:h-[78px] flex items-center justify-between">
+      @* Logo *@
+      <a href="/" class="block max-w-[130px]">
+        <img class="w-full h-full object-cover" src="~/images/logo.jpg" alt="logo">
+      </a>
+
+      @* Popcorn & Drink *@
+      <div class="hidden md:flex items-center gap-2">
+        <button
+          class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0">
+          <svg class="h-[20px] z-10 fill-dark group-hover:fill-light trans-300" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512">
+            <path
+              d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z" />
+          </svg>
+          <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+            ĐẶT VÉ NGAY
+          </span>
+        </button>
+
+        <button
+          class="relative h-[40px] rounded-md text-light px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-[#639] after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#ff6d00] after:to-[#ffc107] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0">
+          <svg class="h-[20px] z-10 fill-primary group-hover:fill-primary trans-300" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512">
+            <path
+              d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z" />
+          </svg>
+          <span class="uppercase font-body text-sm tracking-widest group-hover:text-primary trans-300 z-10">
+            ĐẶT BẮP NƯỚC
+          </span>
+        </button>
+      </div>
+
+      @* Navigator *@
+      <nav class="hidden md:flex items-center justify-between gap-4 lg:gap-8">
+        @* search *@
+        <div class="hidden xl:block relative rounded-3xl overflow-hidden min-w-[250px]">
+          <input type="text"
+            class="pl-[16px] pr-[30px] bg-light rounded-4xl w-full h-[40px] px-3 border-none outline-none text-dark"
+            placeholder="Tìm phim, rạp...">
+          <svg class="absolute fill-dark top-1/2 right-3 -translate-y-1/2 h-4" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7
+        376c-34.4
+        25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144
+        144 0 1 0 0 288z" />
+          </svg>
+        </div>
+        <button class="block xl:hidden rounded-full border-[3px] border-white h-8 w-8 lg:h-6 lg:w-6 p-1.5 lg:p-1"
+          float-trigger='click' target='#search-bar'>
+          <svg class="h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4
+          25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144
+          144 0 1 0 0 288z" />
+          </svg>
+        </button>
+
+        @* Login *@
+        <div class="relative flex group">
+          <div class="hidden lg:flex items-center justify-center text-light gap-2">
+            <svg class="h-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
+            </svg>
+            <a href="/login" class="trans-200 hover:text-highlight">Đăng nhập</a>
+          </div>
+          <a href="/login" class="block lg:hidden h-8 w-8 lg:h-6 lg:w-6">
+            <svg class="h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48
+          141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256
+          464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0
+          256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176
+          0z">
+              </path>
+            </svg>
+          </a>
+          <a href="/login" class="absolute top-10 hidden hover-float group items-center gap-3 border border-slate-50
+          rounded-md py-2
+          px-2.5 bg-secondary-tw before:w-full before:h-5 before:absolute before:-top-5 before:-left-0">
+            <svg class="h-4 -mt-1 group-hover:fill-highlight trans-200" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3
+          464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3
+          304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+            </svg>
+            <span class="text-nowrap trans-200 group-hover:text-highlight">Đăng nhập</span>
+          </a>
+        </div>
+
+
+        @* Language *@
+        <div class="relative">
+          <div class="flex items-center justify-between gap-2 cursor-pointer">
+            <img class="w-6 scale-110 aspect-square rounded-full flex-shrink-0" src="/images/vietnam-icon.png"
+              alt="vietnam">
+            <span class="block -mb-1">VN</span>
+            <svg class="h-4 flex-shrink-0 -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path
+                d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+            </svg>
+          </div>
+          <button class="absolute top-10 left-0 hidden hover-float group items-center gap-3 border border-slate-50 rounded-md py-2 px-2.5
+        bg-[#3366cc] before:w-full before:h-5 before:absolute before:-top-5 before:-left-0">
+            <img class="w-6 scale-110 aspect-square rounded-full flex-shrink-0" src="/images/us-icon.png" alt="vietnam">
+            <span class="block -mb-1">US</span>
+          </button>
+        </div>
+      </nav>
+
+      <nav class="flex md:hidden items-center justify-between gap-6">
+        <button class="rounded-md border border-white px-3 h-[38px] flex items-center justify-between min-w-[180px]">
+          <span class="text-highlight font-body tracking-wider">Chọn Rạp</span>
+
+          <svg class="fill-highlight h-4 -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+          </svg>
+        </button>
+
+        <button class="group" float-trigger='click' target='#menu' toggle="true">
+          <svg height="28" class="group-hover:fill-highlight trans-200" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    @* Bottom *@
+    <div class="hidden md:flex items-center justify-between h-[50px] border-t-[0.5px] border-slate-600">
+      <div class="flex items-center gap-5">
+        <button class="flex items-center gap-1 trans-200 hover:text-highlight hover:fill-highlight">
+          <svg class="h-[14px] -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path
+              d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+          </svg>
+          <span>Chọn rạp</span>
+        </button>
+        <a href="/showtimes"
+          class="flex items-center gap-1 trans-200 no-underline hover:text-highlight hover:fill-highlight">
+          <svg class="h-[14px] -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+              d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z" />
+          </svg>
+          Lịch chiếu
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="/promotion-program"
+          class="flex items-center underline underline-offset-2 trans-200 hover:text-highlight">
+          <span>Khuyến mãi</span>
+        </a>
+        <a href="/promotion-program"
+          class="flex items-center underline underline-offset-2 trans-200 hover:text-highlight">
+          <span>Thuê sự kiện</span>
+        </a>
+        <a href="/promotion-program"
+          class="flex items-center underline underline-offset-2 trans-200 hover:text-highlight">
+          <span>Tất cả các giải trí</span>
+        </a>
+        <a href="/promotion-program"
+          class="flex items-center underline underline-offset-2 trans-200 hover:text-highlight">
+          <span>Giới thiệu</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  @* Search Bar *@
+  <div id='search-bar'
+    class="absolute hidden top-[calc(78px+50px)] left-0 right-0 h-[calc(100vh-78px-50px)] bg-secondary-tw bg-opacity-20">
+    <div class="bg-secondary-tw px-4 py-2.5">
+      <div class="relative rounded-xl overflow-hidden w-full">
+        <input type="text"
+          class="pl-[16px] pr-[30px] bg-light rounded-4xl w-full h-[40px] px-3 border-none outline-none text-dark"
+          placeholder="Tìm phim, rạp...">
+        <svg class="absolute fill-dark top-1/2 right-3 -translate-y-1/2 h-4" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512">
+          <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7
+  376c-34.4
+  25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144
+  144 0 1 0 0 288z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  @* Menu *@
+  <div id="menu"
+    class="hidden absolute top-[calc(60px] left-0 right-0 h-[calc(100vh-60px)] bg-secondary-tw px-4 overflow-y-auto no-scrollbar">
+    <nav class="py-[30px] flex flex-col gap-6 text-xl border-b-2 border-slate-500">
+      <a href="/" class="uppercase font-body tracking-wider trans-200 text-[#CBD5E1] hover:text-highlight">Trang Chủ</a>
+      <a href="/book-tickets"
+        class="uppercase font-body tracking-wider trans-200 text-[#CBD5E1] hover:text-highlight">Đặt Vé</a>
+      <a href="/popcorn-drink"
+        class="uppercase font-body tracking-wider trans-200 text-[#CBD5E1] hover:text-highlight">Bắp Nước</a>
+      <a href="/showtimes" class="uppercase font-body tracking-wider trans-200 text-[#CBD5E1] hover:text-highlight">Lịch
+        Chiếu</a>
+      <a href="/promotion-program"
+        class="uppercase font-body tracking-wider trans-200 text-[#CBD5E1] hover:text-highlight">Khuyến
+        Mãi</a>
+      <a href="/membership" class="uppercase font-body tracking-wider trans-200 hover:text-highlight">Thành Viên</a>
+    </nav>
+
+    <div class="flex flex-col gap-5 py-[30px]">
+      <a href="/event" class="text-slate-400 font-semibold">Dịch vụ sự kiện</a>
+      <a href="/entertaiment" class="text-slate-400 font-semibold">Tất cả các loại hình giải trí</a>
+      <a href="/about-us" class="text-slate-400 font-semibold">Giới thiệu</a>
+      <a href="/career" class="text-slate-400 font-semibold">Tuyển dụng</a>
+      <a href="/contact" class="text-slate-400 font-semibold">Liên hệ</a>
+
+      <div class="flex items-center flex-wrap gap-3">
+        <span class="text-slate-400">Social:</span>
+        <svg class="flex-shrink-0" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
+        </svg>
+        <svg class="flex-shrink-0" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+          <path
+            d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3 .8-3.4 5-20.3 6.9-28.1 .6-2.5 .3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
+        </svg>
+        <svg class="flex-shrink-0" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2
+        71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+        </svg>
+        <svg class="flex-shrink-0" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3
+        48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288
+        448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5
+        213.5V175.2l142.7 81.2-142.7 81.2z" />
+        </svg>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-3">
+        <span class="text-slate-400">Ngôn ngữ:</span>
+        <div class="relative">
+          <div class="flex items-center justify-between gap-2 cursor-pointer">
+            <img class="w-6 scale-110 aspect-square rounded-full flex-shrink-0" src="/images/vietnam-icon.png"
+              alt="vietnam">
+            <span class="block -mb-1">VN</span>
+            <svg class="h-4 flex-shrink-0 -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path
+                d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+            </svg>
+          </div>
+          <button class="absolute top-10 left-0 hidden hover-float group items-center gap-3 border border-slate-50 rounded-md py-2 px-2.5
+        bg-[#3366cc] before:w-full before:h-5 before:absolute before:-top-5 before:-left-0">
+            <img class="w-6 scale-110 aspect-square rounded-full flex-shrink-0" src="/images/us-icon.png" alt="vietnam">
+            <span class="block -mb-1">US</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

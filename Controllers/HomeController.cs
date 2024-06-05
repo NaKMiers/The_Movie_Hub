@@ -20,7 +20,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var movies = DB.Movies.ToList();
+        // var movies = DB.Movies.ToList();
 
         return View();
     }

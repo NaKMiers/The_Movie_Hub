@@ -6,10 +6,6 @@ namespace the_movie_hub.Models.Main;
 
 public partial class TheMovieHubDbContext : DbContext
 {
-    public TheMovieHubDbContext()
-    {
-    }
-
     public TheMovieHubDbContext(DbContextOptions<TheMovieHubDbContext> options)
         : base(options)
     {

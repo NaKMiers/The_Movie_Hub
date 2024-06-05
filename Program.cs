@@ -16,7 +16,7 @@ builder.Services.AddDbContext<TheMovieHubDbContext>(options =>
     }
 );
 
-// config sesstion
+// config session
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>

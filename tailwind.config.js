@@ -4,15 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#01dbe5',
-        secondary: '#7655e6',
-        dark: '#333',
+        'primary-tw': '#639',
+        'secondary-tw': '#0f172a',
+        highlight: '#f3ea28',
+        dark: '#121212',
         light: '#fff',
-        loading: '#334155',
+        success: '#07bc0c',
+        info: '#3498db',
+        warning: '#f1c40f',
+        error: '#e74c3c',
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        body: ['Source Sans Pro', 'sans-serif'],
+        sans: ['Josefin Sans', 'sans-serif'],
+        body: ['Anton', 'sans-serif'],
       },
       spacing: {
         21: '21px',
@@ -36,6 +40,9 @@ module.exports = {
           100: '#f4f4f4',
           200: '#fff',
         },
+      },
+      backgroundImage: {
+        'gradient-linear': 'linear-gradient(106deg, #639, #36c 102.69%)',
       },
       textColor: {
         light: '#fff',
@@ -68,6 +75,20 @@ module.exports = {
         'spin-slow': 'spin 2s linear infinite',
         wiggle: 'wiggle 0.8s ease-in-out infinite',
         'scale-wiggle': 'scale-wiggle 0.8s ease-in-out infinite 0.2s',
+      },
+      screens: {
+        sm: '640px',
+
+        md: '768px',
+
+        mx: '900px',
+
+        lg: '1024px',
+
+        xl: '1200px',
+        // => @media (min-width: 1280px) { ... }
+
+        '2xl': '1536px',
       },
     },
   },

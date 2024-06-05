@@ -7,19 +7,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 380px;
+  width: 100%;
   position: relative;
 }
 .Book-your-tiket-now,
-.All-Offers,
 .Send-Now,
 .Find-Out-Now-Friend,
 .Find-Out-Now-Vip {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px 70px;
+  padding: 8px 60px;
   display: inline-block;
   position: absolute;
+  background-color: #f3ea28;
+  color: black;
+  font-weight: bold;
+  transition: background-color 1s ease-in-out;
+}
+.All-Offers
+{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 20%;
+  text-align: center;
   background-color: #f3ea28;
   color: black;
   font-weight: bold;
@@ -42,31 +56,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 380px;
   position: relative;
 }
 .Book-your-tiket-now {
   bottom: 50px;
   right: 280px;
 }
-.All-Offers {
+/* .All-Offers {
   margin-bottom: 1550px;
-  margin-left: 600px;
-}
-.Find-Out-Now-Friend {
-  margin-left: -160px;
-}
-.Find-Out-Now-Vip {
-  margin-left: -130px;
-}
+  margin-left: 850px;
+} */
 .DiscountCarousel h2 {
   color: #fff;
   font-weight: bold;
-  margin-top: 100px;
 }
 .carousel_image {
-  width: 40%;
-  padding: 30px;
+  width: 50%;
 }
 .slideshow-container {
   position: relative;
@@ -74,8 +79,10 @@
   overflow: hidden;
 }
 .slide_nomain_four_image {
+  position: relative;
   display: flex;
   transition: transform 0.5s ease;
+  overflow: hidden;
 }
 .slide_nomain_four_image img {
   flex-shrink: 0;
@@ -112,16 +119,13 @@
   background-position: center;
   color: white;
   text-align: center;
-  height: 950px;
+  height:600px;
   width: 100%;
-  margin-top: 100px;
-  padding-top: 50px;
 }
 .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-left: 70px;
 }
 .image-item img {
   width: auto;
@@ -175,7 +179,6 @@
 .social-button img {
   width: 40px;
   height: 40px;
-  margin-right: 15px;
 }
 
 .social-button .txt {
@@ -191,16 +194,14 @@
 
 .contact-us h2 {
   font-size: 2em;
-  margin-bottom: 20px;
   color: #fff;
 }
 
 .social-buttons {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
-  margin-top: 30px;
 }
 
 .social-button {
@@ -241,20 +242,74 @@
   z-index: 0;
 }
 
-.contact-form h2 {
-  margin-bottom: 20px;
-}
+
 
 .contact-form .form-label {
   font-size: 1.2em;
-  margin-bottom: 10px;
 }
 
-.contact-form .form-control {
-  margin-bottom: 20px;
-}
+
 
 .contact-form .btn {
   font-size: 1em;
   padding: 10px 20px;
 }
+
+.container {
+  width: 90%; 
+}
+
+
+    
+ @media screen and (max-width: 768px) {
+  .Book-your-tiket-now {
+    top: 75%;
+    right: 15%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+  .All-Offers {
+    top: 42%;
+    right: 40%;
+    position: absolute;
+  }
+  .Find-Out-Now-Friend {
+    position: absolute;
+    padding: 1em; /* Use em or rem for padding */
+  }
+  .slide_nomain_four_image .carousel_image img
+  {
+    width: 5%;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .Book-your-tiket-now {
+    top: 70%; 
+    right: 10%; 
+    transform: translateY(-50%);
+    position: absolute;
+  }
+  .All-Offers {
+    top: 33%;
+    padding: 0.1px;
+  }
+  .Find-Out-Now-Friend {
+    padding: 0.5px;
+    text-align: center;
+    
+  }
+}      
+  
+.member-img {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+.member-img div {
+  width: 25%;
+  height: auto;
+  border-radius: 10px;
+}
+

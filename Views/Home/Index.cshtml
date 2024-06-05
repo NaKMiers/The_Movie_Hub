@@ -6,90 +6,106 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <link rel="stylesheet" href="~/css/index.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-<body>
-    @* Slideer *@
-    @* <div class="container">
-    <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner" style="width: 1250px;">
-    <div class="carousel-item active">
-    <img
-    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Flat-mat-7.jpg&w=1920&q=75"
-    class="d-block w-100" alt="...">
+<link rel="stylesheet" href="wwwroot/css/output.css">
+    <a href="/login" class="text-red-500">Login</a>
+    <a href="/showtimes">Lịch</a>
+     <div class="container" style="width: 100%;">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="position: relative;">
+                    <img src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Flat-mat-7.jpg&w=1920&q=75"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2F1215x365.jpg&w=1920&q=75"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="Book-your-tiket-now" style="position: absolute; bottom:0; right: 15%; transform: translateY(-50%);">
+            ĐẶT VÉ NGAY
+        </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"
+               >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
-    <div class="carousel-item">
-    <img
-    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2F1215x365.jpg&w=1920&q=75"
-    class="d-block w-100" alt="...">
+    </div>
+    @* slide-page *@
+     @* Discount *@
+    <div class="slideshow-container">
+        <div style="width: 120%;">
+            <ul  class="slide_nomain_four_image"> 
+                <li class="carousel_image" style="width: 50%;"><img style="width: 100%; height: 100%;;" 
+                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-1.jpg&w=1920&q=75"
+                alt="..." ></li>
+            <li class="carousel_image"><img style="width: 100%; height: 100%;;" 
+                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-2.jpg&w=1920&q=75"
+                alt="..." ></li>
+            <li class="carousel_image"><img style="width: 100%; height: 100%;;" 
+                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-3.jpg&w=1920&q=75"
+                alt="..."></li>
+            <li class="carousel_image"><img style="width: 100%; height: 100%;;" 
+                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fmonday_1_.jpg&w=1920&q=75"
+                alt="... ""></li>
+                </ul>
+           
+           
+        </div>
+        
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>  
+          
+    </div>
+      <div class="All-Offers">
+            TẤT CẢ ƯU ĐÃI
+        </div>  
+@* discount *@
+@* member offers *@
+<div class="MemberProgramBanner">
+    <h1 style="padding:20px">CHƯƠNG TRÌNH THÀNH VIÊN</h1>
+    <div class="member-img" style="display: flex;padding:20px 20px;gap:20px">
+        <div style="display: flex;flex-direction: column;width:40%;">
+        <div style="width:100%;height:auto;border-radius:10px">
+        <img style="border-radius: 10px;width:100%" src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Member/Desktop519x282_CMember.jpg" alt="" >
+        </div>
+        <div style="width: 100%;text-align:start">
+        <div class="Member-C-Friend-two" style=" width: 100%">
+        <h2>THÀNH VIÊN C'FRIEND</h2>
+        <p  >Thẻ C'Friend ưu đãi hơn cho thành viên mới</p>
+        <div class="Find-Out-Now-Friend"style="width:20%" >
+            TÌM HIỂU NGAY
+        </div>
+        </div>
     </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"
-    style="margin-left:-130px">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"
-    style="margin-right:-130px">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-    </button>
+             <div style="display: flex;flex-direction: column;width:40%;">
+        <div style="width:100%;height:auto;border-radius:10px">
+        <img style="border-radius: 10px;width:100%" src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Member/Desktop519x282_CMember.jpg" alt="" >
+        </div>
+        <div style="width: 100%;text-align:start">
+        <div class="Member-C-Friend-two" style=" width: 100%">
+        <h2>THÀNH VIÊN C'FRIEND</h2>
+        <p  >Thẻ C'Friend ưu đãi hơn cho thành viên mới</p>
+        <div class="Find-Out-Now-Friend"style="width:20%" >
+            TÌM HIỂU NGAY
+        </div>
+        </div>
     </div>
-    <div class="Book-your-tiket-now">
-    ĐẶT VÉ NGAY
     </div>
-    </div> *@
+</div>
+@* member-offers *@
+ @* entertaiment *@
+ <div class="Entertaiment" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;margin-top:50px">
 
-    @* Discount *@
-    @* <div class="slideshow-container">
-    <div class="slide_nomain_four_image" style="display: flex;">
-    <img class="carousel_image"
-    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-1.jpg&w=1920&q=75"
-    alt="..." style=" height: auto; margin-right: 70px;">
-    <img class="carousel_image"
-    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-2.jpg&w=1920&q=75"
-    alt="..." style=" height: auto; margin-right: 70px;">
-    <img class="carousel_image"
-    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-3.jpg&w=1920&q=75"
-    alt="..." style="height: auto; margin-right: 70px;">
-    <img class="carousel_image"
-    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fmonday_1_.jpg&w=1920&q=75"
-    alt="..." style="height: auto; margin-right: 70px;">
-    </div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
 
-    </div>
-    <div class="All-Offers">
-    TẤT CẢ ƯU ĐÃI
-    </div> *@
 
-    @* Member offers *@
-    @* <div class="MemberProgramBanner">
-    <h1 style="margin-top:70px">CHƯƠNG TRÌNH THÀNH VIÊN</h1>
-    <div class="member-img" style="display: flex; justify-content: center;">
-    <img src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Member/Desktop519x282_CMember.jpg"
-    alt="" style="width: 550px; height: auto; margin-right: 50px;margin-top:150px;border-radius:10px">
-    <img src="https://api-website.cinestar.com.vn/pub/media/wysiwyg/CMSPage/Member/c-vip.jpg" alt=""
-    style="width: 550px; height: auto;margin-left:30px;margin-top:150px;border-radius:10px">
-    </div>
-    <div class="Member-C-Friend" style="margin-left: -850px;margin-top:30px">
-    <h2>THÀNH VIÊN C'FRIEND</h2>
-    <p style="margin-top: 20px;margin-left:-10px">Thẻ C'Friend ưu đãi hơn cho thành viên mới</p>
-    <div class="Find-Out-Now-Friend" style="margin-left:-160px">
-    TÌM HIỂU NGAY
-    </div>
-    </div>
-    <div class="Member-C-Vip" style="margin-top:-100px;margin-left:330px">
-    <h2>THÀNH VIÊN C'VIP</h2>
-    <p style="margin-top:20px;margin-right:-70px">Thẻ VIP CineStar mang đến sự ưu đãi độc quyền</p>
-    <div class="Find-Out-Now-Vip" style="margin-left:-130px">
-    TÌM HIỂU NGAY
-    </div>
-    </div>
-    </div> *@
-
-    @* Entertaiment *@
-    @* <div class="Entertaiment"
-    style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
     <h1 style="margin-top: 50px;">TẤT CẢ CÁC TRANG GIẢI TRÍ</h1>
     <p>
     Ngoài hệ thống rạp chiếu phim chất lượng cao, Cinestar còn cung cấp cho bạn nhiều loại<br>hình giải trí
@@ -115,50 +131,52 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
     <div class="image-item">
     <img style="margin-left:-75px;" src="https://cinestar.com.vn/assets/images/img-service5.jpg" alt="Image 6">
     </div>
-    </div> *@
 
-    @* Contact *@
-    @* <div class="contact-us" style="text-align: center; margin-top: 200px;">
-    <h2 style="margin-right: 400px;">LIÊN HỆ VỚI CHÚNG TÔI</h2>
-    <div class="social-buttons" style="display: flex; margin-left:370px; gap: 20px; margin-top: 30px;">
-    <a href="https://www.facebook.com/cinestarcinemasvietnam" target="_blank" rel="noreferrer"
-    class="social-button facebook">
-    <img src="" alt="">
-    <span>FACEBOOK</span>
-    </a>
-    <a href="https://zalo.me/your-zalo-id" target="_blank" rel="noreferrer" class="social-button zalo"
-    style="margin-top: 30px;">
-    <img src="" alt="">
-    <span>ZALO CHAT</span>
-    </a>
+</div>
+    <div style="display: flex;">
+        <div class="contact-us" style="text-align: center; margin-top: 200px; width: 50%;justify-content: center;">
+            <h2 >LIÊN HỆ VỚI CHÚNG TÔI</h2>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/cinestarcinemasvietnam" target="_blank" rel="noreferrer" class="social-button facebook">
+                    <img src="" alt="">
+                    <span>FACEBOOK</span>
+                </a>
+                <a href="https://zalo.me/your-zalo-id" target="_blank" rel="noreferrer" class="social-button zalo">
+                    <img src="" alt="">
+                    <span>ZALO CHAT</span>
+                </a>
+            </div>
+        </div>
+        <div class="container mt-5" style="width: 50%;">
+            <div class="contact-form rounded" style="padding: 50px;position: relative; padding-bottom:80px" >
+                <h2 >THÔNG TIN LIÊN HỆ</h2>
+                <p style="color:yellow">marketing.cinestar@gmail.com</p>
+                <p style="color:yellow">028 7300 8881</p>
+                <p style="color:yellow">135 Hai Bà Chưng,phường Bến Nghé,Quận 1, TPHCM</p>
+                <form >
+                    <div class="mb-3" style="margin-top: 30px;">
+                        <input type="text" class="form-control" id="name" placeholder=" Họ và tên">
+                    </div>
+                    <div class="mb-3" >
+                       
+                        <input type="email" style="margin-top: 30px;" class="form-control" id="email" placeholder="Điền email">
+                    </div>
+                    <div class="mb-3">
+                        
+                        <textarea class="form-control" style="margin-top: 30px; id="message" rows="10" placeholder="Thông điệp bạn muốn truyền tải"></textarea>
+                    </div>
+                     
+                </form>
+               <button type="submit"  style="position: absolute;bottom:30px;left:50px" class="Send-Now">GỬI NGAY</button>
+            </div>
+        </div>
     </div>
-    </div> *@
+<script>
+    const arrowRight = document.querySelector(".next");
+    const arrowLeft = document.querySelector(".prev");
+    const slidesContainer = document.querySelector(".slide_nomain_four_image");
+    let currentPosition = 0;
 
-    @* <div class="container mt-5">
-    <div class="contact-form p-4 rounded" style="margin-right: -650px;width:620px;margin-top:-450px;height:700px;">
-    <h2>THÔNG TIN LIÊN HỆ</h2>
-    <p style="color:yellow">marketing.cinestar@gmail.com</p>
-    <p style="color:yellow">028 7300 8881</p>
-    <p style="color:yellow">135 Hai Bà Chưng,phường Bến Nghé,Quận 1, TPHCM</p>
-    <form>
-    <div class="mb-3" style="margin-top: 30px;">
-    <input type="text" class="form-control" id="name" placeholder=" Họ và tên">
-    </div>
-    <div class="mb-3">
-
-    <input type="email" style="margin-top: 30px;" class="form-control" id="email"
-    placeholder="Điền email">
-    </div>
-    <div class="mb-3">
-
-    <textarea class="form-control" style="margin-top: 30px; id=" message" rows="10"
-    placeholder="Thông điệp bạn muốn truyền tải"></textarea>
-    </div>
-    <button type="submit" style="margin-top: 10px;" class="Send-Now">GỬI NGAY</button>
-    </form>
-    </div>
-    </div> *@
-</body>
 
 @* <script>
 const arrowRight = document.querySelector(".next");
@@ -195,6 +213,10 @@ currentPosition -= -9;
 updateBlockPosition();
 });
 
-window.addEventListener("load", handleResize);
-window.addEventListener("resize", handleResize);
-</script> *@
+
+    window.addEventListener("load", handleResize);
+    window.addEventListener("resize", handleResize);
+
+    
+</script>
+

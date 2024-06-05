@@ -5,8 +5,12 @@
 }
 
 body {
-   height: auto;
+   height: 100%;
+   width: 100%;
+   background-image: url(https://cinestar.com.vn/assets/images/bg-regis.jpg);
+   background-repeat: no-repeat;
 }
+
 
 .account-container {
    background-color: white;
@@ -279,3 +283,4 @@ label {
    width: 100%;
    background-color: #000;
 }
+  

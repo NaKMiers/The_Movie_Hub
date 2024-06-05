@@ -1,7 +1,7 @@
 // Write your JavaScript code.
 
 $(function () {
-   // // Float Up on hover
+   // Float Up on hover
    const hoverFloatUp = $('.hover-float').closest('.relative')
 
    // add class float-up on hover
@@ -25,10 +25,10 @@ $(function () {
       const isToggle = $(this).attr('toggle')
 
       // if toggle is true
-      if (isToggle) {
+      if (isToggle === 'true') {
          $(this).on(action, function () {
             const target = $($(this).attr('target'))
-            console.log('target', target)
+            $(this).toggleClass('active')
 
             // show
             if (target.hasClass('hidden')) {
@@ -52,7 +52,6 @@ $(function () {
       } else {
          $(this).on(action, function () {
             const target = $($(this).attr('target'))
-            console.log('target', target)
 
             // show
             target.removeClass('float-down hidden')

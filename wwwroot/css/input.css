@@ -25,6 +25,29 @@
   display: none;
 }
 
+.wiggle {
+  @apply group-hover:animate-scale-wiggle trans-200 group-hover:scale-[1.2];
+  @apply hover:animate-scale-wiggle trans-200 hover:scale-[1.2];
+  transform-origin: center;
+}
+
+@media (min-width: 900px) {
+  .md\:bg-gradient {
+    background: linear-gradient(106deg, #639, #36c 102.69%);
+  }
+}
+
+.wiggle-0 {
+  @apply group-hover:animate-wiggle trans-200;
+  @apply hover:animate-wiggle trans-200;
+  transform-origin: center;
+}
+
+.wiggle-1 {
+  @apply hover:animate-scale-wiggle trans-200 hover:scale-[1.2];
+  transform-origin: center;
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -104,4 +127,41 @@ svg path {
     display: none;
   }
 }
-  
+
+.circle-right {
+  animation: circle-right 1s ease-in-out forwards;
+}
+
+.circle-right-reverse {
+  animation: circle-right 1s ease-in-out forwards reverse;
+}
+
+@keyframes circle-right {
+  0% {
+    transform: rotate(-135deg);
+  }
+
+  50%,
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+.circle-left {
+  animation: circle-left 1s ease-in-out forwards;
+}
+
+.circle-left-reverse {
+  animation: circle-left 1s ease-in-out forwards reverse;
+}
+
+@keyframes circle-left {
+  0%,
+  35% {
+    transform: rotate(-135deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(45deg);
+  }
+}

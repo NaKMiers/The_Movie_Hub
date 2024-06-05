@@ -1,8 +1,6 @@
 using the_movie_hub.Models.Main;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

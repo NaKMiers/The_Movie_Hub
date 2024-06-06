@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace the_movie_hub.Models.Main;
+﻿namespace the_movie_hub.Models.Main;
 
 public partial class Ticket
 {
-    public string Id { get; set; } = null!;
+    public required Guid Id { get; set; } = new Guid();
 
-    public string? Showtimeid { get; set; }
+    public string? ShowtimeId { get; set; }
 
     public string? SeatId { get; set; }
 
-    public string? Userid { get; set; }
+    public string? UserId { get; set; }
 
     public decimal Price { get; set; }
 

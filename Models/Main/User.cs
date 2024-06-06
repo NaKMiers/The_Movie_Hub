@@ -1,27 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace the_movie_hub.Models.Main;
+﻿namespace the_movie_hub.Models.Main;
 
 public partial class User
 {
-    public string Id { get; set; } = null!;
+    public required Guid Id { get; set; } = new Guid();
 
-    public string? Firstname { get; set; }
+    public required string FullName { get; set; }
 
-    public string? Lastname { get; set; }
+    public required string Username { get; set; }
 
-    public string? Phone { get; set; }
+    public required string Email { get; set; }
 
-    public string? Email { get; set; }
+    public required string Phone { get; set; }
 
-    public string? Password { get; set; }
+    public required string Password { get; set; }
 
-    public string? Authtype { get; set; }
+    public string AuthType { get; set; } = "local";
 
     public DateOnly? Birthday { get; set; }
 
-    public double? Expended { get; set; }
+    public double Expended { get; set; } = 0;
 
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public required string CCCD { get; set; }
+
+    public virtual ICollection<Ticket> Tickets { get; set; } = [];
+
+    // To String
+    public override string ToString()
+    {
+        return $"Id: {Id}, FullName: {FullName},  Username: {Username}, Email: {Email}, Phone: {Phone}, Password: {Password}, AuthType: {AuthType}, Birthday: {Birthday}, Expended: {Expended}";
+    }
 }

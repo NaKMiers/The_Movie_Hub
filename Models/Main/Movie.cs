@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace the_movie_hub.Models.Main;
+﻿namespace the_movie_hub.Models.Main;
 
 public partial class Movie
 {
-    public string Id { get; set; } = null!;
+    public required Guid Id { get; set; }
 
     public string Title { get; set; } = null!;
 

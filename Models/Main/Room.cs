@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace the_movie_hub.Models.Main;
+﻿namespace the_movie_hub.Models.Main;
 
 public partial class Room
 {
-    public string Id { get; set; } = null!;
+    public required Guid Id { get; set; }
 
     public string? TheaterId { get; set; }
 
@@ -15,7 +12,7 @@ public partial class Room
 
     public virtual ICollection<Seat> Seats { get; set; } = new List<Seat>();
 
-    public virtual ICollection<Showtime> Showtimes { get; set; } = new List<Showtime>();
+    public virtual ICollection<Showtime> ShowTimes { get; set; } = new List<Showtime>();
 
     public virtual Theater? Theater { get; set; }
 }

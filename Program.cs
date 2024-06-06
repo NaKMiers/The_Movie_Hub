@@ -6,9 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<TheMovieHubDbContext>(options =>
     {
         options.UseSqlServer(builder.Configuration.GetConnectionString("localDB"));
@@ -23,6 +20,7 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(120);
 });
+
 JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 {
     Formatting = Formatting.Indented,
@@ -39,6 +37,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// use Session Middleware
+app.UseSession();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -53,6 +54,13 @@ app.MapControllerRoute(
     name: "Login",
     pattern: "/login",
     defaults: new { controller = "Auth", action = "Login" }
+);
+
+// [/register]
+app.MapControllerRoute(
+    name: "Register",
+    pattern: "/register",
+    defaults: new { controller = "Auth", action = "Register" }
 );
 
 // [/change-password]

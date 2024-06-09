@@ -2,6 +2,14 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Anton, sans-serif;
+}
+main {
+  width: 100%;
+}
+body {
+  background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+  background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
 }
 .container {
   display: flex;
@@ -21,11 +29,9 @@
   position: absolute;
   background-color: #f3ea28;
   color: black;
-  font-weight: bold;
   transition: background-color 1s ease-in-out;
 }
-.All-Offers
-{
+.All-Offers {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 8px;
@@ -36,7 +42,7 @@
   text-align: center;
   background-color: #f3ea28;
   color: black;
-  font-weight: bold;
+
   transition: background-color 1s ease-in-out;
 }
 .Book-your-tiket-now:hover,
@@ -45,7 +51,6 @@
 .Find-Out-Now-Friend:hover,
 .Find-Out-Now-Vip:hover {
   background-color: rgb(118, 44, 118);
-  font-weight: bold;
   color: #fff;
   transition: all 0.4s ease-in-out;
   background-image: 0 100%;
@@ -58,17 +63,9 @@
   align-items: center;
   position: relative;
 }
-.Book-your-tiket-now {
-  bottom: 50px;
-  right: 280px;
-}
-/* .All-Offers {
-  margin-bottom: 1550px;
-  margin-left: 850px;
-} */
+
 .DiscountCarousel h2 {
   color: #fff;
-  font-weight: bold;
 }
 .carousel_image {
   width: 50%;
@@ -100,26 +97,22 @@
   width: auto;
   padding: 16px;
   color: white;
-  font-weight: bold;
+
   font-size: 20px;
-  transition: 0.6s ease;
+  transition: 3s ease;
   border-radius: 0 3px 3px 0;
 }
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
 .MemberProgramBanner {
-  background-image: url('https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75');
+  background-image: url("https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75");
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
-  height:600px;
+  height: 800px;
   width: 100%;
 }
 .image-grid {
@@ -151,7 +144,6 @@
 }
 .ct-social-link .txt {
   font-size: 16px;
-  font-weight: bold;
 }
 .ct-social-link:hover {
   color: #007bff;
@@ -184,7 +176,6 @@
 .social-button .txt {
   color: white;
   font-size: 18px;
-  font-weight: bold;
 }
 
 .social-button a:hover {
@@ -192,10 +183,7 @@
   transform: scale(1.05);
 }
 
-.contact-us h2 {
-  font-size: 2em;
-  color: #fff;
-}
+
 
 .social-buttons {
   display: flex;
@@ -242,13 +230,9 @@
   z-index: 0;
 }
 
-
-
 .contact-form .form-label {
   font-size: 1.2em;
 }
-
-
 
 .contact-form .btn {
   font-size: 1em;
@@ -256,52 +240,50 @@
 }
 
 .container {
-  width: 90%; 
+  width: 90%;
 }
 
-
-    
- @media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .Book-your-tiket-now {
-    top: 75%;
-    right: 15%;
-    transform: translateY(-50%);
-    position: absolute;
+     top: 75%;
+     right: 15%;
+     transform: translateY(-50%);
+     position: absolute;
   }
   .All-Offers {
-    top: 42%;
-    right: 40%;
-    position: absolute;
+     top: 42%;
+     right: 40%;
+     position: absolute;
   }
   .Find-Out-Now-Friend {
-    position: absolute;
-    padding: 1em; /* Use em or rem for padding */
+     position: absolute;
+     padding: 1em;
   }
-  .slide_nomain_four_image .carousel_image img
-  {
-    width: 5%;
+  .slide_nomain_four_image .carousel_image img {
+     width: 5%;
+  }
+  .book-ticket-quickly {
+     width: fit-content;
   }
 }
 
-
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .Book-your-tiket-now {
-    top: 70%; 
-    right: 10%; 
-    transform: translateY(-50%);
-    position: absolute;
+     top: 70%;
+     right: 10%;
+     transform: translateY(-50%);
+     position: absolute;
   }
-  .All-Offers {
-    top: 33%;
-    padding: 0.1px;
-  }
+
   .Find-Out-Now-Friend {
-    padding: 0.5px;
-    text-align: center;
-    
+     padding: 0.5px;
+     text-align: center;
   }
-}      
-  
+  .Member-C-Friend-two {
+     text-align: center;
+  }
+}
+
 .member-img {
   display: flex;
   justify-content: center;
@@ -312,4 +294,487 @@
   height: auto;
   border-radius: 10px;
 }
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
 
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item img {
+  width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.Book-your-tiket-now {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item-1 {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item-1 img {
+  width: 100%;
+}
+
+.carousel-item-2 {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item-2 img {
+  width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  border: 2px solid transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s ease;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.Book-your-tiket-now {
+  position: absolute;
+  bottom: 3%;
+  right: 15%;
+  transform: translateY(-50%);
+  color: #000;
+  background-color: #f3ea28;
+  cursor: pointer;
+  padding: 5px 50px;
+  vertical-align: baseline;
+  font-size: small;
+}
+
+.book-ticket-quickly-sub {
+  display: flex;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.book-ticket-quickly {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.button-book-ticket {
+  justify-content: center;
+}
+
+.button-book-ticket {
+  color: #fff;
+  padding: 12px 10px;
+  background-color: #663399;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item-1 {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item-1 img {
+  width: 100%;
+}
+
+.carousel-item-2 {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item-2 img {
+  width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  border: 2px solid transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s ease;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.Book-your-tiket-now {
+  position: absolute;
+  bottom: 3%;
+  right: 15%;
+  transform: translateY(-50%);
+  color: #000;
+  background-color: #f3ea28;
+  cursor: pointer;
+  padding: 5px 50px;
+  vertical-align: baseline;
+  font-size: small;
+}
+
+.book-ticket-quickly {
+  margin-top: 30px;
+  width: 100%;
+}
+.book-ticket-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.book-ticket-title {
+  font-size: 22px;
+  color: #000;
+  margin: 0;
+}
+
+.book-ticket-choose {
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.book-ticket-choose {
+  color: #000;
+
+  padding: 10px 5px;
+}
+
+.button-book-ticket {
+  justify-content: center;
+}
+
+.button-book-ticket {
+  color: #fff;
+  padding: 12px 10px;
+  background-color: #663399;
+  font-size: 14px;
+
+  border-radius: 10px;
+}
+.book-ticket-choose-cinema,
+.book-ticket-choose-movie {
+  color: #663399;
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.book-ticket-choose-movie-nav {
+  position: absolute;
+  bottom: 50px;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.book-ticket-choose-date {
+  color: #663399;
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.book-ticket-choose-date-nav {
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  padding: 5px;
+  display: none;
+  border-radius: 5px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-ticket-choose-date-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+.book-ticket-choose-date-nav ul li {
+  margin: 5px 0;
+}
+
+.book-ticket-choose-date-nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.book-ticket-choose-time {
+  color: #663399;
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.book-ticket-choose-time-nav {
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  padding: 5px;
+  display: none;
+  border-radius: 5px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-ticket-choose-time-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+.book-ticket-choose-time-nav ul li {
+  margin: 5px 0;
+}
+
+.book-ticket-choose-time-nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.order-ticket button:hover {
+  background-color: #663399;
+}
+.More-Movie {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 20%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  color: #f3ea28;
+  transition: background-color 1s ease-in-out;
+}
+.More-Movie:hover {
+  background-color: orange;
+  color: #fff;
+}
+#movieList,
+#Slide_Blogcarousel {
+  transition: transform 0.5s ease-in-out;
+}
+.contact-form {
+  background: #2c57ac;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  color: #fff;
+}
+
+.contact-form h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 5px 45px;
+  background: #f3ea28;
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: rgb(118, 44, 118);
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+  background-image: 0 100%;
+  background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
+}
+.contact-form {
+  background: #2c57ac;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  color: #fff;
+}
+
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 5px 45px;
+  background: #f3ea28;
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: rgb(118, 44, 118);
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+  background-image: 0 100%;
+  background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
+}

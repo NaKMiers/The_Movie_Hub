@@ -9,7 +9,7 @@ main {
 }
 body {
   background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
-  background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+  
 }
 .container {
   display: flex;
@@ -216,7 +216,7 @@ body {
   width: 40px;
 }
 
-.social-button span {
+.social-button{
   font-size: 1.5em;
 }
 
@@ -242,46 +242,41 @@ body {
 .container {
   width: 90%;
 }
-
-@media (max-width: 768px) {
-  .Book-your-tiket-now {
-     top: 75%;
-     right: 15%;
-     transform: translateY(-50%);
-     position: absolute;
-  }
-  .All-Offers {
-     top: 42%;
-     right: 40%;
-     position: absolute;
-  }
-  .Find-Out-Now-Friend {
-     position: absolute;
-     padding: 1em;
-  }
-  .slide_nomain_four_image .carousel_image img {
-     width: 5%;
-  }
-  .book-ticket-quickly {
-     width: fit-content;
+.name-movie{
+  text-align: center;
+}
+.Blograsoul_title{
+  font-size: 20px;
+  text-align: center;
+}
+@media(max-width:1111px)
+{
+  .Blograsoul_title{
+    font-size: 13px ;
+    text-align: center;
   }
 }
+@media screen and (min-width:300px) { 
+  .Member-C-Friend-two h2 
+  {
+    font-size: 18px;
+    text-align: center;
+  }
+  .Member-C-Friend-two p
+{
+  font-size: 14px;
 
-@media (max-width: 480px) {
-  .Book-your-tiket-now {
-     top: 70%;
-     right: 10%;
-     transform: translateY(-50%);
-     position: absolute;
-  }
+}  
+.Find-Out-Now-Friend
+{
+  padding: 5px 10px;
+}
 
-  .Find-Out-Now-Friend {
-     padding: 0.5px;
-     text-align: center;
-  }
-  .Member-C-Friend-two {
-     text-align: center;
-  }
+}
+.order-ticket
+{
+  margin-top: -5px;
+  padding: 5px 22px;
 }
 
 .member-img {
@@ -613,6 +608,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   font-size: 14px;
 }
 
@@ -646,6 +642,7 @@ body {
   border: 1px solid #000;
   display: flex;
   justify-content: center;
+
   align-items: center;
 }
 
@@ -687,7 +684,6 @@ body {
   background-color: orange;
   color: #fff;
 }
-#movieList,
 #Slide_Blogcarousel {
   transition: transform 0.5s ease-in-out;
 }

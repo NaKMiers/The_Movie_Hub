@@ -77,7 +77,31 @@ app.MapControllerRoute(
     pattern: "/showtimes",
     defaults: new { controller = "Showtime", action = "Index" }
 );
-
+app.MapControllerRoute(
+    name: "Management",
+    pattern: "/management",
+    defaults: new { controller = "Management", action = "Index" }
+);
+app.MapControllerRoute(
+    name: "Export",
+    pattern: "/export",
+    defaults: new { controller = "Management", action = "Export" }
+);
+app.MapControllerRoute(
+    name: "Cinema",
+    pattern: "/cinema",
+    defaults: new { controller = "Management", action = "Cinema" }
+);
+app.MapControllerRoute(
+    name: "Customer",
+    pattern: "/customer",
+    defaults: new { controller = "Management", action = "Customer" }
+);
+app.MapControllerRoute(
+    name: "Ticket",
+    pattern: "/ticket",
+    defaults: new { controller = "Management", action = "Ticket" }
+);
 // MARK: Movie
 // [/movie]
 app.MapControllerRoute(

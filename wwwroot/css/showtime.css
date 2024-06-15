@@ -2,7 +2,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Anton, sans-serif;
 }
+body {
+    background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+    
+  }
 .Showtime
 {
     display: flex;
@@ -91,4 +96,46 @@
 }
 .dropdown{
     margin-top: 8px;
+}
+.More-Movie {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 20%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    color: #f3ea28;
+    transition: background-color 1s ease-in-out;
+  }
+  .More-Movie:hover {
+    background-color: orange;
+    color: #fff;
+  }
+  #Slide_Blogcarousel {
+    transition: transform 0.5s ease-in-out;
+  }
+  .prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 16px;
+  color: white;
+
+  font-size: 20px;
+  transition: 3s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.Watching
+{
+font-family: Anton, sans-serif;
 }

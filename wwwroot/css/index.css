@@ -6,9 +6,12 @@
 }
 main {
   width: 100%;
+ 
 }
 body {
   background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+
+
   
 }
 .container {
@@ -253,14 +256,14 @@ body {
 {
   .Blograsoul_title{
     font-size: 13px ;
-    text-align: center;
+   
   }
 }
 @media screen and (min-width:300px) { 
   .Member-C-Friend-two h2 
   {
     font-size: 18px;
-    text-align: center;
+    
   }
   .Member-C-Friend-two p
 {
@@ -285,9 +288,9 @@ body {
   padding: 20px 20px;
 }
 .member-img div {
-  width: 25%;
+  width: 15%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .carousel-container {
   position: relative;
@@ -684,6 +687,7 @@ body {
   background-color: orange;
   color: #fff;
 }
+#movieList
 #Slide_Blogcarousel {
   transition: transform 0.5s ease-in-out;
 }

@@ -1,0 +1,31 @@
+header {
+    display: none;
+ }
+ footer {
+    display: none;
+ }
+ main {
+    background-color: aliceblue;
+    margin-top: 0 !important;
+ }
+ .Infor-Ticket-cinema1,
+    .Infor-Ticket-cinema2 {
+        position: relative;
+        border: 1px solid #000;
+        width: 40%;
+        border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: hidden; 
+        background-image: url("https://cinestar.com.vn/assets/images/logo-meta.png");
+        background-position: center;
+        background-size: 50px 50px;
+        background-repeat: no-repeat;
+        background-color: rgba(255, 255, 255, 0.8); 
+    }
+.Ticket_All_toolbar {
+   background-color: #35355c;
+}
+.Ticket_list-items {
+   padding: 20px;
+}

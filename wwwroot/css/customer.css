@@ -10,6 +10,9 @@ header {
  }
 .Customer_All_toolbar {
    background-color: #35355c;
+   width: 20%;
+   align-items:center;
+   height:700px;
 }
 table {
    width: 100%;
@@ -23,4 +26,34 @@ td {
 }
 .Customer_list-items {
    padding: 20px;
+}
+.Customer_Movie
+{
+   width: 100%;
+   display:flex;
+}
+.Customer_All_table
+{
+   width: 80%;
+   text-align:center;
+}
+.Customer_All_table_Listadd
+{
+   color: #000;
+   display:flex;
+   justify-content:space-between;
+   margin-top:70px;
+   padding:10px;
+}
+.Customer_All_toolbar_logo
+{
+   padding: 10px;
+   width:50%;
+   margin:auto;
+}
+.Customer_All_toolbar_list
+{
+   margin: auto;
+   width:70%;
+   height:100% ;
 }

@@ -2,23 +2,33 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Anton, sans-serif;
+   
 }
 body {
     background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
     
   }
+.date
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top:-5px;
+}
 .Showtime
 {
     display: flex;
     justify-content: center; 
-    gap:10px   
+    gap:10px;
+    width: 100%;
+    margin-top:200px;
+    margin-bottom:50px; 
     
 }
 .Showtime-date
 {
     border-radius: 5px;
     padding: 10px;
+    border:1px solid #959699;
 }
 
 .Showtime-movie
@@ -26,15 +36,28 @@ body {
     border-radius: 5px;
     padding:10px;
 }
-
+.Showtime-movie-info
+{
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    margin-top:70px;
+}
 .Showtime-cinema
 {
     border-radius: 5px;
     padding:10px;
+    border:1px solid #959699;
+    width: 20%;
+    position:relative;
 }
 .Showtime-date-time
 {
-    gap:10px
+    gap:10px;
+    display: flex;
+    margin-top:10px;
+
+
 }
 .Showtime-date-time-1,
 .Showtime-date-time-2,
@@ -46,6 +69,9 @@ body {
   padding:10px;
   font-weight: 700;
   cursor: pointer;
+  border:1px solid #959699;
+  color:#663a91;
+  background-color:#f3ea28;
 }
 .dropdown-content {
     display: none;
@@ -56,6 +82,9 @@ body {
     right: -2px;
     top:35px;
     border-radius: 5px;
+    position: absolute;
+    top:100px;
+    width:100%;
 }
 .dropdown-content-cinema {
     display: none;
@@ -92,10 +121,18 @@ body {
 .dropdown-sub{
     padding:5px;
     padding-left:20px;
-    padding-right:10px
+    padding-right:10px;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color:#fff;
+    color:#000;
+    border-radius:5px;
+    margin-top:-5px;
 }
 .dropdown{
     margin-top: 8px;
+    padding:10px 10px;
 }
 .More-Movie {
     border: 1px solid #ccc;
@@ -135,7 +172,77 @@ body {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-.Watching
+
+.movie
 {
-font-family: Anton, sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+.Showtime-movie-right-cinema4,
+.Showtime-movie-right-cinema3,
+.Showtime-movie-right-cinema2,
+.Showtime-movie-right-cinema1 {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Showtime-movie-left {
+    margin-left: 0;
+}
+
+.container4,
+.container3,
+.container2,
+.container1 {
+    padding: 20px;
+    display: flex;
+    gap:20px;
+    width:100%;
+}
+
+.cinema-name4,
+.cinema-name3,
+.cinema-name2,
+.cinema-name1 {
+
+    font-weight: bold;
+}
+
+.cinema-address4,
+.cinema-address3,
+.cinema-address2,
+.cinema-address1 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.showtime4,
+.showtime3,
+.showtime2,
+.showtime1 {
+    background-color: #323657;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #fff;
+    margin: 10px 0;
+}
+.order-ticket button
+{
+    padding:7px 25px;
+    border: solid 1px #000;
+    background-color: #f3ea28;
+    color:#000;
+    border-radius:5px;
+    text-align:center;
 }

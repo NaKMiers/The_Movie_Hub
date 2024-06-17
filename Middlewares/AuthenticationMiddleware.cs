@@ -1,17 +1,11 @@
-// using the_movie_hub.Models.Main;
-// using Microsoft.AspNetCore.Http.HttpResults;
+using the_movie_hub.Models.Main;
 
-// namespace the_movie_hub.Middlewares
-// {
-//     public class AuthenticationMiddleware
-//     {
-//         private readonly RequestDelegate _next;
-//         private readonly DbContext _dbContext;
-//         private readonly IHttpContextAccessor _httpContext;
-
-//         public AuthenticationMiddleware(RequestDelegate next)
-//         {
-//             _next = next;
-//         }
-//     }
-// }
+namespace the_movie_hub.Middlewares
+{
+   public class AuthenticationMiddleware(RequestDelegate next, TheMovieHubDbContext dbContext, IHttpContextAccessor httpContext)
+   {
+      private readonly RequestDelegate _next = next;
+      private readonly TheMovieHubDbContext _dbContext = dbContext;
+      private readonly IHttpContextAccessor _httpContext = httpContext;
+   }
+}

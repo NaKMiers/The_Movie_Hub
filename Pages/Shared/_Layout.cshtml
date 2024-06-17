@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - the_movie_hub</title>
+    <link rel="stylesheet" href="~/the_movie_hub.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css">
+    <link rel="stylesheet" href="~/css/output.css" />
+</head>
+
+<body class="bg-black text-white m-0">
+    <!-- Header -->
+    @await Component.InvokeAsync("Header")
+
+    @* Main *@
+    <main role="main" class="mt-[60px] md:mt-[128px] min-h-screen" style="width: 100%;">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    @await Component.InvokeAsync("Footer")
+
+    @* Scripts *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/header.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

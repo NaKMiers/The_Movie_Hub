@@ -1,0 +1,13 @@
+﻿@page "/movie/{id}"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Movie Detail";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
+<div class="text-center">
+    <h1 class="display-4">Movie Detail</h1>
+</div>

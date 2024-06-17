@@ -4,23 +4,15 @@
 
 <link rel="stylesheet" href="~/css/admin.css">
 <style>
-    .close-btn {
-        cursor: pointer;
-        color: red;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-    }
+
 </style>
-<div class="Admin_All" style="display:flex;gap:10px">
-    <div class="Admin_All_table" style="width: 80%;text-align:center">
+<div class="Admin_All">
+    <div class="Admin_All_table">
         <div class="Admin_All_table_title">
             <span style="color: #000;">Quản lý phim</span>
         </div>
         <span></span>
-        <div class="Admin_All_table_Listadd"
-            style="color: #000;display:flex;justify-content:space-between;margin-top:70px;padding:10px">
+        <div class="Admin_All_table_Listadd">
             <div class="Management_List_Movie">
                 <span style="font-weight: bold;font-size:24px">Danh sách phim đang chiếu</span>
             </div>
@@ -38,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div id="movieForm" class="movie-form" style="display: none; margin-top: 20px;">
+        <div id="movieForm" class="movie-form">
             <span class="close-btn" id="closeBtn">&times;</span>
             <form style="width:100%;gap:10px;display:flex">
                 <div class="form-left" style="margin-top:55px;">
@@ -106,7 +98,7 @@
             <button type="submit">Lưu</button>
 
         </div>
-        <div class="Admin_All_table_movie" style="color: #000;border:1px solid #000;border-radius:10px;margin:auto">
+        <div class="Admin_All_table_movie">
             <table>
                 <tr>
                     <th>Tên phim</th>
@@ -145,11 +137,11 @@
             </table>
         </div>
     </div>
-    <div class="Admin_All_toolbar" style="width: 20%;align-items:center;height:700px">
-        <div class="Admin_All_toolbar_logo" style="padding: 10px;width:50%;margin:auto">
+    <div class="Admin_All_toolbar">
+        <div class="Admin_All_toolbar_logo">
             <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
         </div>
-        <div class="Admin_All_toolbar_list" style="margin: auto;width:70%;height:100%  ">
+        <div class="Admin_All_toolbar_list">
             <ul>
                 <li class="Admin_list-items"><a href="">Tổng quan</li>
                 <li class="Admin_list-items"><a href="/Management">Quản lý phim</a></li>

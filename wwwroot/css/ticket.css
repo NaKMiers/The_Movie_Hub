@@ -29,3 +29,84 @@ header {
 .Ticket_list-items {
    padding: 20px;
 }
+.Infor-Ticket-cinema2,
+    .Infor-Ticket-cinema1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .Infor-Ticket-cinema2-title,
+    .Infor-Ticket-cinema2-name,
+    .Infor-Ticket-cinema2-time,
+    .Infor-Ticket-cinema2-date,
+    .Infor-Ticket-cinema2-price .Infor-Ticket-cinema1-title,
+    .Infor-Ticket-cinema1-name,
+    .Infor-Ticket-cinema1-time,
+    .Infor-Ticket-cinema1-date,
+    .Infor-Ticket-cinema1-price {
+        gap: 20px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .info-item {
+        margin-right: 10px;
+        /* Add space between spans */
+    }
+    .Ticket_Movie
+    {
+      width: 100%;
+      display:flex;
+    }
+    .Ticket_All_table
+    {
+      width: 80%;
+      text-align:center;
+    }
+    .Ticket_All_table_title
+    {
+      padding-top:100px;
+    }
+    .Customer_All_table_Listadd
+    {
+      color: #000;
+      display:flex;
+      justify-content:space-between;
+      margin-top:70px;
+      padding:10px;
+    }
+   .Infor-Ticket
+   {
+      color: #000;
+      display:flex;
+      gap:20px;
+      width:100%;
+      justify-content: center;
+   }
+   .Infor-Ticket-cinema2,
+   .Infor-Ticket-cinema1
+   {
+      border: 1px solid #000;
+      width:40%;
+      border-radius:10px;
+   }
+   .Ticket_All_toolbar
+   {
+      width: 20%;
+      align-items:center;
+      height:700px;
+   }
+   .Ticket_All_toolbar_logo
+   {
+      padding: 10px;
+      width:50%;
+      margin:auto;
+   }
+   .Ticket_All_toolbar_list
+   {
+      margin: auto;
+      width:70%;
+      height:100%;
+   }

@@ -1,6 +1,13 @@
+@page "/admin/ticket"
 @{
-    ViewData["Title"] = "Ticket";
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Ticket";
 }
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
 <link rel="stylesheet" href="~/Css/ticket.css">
 <style>
     .Infor-Ticket-cinema2,

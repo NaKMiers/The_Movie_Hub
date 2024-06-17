@@ -1,4 +1,4 @@
-* {
+/* * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
    height: 100%;
    width: 100%;
-   /* background-image: url(https://cinestar.com.vn/assets/images/bg-regis.jpg); */
+   background-image: url(https://cinestar.com.vn/assets/images/bg-regis.jpg);
    background-repeat: no-repeat;
 }
 
@@ -282,5 +282,4 @@ label {
 .login-link:hover::after {
    width: 100%;
    background-color: #000;
-}
-  
+} */

@@ -1,7 +1,6 @@
 using the_movie_hub.Models;
 using the_movie_hub.Models.Main;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace the_movie_hub.Controllers;

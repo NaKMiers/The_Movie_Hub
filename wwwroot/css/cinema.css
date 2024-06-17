@@ -1,4 +1,4 @@
-*{
+/* *{
    padding: 0;
    margin: 0;
    box-sizing: border-box;
@@ -54,7 +54,7 @@ main {
 
 .cinema-label {
    color: #000;
-   width: 150px; /* Adjust the width according to your needs */
+   width: 150px;
    font-weight: bold;
 }
 
@@ -204,13 +204,4 @@ button[type="submit"] {
    padding: 20px;
 }
 
-
-
-
-
-   
-   
-   
-   
-   
-   
+*/

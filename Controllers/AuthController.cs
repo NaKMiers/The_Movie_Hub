@@ -2,7 +2,6 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using the_movie_hub.Models;
 using the_movie_hub.Models.Main;
-
 namespace the_movie_hub.Controllers;
 
 public class AuthController : Controller

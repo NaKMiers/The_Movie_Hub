@@ -1,7 +1,15 @@
+@page "/admin/customer"
 @{
-    ViewData["Title"] = "Customer";
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Customer";
 }
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
 <link rel="stylesheet" href="~/Css/customer.css">
+
 <div class="Customer_Movie" style="width: 100%;display:flex">
     <div class="Customer_All_table" style="width: 80%;text-align:center">
         <div class="Customer_All_table_title">

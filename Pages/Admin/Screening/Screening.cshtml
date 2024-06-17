@@ -1,6 +1,13 @@
+@page "/admin/screening"
 @{
-    ViewData["Title"] = "Export";
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Screening";
 }
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
 <link rel="stylesheet" href="~/Css/export.css">
 <style>
     .overlay {

@@ -19,14 +19,32 @@ namespace the_movie_hub.Pages.Admin.Movie
 
       public void OnPostDelete(string Id)
       {
-         var theater = db.Movies.FirstOrDefault(t => t.Id.ToString() == Id);
-         if (theater != null)
+         var movie = db.Movies.FirstOrDefault(t => t.Id.ToString() == Id);
+         if (movie != null)
          {
-            db.Movies.Remove(theater);
+            db.Movies.Remove(movie);
             db.SaveChanges();
+
+            // remove the image
+            if (movie.Image != null)
+            {
+               if (System.IO.File.Exists(Path.Combine(environment.WebRootPath, "uploads", movie.Image)))
+               {
+                  System.IO.File.Delete(Path.Combine(environment.WebRootPath, "uploads", movie.Image));
+               }
+            }
+
+            // remove the banner
+            if (movie.Banner != null)
+            {
+               if (System.IO.File.Exists(Path.Combine(environment.WebRootPath, "uploads", movie.Banner)))
+               {
+                  System.IO.File.Delete(Path.Combine(environment.WebRootPath, "uploads", movie.Banner));
+               }
+            }
          }
 
-         // redirect to the theaters page
+         // redirect to the movies page
          Response.Redirect("/Admin/Movie");
       }
    }

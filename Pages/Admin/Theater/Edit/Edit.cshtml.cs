@@ -35,7 +35,7 @@ namespace the_movie_hub.Pages.Admin.Theater
          if (Theater == null)
          {
             // redirect to the theaters page
-            Response.Redirect("/Admin/Theater/Theaters");
+            Response.Redirect("/Admin/Theater");
             return;
          }
 

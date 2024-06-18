@@ -19,7 +19,7 @@
          placeholder="Addresss...">
       <input class="w-full max-w-[500px] px-2" required type="number" value=@Model.Theater?.RoomAmount name="RoomAmount"
          placeholder="Room Amount...">
-      <input type="file" name="Image" />
+      <input type="file" name="Image" class="text-white" />
 
       <img width="200" src=@($"/uploads/{Model.Theater?.Image}") alt="thumb">
 

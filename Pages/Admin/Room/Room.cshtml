@@ -1,0 +1,37 @@
+@page "/admin/room/{theaterId}"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Room";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Room.RoomModel
+
+
+<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
+    <h1 value="">Rooms (@Model.Theater?.Name)</h1>
+
+    <div class="flex flex-col gap-4 text-left">
+        @{
+            int max = Model.Rooms.Count() + 1;
+        }
+
+        @foreach (var room in Model.Rooms.OrderBy(r => r.Name))
+        {
+            <div class="flex gap-3">
+                <a href=@($"/admin/room/{room.Id}/edit" )>@room.Name</a>
+                <form method="post">
+                    <input type="hidden" name="Id" value="@room.Id" />
+                    <button asp-page-handler="Delete" style="color: red">Delete</button>
+                </form>
+                <a href=@($"/admin/seat/{room.Id}") style="color: yellow">Seat</a>
+            </div>
+        }
+
+        <form method="post">
+            <input hidden type="text" value="Room @max" name="NextRoom">
+            <button class="text-left text-green-200">Add "Room @max"</button>
+        </form>
+    </div>
+</div>

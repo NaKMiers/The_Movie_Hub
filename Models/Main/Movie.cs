@@ -4,21 +4,21 @@ public partial class Movie
 {
     public required Guid Id { get; set; }
 
-    public string Title { get; set; } = null!;
+    public required string Title { get; set; }
 
     public DateOnly ReleaseDate { get; set; }
 
-    public string? Content { get; set; }
+    public required string Content { get; set; }
 
-    public string Director { get; set; } = null!;
+    public required string Director { get; set; }
 
-    public string? Actors { get; set; }
+    public required string Actors { get; set; }
 
-    public int Duration { get; set; }
+    public required int Duration { get; set; }
 
-    public string TrailerUrl { get; set; } = null!;
+    public string? TrailerUrl { get; set; }
 
-    public decimal Rating { get; set; }
+    public decimal? Rating { get; set; }
 
     public string? Country { get; set; }
 
@@ -26,11 +26,11 @@ public partial class Movie
 
     public string? Banner { get; set; }
 
-    public string Image { get; set; } = null!;
+    public string? Image { get; set; }
 
-    public bool? Active { get; set; }
+    public bool? Active { get; set; } = true;
 
-    public virtual ICollection<MovieGenre> MovieGenres { get; set; } = [];
+    public virtual ICollection<Genre> Genres { get; set; } = [];
 
     public virtual ICollection<Showtime> ShowTimes { get; set; } = [];
 }

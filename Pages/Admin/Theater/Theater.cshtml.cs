@@ -12,8 +12,6 @@ namespace the_movie_hub.Pages.Admin.Theater
       // Properties
       public IEnumerable<Models.Main.Theater> Theaters { get; set; } = [];
 
-      public Models.Main.Theater Theater { get; set; }
-
       // Methods
       public void OnGet()
       {
@@ -25,9 +23,25 @@ namespace the_movie_hub.Pages.Admin.Theater
          var theater = db.Theaters.FirstOrDefault(t => t.Id.ToString() == Id);
          if (theater != null)
          {
+            if (theater.Image != null)
+            {
+               // remove old image
+               if (System.IO.File.Exists(Path.Combine(environment.WebRootPath, "uploads", theater.Image)))
+               {
+                  System.IO.File.Delete(Path.Combine(environment.WebRootPath, "uploads", theater.Image));
+               }
+            }
+
+            // remove theater's rooms
+            var roomsToRemove = db.Rooms.Where(room => room.TheaterId.ToString() == theater.Id.ToString());
+            db.Rooms.RemoveRange(roomsToRemove);
+
+            // remove theater
             db.Theaters.Remove(theater);
+
             db.SaveChanges();
          }
+
 
          // redirect to the theaters page
          Response.Redirect("/Admin/Theater");

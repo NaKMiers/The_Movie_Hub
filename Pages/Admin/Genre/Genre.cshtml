@@ -1,0 +1,28 @@
+@page "/admin/genre"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Genre";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Genre.GenreModel
+
+
+<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
+    <h1 value="">Genres (@Model.Genres.Count())</h1>
+    <a href="/admin/genre/add">Add</a>
+
+    <div class="flex flex-col gap-4 text-left">
+        @foreach (var genre in Model.Genres)
+        {
+            <div class="flex gap-3">
+                <a href=@($"/admin/genre/{genre.Id}/edit" )>@genre.Title</a>
+                <form method="post">
+                    <input type="hidden" name="Id" value="@genre.Id" />
+                    <button asp-page-handler="Delete" style="color: red">Delete</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>

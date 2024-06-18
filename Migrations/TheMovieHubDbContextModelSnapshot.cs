@@ -65,7 +65,7 @@ namespace the_movie_hub.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
-                    b.Property<string>("Img")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -363,7 +363,7 @@ namespace the_movie_hub.Migrations
             modelBuilder.Entity("the_movie_hub.Models.Main.Showtime", b =>
                 {
                     b.HasOne("the_movie_hub.Models.Main.Movie", "Movie")
-                        .WithMany("Showtimes")
+                        .WithMany("ShowTimes")
                         .HasForeignKey("MovieId1");
 
                     b.HasOne("the_movie_hub.Models.Main.Room", "Room")
@@ -411,7 +411,7 @@ namespace the_movie_hub.Migrations
                 {
                     b.Navigation("MovieGenres");
 
-                    b.Navigation("Showtimes");
+                    b.Navigation("ShowTimes");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Room", b =>

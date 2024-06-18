@@ -26,11 +26,11 @@ public partial class Movie
 
     public string? Banner { get; set; }
 
-    public string Img { get; set; } = null!;
+    public string Image { get; set; } = null!;
 
     public bool? Active { get; set; }
 
-    public virtual ICollection<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();
+    public virtual ICollection<MovieGenre> MovieGenres { get; set; } = [];
 
-    public virtual ICollection<Showtime> Showtimes { get; set; } = new List<Showtime>();
+    public virtual ICollection<Showtime> ShowTimes { get; set; } = [];
 }

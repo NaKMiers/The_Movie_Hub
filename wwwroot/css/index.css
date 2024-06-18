@@ -1,4 +1,4 @@
-/* * {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -777,4 +777,4 @@ body {
   transition: all 0.4s ease-in-out;
   background-image: 0 100%;
   background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
-} */
+}

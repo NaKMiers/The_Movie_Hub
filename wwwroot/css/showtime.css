@@ -1,141 +1,66 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Anton, sans-serif;
-}
-body {
-    background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
-    
-  }
-.Showtime
-{
-    display: flex;
-    justify-content: center; 
-    gap:10px   
-    
-}
-.Showtime-date
-{
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.Showtime-movie
-{
-    border-radius: 5px;
-    padding:10px;
-}
-
-.Showtime-cinema
-{
-    border-radius: 5px;
-    padding:10px;
-}
-.Showtime-date-time
-{
-    gap:10px
-}
-.Showtime-date-time-1,
-.Showtime-date-time-2,
-.Showtime-date-time-3,
-.Showtime-date-time-4
-{
-  border-radius: 10px;
-  margin:auto;
-  padding:10px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.dropdown-content {
-    display: none;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: -2px;
-    top:35px;
-    border-radius: 5px;
-}
-.dropdown-content-cinema {
-    display: none;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: -12px;
-    top:35px;
-    border-radius: 5px;
-}
-.dropdown-content-cinema a{
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content-cinema a:hover
-{
-    background-color: #f1f1f1;
-}
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown-sub{
-    padding:5px;
-    padding-left:20px;
-    padding-right:10px
-}
-.dropdown{
-    margin-top: 8px;
-}
-.More-Movie {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 8px;
-    justify-content: center;
-    margin: auto;
-    margin-bottom: 20px;
-    width: 20%;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0);
-    color: #f3ea28;
-    transition: background-color 1s ease-in-out;
-  }
-  .More-Movie:hover {
-    background-color: orange;
-    color: #fff;
-  }
-  #Slide_Blogcarousel {
-    transition: transform 0.5s ease-in-out;
-  }
-  .prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: auto;
-  padding: 16px;
+.Showtime-movie-right-cinema4,
+.Showtime-movie-right-cinema3,
+.Showtime-movie-right-cinema2,
+.Showtime-movie-right-cinema1 {
+  font-family: Arial, sans-serif;
   color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  font-size: 20px;
-  transition: 3s ease;
-  border-radius: 0 3px 3px 0;
+.Showtime-movie-left {
+  margin-left: 0;
 }
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+
+.container4,
+.container3,
+.container2,
+.container1 {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  width: 100%;
 }
-.Watching
-{
-font-family: Anton, sans-serif;
+
+.cinema-name4,
+.cinema-name3,
+.cinema-name2,
+.cinema-name1 {
+  font-weight: bold;
+}
+
+.cinema-address4,
+.cinema-address3,
+.cinema-address2,
+.cinema-address1 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.showtime4,
+.showtime3,
+.showtime2,
+.showtime1 {
+  background-color: #323657;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #fff;
+  margin: 10px 0;
+}
+.order-ticket button {
+  padding: 7px 25px;
+  border: solid 1px #000;
+  background-color: #f3ea28;
+  color: #000;
+  border-radius: 5px;
+  text-align: center;
 }

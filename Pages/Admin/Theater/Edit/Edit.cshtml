@@ -1,0 +1,30 @@
+@page "/Admin/Theater/{Id}/Edit"
+@{
+   Layout = "_Layout";
+   ViewData["Title"] = "Edit Theater";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models
+@model the_movie_hub.Pages.Admin.Theater.EditTheaterModel;
+
+<div class="text-center max-w-1200 mx-auto py-8 rounded-lg text-white bg-slate-700">
+   <h1>Edit Theater</h1>
+   <a href="/admin/theater">Theater</a>
+
+   <form action="" method="post" enctype="multipart/form-data" class="text-dark flex flex-col items-center gap-3">
+      <input class="w-full max-w-[500px] px-2" required type="text" value=@Model.Theater?.Name name="Name"
+         placeholder="Name...">
+      <input class="w-full max-w-[500px] px-2" required type="text" value=@Model.Theater?.Address name="Address"
+         placeholder="Addresss...">
+      <input class="w-full max-w-[500px] px-2" required type="number" value=@Model.Theater?.RoomAmount name="RoomAmount"
+         placeholder="Room Amount...">
+      <input type="file" name="Image" class="text-white" />
+
+      <img width="200" src=@($"/uploads/{Model.Theater?.Image}") alt="thumb">
+
+      <button class="bg-white px-2 py-1">
+         Submit
+      </button>
+   </form>
+</div>

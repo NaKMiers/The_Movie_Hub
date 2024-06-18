@@ -6,21 +6,22 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace the_movie_hub.Migrations
 {
     /// <inheritdoc />
-    public partial class THM : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Genres",
+                name: "MovieGenres",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MovieId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GenreId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Genres", x => x.Id);
+                    table.PrimaryKey("PK_MovieGenres", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -30,16 +31,16 @@ namespace the_movie_hub.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReleaseDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Actors = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Actors = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
-                    TrailerUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Rating = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TrailerUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Rating = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Banner = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Img = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Active = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
@@ -83,26 +84,19 @@ namespace the_movie_hub.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MovieGenres",
+                name: "Genres",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MovieId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GenreId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GenreId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    MovieId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MovieId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieGenres", x => x.Id);
+                    table.PrimaryKey("PK_Genres", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MovieGenres_Genres_GenreId1",
-                        column: x => x.GenreId1,
-                        principalTable: "Genres",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_MovieGenres_Movies_MovieId1",
-                        column: x => x.MovieId1,
+                        name: "FK_Genres_Movies_MovieId",
+                        column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "Id");
                 });
@@ -112,19 +106,19 @@ namespace the_movie_hub.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TheaterId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TheaterId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Capacity = table.Column<int>(type: "int", nullable: false),
-                    TheaterId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Capacity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rooms", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Rooms_Theaters_TheaterId1",
-                        column: x => x.TheaterId1,
+                        name: "FK_Rooms_Theaters_TheaterId",
+                        column: x => x.TheaterId,
                         principalTable: "Theaters",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -218,19 +212,14 @@ namespace the_movie_hub.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovieGenres_GenreId1",
-                table: "MovieGenres",
-                column: "GenreId1");
+                name: "IX_Genres_MovieId",
+                table: "Genres",
+                column: "MovieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovieGenres_MovieId1",
-                table: "MovieGenres",
-                column: "MovieId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rooms_TheaterId1",
+                name: "IX_Rooms_TheaterId",
                 table: "Rooms",
-                column: "TheaterId1");
+                column: "TheaterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seats_RoomId1",
@@ -272,13 +261,13 @@ namespace the_movie_hub.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Genres");
+
+            migrationBuilder.DropTable(
                 name: "MovieGenres");
 
             migrationBuilder.DropTable(
                 name: "Tickets");
-
-            migrationBuilder.DropTable(
-                name: "Genres");
 
             migrationBuilder.DropTable(
                 name: "Seats");

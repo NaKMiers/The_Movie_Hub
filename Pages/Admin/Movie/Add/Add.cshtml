@@ -1,0 +1,40 @@
+@page "/Admin/Movie/Add"
+@{
+   Layout = "_Layout";
+   ViewData["Title"] = "Add Movie";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models
+@model the_movie_hub.Pages.Admin.Movie.AddMovieModel
+
+<div class="text-center max-w-1200 mx-auto py-8 rounded-lg text-white bg-slate-700">
+   <h1>Add Movie</h1>
+   <a href="/admin/movie">Movies</a>
+
+   <form method="post" enctype="multipart/form-data" class="text-dark flex flex-col items-center gap-3">
+      <div class="flex flex-wrap gap-3 select-none">
+         @foreach (var genre in Model.Genres)
+         {
+            <div class="text-white">
+               <input id="@genre.Id" type="checkbox" name="SelectedGenres" value="@genre.Id" />
+               <label for="@genre.Id">@genre.Title</label>
+            </div>
+         }
+      </div>
+
+      <input class="w-full max-w-[500px] px-2" type="text" name="Title" placeholder="Title...">
+      <input class="w-full max-w-[500px] px-2" type="text" name="ReleaseDate" placeholder="Release Date...">
+      <textarea name="Content" placeholder="Content..." class="w-full max-w-[500px] px-2"></textarea>
+      <input class="w-full max-w-[500px] px-2" type="text" name="Director" placeholder="Director...">
+      <input class="w-full max-w-[500px] px-2" type="text" name="Actors" placeholder="Actors...">
+      <input class="w-full max-w-[500px] px-2" type="number" name="Duration" placeholder="Duration...">
+      <input class="w-full max-w-[500px] px-2" type="url" name="TrailerUrl" placeholder="Trailer Url...">
+      <input type="file" name="Banner" class="text-white" placeholder="asds" />
+      <input type="file" name="Image" class="text-white" />
+
+      <button class="bg-white px-2 py-1">
+         Submit
+      </button>
+   </form>
+</div>

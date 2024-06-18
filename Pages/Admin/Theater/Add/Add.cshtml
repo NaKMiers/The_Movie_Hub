@@ -1,0 +1,26 @@
+@page "/Admin/Theater/Add"
+@{
+   Layout = "_Layout";
+   ViewData["Title"] = "Add Theater";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models
+@model the_movie_hub.Pages.Admin.Theater.AddTheaterModel
+
+<div class="text-center max-w-1200 mx-auto py-8 rounded-lg text-white bg-slate-700">
+   <h1>Add Theater</h1>
+   <a href="/Admin/Theater">Theaters</a>
+
+   <form method="post" enctype="multipart/form-data" class="text-dark flex flex-col items-center gap-3">
+      <input class="w-full max-w-[500px] px-2" required type="text" name="Name" placeholder="Name...">
+      <input class="w-full max-w-[500px] px-2" required type="text" name="Address" placeholder="Addresss...">
+      <input class="w-full max-w-[500px] px-2" required type="number" name="RoomAmount" min="1" max="10"
+         placeholder="Room Amount...">
+      <input type="file" name="Image" class="text-white" />
+
+      <button class="bg-white px-2 py-1">
+         Submit
+      </button>
+   </form>
+</div>

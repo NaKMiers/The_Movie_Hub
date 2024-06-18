@@ -1,0 +1,98 @@
+@page "/admin/ticket"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Ticket";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
+@* <link rel="stylesheet" href="~/Css/ticket.css">
+<style>
+
+</style>
+
+<div class="Ticket_Movie">
+<div class="Ticket_All_table">
+<div class="Ticket_All_table_title" style="padding-top:100px">
+<span style="color: #000;font-size:24px">Quản lý khách hàng </span>
+</div>
+<span></span>
+<div class="Customer_All_table_Listadd">
+<div class="Customer_List_Movie">
+<span style="font-weight: bold;font-size:20px">Danh sách phim đang chiếu</span>
+</div>
+<div class="Ticket_Add_Movie" id="addMovieBtn" style="display:none;">
+<div class="Ticket_Add_Movie_icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+stroke="currentColor" class="size-6">
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+
+</div>
+<div class="Ticket_Add_Movie_text">
+<span style="font-size: 14px;">Thêm phim</span>
+</div>
+</div>
+</div>
+<div class="Infor-Ticket">
+<div class="Infor-Ticket-cinema1">
+<div class="Infor-Ticket-cinema1-title" style="margin-top: 10px;">
+<span>Cinestar Quốc Khánh</span>
+</div>
+<div class="Infor-Ticket-cinema1-name">
+<span>Tên phim :Lật mặt 7:1 điều ước</span>
+</div>
+<div class="Infor-Ticket-cinema1-time" style="display: flex;">
+<div class=""><span>Giờ :9h30</span> </div>
+<div class=""><span>Ghế : C13</span> </div>
+</div>
+<div class="Infor-Ticket-cinema1-date" style="display: flex; ">
+<div class=""><span>Ngày 10/06/2024</span> </div>
+<div class=""><span>Phòng :1</span> </div>
+</div>
+<div class="Infor-Ticket-cinema1-price">
+<span>Giá tiền : 80.000vnđ</span>
+</div>
+</div>
+<div class="Infor-Ticket-cinema2">
+<div class="Infor-Ticket-cinema2-title" style="margin-top: 10px;">
+<span>Cinestar Quốc Khánh</span>
+</div>
+<div class="Infor-Ticket-cinema2-name">
+<span>Tên phim :Lật mặt 7:1 điều ước</span>
+</div>
+<div class="Infor-Ticket-cinema2-time" style="display: flex;">
+<div class=""><span>Giờ :9h30</span> </div>
+<div class=""><span>Ghế : C13</span> </div>
+</div>
+<div class="Infor-Ticket-cinema2-date" style="display: flex; ">
+<div class=""><span>Ngày 10/06/2024</span> </div>
+<div class=""><span>Phòng :1</span> </div>
+</div>
+<div class="Infor-Ticket-cinema2-price">
+<span>Giá tiền : 80.000vnđ</span>
+</div>
+</div>
+</div>
+</div>
+<div class="Ticket_All_toolbar">
+<div class="Ticket_All_toolbar_logo">
+<img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+</div>
+<div class="Ticket_All_toolbar_list">
+<ul>
+<li class="Ticket_list-items"><a href="">Tổng quan</li>
+<li class="Ticket_list-items"><a href="/Management">Quản lý phim</a></li>
+<li class="Ticket_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
+<li class="Ticket_list-items"><a href="/ticket">Quản lý vé</a></li>
+<li class="Ticket_list-items"><a href="/customer">Quản lý khách hàng</a></li>
+<li class="Ticket_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+</div> *@

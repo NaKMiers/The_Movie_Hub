@@ -8,185 +8,165 @@
 @using the_movie_hub.Models;
 @* @model the_movie_hub.Pages.Admin.Theater.TheaterModel; *@
 
-<div>
-    <h1>Admin</h1>
-    <p>Welcome to the admin page</p>
-
-    <h1>
-        @* @Model.Theaters.Count() *@
-    </h1>
-</div>
-
-@* <link rel="stylesheet" href="~/css/admin.css">
-
+<link rel="stylesheet" href="~/css/admin.css">
 <style>
-.close-btn {
-cursor: pointer;
-color: red;
-position: absolute;
-top: 10px;
-right: 10px;
-font-size: 24px;
-}
+
 </style>
+<div class="Admin_All">
+    <div class="Admin_All_table">
+        <div class="Admin_All_table_title">
+            <span style="color: #000;">Quản lý phim</span>
+        </div>
+        <span></span>
+        <div class="Admin_All_table_Listadd">
+            <div class="Management_List_Movie">
+                <span style="font-weight: bold;font-size:24px">Danh sách phim đang chiếu</span>
+            </div>
+            <div class="Management_Add_Movie" id="addMovieBtn" style="display: flex;">
+                <div class="Management_Add_Movie_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
 
-<div class="Admin_All" style="display:flex;gap:10px">
-<div class="Admin_All_table" style="width: 80%;text-align:center">
-<div class="Admin_All_table_title">
-<span style="color: #000;">Quản lý phim</span>
-</div>
-<span></span>
-<div class="Admin_All_table_Listadd"
-style="color: #000;display:flex;justify-content:space-between;margin-top:70px;padding:10px">
-<div class="Management_List_Movie">
-<span style="font-weight: bold;font-size:24px">Danh sách phim đang chiếu</span>
-</div>
-<div class="Management_Add_Movie" id="addMovieBtn" style="display: flex;">
-<div class="Management_Add_Movie_icon">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-stroke="currentColor" class="size-6">
-<path stroke-linecap="round" stroke-linejoin="round"
-d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
+                </div>
+                <div class="Management_Add_Movie_text">
+                    <span style="font-size: 14px;">Thêm phim</span>
+                </div>
+            </div>
+        </div>
+        <div id="movieForm" class="movie-form">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <form style="width:100%;gap:10px;display:flex">
+                <div class="form-left" style="margin-top:55px;">
+                    <label for="movieImage">Thêm ảnh:</label>
+                    <div class="image-upload" style="width: 100%;margin:auto;height:200px">
+                        <input type="file" id="movieImage" name="movieImage">
+                        <label for="movieImage" class="upload-icon">+</label>
+                    </div>
+                </div>
+                <div class="form-center">
+                    <div class="" style="display: flex;gap:61px;margin-top:60px">
+                        <label for="movieTitle" style="font-size: 16px;">Tên phim:</label>
+                        <input type="text" placeholder="Nhập tên phim" style="color: #000;" id="movieTitle"
+                            name="movieTitle" required>
+                    </div>
+                    <div style="display: flex;gap:51px;margin-top:10px">
+                        <label for="movieDuration" style="font-size:16px">Thời lượng:</label>
+                        <input type="text" placeholder="Nhập số lượng" style="color: #000;" id="movieDuration"
+                            name="movieDuration" required>
+                    </div>
+                    <div style="display: flex;gap:10px;margin-top:10px">
+                        <label for="movieReleaseDate" style="font-size: 14x;">Ngày khởi chiếu:</label>
+                        <input type="date" placeholder="Nhập ngày" style="color: #000;" id="movieReleaseDate"
+                            name="movieReleaseDate" required>
+                    </div>
+                    <div style="display: flex;gap:62px;margin-top:10px">
+                        <label for="movieDirector">Đạo diễn:</label>
+                        <input type="text" placeholder="Nhập tên" style="color: #000;" id="movieDirector"
+                            name="movieDirector" required>
+                    </div>
+                    <div style="display: flex;gap:60px;margin-top:10px">
+                        <label for="movieActors">Diễn viên:</label>
+                        <input type="text" placeholder="Nhập tên" style="color: #000;" id="movieActors"
+                            name="movieActors" required>
+                    </div>
+                    <div class="form-bottom" style="width: 100%;">
+                        <div style="display: flex;gap:42px">
+                            <label for="movieDescription">Nội dung phim:</label>
+                            <textarea id="movieDescription" name="movieDescription" required placeholder="Nhập nội dung"
+                                style="border: 1px solid #000;width:80%;color:#000;border-radius:5px"></textarea>
+                        </div>
+                        <div style="display: flex;margin-top:10px;gap:40px">
+                            <label for="movieTrailer">Trailer phim:</label>
+                            <input type="url" id="movieTrailer" placeholder="Link Url" style="color: #000;"
+                                name="movieTrailer" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-right" style="margin-top: 55px">
+                    <div style="display: flex;gap">
+                        <label for="movieGenre" style="font-size: 14px;">Thể loại:</label>
+                        <select id="movieGenre" name="movieGenre" style="border: 1px solid #000;width:100%;height:30px">
+                            <option value="">Chọn thể loại</option>
+                            <!-- Thêm các tùy chọn khác -->
+                        </select>
+                    </div>
+                    <div style="display:flex">
+                        <label for="movieProduction" style="font-size: 14px;">Sản xuất:</label>
+                        <input type="text" style="color: #000;" placeholder="Nhập tên quốc gia" id="movieProduction"
+                            name="movieProduction" required>
+                    </div>
+                </div>
 
-</div>
-<div class="Management_Add_Movie_text">
-<span style="font-size: 14px;">Thêm phim</span>
-</div>
-</div>
-</div>
-<div id="movieForm" class="movie-form" style="display: none; margin-top: 20px;">
-<span class="close-btn" id="closeBtn">&times;</span>
-<form style="width:100%;gap:10px;display:flex">
-<div class="form-left" style="margin-top:55px;">
-<label for="movieImage">Thêm ảnh:</label>
-<div class="image-upload" style="width: 100%;margin:auto;height:200px">
-<input type="file" id="movieImage" name="movieImage">
-<label for="movieImage" class="upload-icon">+</label>
-</div>
-</div>
-<div class="form-center">
-<div class="" style="display: flex;gap:61px;margin-top:60px">
-<label for="movieTitle" style="font-size: 16px;">Tên phim:</label>
-<input type="text" placeholder="Nhập tên phim" style="color: #000;" id="movieTitle"
-name="movieTitle" required>
-</div>
-<div style="display: flex;gap:51px;margin-top:10px">
-<label for="movieDuration" style="font-size:16px">Thời lượng:</label>
-<input type="text" placeholder="Nhập số lượng" style="color: #000;" id="movieDuration"
-name="movieDuration" required>
-</div>
-<div style="display: flex;gap:10px;margin-top:10px">
-<label for="movieReleaseDate" style="font-size: 14x;">Ngày khởi chiếu:</label>
-<input type="date" placeholder="Nhập ngày" style="color: #000;" id="movieReleaseDate"
-name="movieReleaseDate" required>
-</div>
-<div style="display: flex;gap:62px;margin-top:10px">
-<label for="movieDirector">Đạo diễn:</label>
-<input type="text" placeholder="Nhập tên" style="color: #000;" id="movieDirector"
-name="movieDirector" required>
-</div>
-<div style="display: flex;gap:60px;margin-top:10px">
-<label for="movieActors">Diễn viên:</label>
-<input type="text" placeholder="Nhập tên" style="color: #000;" id="movieActors"
-name="movieActors" required>
-</div>
-<div class="form-bottom" style="width: 100%;">
-<div style="display: flex;gap:42px">
-<label for="movieDescription">Nội dung phim:</label>
-<textarea id="movieDescription" name="movieDescription" required placeholder="Nhập nội dung"
-style="border: 1px solid #000;width:80%;color:#000;border-radius:5px"></textarea>
-</div>
-<div style="display: flex;margin-top:10px;gap:40px">
-<label for="movieTrailer">Trailer phim:</label>
-<input type="url" id="movieTrailer" placeholder="Link Url" style="color: #000;"
-name="movieTrailer" required>
-</div>
-</div>
-</div>
-<div class="form-right" style="margin-top: 55px">
-<div style="display: flex;gap">
-<label for="movieGenre" style="font-size: 14px;">Thể loại:</label>
-<select id="movieGenre" name="movieGenre" style="border: 1px solid #000;width:100%;height:30px">
-<option value="">Chọn thể loại</option>
-<!-- Thêm các tùy chọn khác -->
-</select>
-</div>
-<div style="display:flex">
-<label for="movieProduction" style="font-size: 14px;">Sản xuất:</label>
-<input type="text" style="color: #000;" placeholder="Nhập tên quốc gia" id="movieProduction"
-name="movieProduction" required>
-</div>
-</div>
+            </form>
+            <button type="submit">Lưu</button>
 
-</form>
-<button type="submit">Lưu</button>
+        </div>
+        <div class="Admin_All_table_movie">
+            <table>
+                <tr>
+                    <th>Tên phim</th>
+                    <th>Nội dung phim</th>
+                    <th>Thời lượng</th>
+                    <th>Ngày khởi chiếu</th>
+                    <th>Thể loại</th>
+                    <th>Đạo diễn</th>
+                    <th>Sản xuất</th>
+                    <th>Năm SX</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Lật mặt 7:Một...</td>
+                    <td>Một câu chuyện...</td>
+                    <td>138 phút</td>
+                    <td>26/04/2024</td>
+                    <td>Tình cảm,Phim hài</td>
+                    <td>Lý Hải</td>
+                    <td>VN</td>
+                    <td>2024</td>
+                    <td>Chi tiết</td>
+                </tr>
+                <tr>
+                    <td>Gia tài của ngoại</td>
+                    <td>Gia Tài của ngoại</td>
+                    <td>127 phút</td>
+                    <td>07/06/2024</td>
+                    <td>Tâm lý</td>
+                    <td>Pat Booonitipat</td>
+                    <td>Thái Lan</td>
+                    <td>2024</td>
+                    <td>Chi tiết</td>
+                </tr>
 
+            </table>
+        </div>
+    </div>
+    <div class="Admin_All_toolbar">
+        <div class="Admin_All_toolbar_logo">
+            <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+        </div>
+        <div class="Admin_All_toolbar_list">
+            <ul>
+                <li class="Admin_list-items"><a href="">Tổng quan</li>
+                <li class="Admin_list-items"><a href="/Management">Quản lý phim</a></li>
+                <li class="Admin_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
+                <li class="Admin_list-items"><a href="/ticket">Quản lý vé</a></li>
+                <li class="Admin_list-items"><a href="/customer">Quản lý khách hàng</a></li>
+                <li class="Admin_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
-<div class="Admin_All_table_movie" style="color: #000;border:1px solid #000;border-radius:10px;margin:auto">
-<table>
-<tr>
-<th>Tên phim</th>
-<th>Nội dung phim</th>
-<th>Thời lượng</th>
-<th>Ngày khởi chiếu</th>
-<th>Thể loại</th>
-<th>Đạo diễn</th>
-<th>Sản xuất</th>
-<th>Năm SX</th>
-<th></th>
-</tr>
-<tr>
-<td>Lật mặt 7:Một...</td>
-<td>Một câu chuyện...</td>
-<td>138 phút</td>
-<td>26/04/2024</td>
-<td>Tình cảm,Phim hài</td>
-<td>Lý Hải</td>
-<td>VN</td>
-<td>2024</td>
-<td>Chi tiết</td>
-</tr>
-<tr>
-<td>Gia tài của ngoại</td>
-<td>Gia Tài của ngoại</td>
-<td>127 phút</td>
-<td>07/06/2024</td>
-<td>Tâm lý</td>
-<td>Pat Booonitipat</td>
-<td>Thái Lan</td>
-<td>2024</td>
-<td>Chi tiết</td>
-</tr>
-
-</table>
-</div>
-</div>
-<div class="Admin_All_toolbar" style="width: 20%;align-items:center;height:700px">
-<div class="Admin_All_toolbar_logo" style="padding: 10px;width:50%;margin:auto">
-<img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-</div>
-<div class="Admin_All_toolbar_list" style="margin: auto;width:70%;height:100% ">
-<ul>
-<li class="Admin_list-items"><a href="">Tổng quan</li>
-<li class="Admin_list-items"><a href="/Management">Quản lý phim</a></li>
-<li class="Admin_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
-<li class="Admin_list-items"><a href="/ticket">Quản lý vé</a></li>
-<li class="Admin_list-items"><a href="/customer">Quản lý khách hàng</a></li>
-<li class="Admin_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
-</ul>
-</div>
-</div>
-</div>
-
 <script>
-document.getElementById('addMovieBtn').addEventListener('click', function () {
-var movieForm = document.getElementById('movieForm');
-movieForm.style.display = 'block'; // Hiển thị bảng nhập liệu
-});
+    document.getElementById('addMovieBtn').addEventListener('click', function () {
+        var movieForm = document.getElementById('movieForm');
+        movieForm.style.display = 'block'; // Hiển thị bảng nhập liệu
+    });
 
-document.getElementById('closeBtn').addEventListener('click', function () {
-var movieForm = document.getElementById('movieForm');
-movieForm.style.display = 'none'; // Ẩn bảng nhập liệu
-});
-</script> *@
+    document.getElementById('closeBtn').addEventListener('click', function () {
+        var movieForm = document.getElementById('movieForm');
+        movieForm.style.display = 'none'; // Ẩn bảng nhập liệu
+    });
+</script>

@@ -18,6 +18,14 @@ main {
    background-color: aquamarine;
    padding: 5px;  
 }
+.close-btn {
+   cursor: pointer;
+   color: red;
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 24px;
+}
 table {
    width: 100%;
    border-collapse: collapse;
@@ -136,7 +144,54 @@ button[type="submit"] {
    width: 100%;
    height: 30px;
 }
-
+.Admin_All
+{
+   display:flex;
+   gap:10px;
+}
+.Admin_All_table
+{
+   width: 80%;
+   text-align:center;
+}
+.Admin_All_table_Listadd
+{
+   color: #000;
+   display:flex;
+   justify-content:space-between;
+   margin-top:70px;
+   padding:10px;
+}
+.movie-form
+{
+   display: none;
+    margin-top: 20px;
+}
+.Admin_All_table_movie
+{
+   color: #000;
+   border:1px solid #000;
+   border-radius:10px;
+   margin:auto;
+}
+.Admin_All_toolbar
+{
+   width: 20%;
+   align-items:center;
+   height:700px;
+}
+.Admin_All_toolbar_logo
+{
+   padding: 10px;
+   width:50%;
+   margin:auto;
+}
+.Admin_All_toolbar_list
+{
+   margin: auto;
+   width:70%;
+   height:100%;
+}
 
 
  */

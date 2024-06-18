@@ -1,26 +1,25 @@
-/* header {
-    display: none;
- }
- footer {
-    display: none;
- }
- main {
-    background-color: aliceblue;
-    margin-top: 0 !important;
- }
-.Customer_All_toolbar {
-   background-color: #35355c;
+.Customer_Movie {
+  width: 100%;
+  display: flex;
 }
-table {
-   width: 100%;
-   border-collapse: collapse;
+.Customer_All_table {
+  width: 80%;
+  text-align: center;
 }
-th,
-td {
-   border: 1px solid black;
-   padding: 8px;
-   text-align: center;
+.Customer_All_table_Listadd {
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding: 10px;
 }
-.Customer_list-items {
-   padding: 20px;
-} */
+.Customer_All_toolbar_logo {
+  padding: 10px;
+  width: 50%;
+  margin: auto;
+}
+.Customer_All_toolbar_list {
+  margin: auto;
+  width: 70%;
+  height: 100%;
+}

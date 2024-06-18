@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(19, 19, 45);
+    font-family: 'Bahnschrift', sans-serif;
+}
+
+.Box {
+    width: 650px;
+    height: 290px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.Logo {
+    height: 100px;
+    margin-left: 50px;
+    margin: 0 auto;
+}
+
+.Logo img {
+    width: 200px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+.Url-back a {
+    color: rgb(255, 140, 0);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    border-bottom: 1px solid rgb(255, 140, 0);
+    margin-left: 10px;
+    height: 20px;
+}
+
+.Url-back a:hover {
+    color: rgb(37, 37, 37);
+    border-bottom: 1px solid rgb(37, 37, 37);
+    text-shadow: 5px 5px 5px rgb(37, 37, 37);
+}
+
+.Url-back {
+    display: flex;
+    margin-top: 15px;
+}
+
+.Url-back p {
+    color: black;
+    margin-left: 50px;
+}
+
+.Content {
+    margin-top: 20px;
+}

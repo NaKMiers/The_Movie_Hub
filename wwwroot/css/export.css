@@ -1,60 +1,194 @@
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.form-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
-  position: relative;
-}
-
-.close-btn {
-  cursor: pointer;
-  color: red;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-}
 .Export_Movie {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-.Export__table {
-  width: 80%;
-  text-align: center;
-}
-.Export_All_table_Listadd {
-  color: #000;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 70px;
-  padding: 10px;
+  background-color: aliceblue;
+  margin-top: 0 !important;
 }
 .Export_All_toolbar {
-  width: 20%;
+  background-color: #35355c;
+}
+.Export_list-items {
+  padding: 20px;
+}
+.Export_All_table_title span
+{
+  color: #000;
+}
+.Export_Add_Movie
+{
+  display: flex;
+}
+.Export_Add_Movie_text span
+{
+  font-size: 14px;
+}
+.Export_All_table_movie th {
+  background-color: grey;
+}
+.Export_Add_Movie
+{
   align-items: center;
-  height: 900px;
+ border: 1px solid #000;
+ border-radius: 10px;
+ background-color: aquamarine;
+ padding: 5px;
 }
-.Export_All_toolbar_logo {
+#showForm
+{
+  display: none;
+  width:80%;
+}
+#movieGenreSelect
+{
+  border: 1px solid #000;
+  width:100%;
+  height:30px;
+}
+.movie {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
   padding: 10px;
-  width: 50%;
-  margin: auto;
 }
-.Export_All_toolbar_list {
-  margin: auto;
-  width: 70%;
-  height: 100%;
+.movie img {
+  float: left;
+  margin-right: 10px;
 }
+
+.movie h2 {
+  margin: 0;
+  padding: 0;
+}
+.times {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -20px;
+}
+.times div {
+  margin-right: 20px;
+}
+.times div span {
+  display: block;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.movie {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      padding: 10px;
+  }
+
+  .movie img {
+      float: left;
+      margin-right: 10px;
+  }
+
+  .movie h2 {
+      margin: 0;
+      padding: 0;
+  }
+
+  .times {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .times div {
+      margin-right: 20px;
+  }
+
+  .times div span {
+      display: block;
+  }
+
+  .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+  .times span {
+      margin-top: 10px;
+      border-radius: 5px;
+  }
+  #showForm {
+      display: none;
+      position: absolute; 
+      top: 50%; 
+      left: 50%;
+      transform: translate(-50%, -50%); 
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+  }
+  .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+  }
+
+.form-container {
+     background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      position: relative;
+  }
+
+.close-btn {
+      cursor: pointer;
+      color: red;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+  }
+.Export_Movie
+  {
+      display:flex;
+      gap:10px;
+      width:100%;
+  }
+  .Export__table
+  {
+      width: 80%;
+      text-align:center;
+  }
+  .Export_All_table_Listadd
+  {
+      color: #000;
+      display:flex;
+      justify-content:space-between;
+      margin-top:70px;
+      padding:10px;
+  }
+  .Export_All_toolbar
+  {
+      width: 20%;
+      align-items:center;
+      height:900px;
+  }
+  .Export_All_toolbar_logo
+  {
+      padding: 10px;
+      width:50%;
+      margin:auto;
+  }
+  .Export_All_toolbar_list
+  {
+      margin: auto;
+      width:70%;
+      height:100% ;
+  }

@@ -7,86 +7,80 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Models.Main.User
-
-@* <link rel="stylesheet" href="~/Css/customer.css">
-
-<div class="Customer_Movie" style="width: 100%;display:flex">
-<div class="Customer_All_table" style="width: 80%;text-align:center">
+<link rel="stylesheet" href="~/css/customer.css">
 <div class="Customer_Movie">
-<div class="Customer_All_table">
-<div class="Customer_All_table_title">
-<span style="color: #000;">Quản lý khách hàng </span>
-</div>
-<span></span>
-<div class="Customer_All_table_Listadd">
-<div class="Customer_List_Movie">
-<span style="font-weight: bold;font-size:20px">Danh sách khách hàng</span>
-</div>
-<div class="Customer_Add_Movie" id="addMovieBtn" style="display:none;">
-<div class="Customer_Add_Movie_icon">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-stroke="currentColor" class="size-6">
-<path stroke-linecap="round" stroke-linejoin="round"
-d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
+    <div class="Customer_All_table">
+        <div class="Customer_All_table_title">
+            <span>Quản lý khách hàng </span>
+        </div>
+        <span></span>
+        <div class="Customer_All_table_Listadd">
+            <div class="Customer_List_Movie">
+                <span>Danh sách khách hàng</span>
+            </div>
+            <div class="Customer_Add_Movie" id="addMovieBtn">
+                <div class="Customer_Add_Movie_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
 
-</div>
-<div class="Customer_Add_Movie_text">
-<span style="font-size: 14px;">Thêm phim</span>
-</div>
-</div>
-</div>
-<div class="Customer_All_table_movie"
-style="color: #000;border:1px solid #000;border-radius:10px;margin:auto">
-<table>
-<tr>
-<th>Họ và Tên</th>
-<th>Số điện thoại</th>
-<th>Email</th>
-<th>Ngày sinh nhật</th>
-<th>Password</th>
-<th>Chi tiêu</th>
+                </div>
+                <div class="Customer_Add_Movie_text">
+                    <span>Thêm phim</span>
+                </div>
+            </div>
+        </div>
+        <div class="Customer_All_table_movie">
+            <table class="Table_Customer">
+                <tr class="Table_Customer_tr">
+                    <th class="Table_Customer_th">Họ và Tên</th>
+                    <th class="Table_Customer_th">Số điện thoại</th>
+                    <th class="Table_Customer_th">Email</th>
+                    <th class="Table_Customer_th">Ngày sinh nhật</th>
+                    <th class="Table_Customer_th">Password</th>
+                    <th class="Table_Customer_th">Chi tiêu</th>
 
-</tr>
-<tr>
-<td>Lưu Hồng Hữu</td>
-<td>0886007589</td>
-<td>luuhonghuu530@gmail.com</td>
-<td>25/11/2004</td>
-<td>asdasd</td>
-<td>300.000vnđ</td>
+                </tr>
+                <tr class="Table_Customer_tr">
+                    <td class="Table_Customer_td">Lưu Hồng Hữu</td>
+                    <td class="Table_Customer_td">0886007589</td>
+                    <td class="Table_Customer_td"> luuhonghuu530@gmail.com</td>
+                    <td class="Table_Customer_td">25/11/2004</td>
+                    <td class="Table_Customer_td">asdasd</td>
+                    <td class="Table_Customer_td">300.000vnđ</td>
 
-</tr>
+                </tr>
 
-</table>
+            </table>
+        </div>
+    </div>
+    <div class="Customer_All_toolbar">
+        <div class="Customer_All_toolbar_logo">
+            <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+        </div>
+        <div class="Customer_All_toolbar_list">
+            <ul>
+                <li class="Customer_list-items"><a href="">Tổng quan</li>
+                <li class="Customer_list-items"><a href="/Management">Quản lý phim</a></li>
+                <li class="Customer_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
+                <li class="Customer_list-items"><a href="/ticket">Quản lý vé</a></li>
+                <li class="Customer_list-items"><a href="/customer">Quản lý khách hàng</a></li>
+                <li class="Customer_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
-</div>
-<div class="Customer_All_toolbar" style="">
-<div class="Customer_All_toolbar_logo">
-<img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png"
-alt="">
-</div>
-<div class="Customer_All_toolbar_list">
-<ul>
-<li class="Customer_list-items"><a href="">Tổng quan</li>
-<li class="Customer_list-items"><a href="/Management">Quản lý phim</a></li>
-<li class="Customer_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
-<li class="Customer_list-items"><a href="/ticket">Quản lý vé</a></li>
-<li class="Customer_list-items"><a href="/customer">Quản lý khách hàng</a></li>
-<li class="Customer_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
-</ul>
-</div>
-</div>
-</div>
+
 <script>
-document.getElementById('addMovieBtn').addEventListener('click', function () {
-var movieForm = document.getElementById('movieForm');
-movieForm.style.display = 'block'; // Hiển thị bảng nhập liệu
-});
+    document.getElementById('addMovieBtn').addEventListener('click', function () {
+        var movieForm = document.getElementById('movieForm');
+        movieForm.style.display = 'block'; // Hiển thị bảng nhập liệu
+    });
 
-document.getElementById('closeBtn').addEventListener('click', function () {
-var movieForm = document.getElementById('movieForm');
-movieForm.style.display = 'none'; // Ẩn bảng nhập liệu
-});
+    document.getElementById('closeBtn').addEventListener('click', function () {
+        var movieForm = document.getElementById('movieForm');
+        movieForm.style.display = 'none'; // Ẩn bảng nhập liệu
+    });
 </script>
-</div> *@

@@ -1,12 +1,7 @@
-* {
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
- 
-}
-main {
-  width: 100%;
- 
 }
 body {
   background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
@@ -89,18 +84,26 @@ body {
   overflow: hidden;
   margin-bottom: 70px;
 }
+.slideshow-container span
+{
+  font-size: 40px;
+ 
+  font-family: Anton, sans-serif;
+}
 .slide_nomain_four_image {
   position: relative;
   display: flex;
   transition: transform 0.5s ease;
   overflow: hidden;
+  gap:30px;
+  margin-top: 20px;
 }
 .slide_nomain_four_image img {
   flex-shrink: 0;
   width: 30%;
   height: auto;
   object-fit: cover;
-  padding: 30px;
+  
 }
 .prev,
 .next {
@@ -293,12 +296,12 @@ body {
 .Infor-trailer
 {
   display:flex;
-  margin-top:15px;
+  margin-top:20px;
 }
 .trailer-movie
 {
   display: flex;
-  margin-top:5px;
+   margin-top: 13px;
   gap:6px ;
 }
 @media(max-width:789px)
@@ -312,26 +315,10 @@ body {
   }
 
 }
-@media screen and (min-width:300px) { 
-  .Member-C-Friend-two h2 
-  {
-    font-size: 18px;
-    
-  }
-  .Member-C-Friend-two p
-{
-  font-size: 14px;
-
-}  
-.Find-Out-Now-Friend
-{
-  padding: 5px 10px;
-}
-}
 .order-ticket
 {
-  margin-top: -5px;
-  padding: 5px 22px;
+  
+  padding: 10px;
 }
 
 .member-img {
@@ -1035,4 +1022,80 @@ width: 100%;
 {
   height: 400px;
 }
+.Book-your-tiket-now
+{
+  display: none;
+}
+.carousel-control-prev,
+.carousel-control-next{
+  display: none;
+}
+.trailer-movie
+{
+  display: none;
+}
+.order-ticket
+{
+  padding: 5px 40px;
+  font-size: 10px;
+}
+.Member-C-Friend-two span 
+{
+font-size: 20px;
+}
+.Member-C-Friend-two p 
+{
+font-size: 16px;
+}
+.Find-Out-Now-Friend
+{
+  font-size: 12px;
+  padding: 3px 10px;
+}
+.carousel_image img
+{
+  width: 80%;
+}
+.All-Offers 
+{
+  font-size: 14px;
+}
+.More-Movie
+{
+  font-size: 14px;
+}
+.Contact {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.Contact-us, .contact-form {
+  width: 100%;
+}
+.Contact-us
+{
+  text-align: center;
+}
+.contact-form-email,
+.contact-form-phone,
+.contact-form-address {
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form-email-icon,
+.contact-form-phone-icon,
+.contact-form-address-icon {
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+form {
+  width: 100%;
+}
+
+form label, form input, form textarea, form button {
+  width: calc(100% - 20px);
+}
+
 }

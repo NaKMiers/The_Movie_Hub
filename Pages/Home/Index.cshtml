@@ -7,12 +7,19 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Models.Main.User
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="~/css/index.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/index.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        ul {
+            margin: 0;
+        }
+    </style>
+</head>
 <div class="Home-Page">
     <div class="carousel-container" id="carouselExample">
         <div class="carousel-inner">
@@ -426,8 +433,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -456,8 +462,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -486,8 +491,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -516,8 +520,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -546,8 +549,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -576,8 +578,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -606,8 +607,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -637,8 +637,7 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                    <button>Tìm hiểu thêm</button>
                                 </div>
                             </div>
                         </a></li>
@@ -654,26 +653,26 @@
         </div>
         @* Discount *@
         <div class="slideshow-container">
-            <h1 style="margin-left:70px">KHUYẾN MÃI</h1>
+            <span style="margin-left:40px">KHUYẾN MÃI</span>
             <div style="width: 100%;">
                 <ul class="slide_nomain_four_image" id="discontlist">
-                    <li class="carousel_image" style="width: 50%;"><img style="width: 100%; height: 100%;;"
+                    <li class="carousel_image"><img style="width: 100%; "
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-1.jpg&w=1920&q=75"
                             alt="..."></li>
-                    <li class="carousel_image"><img style="width: 100%; height: 100%;;"
+                    <li class="carousel_image"><img style="width: 100%; "
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-2.jpg&w=1920&q=75"
                             alt="..."></li>
-                    <li class="carousel_image"><img style="width: 100%; height: 100%;;"
+                    <li class="carousel_image"><img style="width: 100%; "
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-3.jpg&w=1920&q=75"
                             alt="..."></li>
-                    <li class="carousel_image"><img style="width: 100%; height: 100%;;"
+                    <li class="carousel_image"><img style="width: 100%; "
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fmonday_1_.jpg&w=1920&q=75"
                             alt="... "></li>
                 </ul>
             </div>
             <a class=" prev">&#10094;</a>
             <a class="next">&#10095;</a>
-            <div class="All-Offers" style="margin-top:-20px;">
+            <div class="All-Offers" style="margin-top:20px;">
                 TẤT CẢ ƯU ĐÃI
             </div>
         </div>

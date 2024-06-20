@@ -3,7 +3,12 @@
    padding: 0;
    box-sizing: border-box;
 }
-
+.Login 
+{
+   /* background-image: url(https://cinestar.com.vn/assets/images/bg-regis.jpg);
+   width: 100%; */
+   
+}
 .account-container{
    height: 100%;
    width: 100%;

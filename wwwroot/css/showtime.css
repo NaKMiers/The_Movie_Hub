@@ -190,9 +190,27 @@ border-radius: 3px 0 0 3px;
   justify-content: center;
   align-items: center;
 }
-
+.Showtime-movie-left-img
+{
+  margin: auto;
+}
+.Showtime-movie-left-title
+{
+  margin-top:20px;
+}
+.Showtime-movie-left-title span
+{
+  font-family: Anton, sans-serif;font-size:20px;
+}
+.dropdown-content-cinema
+{
+  position: absolute;
+  top:100px;
+  width:100%;
+}
 .Showtime-movie-left {
   margin-left: 0;
+
 }
 
 .container4,

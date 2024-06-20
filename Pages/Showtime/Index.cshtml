@@ -7,7 +7,6 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Models.Main.User
-
 <link rel="stylesheet" href="~/css/showtime.css">
 <link rel="stylesheet" href="~/css/output.css">
 <link rel="stylesheet" href="~/css/index.css">
@@ -34,7 +33,6 @@
                     </svg>
                 </div>
             </div>
-
             <div class="Showtime-date-time">
                 <div class="Showtime-date-time-1">
                     <span>04/06 Thứ Ba</span>
@@ -47,7 +45,6 @@
                         Sáu</span></div>
             </div>
         </div>
-
         <div class="Showtime-movie" style="border:1px solid #959699;width: 20%;position:relative">
             <div class=" movie">
                 <div class="movie-text">
@@ -109,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            <div class="dropdown-content-cinema" style="position: absolute;top:100px;width:100%">
+            <div class="dropdown-content-cinema">
                 <a href="#">Cinestar Quốc Thanh</a>
                 <a href="#">Cinestar Hai Bà Trưng </a>
                 <a href="#">Cinestar Sinh Viên (Bình Dương)</a>
@@ -122,14 +119,14 @@
         <hr>
     </div>
     <div class="Showtime-movie-info">
-        <div class="Showtime-movie-left" style="50%">
-            <div class="Showtime-movie-left-img" style="margin: auto;">
+        <div class="Showtime-movie-left">
+            <div class="Showtime-movie-left-img">
                 <img style=" width:100%;"
                     src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fgia-tai-cua-ngoai-sneakshow.jpg&w=1920&q=75"
                     alt="">
             </div>
-            <div class="Showtime-movie-left-title" style="margin-top:20px">
-                <span style=" font-family: Anton, sans-serif;font-size:20px">GIA TÀI CỦA NGOẠI 2D PĐ (T13)</span>
+            <div class="Showtime-movie-left-title">
+                <span>GIA TÀI CỦA NGOẠI 2D PĐ (T13)</span>
             </div>
             <div class="Showtime-movie-left-infor" style="margin-top:20px">
                 <ul style="font-size: 14px; ">
@@ -180,95 +177,95 @@
         </div>
         <div class="Showtime-movie-right" style="width: 50%;">
             <div class="Showtime-movie-right-cinema1" style="display: flex;">
-                <div class="container1" ">
+                <div class="container1">
                     <div>
                         <div class=" cinema-name1">
-                    <span style="font-size: 10px;"> Cinestar </span><br> <span style="font-size:26px">Quốc
-                        Thanh</span>
-                </div>
-                <div class="cinema-address1" style="font-size:14px">271 Nguyễn Trãi, Phường Nguyễn Cư <br>Trinh,
-                    Quận 1,
-                    Thành Phố Hồ Chí Minh
+                            <span style="font-size: 10px;"> Cinestar </span><br> <span style="font-size:26px">Quốc
+                                Thanh</span>
+                        </div>
+                        <div class="cinema-address1" style="font-size:14px">271 Nguyễn Trãi, Phường Nguyễn Cư <br>Trinh,
+                            Quận 1,
+                            Thành Phố Hồ Chí Minh
+                        </div>
+                    </div>
+                    <div class="showtimes1">
+                        <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
+                        <div style="display: flex;gap:10px  ">
+                            <div class="showtime1">22:50</div>
+                            <div class="showtime1">23:50</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="showtimes1">
-                <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
-                <div style="display: flex;gap:10px  ">
-                    <div class="showtime1">22:50</div>
-                    <div class="showtime1">23:50</div>
-                </div>
+            <div style="width: 95%;  margin: 0 auto;">
+                <hr>
             </div>
-        </div>
-    </div>
-    <div style="width: 95%;  margin: 0 auto;">
-        <hr>
-    </div>
-    <div class="Showtime-movie-right-cinema2" style="display: flex;">
-        <div class="container2">
-            <div>
-                <div class="cinema-name2"><span style="font-size: 10px;">Cinestar </span><br> <span
-                        style="font-size:26px">Đà Lạt</span> </div>
-                <div class="cinema-address2" style="font-size:14px">Quảng trường Lâm Viên, P10, TP.Đà <br>Lạt,
-                    Lâm
-                    Đồng
+            <div class="Showtime-movie-right-cinema2" style="display: flex;">
+                <div class="container2">
+                    <div>
+                        <div class="cinema-name2"><span style="font-size: 10px;">Cinestar </span><br> <span
+                                style="font-size:26px">Đà Lạt</span> </div>
+                        <div class="cinema-address2" style="font-size:14px">Quảng trường Lâm Viên, P10, TP.Đà <br>Lạt,
+                            Lâm
+                            Đồng
 
+                        </div>
+                    </div>
+                    <div class="showtimes2">
+                        <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
+                        <div style="display: flex;gap:10px">
+                            <div class="showtime2">22:25</div>
+                            <div style="display: none;" class="showtime1">23:50</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="showtimes2">
-                <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
-                <div style="display: flex;gap:10px">
-                    <div class="showtime2">22:25</div>
-                    <div style="display: none;" class="showtime1">23:50</div>
-                </div>
+            <div style="width: 95%;  margin: 0 auto;">
+                <hr>
             </div>
-        </div>
-    </div>
-    <div style="width: 95%;  margin: 0 auto;">
-        <hr>
-    </div>
-    <div class="Showtime-movie-right-cinema3" style="display: flex;">
-        <div class="container3">
-            <div>
-                <div class="cinema-name3"><span style="font-size: 10px;">Cinestar </span><br> <span
-                        style="font-size:26px">Sinh Viên (Bình<br> Dương)</span> </div>
-                <div class="cinema-address3" style="font-size:14px">Nhà văn hóa sinh viên, Đại học Quốc <br>gia
-                    HCM,
-                    P.Đông Hòa,Dĩ An,Bình<br>Dương
+            <div class="Showtime-movie-right-cinema3" style="display: flex;">
+                <div class="container3">
+                    <div>
+                        <div class="cinema-name3"><span style="font-size: 10px;">Cinestar </span><br> <span
+                                style="font-size:26px">Sinh Viên (Bình<br> Dương)</span> </div>
+                        <div class="cinema-address3" style="font-size:14px">Nhà văn hóa sinh viên, Đại học Quốc <br>gia
+                            HCM,
+                            P.Đông Hòa,Dĩ An,Bình<br>Dương
 
+                        </div>
+                    </div>
+                    <div class="showtimes3">
+                        <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
+                        <div style="display: flex;gap:10px">
+                            <div class="showtime3">22:40</div>
+                            <div style="display: none;" class="showtime1">23:50</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="showtimes3">
-                <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
-                <div style="display: flex;gap:10px">
-                    <div class="showtime3">22:40</div>
-                    <div style="display: none;" class="showtime1">23:50</div>
+            <div style="width: 95%;  margin: 0 auto;">
+                <hr>
+            </div>
+            <div class="Showtime-movie-right-cinema4" style="display: flex;">
+                <div class="container4">
+                    <div>
+                        <div class="cinema-name4"><span style="font-size: 10px;">Cinestar </span><br> <span
+                                style="font-size:26px">Huế</span></div>
+                        <div class="cinema-address4" style="font-size:14px">25 Hai Bà Trưng, Vĩnh Ninh, Thành<br>phố
+                            Huế,
+                            Thừa Thiên Huế
+                        </div>
+                    </div>
+                    <div class="showtimes4">
+                        <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
+                        <div style="display: flex;gap:10px">
+                            <div class="showtime4">22:30</div>
+                            <div style="display: none;" class="showtime1">23:50</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div style="width: 95%;  margin: 0 auto;">
-        <hr>
-    </div>
-    <div class="Showtime-movie-right-cinema4" style="display: flex;">
-        <div class="container4">
-            <div>
-                <div class="cinema-name4"><span style="font-size: 10px;">Cinestar </span><br> <span
-                        style="font-size:26px">Huế</span></div>
-                <div class="cinema-address4" style="font-size:14px">25 Hai Bà Trưng, Vĩnh Ninh, Thành<br>phố
-                    Huế,
-                    Thừa Thiên Huế
-                </div>
-            </div>
-            <div class="showtimes4">
-                <div><span style="font-size: 8px;font-weight: bold;">STANDARD</span></div>
-                <div style="display: flex;gap:10px">
-                    <div class="showtime4">22:30</div>
-                    <div style="display: none;" class="showtime1">23:50</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
     </div>
     <div style="width: 83%;  margin: 0 auto;margin-top:30px">
         <hr>
@@ -281,7 +278,7 @@
                     alt="">
             </div>
             <div class="Showtime-movie-left-title" style="margin-top:20px">
-                <span style=" font-family: Anton, sans-serif;font-size:20px">CỬU LONG THÀNH TRẠI (T18): VÂY THÀNH</span>
+                <span>CỬU LONG THÀNH TRẠI (T18): VÂY THÀNH</span>
             </div>
             <div class="howtime-movie-left-infor" style=";margin-top:20px">
                 <ul style="font-size: 14px; ">

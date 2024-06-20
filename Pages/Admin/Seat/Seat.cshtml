@@ -1,0 +1,19 @@
+@page "/admin/seat/{roomId}"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Admin - Seat";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Seat.SeatModel
+
+
+<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
+    <h1 value="">Seats (@Model.Seats?.Count())</h1>
+    <a href="/Admin">Admin</a>
+
+    <div class="grid grid-cols-10">
+
+    </div>
+</div>

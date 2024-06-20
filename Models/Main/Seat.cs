@@ -4,7 +4,7 @@ public partial class Seat
 {
     public required Guid Id { get; set; }
 
-    public string? RoomId { get; set; }
+    public required string RoomId { get; set; }
 
     public int SeatRow { get; set; }
 

@@ -6,50 +6,23 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
-@model the_movie_hub.Models.Main.User
+@model the_movie_hub.Pages.Auth.Register.RegisterModel
 
+<link rel="stylesheet" href="~/css/login.css" />
 
 <div class="account-container">
     <div class="Account" style="display: flex;">
-        <div id="login-tab" style="margin: auto; cursor: pointer;">
+        <a href='/login' id="login-tab" style="margin: auto; cursor: pointer;">
             <h2>ĐĂNG NHẬP</h2>
-        </div>
-        <div id="register-tab" style="margin: auto; cursor: pointer;">
+        </a>
+        <a href='/register' id="register-tab" style="margin: auto; cursor: pointer;">
             <h2>ĐĂNG KÍ</h2>
-        </div>
-    </div>
-
-    <div id="login-form" style="display: none;">
-        <form asp-action=" Login" asp-controller="Auth" method="post">
-            <div class="form-group">
-                <label style="margin-top: 30px;" for="email">Tài khoản, Email hoặc số điện thoại </label>
-                <input type="text" id="email" name="Email" required>
-            </div>
-            <div class="form-group">
-                <label style="margin-top: 30px;" for="password">Mật khẩu</label>
-                <input type="password" id="password" name="Password" required>
-            </div>
-            <div class="form-group checkbox-group" style="display: flex;">
-                <div style="margin: auto; margin-left: -1px;">
-                    <input type="checkbox" id="remember" name="remember">
-                </div>
-                <div style="margin:auto;margin-left:-470px;  margin-top: 5px;">
-                    <label for="remember">Remember me</label>
-                </div>
-            </div>
-            <div class="forgot-password">
-                <a href="/change-password">
-                    <p style="margin-left:450px;margin-bottom:20px">Quên mật khẩu?</p>
-                </a>
-            </div>
-            <div class="form-group">
-                <button type="submit">ĐĂNG NHẬP</button>
-            </div>
-        </form>
+        </a>
     </div>
 
     <div id="register-form">
-        <form asp-action="Register" asp-controller="Auth" method="post">
+
+        <form method="post">
             <div class="form-group">
                 <label for="register-username">Họ và Tên</label>
                 <input type="text" id="register-username" name="FullName" required placeholder="Nhập họ và tên">
@@ -533,29 +506,6 @@
                 </a>
             </p>
         </form>
+
     </div>
 </div>
-
-<script>
-    document.getElementById('login-tab').addEventListener('click', function () {
-        document.getElementById('login-form').style.display = 'block';
-        document.getElementById('register-form').style.display = 'none';
-    });
-
-    document.getElementById('register-tab').addEventListener('click', function () {
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('register-form').style.display = 'block';
-    });
-
-
-    document.getElementById('listbaomat').addEventListener('click', function () {
-        var productList = document.querySelector('.DirectionHeding__form-product-list');
-        if (productList.classList.contains('show')) {
-            productList.classList.remove('show');
-        } else {
-            productList.classList.add('show');
-        }
-    });
-
-
-</script>

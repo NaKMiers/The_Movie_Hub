@@ -1,81 +1,68 @@
-
-.Customer_Movie
-{
+.Customer_Movie {
   background-color: aliceblue;
   margin-top: 0 !important;
 }
 .Customer_All_toolbar {
- background-color: #35355c;
- width: 20%;
- align-items:center;
- height:700px;
+  background-color: #35355c;
+  width: 20%;
+  align-items: center;
+  height: 700px;
 }
-.Customer_All_table_title span
-{
+.Customer_All_table_title span {
   color: #000;
 }
-.Customer_List_Movie span
-{
+.Customer_List_Movie span {
   font-weight: bold;
-  font-size:20px;
+  font-size: 20px;
 }
-.Customer_Add_Movie
-{
-  display:none;
+.Customer_Add_Movie {
+  display: none;
 }
-.Customer_Add_Movie_text span
-{
+.Customer_Add_Movie_text span {
   font-size: 14px;
 }
-.Customer_All_table_movie 
-{
+.Customer_All_table_movie {
   color: #000;
-  border:1px solid #000;
-  border-radius:10px;
-  margin:auto;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: auto;
 }
 .Customer_All_table_movie table {
- width: 100%;
- border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 .Table_Customer_tr td,
-.Table_Customer_tr th
-{
+.Table_Customer_tr th {
   border: 1px solid black;
   padding: 8px;
   text-align: center;
 }
 
 .Customer_list-items {
- padding: 20px;
+  padding: 20px;
 }
-.Customer_Movie
-{
- width: 100%;
- display:flex;
+.Customer_Movie {
+  width: 100%;
+  display: flex;
 }
-.Customer_All_table
-{
- width: 80%;
- text-align:center;
+.Customer_All_table {
+  width: 80%;
+  text-align: center;
 }
-.Customer_All_table_Listadd
-{
- color: #000;
- display:flex;
- justify-content:space-between;
- margin-top:70px;
- padding:10px;
+.Customer_All_table_Listadd {
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding: 10px;
 }
-.Customer_All_toolbar_logo
-{
- padding: 10px;
- width:50%;
- margin:auto;
+.Customer_All_toolbar_logo {
+  padding: 10px;
+  width: 50%;
+  margin: auto;
 }
-.Customer_All_toolbar_list
-{
- margin: auto;
- width:70%;
- height:100% ;
+.Customer_All_toolbar_list {
+  margin: auto;
+  width: 70%;
+  height: 100%;
 }

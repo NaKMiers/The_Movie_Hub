@@ -1,0 +1,52 @@
+﻿@page "/login"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models
+@model the_movie_hub.Pages.Auth.Login.LoginModel;
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="Login">
+    <div class=" account-container">
+        <div class="Account" style="display: flex;">
+            <a href='/login' id="login-tab" style="margin: auto; cursor: pointer;">
+                <h2>ĐĂNG NHẬP</h2>
+            </a>
+            <a href='/register' id="register-tab" style="margin: auto; cursor: pointer;">
+                <h2>ĐĂNG KÍ</h2>
+            </a>
+        </div>
+
+        <div id="login-form">
+            <form method="post">
+                <div class="form-group">
+                    <label style="margin-top: 30px;" for="email">Tài khoản, Email hoặc số điện thoại </label>
+                    <input type="text" id="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label style="margin-top: 30px;" for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="Password" required>
+                </div>
+                <div class="form-group checkbox-group" style="display: flex;">
+                    <div style="margin: auto; margin-left: -1px;">
+                        <input type="checkbox" id="remember" name="Remember">
+                    </div>
+                    <div style="margin:auto;margin-left:-470px;  margin-top: 5px;">
+                        <label for="remember">Remember me</label>
+                    </div>
+                </div>
+                <div class="forgot-password">
+                    <a href="/change-password">
+                        <p style="margin-left:450px;margin-bottom:20px">Quên mật khẩu?</p>
+                    </a>
+                </div>
+                <div class="form-group">
+                    <button type="submit">ĐĂNG NHẬP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

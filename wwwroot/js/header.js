@@ -1,73 +1,75 @@
 // Write your JavaScript code.
 
 $(function () {
-   // Float Up on hover
-   const hoverFloatUp = $('.hover-float').closest('.relative')
+  console.log('123123')
 
-   // add class float-up on hover
-   hoverFloatUp.hover(
-      function () {
-         $(this).find('.hover-float').removeClass('float-down hidden')
-         $(this).find('.hover-float').addClass('float-up flex')
-      },
-      function () {
-         $(this).find('.hover-float').removeClass('float-up')
-         $(this).find('.hover-float').addClass('float-down')
-      }
-   )
+  // Float Up on hover
+  const hoverFloatUp = $('.hover-float').closest('.relative')
 
-   // Float Up
-   // get all elements has attribute 'float-trigger'
-   const floatTrigger = $('[float-trigger]')
+  // add class float-up on hover
+  hoverFloatUp.hover(
+    function () {
+      $(this).find('.hover-float').removeClass('float-down hidden')
+      $(this).find('.hover-float').addClass('float-up flex')
+    },
+    function () {
+      $(this).find('.hover-float').removeClass('float-up')
+      $(this).find('.hover-float').addClass('float-down')
+    }
+  )
 
-   floatTrigger.each(function () {
-      const action = $(this).attr('float-trigger')
-      const isToggle = $(this).attr('toggle')
+  // Float Up
+  // get all elements has attribute 'float-trigger'
+  const floatTrigger = $('[float-trigger]')
 
-      // if toggle is true
-      if (isToggle === 'true') {
-         $(this).on(action, function () {
-            const target = $($(this).attr('target'))
-            $(this).toggleClass('active')
+  floatTrigger.each(function () {
+    const action = $(this).attr('float-trigger')
+    const isToggle = $(this).attr('toggle')
 
-            // show
-            if (target.hasClass('hidden')) {
-               target.removeClass('float-down hidden')
-               target.addClass('float-up')
-            } else {
-               target.removeClass('float-up')
-               target.addClass('float-down')
+    // if toggle is true
+    if (isToggle === 'true') {
+      $(this).on(action, function () {
+        const target = $($(this).attr('target'))
+        $(this).toggleClass('active')
 
-               setTimeout(() => {
-                  target.addClass('hidden')
-               }, 310)
-            }
+        // show
+        if (target.hasClass('hidden')) {
+          target.removeClass('float-down hidden')
+          target.addClass('float-up')
+        } else {
+          target.removeClass('float-up')
+          target.addClass('float-down')
 
-            // stop propagation for all children of target
-            target.children().click(function (e) {
-               e.stopPropagation()
-            })
-         })
-         return
-      } else {
-         $(this).on(action, function () {
-            const target = $($(this).attr('target'))
+          setTimeout(() => {
+            target.addClass('hidden')
+          }, 310)
+        }
 
-            // show
-            target.removeClass('float-down hidden')
-            target.addClass('float-up')
+        // stop propagation for all children of target
+        target.children().click(function (e) {
+          e.stopPropagation()
+        })
+      })
+      return
+    } else {
+      $(this).on(action, function () {
+        const target = $($(this).attr('target'))
 
-            // hide
-            target.click(function () {
-               $(this).removeClass('float-up')
-               $(this).addClass('float-down')
-            })
+        // show
+        target.removeClass('float-down hidden')
+        target.addClass('float-up')
 
-            // stop propagation for all children of target
-            target.children().click(function (e) {
-               e.stopPropagation()
-            })
-         })
-      }
-   })
+        // hide
+        target.click(function () {
+          $(this).removeClass('float-up')
+          $(this).addClass('float-down')
+        })
+
+        // stop propagation for all children of target
+        target.children().click(function (e) {
+          e.stopPropagation()
+        })
+      })
+    }
+  })
 })

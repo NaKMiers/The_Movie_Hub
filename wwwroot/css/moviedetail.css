@@ -336,7 +336,7 @@ body {
 .Choose-Tickets h1 {
     text-align: center;
     font-size: 40px;
-    font-family: "Anton", sans-serif;
+    font-family: Anton, sans-serif;
     margin-bottom: 4%;
     margin-top: 13%;
 }
@@ -388,10 +388,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.reduce,
-.quantity,
-.increase {}
 
 .Content-ticket-type:hover .Name-poiter {
     color: yellow;
@@ -472,7 +468,6 @@ body {
 
 .seats.selected {
     background-color: yellow;
-    /* Màu nền khi được chọn */
 }
 
 .row-of-seats {

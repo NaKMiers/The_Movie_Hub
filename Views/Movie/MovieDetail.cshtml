@@ -1,7 +1,1083 @@
 ﻿@{
     ViewData["Title"] = "MovieDetail";
 }
+<link rel="stylesheet" href="~/css/moviedetail.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="text-center">
-    <h1 class="display-4">MovieDetail</h1>
-</div>
+
+<div class="Container">
+    <div class="Box">
+        <div class="Movie-Detail">
+            <div class="Movie-img">
+                <img class="img-imggg"
+                    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F04-2024%2Fposter-lat-mat-7.jpg&w=1920&q=75">
+            </div>
+            <div class="Details">
+                <h1>LẬT MẶT 7: MỘT ĐIỀU ƯỚC (K)</h1>
+                <div class="info-item">
+                    <img src="https://cinestar.com.vn/assets/images/icon-tag.svg" alt="">
+                    <p>Tình Cảm, Phim Hài</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://cinestar.com.vn/assets/images/icon-clock.svg" alt="">
+                    <p>138'</p>
+                </div>
+                <div class="info-item">
+                    <img src="~/images/globe-removebg-preview.png" alt="">
+                    <p>Việt Nam</p>
+                </div>
+                <div class="info-item">
+                    <img src="https://cinestar.com.vn/assets/images/subtitle.svg" alt="">
+                    <p>VN</p>
+                </div>
+                <div class="info-item">
+                    <img src="~/images/user-check.png" alt="">
+                    <p style="background-color: rgb(245, 245, 19);color:black">K: Phim dành cho khán giả từ dưới 13 tuổi
+                        với điều
+                        kiện xem
+                        cùng cha, mẹ hoặc người giám hộ.</p>
+                </div>
+
+                <div class="Describe">
+                    <div class="Heading-Describe">
+                        <h2">MÔ TẢ</h2>
+                    </div>
+                    <ul>
+                        <li>Đạo diễn: Lý Hải</li>
+                        <li>Diễn viên: Thanh Hiền, Trương Minh Cường, Đinh Y Nhung, Quách Ngọc Tuyên, Trâm Anh, Trần Kim
+                            Hải</li>
+                        <li>Khởi chiếu: 20/04/2024</li>
+                    </ul>
+                </div>
+
+                <div class="Movie-Content">
+                    <div class="Heading-Content">
+                        <h2>NỘI DUNG PHIM</h2>
+                    </div>
+                    <ul>
+                        <li>Một câu chuyện lần đầu được kể bằng tất cả tình yêu, và từ tất cả những hồi ức xao xuyến
+                            nhất của đấng sinh thành</li>
+                    </ul>
+                </div>
+
+
+                <div class="Trailer">
+                    <a href="javascript:void(0)" class="Trailer_view">
+                        <img src="https://cinestar.com.vn/assets/images/ic-play-circle-red.svg" alt="">
+                        <p>Xem Trailer</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="Show-time">
+            <div class="Heading-show-time">
+                <h3 class="text-center">LỊCH CHIẾU</h3>
+            </div>
+            <div class="Box-select">
+                <div class="Select-date">
+                    <div class="Box-time">
+                        <h3>--/--</h3>
+                        <p>Thứ Sáu</p>
+                    </div>
+                </div>
+                <div class="Select-date">
+                    <div class="Box-time">
+                        <h3>--/--</h3>
+                        <p>Thứ Bảy</p>
+                    </div>
+                </div>
+                <div class="Select-date">
+                    <div class="Box-time">
+                        <h3>--/--</h3>
+                        <p>Chủ Nhật</p>
+                    </div>
+                </div>
+                <div class="Select-date">
+                    <div class="Box-time">
+                        <h3>----</h3>
+                        <p>Thứ Hai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Theater-list">
+            <div class="Heading-theater-list">
+                <h1 style="font-pri:" Josefin Sans", sans-serif;">DANH SÁCH RẠP</h1>
+            </div>
+            <div class="Choose-the-city">
+                <img src="~/Image/location.png" alt="Location Icon">
+                <p>Hồ Chí Minh</p>
+                <div class="city-list" id="cityList">
+                    <ul>
+                        <li data-city="HỒ CHÍ MINH" id="HCM">Hồ Chí Minh</li>
+                        <li data-city="ĐÀ LẠT" id="DALAT">Đà Lạt</li>
+                        <li data-city="BÌNH DƯƠNG">Bình Dương</li>
+                        <li data-city="HUẾ">Huế</li>
+                        <li data-city="TIỀN GIANG">Tiền Giang</li>
+                        <li data-city="KIÊN GIANG">Kiên Giang</li>
+                        <li data-city="LÂM ĐỒNG">Lâm Đồng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="AllCity">
+            <div class="HoChiMinh1" id="HCMblog">
+                <div class="Content-AllCity">
+                    <h1>cinestar Quốc Khánh</h1>
+                    <p>271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh</p>
+                    <p>Standard</p>
+                    <div class="time">
+                        <button>13:30</button>
+                    </div>
+                    <p>Deluxe</p>
+                    <div class="time">
+                        <button>21:00</button>
+                    </div>
+                </div>
+                <div class="Content-AllCity" style="margin-bottom:50px;">
+                    <h1>cinestar Hai Bà Trưng (TP.HCM)</h1>
+                    <p>135 Hai Bà Trưng, Phường Bến Nghé ,Quận 1,Thành Phố Hồ Chí Minh</p>
+                    <p>Standard</p>
+                    <div class="time">
+                        <button>16:10</button>
+                    </div>
+                    <p>Deluxe</p>
+                    <div class="time">
+                        <button>08:20</button>
+                    </div>
+                </div>
+            </div>
+            <div class="HoChiMinh2" id="HCMblog">
+                <h1>cinestar Quốc Khánh </h1>
+            </div>
+            <div class="HoChiMinh3">
+                <h1>cinestar Quốc Khánh</h1>
+            </div>
+            <div class="HoChiMinh4">
+                <h1>cinestar Quốc Khánh</h1>
+            </div>
+
+            <div class="Dalat" id="DLblog">
+                <div class="Content-AllCity">
+                    <h1>cinestar Đà lạt 1</h1>
+                    <p>Quảng trường Lâm Viên, P10, TP.Đà Lạt, Lâm Đồng</p>
+                </div>
+
+            </div>
+            <div class="Dalat" </div>
+                <div class="HoChiMinh3">
+                    <h1>cinestar Quốc Khánh</h1>
+                </div>
+                <div class="HoChiMinh4">
+                    <h1>cinestar Quốc Khánh</h1>
+                </div>
+            </div>
+
+            <div class="Background_trailer">
+                <div class="video">
+                    <iframe id="trailer-video" width="100%" height="100%" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <div style="position: absolute;top:0;right:0;">
+                        <img src="~/Image/close-white.png" loading="lazy" alt="Close " title="Close " width="30"
+                            height="30" id="icon_video_close">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Choose-Tickets">
+            <div class="Heading-choose">
+                <h1>CHỌN LOẠI VÉ</h1>
+            </div>
+            <div class="Ticket-type">
+                <div class="combo-item">
+                    <div class="Content-ticket-type">
+                        <p class="Name-poiter">NGƯỜI LỚN</p>
+                        <p style="color:yellow;">ĐƠN</p>
+                        <P class="Movie-ticket-prices">45.000 VNĐ</P>
+                        <div class="aaaa">
+                            <div class="count">
+                                <button class="quantity-btn" data-target="quantity-input-1"
+                                    data-action="decrease">-</button>
+                                <p class="quantity-input" id="quantity-input-1">0</p>
+                                <button class="quantity-btn" data-target="quantity-input-1"
+                                    data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Content-ticket-type">
+                        <p class="Name-poiter">HSSV-NGƯỜI CAO TUỔI</p>
+                        <p style="color: yellow;">ĐƠN</p>
+                        <P class="Movie-ticket-prices">45.000 VNĐ</P>
+                        <div class="aaaa">
+                            <div class="count">
+                                <button class="quantity-btn" data-target="quantity-input-2"
+                                    data-action="decrease">-</button>
+                                <p class="quantity-input" id="quantity-input-2">0</p>
+                                <button class="quantity-btn" data-target="quantity-input-2"
+                                    data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Content-ticket-type">
+                        <p class="Name-poiter">NGƯỜI LỚN</p>
+                        <p style="color: yellow;">ĐÔI</p>
+                        <P class="Movie-ticket-prices">95.000 VNĐ</P>
+                        <div class="aaaa">
+                            <div class="count">
+                                <button class="quantity-btn" data-target="quantity-input-3"
+                                    data-action="decrease">-</button>
+                                <p class="quantity-input" id="quantity-input-3">0</p>
+                                <button class="quantity-btn" data-target="quantity-input-3"
+                                    data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Choose-Seat">
+                <div class="note-box">
+                    <div class="Heading-choose-seat">
+                        <h1>CHỌN GHẾ</h1>
+                    </div>
+                    <div class="screen-img">
+                        <img src="https://cinestar.com.vn/assets/images/img-screen.png" alt="">
+                        <h3 class="note">Màn hình</h3>
+                    </div>
+                </div>
+                <div class="seat-box">
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">A</p>
+                        <button class="seats">
+                            <span class="Chair-order">A14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">A02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">A01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">B</p>
+                        <button class="seats">
+                            <span class="Chair-order">B14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">B02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">B01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">C</p>
+                        <button class="seats">
+                            <span class="Chair-order">C14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">C02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">C01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">D</p>
+                        <button class="seats">
+                            <span class="Chair-order">D14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">D02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">D01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">E</p>
+                        <button class="seats">
+                            <span class="Chair-order">E14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">E02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">E</p>
+                        <button class="seats">
+                            <span class="Chair-order">E14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">E02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">E01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">F</p>
+                        <button class="seats">
+                            <span class="Chair-order">F14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">F02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">F01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">G</p>
+                        <button class="seats">
+                            <span class="Chair-order">G14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">G02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">G01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">H</p>
+                        <button class="seats">
+                            <span class="Chair-order">H14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">H02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">H01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats" style="width: 30px;">J</p>
+                        <button class="seats">
+                            <span class="Chair-order">J14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">J02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">J01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">K</p>
+                        <button class="seats">
+                            <span class="Chair-order">K14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">K02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">K01</span>
+                        </button>
+                    </div>
+
+                    <div class="seat-position">
+                        <p class="row-of-seats">L</p>
+                        <button class="seats">
+                            <span class="Chair-order">L14</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L13</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L12</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L11</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L10</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L09</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L08</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L07</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L06</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L05</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L04</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L03</span>
+                        </button>
+                        <div class="null"></div>
+                        <div class="null"></div>
+                        <button class="seats">
+                            <span class="Chair-order">L02</span>
+                        </button>
+                        <button class="seats">
+                            <span class="Chair-order">L01</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="note-seat">
+                    <div class="row-regular-chair">
+                        <div class="regular-chair">
+                        </div>
+                        <p class="text-note-seat" style="margin-left: 8px;">Ghế Thường</p>
+                    </div>
+
+                    <div class="row-selected-chair">
+                        <div class="selected-chair">
+                        </div>
+                        <p class="text-note-seat" style="margin-left: 8px;">Ghế Chọn</p>
+                    </div>
+                    <div class="row-reserved-seats">
+                        <div class="reserved-seats">
+                        </div>
+                        <p class="text-note-seat" style="margin-left: 8px;">Ghế Đã Đặt</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttonHCM = document.getElementById("HCM");
+            const buttonDALAT = document.getElementById("DALAT");
+            const HCMblog = document.getElementById("HCMblog");
+            const DLblog = document.getElementById("DLblog");
+
+            // Add event listener for HCM button
+            buttonHCM.addEventListener("click", function () {
+                HCMblog.style.display = "block";
+                DLblog.style.display = "none";
+            });
+
+            // Add event listener for DALAT button
+            buttonDALAT.addEventListener("click", function () {
+                HCMblog.style.display = "none";
+                DLblog.style.display = "block";
+            });
+        });
+
+
+        //nhấn xem trailer
+        document.addEventListener("DOMContentLoaded", function () {
+            var iconvideo = document.getElementById("icon_video_close");
+            var videoShowBehind = document.querySelector(".Background_trailer");
+            var trailerDiv = document.querySelector(".Trailer");
+            var trailerVideo = document.getElementById("trailer-video");
+
+            trailerDiv.addEventListener("click", function (event) {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+                trailerVideo.src = "https://www.youtube.com/embed/xHpgjsgKJzo"; // Đặt URL video
+                videoShowBehind.style.display = "flex"; // Sử dụng flex để căn giữa
+            });
+
+            iconvideo.addEventListener("click", function () {
+                trailerVideo.pause();
+                trailerVideo.src = ""; // Xóa URL video khi đóng
+                videoShowBehind.style.display = "none";
+            });
+
+            // Đảm bảo chỉ ẩn trailer khi nhấp ra ngoài video
+            videoShowBehind.addEventListener("click", function (event) {
+                if (!event.target.closest('.video') && event.target !== iconvideo) {
+                    trailerVideo.src = ""; // Xóa URL video khi đóng
+                    videoShowBehind.style.display = "none";
+                }
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const boxTimes = document.querySelectorAll(".Box-time");
+
+            // Chỉ đặt lớp active cho box time đầu tiên
+            if (boxTimes.length > 0) {
+                boxTimes[0].classList.add("active");
+            }
+
+            // Thêm sự kiện click cho mỗi box-time
+            boxTimes.forEach(function (boxTime) {
+                boxTime.addEventListener("click", function () {
+                    // Xóa lớp active khỏi tất cả các phần tử Box-time
+                    boxTimes.forEach(function (bt) {
+                        bt.classList.remove("active");
+                    });
+                    // Thêm lớp active vào phần tử Box-time được nhấn
+                    boxTime.classList.add("active");
+                });
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const boxTimes = document.querySelectorAll(".Box-time");
+            const timeOffsets = [0, 1, 2, 3]; // Offset thời gian cho từng thẻ, ví dụ: 0 là hiện tại, 1 là +1 ngày, 2 là +2 ngày, v.v.
+
+            // Hàm để lấy ngày và thứ dựa trên offset thời gian
+            function getDayOfWeekAndDate(offset) {
+                const days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+                const currentDate = new Date();
+                currentDate.setDate(currentDate.getDate() + offset);
+                const dayOfWeek = days[currentDate.getDay()];
+                const dateOfMonth = currentDate.getDate();
+                const month = currentDate.getMonth() + 1; // Lấy tháng từ 0 đến 11, nên cần +1
+                return { dayOfWeek, dateOfMonth, month };
+            }
+
+            // Cập nhật nội dung của các phần tử ".Box-time" dựa trên offset thời gian
+            function updateBoxTimes() {
+                timeOffsets.forEach((offset, index) => {
+                    const currentDay = getDayOfWeekAndDate(offset);
+                    const h3Element = boxTimes[index].querySelector("h3");
+                    const pElement = boxTimes[index].querySelector("p");
+                    // Cập nhật nội dung của thẻ h3 (ngày) và thẻ p (thứ)
+                    h3Element.textContent = currentDay.dateOfMonth + "/" + currentDay.month;
+                    pElement.textContent = currentDay.dayOfWeek;
+                });
+            }
+
+            // Gọi hàm cập nhật ngay khi trang được tải và sau mỗi giây (để cập nhật tự động)
+            updateBoxTimes();
+            setInterval(updateBoxTimes, 1000); // Cập nhật mỗi giây
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const boxTimes = document.querySelectorAll(".Box-time");
+            const HoChiMinhElements = document.querySelectorAll('[class^="HoChiMinh"]');
+
+            // Hàm lưu trạng thái hiển thị vào localStorage
+            function saveStateToLocalStorage(index) {
+                localStorage.setItem("activeBoxTimeIndex", index.toString());
+            }
+
+            // Hàm khôi phục trạng thái từ localStorage (nếu có)
+            function restoreStateFromLocalStorage() {
+                const index = localStorage.getItem("activeBoxTimeIndex");
+                if (index !== null) {
+                    const selectedIndex = parseInt(index);
+                    // Chỉ hiển thị phần tử "HoChiMinh" và đánh dấu là "active" cho box-time tương ứng
+                    HoChiMinhElements[selectedIndex].style.display = 'block';
+                    boxTimes[selectedIndex].classList.add("active");
+                }
+            }
+
+            // Thiết lập trạng thái ban đầu cho box time đầu tiên và thẻ div HoChiMinh1
+            function setInitialState(index = 0) {
+                // Xóa lớp active khỏi tất cả các phần tử Box-time
+                boxTimes.forEach(function (bt) {
+                    bt.classList.remove("active");
+                });
+
+                // Ẩn tất cả các phần tử "HoChiMinh" trước khi hiển thị phần tử tương ứng
+                HoChiMinhElements.forEach(function (HoChiMinh) {
+                    HoChiMinh.style.display = 'none';
+                });
+
+                // Hiển thị phần tử "HoChiMinh" tương ứng với box time được nhấn
+                HoChiMinhElements[index].style.display = 'block';
+
+                // Đánh dấu box-time là "active"
+                boxTimes[index].classList.add("active");
+                saveStateToLocalStorage(index);
+            }
+
+            // Gọi hàm thiết lập trạng thái ban đầu khi trang được tải lên
+            setInitialState();
+
+            // Khi có sự kiện click vào box-time, cập nhật trạng thái
+            boxTimes.forEach(function (boxTime, index) {
+                boxTime.addEventListener("click", function () {
+                    setInitialState(index);
+                });
+            });
+
+            // Khôi phục trạng thái từ localStorage nếu có
+            restoreStateFromLocalStorage();
+        });
+
+
+        //chọn thành phố
+        document.addEventListener("DOMContentLoaded", function () {
+            const chooseCity = document.querySelector('.Choose-the-city');
+            const cityList = document.querySelector('.city-list');
+
+            // Lấy danh sách các thành phố từ phần tử ul
+            const cities = document.querySelectorAll('.city-list li');
+
+            // Thêm sự kiện click cho mỗi thành phố
+            cities.forEach(function (city) {
+                city.addEventListener('click', function () {
+                    // Lấy nội dung của thành phố được chọn và chuyển thành chữ hoa
+                    const selectedCity = city.textContent.toUpperCase();
+                    // Thay đổi nội dung của phần tử <p> thành thành phố được chọn
+                    chooseCity.querySelector('p').textContent = selectedCity;
+                    // Ẩn danh sách thành phố sau khi chọn
+                    cityList.classList.remove('active');
+                });
+            });
+
+            // Thêm sự kiện click cho phần tử Choose-the-city
+            chooseCity.addEventListener('click', function () {
+                // Toggle hiển thị của city-list khi nhấn vào Choose-the-city
+                cityList.classList.toggle('active');
+            });
+
+            // Đảm bảo chỉ ẩn danh sách thành phố khi nhấp ra bên ngoài
+            window.addEventListener('click', function (event) {
+                if (!event.target.closest('.Choose-the-city')) {
+                    cityList.classList.remove('active');
+                }
+            });
+        });
+
+        //xử lý tăng giảm số lượng và thay đổi số lượng trong quantityInput
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.quantity-btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const targetId = this.getAttribute('data-target');
+                    const action = this.getAttribute('data-action');
+                    const quantityInput = document.getElementById(targetId);
+                    let quantity = parseInt(quantityInput.textContent);
+
+                    if (action === 'decrease' && quantity > 0) {
+                        quantity--;
+                    } else if (action === 'increase') {
+                        quantity++;
+                    }
+
+                    quantityInput.textContent = quantity;
+                });
+            });
+        });
+
+
+        //nhấn vào nút button sẽ đổi thành màu vàng và khi nhấn thêm lần nữa sẽ về màu mặc định
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const seats = document.querySelectorAll('.seats');
+            seats.forEach(seat => {
+                seat.addEventListener('click', () => {
+                    seat.classList.toggle('selected');
+                });
+            });
+        });
+
+    </script>

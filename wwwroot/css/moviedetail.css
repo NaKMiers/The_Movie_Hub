@@ -1,0 +1,745 @@
+.Container {
+    width: 100%;
+    height: 3500px;
+    margin-bottom: 100px;
+}
+
+.Box {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.Movie-Detail {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.Movie-img {
+    max-width: 55%;
+    object-fit: contain;
+    border: 1px solid white;
+}
+
+
+.Details {
+    width: 50%;
+    height: auto;
+    margin-left: 18px;
+}
+
+.Details h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.info-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.info-item {
+    display: flex;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+
+.info-item p {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.Heading-Describe,
+.Heading-Content {
+    font-size: 23px;
+    margin-top: 25px;
+
+}
+
+.Heading-Describe h2,
+.Heading-Content h2 {
+    color: white;
+}
+
+.Describe li {
+    font-size: 15px;
+}
+
+.Movie-Content li {
+    font-size: 18px;
+}
+
+.Trailer a {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.Trailer_view {
+    font-size: 20px;
+    margin-left: 10px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.Background_trailer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.video {
+    position: relative;
+    width: 80%;
+    height: 80%;
+}
+
+
+
+@media (max-width:991px) {
+    .video {
+        margin-top: 35%;
+        height: 25%;
+    }
+}
+
+body {
+    width: 100%;
+    height: auto;
+}
+
+.Show-time {
+    width: 600px;
+    height: 100px;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+    /* Added to ensure Box-time can be positioned within it */
+}
+
+.Heading-show-time {
+    width: auto;
+    height: auto;
+}
+
+.Heading-show-time h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.Box-select {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.Select-date {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.Box-time {
+    width: 80%;
+    height: 95%;
+    margin-top: 50px;
+    border-radius: 5%;
+    border: 1px solid yellow;
+    text-align: center;
+    margin-left: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.Box-time.active {
+    background-color: yellow;
+    color: rgb(162, 75, 184);
+}
+
+.Box-time h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.Theater-list {
+    width: 850px;
+    height: auto;
+    margin: 140px auto;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.Heading-theater-list {
+    margin: 0;
+}
+
+.Heading-theater-list h1 {
+    font-size: 30px;
+}
+
+.Choose-the-city {
+    width: 140px;
+    height: 40px;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+}
+
+.Choose-the-city img {
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 7px;
+    margin-left: 10px;
+}
+
+.Choose-the-city p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: yellow;
+}
+
+.city-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.city-list.active {
+    display: block;
+}
+
+.city-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.city-list {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.city-list li {
+    color: black;
+    width: 97px;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.city-list li:hover {
+    width: 97px;
+    background-color: gray;
+}
+
+.AllCity {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+.Content-AllCity {
+    width: 800px;
+    height: 330px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color:
+        rgb(102, 29, 141);
+}
+
+.Content-AllCity h1 {
+    color: yellow;
+    padding-top: 20px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+
+.Content-AllCity p {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.time {
+    width: 65px;
+    height: 35px;
+    margin-left: 25px;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+
+.time:hover {
+    border: 1px solid yellow;
+    color: yellow;
+}
+
+.time button {
+    text-align: center;
+    margin: auto;
+}
+
+#DLblog {
+    display: none;
+}
+
+.Choose-Tickets {
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+
+.Heading-choose {
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+.Choose-Tickets h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: "Anton", sans-serif;
+    margin-bottom: 4%;
+    margin-top: 13%;
+}
+
+.Ticket-type {
+    width: 88%;
+    margin: auto;
+}
+
+.combo-item {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Content-ticket-type {
+    width: 50%;
+    height: 57%;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.Content-ticket-type p {
+    padding: 5px 0 0 5px;
+}
+
+.aaaa {
+    width: 30%;
+    height: 20%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #94a3b8;
+    margin-top: 10px;
+    color: #0F172A;
+
+}
+
+.reduce {
+    width: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reduce,
+.quantity,
+.increase {}
+
+.Content-ticket-type:hover .Name-poiter {
+    color: yellow;
+}
+
+.count {
+    display: flex;
+    padding: 3px;
+}
+
+.count:hover,
+.aaaa:hover {
+    background-color: yellow;
+}
+
+.quantity-btn {
+    color: #0F172A;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    transition: color 0.5s;
+    margin: 6px 0;
+}
+
+
+.quantity-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.quantity-btn:not(:disabled):hover {
+    background-color: #663399;
+    color: white;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.note-box {
+    height: 50%;
+}
+
+.Choose-Seat {
+    width: 90%;
+    height: 500px;
+    margin: auto;
+}
+
+.Heading-choose-seat {
+    width: 80%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    font-size: 2.4rem;
+    margin-top: 130px;
+}
+
+.seat-box {
+    width: 1000px;
+    margin: auto;
+}
+
+.null {
+    width: 60px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.seats.selected {
+    background-color: yellow;
+    /* Màu nền khi được chọn */
+}
+
+.row-of-seats {
+    padding: 5px;
+    margin-right: 30px;
+}
+
+.seat-position {
+    width: 82%;
+    height: 20%;
+    margin: auto;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.Chair-order span {
+    width: 30px;
+    height: 20px;
+    align-items: center;
+}
+
+.seats {
+    padding: 5px;
+    width: 50px;
+    height: 23px;
+    margin-right: 15px;
+    color: #663399;
+    font-weight: bold;
+    align-items: center;
+    font-size: 12px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.note-seat {
+    width: 95%;
+    height: auto;
+    margin: auto;
+    margin-top: 4%;
+    display: flex;
+}
+
+.row-regular-chair,
+.row-selected-chair,
+.row-reserved-seats {
+    display: flex;
+    margin: auto;
+}
+
+.selected-chair {
+    width: 33.5px;
+    height: 23px;
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+.reserved-seats {
+    width: 33.5px;
+    height: 23px;
+    background-color: #535b69;
+    border-radius: 5px;
+}
+
+.regular-chair {
+    width: 33.5px;
+    height: 23px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.note {
+    text-align: center;
+    margin-top: -80px;
+    font-size: 24px;
+}
+
+.screen-img {
+    margin-top: 50px;
+}
+
+.screen-img img {
+    margin: auto;
+}
+
+@media screen and (max-width: 930px) {
+
+    .Ticket-type {
+        width: 90%;
+        height: auto;
+        margin: auto;
+    }
+
+    .combo-item {
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+    }
+
+    .Content-ticket-type {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .Movie-Detail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex: 1;
+    }
+
+    body {
+        width: 100%;
+        height: auto;
+    }
+
+    .Movie-img {
+        width: 40%;
+
+    }
+
+    .Details h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .info-item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .info-item {
+        display: flex;
+        margin-left: 5px;
+        margin-bottom: 15px;
+    }
+
+    .info-item p {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+
+
+}
+
+
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        height: auto;
+    }
+
+    .Movie-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Details {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .Choose-the-city {
+        margin: 10px 0;
+    }
+
+    .city-list {
+        width: 100%;
+    }
+
+    .video {
+        width: 90%;
+        height: auto;
+        margin-top: 35%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    body {
+        width: 100%;
+        height: auto;
+    }
+
+    .Movie-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .Details {
+        width: 100%;
+        height: 50%;
+        margin-left: 0;
+    }
+
+
+
+    .Choose-the-city {
+        margin: 10px 0;
+    }
+
+    .city-list {
+        width: 100%;
+    }
+
+    .video {
+        width: 100%;
+        height: auto;
+        margin-top: 35%;
+    }
+
+    .time {
+        width: 50px;
+        height: 30px;
+    }
+
+    .Content-AllCity {
+        width: 95%;
+    }
+}
+
+@media(max-width:801px) {
+    .note {
+        margin-top: -40px;
+    }
+
+    .seat-box {
+        width: 100%;
+    }
+}
+
+@media(max-width:1101px) {
+
+    .seat-box {
+        width: 1000px;
+    }
+}
+
+@media(max-width:1080px) {
+
+    .seat-box {
+        width: 950px;
+    }
+
+    .Chair-order span {
+        width: 30px;
+        height: 20px;
+        align-items: center;
+    }
+
+    .seats {
+        width: 100px;
+        height: 25px;
+        color: #663399;
+        font-weight: bold;
+        align-items: center;
+        margin-right: 18px;
+        font-size: 12px;
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

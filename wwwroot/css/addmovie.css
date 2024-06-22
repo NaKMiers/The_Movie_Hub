@@ -1,0 +1,72 @@
+.Admin_vertical_all {
+    display: flex;
+    height: 700PX;
+ }
+ .Admin_toolbar_title h1
+ {
+   text-align: center;
+   padding: 10px;
+ }
+ .Admin_toolbar {
+    width: 15%;
+    background-color: rgb(6, 56, 107);
+ }
+ .Admin_toolbar_title{
+    background-color: rgb(63, 0, 117);
+ }
+ .Admin_list_toolbar {
+    margin-top: 20px;
+ }
+ .Admin_list_toolbar_item {
+    padding: 5px;
+    cursor: pointer;
+    
+    gap:10px
+    
+ }
+ .Admin_view_screen_overview {
+    width: 90%;
+    background-color: aliceblue;
+ }
+ .Admin_view_screen_order {
+    width: 90%;
+ }
+ .Admin_view_tilter {
+    display: flex;
+    background-color: #b8b8b8;
+    justify-content: end;
+    padding: 10px;
+ }
+ .Admin_result {
+    margin: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+ }
+ .Admin_status {
+    margin: 0px 50px 0px;
+    border: 1px solid black;
+    border-radius: 5px;
+ }
+ .Admin_content_result {
+    display: flex;
+ }
+ .Admin_content_status {
+    display: flex;
+ }
+ .Admin_content_result_item {
+    margin: auto;
+    align-items: center;
+    padding: 30px;
+ }
+ .Admin_content_status_tem {
+    text-align: center;
+    padding: 30px;
+    width: 50%;  
+ }
+ #Overview-hidden-4,
+ #Overview-hidden-3,
+ #Overview-hidden-2,
+ #Overview-hidden-1{
+    display: none;
+ }
+  

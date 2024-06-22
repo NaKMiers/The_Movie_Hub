@@ -1,0 +1,162 @@
+
+.TheaterAdd_vertical_all {
+   display: flex;
+   height: 700PX;
+}
+.TheaterAdd_toolbar_title h1
+{
+  text-align: center;
+  padding: 10px;
+}
+.TheaterAdd_toolbar {
+   width: 15%;
+   background-color: rgb(6, 56, 107);
+}
+.TheaterAdd_toolbar_title{
+   background-color: rgb(63, 0, 117);
+}
+.TheaterAdd_list_toolbar {
+   margin-top: 20px;
+}
+.TheaterAdd_list_toolbar_item {
+   padding: 5px;
+   cursor: pointer;
+   
+   gap:10px
+   
+}
+.TheaterAdd_view_screen_overview {
+   width: 90%;
+   background-color: aliceblue;
+}
+.TheaterAdd_view_screen_order {
+   width: 90%;
+}
+.TheaterAdd_view_tilter {
+   display: flex;
+   background-color: #b8b8b8;
+   justify-content: end;
+   padding: 10px;
+}
+.TheaterAdd_result {
+   margin: 30px;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+.TheaterAdd_status {
+   margin: 0px 50px 0px;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+.TheaterAdd_content_result {
+   display: flex;
+}
+.TheaterAdd_content_status {
+   display: flex;
+}
+.TheaterAdd_content_result_item {
+   margin: auto;
+   align-items: center;
+   padding: 30px;
+}
+.TheaterAdd_content_status_tem {
+   text-align: center;
+   padding: 30px;
+   width: 50%;  
+}
+#Overview-hidden-4,
+#Overview-hidden-3,
+#Overview-hidden-2,
+#Overview-hidden-1{
+   display: none;
+}
+ 
+
+/*them rap*/
+.TheaterAdd_List_Cinema
+{
+  width: 100%;
+  background-color: #fff;
+}
+.TheaterAdd_List_Cinema_nav
+{
+  width: 100%;
+ padding: 10px;
+ background-color: #b8b8b8;
+}
+.Cinema_nav_button-left-update, 
+.Cinema_nav_button-left-back 
+{
+  border: 1px solid #000;
+  display: flex;
+  gap:10px;
+  padding: 3px;
+  border-radius: 5px;
+  
+}
+.Cinema_nav_button-left-update
+{
+  background-color: blue;
+}
+.TheaterAdd_List_Cinema_nav_button
+{
+  margin-top:20px;
+  width:100%;
+}
+.TheaterAdd_List_Cinema_nav_button-left
+{
+  width: 50%;
+  display:flex;
+  gap:20px;
+  padding:10px;
+}
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 1200px;
+  height: 600px;
+}
+.form-container h2 {
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-group button:hover {
+  background-color: #45a049;
+}
+#address-cinema
+{
+  height: 100px;
+}
+#addressmap
+{
+  height: 150px;
+}
+.Cinema_nav_button-left-update:hover
+{
+  background-color: #eded0e;
+  transition: 1s ;
+  color: #fff;
+}

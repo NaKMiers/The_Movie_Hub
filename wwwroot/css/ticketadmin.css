@@ -1,0 +1,214 @@
+
+.Ticket_vertical_all {
+    display: flex;
+    height: 700px;
+ }
+ .Ticket_toolbar_title h1
+ {
+   text-align: center;
+   padding: 10px;
+ }
+ .Ticket_toolbar {
+    width: 15%;
+    background-color: rgb(6, 56, 107);
+ }
+ .Ticket_toolbar_title{
+    background-color: rgb(63, 0, 117);
+ }
+ .Ticket_list_toolbar {
+    margin-top: 20px;
+ }
+ .Ticket_list_toolbar_item {
+    padding: 5px;
+    cursor: pointer;
+    
+    gap:10px
+    
+ }
+ .Ticket_view_screen_overview {
+    width: 90%;
+    background-color: aliceblue;
+ }
+ .Ticket_view_screen_order {
+    width: 90%;
+ }
+ .Ticket_view_tilter {
+    display: flex;
+    background-color: #b8b8b8;
+    justify-content: end;
+    padding: 10px;
+ }
+ .Ticket_result {
+    margin: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+ }
+ .Ticket_status {
+    margin: 0px 50px 0px;
+    border: 1px solid black;
+    border-radius: 5px;
+ }
+ .Ticket_content_result {
+    display: flex;
+ }
+ .Ticket_content_status {
+    display: flex;
+ }
+ .Ticket_content_result_item {
+    margin: auto;
+    align-items: center;
+    padding: 30px;
+ }
+ .Ticket_content_status_tem {
+    text-align: center;
+    padding: 30px;
+    width: 50%;  
+ }
+ #Overview-hidden-4,
+ #Overview-hidden-3,
+ #Overview-hidden-2,
+ #Overview-hidden-1{
+    display: none;
+ }
+  
+ 
+ /*them rap*/
+ .Ticket_List_Cinema
+ {
+   width: 100%;
+   background-color: #fff;
+ }
+ .Ticket_List_Cinema_nav
+ {
+   width: 70%;
+  padding: 10px;
+  background-color: #b8b8b8;
+ }
+ .Cinema_nav_button-left-update, 
+ .Cinema_nav_button-left-back 
+ {
+   border: 1px solid #000;
+   display: flex;
+   gap:10px;
+   padding: 3px;
+   border-radius: 5px;
+   
+ }
+ .Cinema_nav_button-left-update
+ {
+   
+ }
+ .Ticket_List_Cinema_nav_button
+ {
+   margin-top:20px;
+   width:100%;
+ }
+ .Ticket_List_Cinema_nav_button-left
+ {
+   width: 50%;
+   display:flex;
+   gap:20px;
+   padding:10px;
+ }
+ .form-container {
+   background-color: white;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   width: 1200px;
+   height: 600px;
+ }
+ .form-container h2 {
+   margin-bottom: 20px;
+ }
+ .form-group {
+   margin-bottom: 15px;
+ }
+ .form-group label {
+   display: block;
+   margin-bottom: 5px;
+ }
+ .form-group input, .form-group select {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+ }
+ .form-group button {
+   width: 100%;
+   padding: 10px;
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+ }
+ .form-group button:hover {
+   background-color: #45a049;
+ }
+ #address-cinema
+ {
+   height: 100px;
+ }
+ #addressmap
+ {
+   height: 150px;
+ }
+ .Cinema_nav_button-left-update:hover
+ {
+   background-color: #eded0e;
+   transition: 1s ;
+   color: #fff;
+ }
+ table {
+  width: 95%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: #e9e9e9;
+}
+.Ticket_All_toolbar
+{
+    width: 20%;
+    align-items:center;
+    height:700px;
+}
+.Ticket_All_toolbar_logo
+{
+    padding: 10px;
+    width:50%;
+    margin:auto;
+}
+.Ticket_All_toolbar_list
+  {
+      margin: auto;
+      width:70%;
+      
+  }
+  .Ticket_list-items {
+    padding: 20px;
+  }
+  .Ticket_All_toolbar {
+    background-color: #35355c;
+  }

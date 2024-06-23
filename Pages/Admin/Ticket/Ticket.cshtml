@@ -7,113 +7,157 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.Ticket.TicketModel
-
+@*
 <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-    <h1>Tickets (@Model.Tickets.Count())</h1>
-    <a href="/Admin">Admin</a>
+<h1>Tickets (@Model.Tickets.Count())</h1>
+<a href="/Admin">Admin</a>
 
-    <div class="flex flex-col gap-4 text-left">
-        @foreach (var ticket in Model.Tickets)
-        {
-            <div class="flex gap-3">
-                <div class="flex gap-2">
-                </div>
+<div class="flex flex-col gap-4 text-left">
+@foreach (var ticket in Model.Tickets)
+{
+<div class="flex gap-3">
+<div class="flex gap-2">
+</div>
 
-                <form method="post">
-                    <input type="hidden" name="Id" value="@ticket.Id" />
-                    <button asp-page-handler="Delete" style="color: red">Delete</button>
-                </form>
-            </div>
+<form method="post">
+<input type="hidden" name="Id" value="@ticket.Id" />
+<button asp-page-handler="Delete" style="color: red">Delete</button>
+</form>
+</div>
+}
+</div>
+</div> *@
+
+<head>
+    <link rel="stylesheet" href="~/Css/Ticket.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div class="Ticket_vertical_all">
+    <div class="Ticket_List_Cinema">
+        <div class="Ticket_List_Cinema_form" style="margin-top:20px;padding:10px">
+            <div class="Ticket_List_Cinema_form_left" style="display: flex;">
+                <div class="form-container" style="color: #000;border:1px solid #000;width:100%">
+
+                    <div class=" Ticket_List_Cinema_nav_button" style="width: 100%;margin:auto">
+                        <div class="Ticket_List_Cinema_nav_button-left">
+                            <div class="Cinema_nav_button-left-back">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
+                                </svg>
+
+                                <span style="color: #000;">Tạo vé</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Vé</th>
+                                <th>Loại ghế</th>
+                                <th>Hình thức chiếu</th>
+                                <th>Tên phim</th>
+                                <th>Loại xuất chiếu</th>
+                                <th>Phòng chiếu</th>
+                                <th>Giá vé</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Ghế VIP</td>
+                                <td>2D</td>
+                                <td>Avengers: Endgame</td>
+                                <td>Thường</td>
+                                <td>1</td>
+                                <td>150,000 VND</td>
+                                <td class="actions">
+                                    <button onclick="editTicket(1)">Sửa</button>
+                                    <button onclick="deleteTicket(1)">Xóa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Ghế Thường</td>
+                                <td>3D</td>
+                                <td>Avatar</td>
+                                <td>Thường</td>
+                                <td>2</td>
+                                <td>200,000 VND</td>
+                                <td class="actions">
+                                    <button onclick="editTicket(2)">Sửa</button>
+                                    <button onclick="deleteTicket(2)">Xóa</button>
+                                </td>
+                            </tr>
+                            <!-- Thêm các hàng (rows) khác tương tự cho các vé khác -->
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="Ticket_All_toolbar" style="width: 25%;">
+        <div class="Ticket_All_toolbar_logo">
+            <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+        </div>
+        <div class="Ticket_All_toolbar_list">
+            <ul>
+                <li class="Ticket_list-items"><a href="">Tổng quan</a></li>
+                <li class="Ticket_list-items"><a href="/Management">Quản lý phim</a></li>
+                <li class="Ticket_list-items"><a href="/Ticket">Quản lý xuất chiếu</a></li>
+                <li class="Ticket_list-items"><a href="/ticket">Quản lý vé</a></li>
+                <li class="Ticket_list-items"><a href="/customer">Quản lý khách hàng</a></li>
+                <li class="Ticket_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+            </ul>
+        </div>
     </div>
 </div>
+</div>
+<script>
+    // Hàm chuyển hướng đến trang chỉnh sửa vé
+    function editTicket(id) {
+        window.location.href = `/Admin/Ticket/${id}/Edit`;
+    }
 
-
-@* <link rel="stylesheet" href="~/Css/ticket.css">
-<style>
-
-</style>
-
-<div class="Ticket_Movie">
-<div class="Ticket_All_table">
-<div class="Ticket_All_table_title" style="padding-top:100px">
-<span style="color: #000;font-size:24px">Quản lý khách hàng </span>
-</div>
-<span></span>
-<div class="Customer_All_table_Listadd">
-<div class="Customer_List_Movie">
-<span style="font-weight: bold;font-size:20px">Danh sách phim đang chiếu</span>
-</div>
-<div class="Ticket_Add_Movie" id="addMovieBtn" style="display:none;">
-<div class="Ticket_Add_Movie_icon">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-stroke="currentColor" class="size-6">
-<path stroke-linecap="round" stroke-linejoin="round"
-d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
-
-</div>
-<div class="Ticket_Add_Movie_text">
-<span style="font-size: 14px;">Thêm phim</span>
-</div>
-</div>
-</div>
-<div class="Infor-Ticket">
-<div class="Infor-Ticket-cinema1">
-<div class="Infor-Ticket-cinema1-title" style="margin-top: 10px;">
-<span>Cinestar Quốc Khánh</span>
-</div>
-<div class="Infor-Ticket-cinema1-name">
-<span>Tên phim :Lật mặt 7:1 điều ước</span>
-</div>
-<div class="Infor-Ticket-cinema1-time" style="display: flex;">
-<div class=""><span>Giờ :9h30</span> </div>
-<div class=""><span>Ghế : C13</span> </div>
-</div>
-<div class="Infor-Ticket-cinema1-date" style="display: flex; ">
-<div class=""><span>Ngày 10/06/2024</span> </div>
-<div class=""><span>Phòng :1</span> </div>
-</div>
-<div class="Infor-Ticket-cinema1-price">
-<span>Giá tiền : 80.000vnđ</span>
-</div>
-</div>
-<div class="Infor-Ticket-cinema2">
-<div class="Infor-Ticket-cinema2-title" style="margin-top: 10px;">
-<span>Cinestar Quốc Khánh</span>
-</div>
-<div class="Infor-Ticket-cinema2-name">
-<span>Tên phim :Lật mặt 7:1 điều ước</span>
-</div>
-<div class="Infor-Ticket-cinema2-time" style="display: flex;">
-<div class=""><span>Giờ :9h30</span> </div>
-<div class=""><span>Ghế : C13</span> </div>
-</div>
-<div class="Infor-Ticket-cinema2-date" style="display: flex; ">
-<div class=""><span>Ngày 10/06/2024</span> </div>
-<div class=""><span>Phòng :1</span> </div>
-</div>
-<div class="Infor-Ticket-cinema2-price">
-<span>Giá tiền : 80.000vnđ</span>
-</div>
-</div>
-</div>
-</div>
-<div class="Ticket_All_toolbar">
-<div class="Ticket_All_toolbar_logo">
-<img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-</div>
-<div class="Ticket_All_toolbar_list">
-<ul>
-<li class="Ticket_list-items"><a href="">Tổng quan</li>
-<li class="Ticket_list-items"><a href="/Management">Quản lý phim</a></li>
-<li class="Ticket_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
-<li class="Ticket_list-items"><a href="/ticket">Quản lý vé</a></li>
-<li class="Ticket_list-items"><a href="/customer">Quản lý khách hàng</a></li>
-<li class="Ticket_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-</div> *@
+    // Hàm xóa vé
+    function deleteTicket(id) {
+        // Xác nhận trước khi xóa
+        if (confirm('Bạn có chắc chắn muốn xóa vé này?')) {
+            // Gửi yêu cầu xóa đến server hoặc xử lý xóa tại đây
+            console.log('Vé với ID ' + id + ' đã bị xóa.');
+        }
+    }
+</script>

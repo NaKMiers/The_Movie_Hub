@@ -28,3 +28,163 @@
       }
    </div>
 </div>
+
+<head>
+   <link rel="stylesheet" href="~/Css/theaterlist.css">
+
+</head>
+<div class="TheaterList_vertical_all">
+   <div class="TheaterList_List_Cinema">
+      <div class="TheaterList_List_Cinema_form" style="margin-top:20px;padding:10px">
+         <div class="TheaterList_List_Cinema_form_left" style="display: flex;">
+            <div class="form-container" style="color: #000;border:1px solid #000;width:100%">
+
+               <div class=" TheaterList_List_Cinema_nav_button" style="width: 100%;margin:auto">
+                  <div class="TheaterList_List_Cinema_nav_button-left">
+
+                     <span style="font-size: 30px;font-weight:bold">Danh sách rạp phim</span>
+
+
+                  </div>
+               </div>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>ID</th>
+                        <th>Tên rạp</th>
+                        <th>Địa chỉ</th>
+                        <th>Số phòng</th>
+                        <th>Ảnh rạp</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>1</td>
+                        <td>Cinestar Hai Bà Trưng</td>
+                        <td>123 Hai Bà Trưng, Quận 1, TP.HCM</td>
+                        <td>5</td>
+                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
+                        <td class="actions">
+                           <button onclick="editCinema(1)">Sửa</button>
+                        </td>
+                        <td class="actions">
+                           <button onclick="deleteCinema(1)">Xóa</button>
+                        </td>
+
+                     </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>Cinestar Đà Lạt</td>
+                        <td>Quảng trường Lâm Viên, P.10. Tp. Đà Lạt</td>
+                        <td>10</td>
+                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
+                        <td class="actions">
+                           <button onclick="editCinema(1)">Sửa</button>
+                        </td>
+                        <td class="actions">
+                           <button onclick="deleteCinema(2)">Xóa</button>
+                        </td>
+                     </tr>
+                     <!-- Thêm các hàng (rows) khác tương tự cho các rạp khác -->
+                     <tr>
+                        <td>3</td>
+                        <td>Cinestar Quốc Thanh</td>
+                        <td>271 Nguyễn Trãi, P. Nguyễn Cư Trinh, Q.1, Tp. Hồ Chí Minh</td>
+                        <td>15</td>
+                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
+                        <td class="actions">
+                           <button onclick="editCinema(3)">Sửa</button>
+                        </td>
+                        <td>
+                           <button onclick="deleteCinema(3)">Xóa</button>
+                        </td>
+
+                     </tr>
+                     <tr>
+                        <td>4</td>
+                        <td>Cinestar Huế</td>
+                        <td>25 Hai Bà Trưng, P. Vĩnh Ninh, Tp. Huế</td>
+                        <td>12</td>
+                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
+                        <td class="actions">
+                           <button onclick="editCinema(4)">Sửa</button>
+
+                        </td>
+                        <td class="actions">
+                           <button onclick="deleteCinema(4)">Xóa</button>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>Cinestar Mỹ Tho</td>
+                        <td>52, Đinh Bộ Lĩnh, Phường 3, TP. Mỹ Tho, tỉnh Tiền Giang</td>
+                        <td>12</td>
+                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
+                        <td class="actions">
+                           <button onclick="editCinema(5)">Sửa</button>
+                        </td>
+                        <td class="actions">
+                           <button onclick="deleteCinema(4)">Xóa</button>
+                        </td>
+
+                     </tr>
+                     <tr>
+                        <td>6</td>
+                        <td>Cinestar Sinh Viên</td>
+                        <td>Nhà Văn hóa Sinh viên Đại học Quốc gia TP.HCM, P. Đông Hòa, tx. Dĩ An, Bình Dương</td>
+                        <td>20</td>
+                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
+                        <td class="actions">
+                           <button onclick="editCinema(5)">Sửa</button>
+                        </td>
+                        <td class="actions">
+                           <button onclick="deleteCinema(4)">Xóa</button>
+                        </td>
+                     </tr>
+               </table>
+
+            </div>
+         </div>
+      </div>
+
+   </div>
+   <div class="TheaterList_All_toolbar" style="width: 25%;">
+      <div class="TheaterList_All_toolbar_logo">
+         <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+      </div>
+      <div class="TheaterList_All_toolbar_list">
+         <ul>
+            <li class="TheaterList_list-items"><a href="">Tổng quan</a></li>
+            <li class="TheaterList_list-items"><a href="/Management">Quản lý phim</a></li>
+            <li class="TheaterList_list-items"><a href="/TheaterList">Quản lý xuất chiếu</a></li>
+            <li class="TheaterList_list-items"><a href="/ticket">Quản lý vé</a></li>
+            <li class="TheaterList_list-items"><a href="/customer">Quản lý khách hàng</a></li>
+            <li class="TheaterList_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+         </ul>
+      </div>
+   </div>
+</div>
+</div>
+<script>
+   // Hàm chuyển hướng đến trang chỉnh sửa rạp phim
+   function editCinema(id) {
+      window.location.href = `/Admin/Theater/${id}/Edit`;
+   }
+
+   // Hàm xóa rạp phim
+   function deleteCinema(id) {
+      // Xác nhận trước khi xóa
+      if (confirm('Bạn có chắc chắn muốn xóa rạp phim này?')) {
+         // Gửi yêu cầu xóa đến server hoặc xử lý xóa tại đây
+         console.log('Rạp phim với ID ' + id + ' đã bị xóa.');
+      }
+   }
+   @* function deleteCinema() {
+      var row = event.target.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+      // Có thể thêm xử lý xác nhận xóa trước khi thực hiện
+      } *@
+
+</script>

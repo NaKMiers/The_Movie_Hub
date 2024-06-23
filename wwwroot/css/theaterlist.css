@@ -1,65 +1,65 @@
 
-.TheaterAdd_vertical_all {
+.TheaterList_vertical_all {
     display: flex;
     height: 700px;
  }
- .TheaterAdd_toolbar_title h1
+ .TheaterList_toolbar_title h1
  {
    text-align: center;
    padding: 10px;
  }
- .TheaterAdd_toolbar {
+ .TheaterList_toolbar {
     width: 15%;
     background-color: rgb(6, 56, 107);
  }
- .TheaterAdd_toolbar_title{
+ .TheaterList_toolbar_title{
     background-color: rgb(63, 0, 117);
  }
- .TheaterAdd_list_toolbar {
+ .TheaterList_list_toolbar {
     margin-top: 20px;
  }
- .TheaterAdd_list_toolbar_item {
+ .TheaterList_list_toolbar_item {
     padding: 5px;
     cursor: pointer;
     
     gap:10px
     
  }
- .TheaterAdd_view_screen_overview {
+ .TheaterList_view_screen_overview {
     width: 90%;
     background-color: aliceblue;
  }
- .TheaterAdd_view_screen_order {
+ .TheaterList_view_screen_order {
     width: 90%;
  }
- .TheaterAdd_view_tilter {
+ .TheaterList_view_tilter {
     display: flex;
     background-color: #b8b8b8;
     justify-content: end;
     padding: 10px;
  }
- .TheaterAdd_result {
+ .TheaterList_result {
     margin: 30px;
     border: 1px solid black;
     border-radius: 5px;
  }
- .TheaterAdd_status {
+ .TheaterList_status {
     margin: 0px 50px 0px;
     border: 1px solid black;
     border-radius: 5px;
  }
- .TheaterAdd_content_result {
+ .TheaterList_content_result {
     display: flex;
  }
- .TheaterAdd_content_status {
+ .TheaterList_content_status {
     display: flex;
  }
- .TheaterAdd_content_result_item {
+ .TheaterList_content_result_item {
     margin: auto;
     align-items: center;
     padding: 30px;
  }
- .TheaterAdd_content_status_tem {
+ .TheaterList_content_status_tem {
     text-align: center;
     padding: 30px;
     width: 50%;  
@@ -73,12 +73,12 @@
   
  
  /*them rap*/
- .TheaterAdd_List_Cinema
+ .TheaterList_List_Cinema
  {
    width: 100%;
    background-color: #fff;
  }
- .TheaterAdd_List_Cinema_nav
+ .TheaterList_List_Cinema_nav
  {
    width: 70%;
   padding: 10px;
@@ -94,16 +94,13 @@
    border-radius: 5px;
    
  }
- .Cinema_nav_button-left-update
- {
-   
- }
- .TheaterAdd_List_Cinema_nav_button
+
+ .TheaterList_List_Cinema_nav_button
  {
    margin-top:20px;
    width:100%;
  }
- .TheaterAdd_List_Cinema_nav_button-left
+ .TheaterList_List_Cinema_nav_button-left
  {
    width: 50%;
    display:flex;
@@ -160,22 +157,7 @@
    transition: 1s ;
    color: #fff;
  }
- table {
-  width: 95%;
-  border-collapse: collapse;
-  margin: auto;
-}
-
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
+ 
 .btn {
   padding: 5px 10px;
   text-decoration: none;
@@ -188,27 +170,54 @@ th {
 .btn:hover {
   background-color: #e9e9e9;
 }
-.TheaterAdd_All_toolbar
+.TheaterList_All_toolbar
 {
     width: 20%;
     align-items:center;
     height:700px;
 }
-.TheaterAdd_All_toolbar_logo
+.TheaterList_All_toolbar_logo
 {
     padding: 10px;
     width:50%;
     margin:auto;
 }
-.TheaterAdd_All_toolbar_list
+.TheaterList_All_toolbar_list
   {
       margin: auto;
       width:70%;
       
   }
-  .TheaterAdd_list-items {
+  .TheaterList_list-items {
     padding: 20px;
   }
-  .TheaterAdd_All_toolbar {
+  .TheaterList_All_toolbar {
     background-color: #35355c;
   }
+  table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 20px;
+ }
+
+ th,
+ td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+ }
+
+ th {
+    background-color: #f2f2f2;
+ }
+
+ .actions {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .actions button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+ }

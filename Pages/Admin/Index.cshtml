@@ -23,6 +23,7 @@
 
 <head>
     <link rel="stylesheet" href="~/Css/useradmin.css">
+
 </head>
 <div class="Admin_vertical_all">
     <div class="Admin_toolbar">
@@ -46,7 +47,9 @@
                     <a href="/admin/Theater/add">
                         <li>+ Thêm rạp </li>
                     </a>
-                    <li>+ Danh sách rạp </li>
+                    <a href="/Admin/Theater/Edit">
+                        <li>+ Danh sách rạp </li>
+                    </a>
                 </ul>
             </li>
             <li class=" Admin_list_toolbar_item">
@@ -85,49 +88,12 @@
                         href="/admin/admincustomer">Quản lý combo
                         bắp nước</a></span>
             </li>
-
-
         </ul>
+
     </div>
-    @* Tổng quan *@
-    @* <div class="Admin_view_screen_overview">
-    <div class="Admin_view_tilter">
-    <div>Tổng Quan</div>
-    </div>
-    <div class="Admin_result">
-    <div class="Admin_result_title">Kết quả kinh doanh trong ngày</div>
-    <div Class="Admin_content_result">
-    <div Class="Admin_content_result_item">
-    <img src="https://cdn-icons-png.flaticon.com/128/3135/3135706.png" loading="lazy" alt="Salary "
-    title="Salary " width="30" height="30"> Doanh thu
-    </div>
-    <span style="border-right:1px solid #ccc;"></span>
-    <div Class="Admin_content_result_item">
-    <img src="https://cdn-icons-png.flaticon.com/128/3503/3503607.png" loading="lazy" alt="Calendar "
-    title="Calendar " width="30" height="30">Đơn giờ hẹn
-    </div>
-    <span style="border-right:1px solid #ccc;"></span>
-    <div Class="Admin_content_result_item">
-    <img src="https://cdn-icons-png.flaticon.com/128/6815/6815043.png" loading="lazy"
-    alt="Shopping bag " title="Shopping bag " width="30" height="30"> Đơn hàng mới
-    </div>
-    </div>
-    </div>
-    <div Class="Admin_status">
-    <div Class="Admin_status_title"> Đơn hàng chờ xử lý</div>
-    <div Class="Admin_content_status">
-    <div Class="Admin_content_status_tem">
-    <img src="https://cdn-icons-png.flaticon.com/128/4213/4213181.png" loading="lazy"
-    alt="Pay per click " title="Pay per click " width="30" height="30"> Chờ thanh toán
-    </div>
-    <span style="border-right:1px solid #ccc;"></span>
-    <div Class="Admin_content_status_tem">
-    <img src="https://cdn-icons-png.flaticon.com/128/411/411760.png" loading="lazy" alt="Delivery "
-    title="Delivery " width="30" height="30"> Đang giao hàng
-    </div>
-    </div>
-    </div>
-    </div> *@
+
+</div>
+
 </div>
 <script>
     document.getElementById('Admin_overview').addEventListener('click', function () {

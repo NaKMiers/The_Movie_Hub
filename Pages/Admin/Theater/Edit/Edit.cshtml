@@ -31,104 +31,15 @@ Submit
 
 <head>
    <link rel="stylesheet" href="~/Css/theateredit.css">
-   <style>
-      table {
-         width: 100%;
-         border-collapse: collapse;
-      }
 
-      th,
-      td {
-         border: 1px solid #ddd;
-         padding: 8px;
-      }
-
-      th {
-         background-color: #f2f2f2;
-      }
-
-      .btn {
-         padding: 5px 10px;
-         text-decoration: none;
-         border: 1px solid #ccc;
-         background-color: #f9f9f9;
-         color: #333;
-         border-radius: 3px;
-      }
-
-      .btn:hover {
-         background-color: #e9e9e9;
-      }
-   </style>
 </head>
 <div class="TheaterEdit_vertical_all">
-   <div class="TheaterEdit_toolbar">
-      <div class="TheaterEdit_toolbar_title">
-         <h1>TheaterEdit</h1>
-      </div>
-      <ul class="TheaterEdit_list_toolbar">
-         <li class="TheaterEdit_list_toolbar_item">
-            <div class="">
-               <span id="TheaterEdit_overview" style="font-weight: bold;">Tổng quan</span>
-            </div>
-            <ul id="Overview-hidden-1">
-               <li>+ Doanh thu theo phim</li>
-               <li>+ Doanh thu theo rạp</li>
-            </ul>
-         </li>
-         <li class="TheaterEdit_list_toolbar_item">
-            <span id="TheaterEdit_cinema" style="font-weight: bold;">Quản lý rạp phim</span>
-            <ul id="Overview-hidden-2">
-               <a href="/admin/Theater/Add">
-                  <li>+ Thêm rạp </li>
-               </a>
-               <li>+ Danh sách rạp </li>
-            </ul>
-         </li>
-         <li class="TheaterEdit_list_toolbar_item">
-            <span id="TheaterEdit_movie" style="font-weight: bold;">Quản lý phim</span>
-            <ul id="Overview-hidden-3">
-               <a href="/TheaterEdit/Movie/Add">
-                  <li>+ Thêm phim </li>
-               </a>
-               <li>+ Danh sách phim </li>
-            </ul>
-         </li>
-         <li class="TheaterEdit_list_toolbar_item">
-            <span id="TheaterEdit_product" style="font-weight: bold;">Quản đơn hàng </span>
-            <ul id="Overview-hidden-4">
-               <li>+ Danh sách đơn hàng </li>
-            </ul>
-         </li>
-         <li class="TheaterEdit_list_toolbar_item"><span id="TheaterEdit_Showtimes" style="font-weight: bold;"><a
-                  href="/TheaterEdit/TheaterEditproduct">Quản lý lịch chiếu</a></span></li>
-         <li class="TheaterEdit_list_toolbar_item"><span id="TheaterEdit_Historytimes" style="font-weight: bold;"><a
-                  href="/TheaterEdit/TheaterEditcustomer">Quản lý xuất chiếu</a></span></li>
-         <li class="TheaterEdit_list_toolbar_item"><span id="TheaterEdit_PriceTicket" style="font-weight: bold;"><a
-                  href="/TheaterEdit/TheaterEditcustomer">Quản lý giá vé</a></span></li>
-         <li class="TheaterEdit_list_toolbar_item"><span id="TheaterEdit_customer" style="font-weight: bold;"><a
-                  href="/TheaterEdit/TheaterEditcustomer">Quản lý user</a></span></li>
-         <li class="TheaterEdit_list_toolbar_item"><span id="TheaterEdit_Combowater" style="font-weight: bold;"><a
-                  href="/TheaterEdit/TheaterEditcustomer">Quản lý combo bắp nước</a></span></li>
-      </ul>
-   </div>
    <div class="TheaterEdit_List_Cinema">
-      <div class="TheaterEdit_List_Cinema_nav" style="display: flex;gap:5px">
-         <div class="TheaterEdit_List_Cinema_nav_icon">
-            <svg xmlns="http://www.w3.org/2000/svg" style="color:#696565" fill="none" viewBox="0 0 24 24"
-               stroke-width="1.5" stroke="currentColor" class="size-6">
-               <path stroke-linecap="round" stroke-linejoin="round"
-                  d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-            </svg>
-         </div>
-         <div class="TheaterEdit_List_Cinema_nav_title" style="color: #000;">
-            <span style="color:#696565">Dashboar / sách rạp phim / </span>Cinestar Hai Bà Trưng
-         </div>
-      </div>
       <div class="TheaterEdit_List_Cinema_form" style="margin-top:20px;padding:10px">
          <div class="TheaterEdit_List_Cinema_form_left" style="display: flex;">
-            <div class="form-container" style="color: #000;border:1px solid #000">
-               <div class="TheaterEdit_List_Cinema_nav_button">
+            <div class="form-container" style="color: #000;border:1px solid #000;width:100%">
+
+               <div class=" TheaterEdit_List_Cinema_nav_button" style="width: 100%;margin:auto">
                   <div class="TheaterEdit_List_Cinema_nav_button-left">
                      <div class="Cinema_nav_button-left-back">
                         <svg xmlns="http://www.w3.org/2000/svg" style="color: #000;width:20px" viewBox=" 0 0 20 20"
@@ -146,173 +57,79 @@ Submit
                               d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
                               clip-rule="evenodd" />
                         </svg>
-                        <span style="color: #000;">Cập nhập </span>
+                        <span style="color: #000;">Cập nhập rạp mới </span>
                      </div>
                   </div>
                </div>
-               <form id="infoForm" style="display: flex;gap:50px">
+               <form id="infoForm" style="display: flex;gap:30px">
                   <div class="infoForm-left" style="width: 40%;">
                      <div class="form-group">
-                        <label for="name-cinema">Tên rạp chiếu</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name-cinema">Tên rạp</label>
+                        <input type="text" id="name" name="name" placeholder="Cinestar Hai Bà Chưng" required>
                      </div>
                      <div class="form-group">
-                        <label for="address">Địa chỉ </label>
-                        <input type="text" id="address-cinema" name="address" required>
+                        <label for="address-cinema">Địa chỉ rạp</label>
+                        <input type="text" id="address-cinema"
+                           placeholder="135 Hai Bà Trưng, Bến Nghé, Quận 1, Hồ Chí Minh " name="address" required>
                      </div>
                      <div class="form-group">
-                        <label for="address-map">Địa chỉ map</label>
-                        <input type="text" id="addressmap" name="address-map" required>
+                        <label for="room">Phòng</label>
+                        <div style="display: flex; align-items: center;">
+                           <input type="number" id="room" name="room" value="1" min="1" required
+                              style="width: 600px; text-align: center;">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label for="cinema-image">Ảnh rạp</label>
+                        @* <input type="file" id="cinema-image" name="cinema-image" accept="image/*" required> *@
+                        <img style="width: 200px"
+                           src="https://cinestar-api.monamedia.net/media/wysiwyg/CinemaImage/03-Hai_Ba_Trung_masthead.jpg"
+                           alt="">
+                     </div>
+                     <div class="form-group">
+                        <button type="submit" style="margin-top: 20px;">Lưu</button>
                      </div>
                   </div>
-                  <div class="infoForm-left-right" style="60%;margin-top:20px">
+                  <div class="google-map">
                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1004565.743168567!2d105.30113940396318!3d10.414828958120134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f366a781d37%3A0x1f5346650cf7ceb8!2sCinestar%20Hai%20B%C3%A0%20Tr%C6%B0ng!5e0!3m2!1svi!2s!4v1719069022698!5m2!1svi!2s"
-                        width="700" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3744067430584!2d106.69557627451728!3d10.782609459080678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f366a781d37%3A0x1f5346650cf7ceb8!2sCinestar%20Hai%20B%C3%A0%20Tr%C6%B0ng!5e0!3m2!1svi!2s!4v1719163061625!5m2!1svi!2s"
+                        width="590" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                </form>
+
             </div>
          </div>
       </div>
-      <div class="list-cinema-theater">
-         <h1>Danh sách rạp phim</h1>
 
-         <table>
-            <thead>
-               <tr>
-                  <th>Tên rạp</th>
-                  <th>Địa chỉ</th>
-                  <th>Hành động</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>CGV Aeon Bình Tân</td>
-                  <td>Aeon Mall Bình Tân, Số 1 Đường 17A, Quận Bình Tân, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>CGV Vincom Đồng Khởi</td>
-                  <td>Tầng 3 Vincom Center, 72 Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>Lotte Cinema Nam Sài Gòn</td>
-                  <td>Lotte Mart Quận 7, 469 Nguyễn Hữu Thọ, Quận 7, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>BHD Star Vincom Thảo Điền</td>
-                  <td>Vincom Mega Mall Thảo Điền, 159 Xa Lộ Hà Nội, Quận 2, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>Galaxy Nguyễn Du</td>
-                  <td>116 Nguyễn Du, Quận 1, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>CineStar Hai Bà Trưng</td>
-                  <td>135 Hai Bà Trưng, Quận 1, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>CGV Parkson Hùng Vương</td>
-                  <td>Parkson Hùng Vương, 126 Hùng Vương, Quận 5, TP. Hồ Chí Minh</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>Lotte Cinema Hà Đông</td>
-                  <td>Mulberry Lane, Khu đô thị Mỗ Lao, Hà Đông, Hà Nội</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>Platinum Cineplex Times City</td>
-                  <td>Tầng B1, TTTM Times City, 458 Minh Khai, Hai Bà Trưng, Hà Nội</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>BHD Star Phạm Ngọc Thạch</td>
-                  <td>Tầng 8, TTTM Vincom, 2 Phạm Ngọc Thạch, Đống Đa, Hà Nội</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>CGV Aeon Long Biên</td>
-                  <td>TTTM Aeon Mall Long Biên, 27 Cổ Linh, Long Biên, Hà Nội</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>CGV Vincom Bà Triệu</td>
-                  <td>Tầng 6, Vincom Center, 191 Bà Triệu, Hai Bà Trưng, Hà Nội</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               <tr>
-                  <td>Galaxy Mipec Long Biên</td>
-                  <td>Tầng 6, Mipec Riverside, 2 Long Biên 2, Long Biên, Hà Nội</td>
-                  <td>
-                     <a href="#" class="btn">Sửa</a>
-                     <a href="#" class="btn">Xóa</a>
-                  </td>
-               </tr>
-               >
-            </tbody>
-         </table>
+   </div>
+   <div class="TheaterEdit_All_toolbar" style="width: 25%;">
+      <div class="TheaterEdit_All_toolbar_logo">
+         <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+      </div>
+      <div class="TheaterEdit_All_toolbar_list">
+         <ul>
+            <li class="TheaterEdit_list-items"><a href="">Tổng quan</a></li>
+            <li class="TheaterEdit_list-items"><a href="/Management">Quản lý phim</a></li>
+            <li class="TheaterEdit_list-items"><a href="/TheaterEdit">Quản lý xuất chiếu</a></li>
+            <li class="TheaterEdit_list-items"><a href="/ticket">Quản lý vé</a></li>
+            <li class="TheaterEdit_list-items"><a href="/customer">Quản lý khách hàng</a></li>
+            <li class="TheaterEdit_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+         </ul>
       </div>
    </div>
 </div>
+</div>
 
 <script>
-   document.getElementById('TheaterEdit_overview').addEventListener('click', function () {
-      var overview = document.getElementById('Overview-hidden-1');
-      overview.style.display = (overview.style.display === 'block') ? 'none' : 'block';
-   });
-   document.getElementById('TheaterEdit_cinema').addEventListener('click', function () {
-      var overview = document.getElementById('Overview-hidden-2');
-      overview.style.display = (overview.style.display === 'block') ? 'none' : 'block';
-   });
-   document.getElementById('TheaterEdit_movie').addEventListener('click', function () {
-      var overview = document.getElementById('Overview-hidden-3');
-      overview.style.display = (overview.style.display === 'block') ? 'none' : 'block';
-   });
-   document.getElementById('TheaterEdit_product').addEventListener('click', function () {
-      var overview = document.getElementById('Overview-hidden-4');
-      overview.style.display = (overview.style.display === 'block') ? 'none' : 'block';
-   });
+
+   ///
+   function changeRoomCount(amount) {
+      var roomInput = document.getElementById('room');
+      var currentCount = parseInt(roomInput.value);
+      var newCount = currentCount + amount;
+      if (newCount >= 1) {
+         roomInput.value = newCount;
+      }
+   }
 </script>

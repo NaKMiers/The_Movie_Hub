@@ -2,6 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+}
+
+main {
+  width: 100%;
+
 }
 
 body {
@@ -93,19 +99,11 @@ body {
   margin-bottom: 70px;
 }
 
-.slideshow-container span {
-  font-size: 40px;
-
-  font-family: Anton, sans-serif;
-}
-
 .slide_nomain_four_image {
   position: relative;
   display: flex;
   transition: transform 0.5s ease;
   overflow: hidden;
-  gap: 30px;
-  margin-top: 20px;
 }
 
 .slide_nomain_four_image img {
@@ -113,7 +111,7 @@ body {
   width: 30%;
   height: auto;
   object-fit: cover;
-
+  padding: 30px;
 }
 
 .prev,
@@ -137,7 +135,7 @@ body {
 }
 
 .MemberProgramBanner {
-  background-image: url('https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75');
+  background-image: url("https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75");
   background-size: cover;
   background-position: center;
   color: white;
@@ -238,6 +236,8 @@ body {
   transform: scale(1.05);
 }
 
+
+
 .social-buttons {
   display: flex;
   flex-direction: column;
@@ -311,21 +311,19 @@ body {
 }
 
 .Blograsoul_title {
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
 
 }
 
 .Infor-trailer {
   display: flex;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .trailer-movie {
   display: flex;
   margin-top: 5px;
-  gap: 6px;
-  margin-top: 13px;
   gap: 6px;
 }
 
@@ -340,16 +338,32 @@ body {
 
 }
 
-.order-ticket {
+@media screen and (min-width:300px) {
+  .Member-C-Friend-two h2 {
+    font-size: 18px;
 
-  padding: 10px;
+  }
+
+  .Member-C-Friend-two p {
+    font-size: 14px;
+
+  }
+
+  .Find-Out-Now-Friend {
+    padding: 5px 10px;
+  }
+}
+
+.order-ticket {
+  margin-top: -5px;
+  padding: 5px 22px;
 }
 
 .member-img {
   display: flex;
   justify-content: center;
   padding: 20px 20px;
-  gap: 20px;
+  gap: 20px
 }
 
 .Entertaiment {
@@ -395,7 +409,9 @@ body {
   overflow: hidden;
   overflow: hidden;
   height: 100%;
+
 }
+
 
 .carousel-inner {
   display: flex;
@@ -418,6 +434,7 @@ body {
   min-width: 100%;
   box-sizing: border-box;
   position: relative;
+
 }
 
 .Contact-us {
@@ -493,6 +510,9 @@ body {
   padding: 10px;
   cursor: pointer;
 }
+
+
+
 
 .carousel-item-1 {
   min-width: 100%;
@@ -630,6 +650,7 @@ book-ticket-choose-cinema-nav ul li {
   margin-bottom: 30px;
   margin: auto;
   height: 120px;
+
 }
 
 .book-ticket-quickly span {
@@ -645,6 +666,10 @@ book-ticket-choose-cinema-nav ul li {
   justify-content: center;
   width: 15%;
 }
+
+
+
+
 
 .carousel-item-1 {
   min-width: 100%;
@@ -727,6 +752,7 @@ book-ticket-choose-cinema-nav ul li {
 .book-ticket-title span {
   text-align: center;
 }
+
 
 .book-ticket-choose {
   display: flex;
@@ -846,7 +872,8 @@ book-ticket-choose-cinema-nav ul li {
   margin: 0;
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction:
+    column;
   display: inline-block;
   font-size: 14px;
   align-items: center;
@@ -995,6 +1022,7 @@ book-ticket-choose-cinema-nav ul li {
   color: #fff;
 }
 
+
 .contact-form label {
   display: block;
   margin-bottom: 5px;
@@ -1025,118 +1053,4 @@ book-ticket-choose-cinema-nav ul li {
   transition: all 0.4s ease-in-out;
   background-image: 0 100%;
   background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
-}
-
-@media (max-width:601px) {
-  .book-ticket-title {
-    width: 100%;
-  }
-
-  .book-ticket-quickly-sub {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book-ticket-choose {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book-ticket-choose-cinema,
-  .book-ticket-choose-movie,
-  .book-ticket-choose-date,
-  .book-ticket-choose-time,
-  .button-book-ticket {
-    width: 100%;
-  }
-
-  .book-ticket-quickly {
-    height: 400px;
-  }
-
-  .Book-your-tiket-now {
-    display: none;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    display: none;
-  }
-
-  .trailer-movie {
-    display: none;
-  }
-
-  .order-ticket {
-    padding: 5px 40px;
-    font-size: 10px;
-  }
-
-  .Member-C-Friend-two span {
-    font-size: 20px;
-  }
-
-  .Member-C-Friend-two p {
-    font-size: 16px;
-  }
-
-  .Find-Out-Now-Friend {
-    font-size: 12px;
-    padding: 3px 10px;
-  }
-
-  .carousel_image img {
-    width: 80%;
-  }
-
-  .All-Offers {
-    font-size: 14px;
-  }
-
-  .More-Movie {
-    font-size: 14px;
-  }
-
-  .Contact {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .Contact-us,
-  .contact-form {
-    width: 100%;
-  }
-
-  .Contact-us {
-    text-align: center;
-  }
-
-  .contact-form-email,
-  .contact-form-phone,
-  .contact-form-address {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-form-email-icon,
-  .contact-form-phone-icon,
-  .contact-form-address-icon {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  form {
-    width: 100%;
-  }
-
-  form label,
-  form input,
-  form textarea,
-  form button {
-    width: calc(100% - 20px);
-  }
-
 }

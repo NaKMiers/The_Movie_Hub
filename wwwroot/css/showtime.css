@@ -35,6 +35,7 @@ body {
 {
   border-radius: 5px;
   padding:10px;
+  border:1px solid #959699;
 }
 .Showtime-movie-info
 {
@@ -263,4 +264,20 @@ hr {
   color:#000;
   border-radius:5px;
   text-align:center;
+}
+@media (max-width:601px) {
+  .Showtime
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Showtime-cinema,
+  .Showtime-movie,
+  .Showtime-date
+  {
+   width: 100%;
+  }
+ 
+
 }

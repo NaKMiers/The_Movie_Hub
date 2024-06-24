@@ -1,7 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+}
+
 .Home-Page {
   width: 100%;
   margin: auto;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -9,6 +20,7 @@
   width: 100%;
   position: relative;
 }
+
 .Book-your-tiket-now,
 .Send-Now,
 .Find-Out-Now-Friend,
@@ -23,6 +35,7 @@
   transition: background-color 1s ease-in-out;
   font-family: Anton, sans-serif;
 }
+
 .All-Offers {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -37,6 +50,7 @@
   font-family: Anton, sans-serif;
   transition: background-color 1s ease-in-out;
 }
+
 .Book-your-tiket-now:hover,
 .All-Offers:hover,
 .Send-Now:hover,
@@ -55,6 +69,7 @@
   align-items: center;
   position: relative;
 }
+
 .Contact {
   height: 600px;
   display: flex;
@@ -62,31 +77,45 @@
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
 .DiscountCarousel h2 {
   color: #fff;
 }
+
 .carousel_image {
   width: 50%;
 }
+
 .slideshow-container {
   position: relative;
   max-width: 100%;
   overflow: hidden;
   margin-bottom: 70px;
 }
+
+.slideshow-container span {
+  font-size: 40px;
+
+  font-family: Anton, sans-serif;
+}
+
 .slide_nomain_four_image {
   position: relative;
   display: flex;
   transition: transform 0.5s ease;
   overflow: hidden;
+  gap: 30px;
+  margin-top: 20px;
 }
+
 .slide_nomain_four_image img {
   flex-shrink: 0;
   width: 30%;
   height: auto;
   object-fit: cover;
-  padding: 30px;
+
 }
+
 .prev,
 .next {
   cursor: pointer;
@@ -101,10 +130,12 @@
   transition: 3s ease;
   border-radius: 0 3px 3px 0;
 }
+
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+
 .MemberProgramBanner {
   background-image: url('https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75');
   background-size: cover;
@@ -114,33 +145,41 @@
   height: 800px;
   width: 100%;
 }
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+
 .image-item img {
   width: auto;
   height: auto;
 }
+
 .ct-social {
   display: flex;
   gap: 20px;
 }
+
 .MemberProgramBanner-title {
   padding-top: 100px;
 }
+
 .MemberProgramBanner-title h1 {
   padding: 20px;
   font-family: Anton, sans-serif;
 }
+
 .Member-C-Friend-two span {
   font-family: Anton, sans-serif;
   font-size: 40px;
 }
+
 .Member-C-Friend-two p {
   font-size: 25px;
 }
+
 .ct-social-link {
   display: flex;
   align-items: center;
@@ -155,13 +194,16 @@
   margin-right: 10px;
   transition: transform 0.3s;
 }
+
 .ct-social-link .txt {
   font-size: 16px;
 }
+
 .ct-social-link:hover {
   color: #007bff;
   transform: scale(1.1);
 }
+
 .ct-social-link:hover img {
   transform: scale(1.1);
 }
@@ -249,55 +291,58 @@
   font-size: 1em;
   padding: 10px 20px;
 }
+
 .watch-trailer p {
   text-decoration: underline;
   font-family: Anton, sans-serif;
 }
+
 .container {
   width: 90%;
 }
+
 .name-movie {
   text-align: center;
   margin-top: 20px;
 }
+
 .name-movie span {
   font-family: Anton, sans-serif;
 }
+
 .Blograsoul_title {
   font-size: 16px;
   text-align: center;
+
 }
+
 .Infor-trailer {
   display: flex;
-  margin-top: 15px;
+  margin-top: 20px;
 }
+
 .trailer-movie {
   display: flex;
   margin-top: 5px;
   gap: 6px;
+  margin-top: 13px;
+  gap: 6px;
 }
-@media (max-width: 789px) {
+
+@media(max-width:789px) {
   .Blograsoul_title {
     font-size: 13px;
   }
+
   .book-ticket-title span {
     font-size: 14px;
   }
+
 }
-@media screen and (min-width: 300px) {
-  .Member-C-Friend-two h2 {
-    font-size: 18px;
-  }
-  .Member-C-Friend-two p {
-    font-size: 14px;
-  }
-  .Find-Out-Now-Friend {
-    padding: 5px 10px;
-  }
-}
+
 .order-ticket {
-  margin-top: -5px;
-  padding: 5px 22px;
+
+  padding: 10px;
 }
 
 .member-img {
@@ -306,23 +351,29 @@
   padding: 20px 20px;
   gap: 20px;
 }
+
 .Entertaiment {
   width: 100%;
   height: 1000px;
 }
+
 .Entertaiment-title {
   text-align: center;
   padding-top: 150px;
 }
+
 .Entertaiment-title-p {
   margin-bottom: 40px;
 }
+
 .Entertaiment-img {
   display: flex;
   gap: 20px;
   text-align: center;
   justify-content: center;
+
 }
+
 .Entertaiment-img ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -330,11 +381,13 @@
   padding: 0;
   flex-wrap: nowrap;
 }
+
 .member-img div {
   width: 15%;
   height: auto;
   border-radius: 5px;
 }
+
 .carousel-container {
   position: relative;
   width: 100%;
@@ -351,6 +404,7 @@
   margin: auto;
   margin-top: 50px;
 }
+
 .Contact {
   height: 600px;
   display: flex;
@@ -359,26 +413,31 @@
   gap: 100px;
   margin-bottom: 100px;
 }
+
 .carousel-item {
   min-width: 100%;
   box-sizing: border-box;
   position: relative;
 }
+
 .Contact-us {
   margin-top: 120px;
 }
+
 .Contact-us-zalo,
 .Contact-us-facebook {
   margin-top: 20px;
 }
 
 .Contact-us-facebook button {
-  background-color: #5c3ca2;
+  background-color: #5C3CA2;
   padding: 20px 100px;
   border-radius: 5px;
+
 }
+
 .Contact-us-zalo button {
-  background-color: #5c3ca2;
+  background-color: #5C3CA2;
   padding: 20px 115px;
   border-radius: 5px;
 }
@@ -387,15 +446,18 @@
   width: 100%;
   border-radius: 10px;
 }
+
 .contact-form-address,
 .contact-form-phone,
 .contact-form-email {
   display: flex;
   gap: 10px;
 }
+
 .contact-form-email-icon {
-  color: #f3ea28;
+  color: #F3EA28
 }
+
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;
@@ -412,6 +474,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .carousel-control-prev {
   left: 10px;
 }
@@ -502,11 +565,13 @@
   width: 75%;
   margin: auto;
 }
+
 .Movie-Showing {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 140px;
 }
+
 .Showing-title h2 {
   text-align: center;
   margin-bottom: 50px;
@@ -514,15 +579,18 @@
   font-family: Anton, sans-serif;
   margin-top: 50px;
 }
+
 .Watching {
   display: flex;
   position: relative;
 }
+
 .Movie-Active {
   width: 80%;
   margin: auto;
   overflow: hidden;
 }
+
 .Movie-Active ul {
   display: flex;
   gap: 20px;
@@ -542,6 +610,7 @@
   border-radius: 5px;
   border: 1px solid #000;
 }
+
 .book-ticket-choose-cinema-nav ul {
   padding: 0;
   margin: 0;
@@ -550,9 +619,11 @@
   flex-direction: column;
   font-size: 14px;
 }
+
 book-ticket-choose-cinema-nav ul li {
   margin: 5px 0;
 }
+
 .book-ticket-quickly {
   padding-top: 30px;
   width: 76%;
@@ -560,9 +631,11 @@ book-ticket-choose-cinema-nav ul li {
   margin: auto;
   height: 120px;
 }
+
 .book-ticket-quickly span {
   font-family: Anton, sans-serif;
 }
+
 .button-book-ticket {
   color: #fff;
   padding: 12px 10px;
@@ -639,6 +712,7 @@ book-ticket-choose-cinema-nav ul li {
   margin-top: 30px;
   width: 100%;
 }
+
 .book-ticket-title {
   display: flex;
   justify-content: center;
@@ -649,6 +723,7 @@ book-ticket-choose-cinema-nav ul li {
   margin: 0;
   width: 20%;
 }
+
 .book-ticket-title span {
   text-align: center;
 }
@@ -678,6 +753,7 @@ book-ticket-choose-cinema-nav ul li {
 
   border-radius: 10px;
 }
+
 .book-ticket-choose-time,
 .book-ticket-choose-date,
 .book-ticket-choose-cinema,
@@ -727,6 +803,7 @@ book-ticket-choose-cinema-nav ul li {
   display: inline-block;
   font-size: 14px;
 }
+
 .book-ticket-choose-movie-nav ul {
   padding: 0;
   margin: 0;
@@ -737,9 +814,11 @@ book-ticket-choose-cinema-nav ul li {
   font-size: 14px;
   align-items: center;
 }
+
 .book-ticket-choose-movie-nav ul li {
   margin: 5px 0;
 }
+
 .book-ticket-choose-date-nav ul li {
   margin: 5px 0;
 }
@@ -748,6 +827,7 @@ book-ticket-choose-cinema-nav ul li {
   color: #000;
   text-decoration: none;
 }
+
 .book-ticket-choose-time-nav {
   position: absolute;
   bottom: 50px;
@@ -775,6 +855,7 @@ book-ticket-choose-cinema-nav ul li {
 .book-ticket-choose-time-nav ul li {
   margin: 5px 0;
 }
+
 .order-ticket button {
   padding: 5px 35px;
   border: solid 1px #000;
@@ -784,9 +865,11 @@ book-ticket-choose-cinema-nav ul li {
   text-align: center;
   font-family: Anton, sans-serif;
 }
+
 .Comming-soon {
   width: 100%;
 }
+
 .Comming-soon-title h2 {
   justify-content: center;
   text-align: center;
@@ -794,34 +877,42 @@ book-ticket-choose-cinema-nav ul li {
   font-size: 40px;
   font-family: Anton, sans-serif;
 }
+
 .Soon {
   display: flex;
   position: relative;
 }
+
 .Movie-comming-soon {
   width: 80%;
   margin: auto;
   overflow: hidden;
 }
+
 .Movie-comming-soon ul {
   display: flex;
   gap: 20px;
   padding: 0;
   width: 200%;
 }
+
 .Entertaiment-title-h1 h1 {
   font-family: Anton, sans-serif;
 }
+
 .Entertaiment-title-p p {
   font-size: 16px;
 }
+
 .book-ticket-choose-time-nav ul li a {
   color: #000;
   text-decoration: none;
 }
+
 .order-ticket button:hover {
   background-color: #663399;
 }
+
 .More-Movie {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -837,14 +928,17 @@ book-ticket-choose-cinema-nav ul li {
   margin-top: 20px;
   font-family: Anton, sans-serif;
 }
+
 .More-Movie:hover {
   background-color: orange;
   color: #fff;
 }
+
 #movieList,
 #Slide_Blogcarousel {
   transition: transform 0.5s ease-in-out;
 }
+
 .contact-form {
   background: #2c57ac;
   padding: 20px;
@@ -891,6 +985,7 @@ book-ticket-choose-cinema-nav ul li {
   background-image: 0 100%;
   background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
 }
+
 .contact-form {
   background: #2c57ac;
   padding: 20px;
@@ -931,21 +1026,25 @@ book-ticket-choose-cinema-nav ul li {
   background-image: 0 100%;
   background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
 }
-@media (max-width: 601px) {
+
+@media (max-width:601px) {
   .book-ticket-title {
     width: 100%;
   }
+
   .book-ticket-quickly-sub {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .book-ticket-choose {
     display: flex;
     gap: 10px;
     flex-direction: column;
     align-items: center;
   }
+
   .book-ticket-choose-cinema,
   .book-ticket-choose-movie,
   .book-ticket-choose-date,
@@ -953,7 +1052,91 @@ book-ticket-choose-cinema-nav ul li {
   .button-book-ticket {
     width: 100%;
   }
+
   .book-ticket-quickly {
     height: 400px;
   }
+
+  .Book-your-tiket-now {
+    display: none;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+
+  .trailer-movie {
+    display: none;
+  }
+
+  .order-ticket {
+    padding: 5px 40px;
+    font-size: 10px;
+  }
+
+  .Member-C-Friend-two span {
+    font-size: 20px;
+  }
+
+  .Member-C-Friend-two p {
+    font-size: 16px;
+  }
+
+  .Find-Out-Now-Friend {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+
+  .carousel_image img {
+    width: 80%;
+  }
+
+  .All-Offers {
+    font-size: 14px;
+  }
+
+  .More-Movie {
+    font-size: 14px;
+  }
+
+  .Contact {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .Contact-us,
+  .contact-form {
+    width: 100%;
+  }
+
+  .Contact-us {
+    text-align: center;
+  }
+
+  .contact-form-email,
+  .contact-form-phone,
+  .contact-form-address {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form-email-icon,
+  .contact-form-phone-icon,
+  .contact-form-address-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  form label,
+  form input,
+  form textarea,
+  form button {
+    width: calc(100% - 20px);
+  }
+
 }

@@ -1,8 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .account-container {
   height: 100%;
   width: 100%;
+  /* background-image: url(https://cinestar.com.vn/assets/images/bg-regis.jpg); */
   background-repeat: no-repeat;
 }
+
 
 .account-container {
   background-color: white;
@@ -246,6 +254,7 @@ label {
   width: 15px;
   height: 15px;
 }
+
 .login-text {
   font-family: Arial, sans-serif;
   font-size: 16px;

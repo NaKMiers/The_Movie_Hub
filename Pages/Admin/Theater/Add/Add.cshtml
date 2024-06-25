@@ -25,10 +25,7 @@ Submit
 </form>
 </div> *@
 
-<head>
-   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<div class="flex h-[700px] ">
+<div class="flex h-[700px]">
    <div class="w-full bg-white">
       <div class="mt-5 p-2">
          <div class="flex">
@@ -57,29 +54,31 @@ Submit
                      </div>
                   </div>
                </div>
-               <form id="infoForm" method="post" enctype="multipart/form-data" class="w-full flex flex-wrap ">
+
+               <form method="post" enctype="multipart/form-data" class="w-full flex flex-wrap">
                   <div class="w-full p-5">
-                     <div class="mb-4 flex md:block gap-5 ">
-                        <label for="name-cinema" class="block mb-2 ">Tên rạp</label>
-                        <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded"
-                           required>
+                     <div class="mb-4 flex md:block gap-5">
+                        <label for="name" class="block mb-2">Tên rạp</label>
+                        <input type="text" id="name" name="Name" class="w-full p-2 border border-gray-300 rounded"
+                           required placeholder="Name...">
                      </div>
-                     <div class="mb-4 flex md:block gap:5  ">
+                     <div class="mb-4 flex md:block gap-5">
                         <label for="address-cinema" class="block mb-2">Địa chỉ rạp</label>
-                        <input type="text" id="address-cinema" name="address"
-                           class="w-full p-2 border border-gray-300 rounded" required>
+                        <input type="text" id="address-cinema" name="Address"
+                           class="w-full p-2 border border-gray-300 rounded" required placeholder="Address...">
                      </div>
-                     <div class="mb-4  flex md:block  gap-5">
+                     <div class="mb-4 flex md:block gap-5">
                         <label for="room" class="block mb-2">Phòng</label>
                         <input type="number" id="room" name="room"
-                           class="w-full p-2 border border-gray-300 rounded text-center" value="1" min="1" required>
+                           class="w-full p-2 border border-gray-300 rounded text-center" value="1" min="1" required
+                           placeholder="Room Amount...">
                      </div>
-                     <div class="mb-4  flex md:block  gap-5">
-                        <label for="cinema-image" class="block mb-2 ">Ảnh rạp</label>
+                     <div class="mb-4 flex md:block gap-5">
+                        <label for="cinema-image" class="block mb-2">Ảnh rạp</label>
                         <input type="file" id="cinema-image" name="cinema-image"
                            class="w-full p-2 border border-gray-300 rounded" accept="image/*" required>
                      </div>
-                     <div class="mt-5 flex md:block  gap-5">
+                     <div class="mt-5 flex md:block gap-5">
                         <button type="submit"
                            class="w-full p-3 bg-green-500 text-white rounded hover:bg-green-600">Lưu</button>
                      </div>
@@ -89,12 +88,13 @@ Submit
          </div>
       </div>
    </div>
-   <div class="bg-[#35355c] w-[25%] h-[700px] flex flex-col items-center">
+
+   <div class="bg-[#35355c] w-[25%] h-[700px] flex flex-col items-center ">
       <div class="w-1/2 p-2 mx-auto">
          <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
       </div>
       <div class="w-3/4 mx-auto">
-         <ul class=" list-none p-0">
+         <ul class="list-none p-0">
             <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
             <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
             <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
@@ -105,6 +105,7 @@ Submit
       </div>
    </div>
 </div>
+
 <script>
    function changeRoomCount(amount) {
       var roomInput = document.getElementById('room');

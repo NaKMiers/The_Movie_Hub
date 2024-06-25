@@ -12,8 +12,8 @@ using the_movie_hub.Models.Main;
 namespace the_movie_hub.Migrations
 {
     [DbContext(typeof(TheMovieHubDbContext))]
-    [Migration("20240618092505_Init")]
-    partial class Init
+    [Migration("20240624142457_TMH")]
+    partial class TMH
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,6 +149,7 @@ namespace the_movie_hub.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("RoomId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("RoomId1")

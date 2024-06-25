@@ -9,182 +9,92 @@
 @model the_movie_hub.Pages.Admin.Theater.TheaterModel
 
 
-<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-   <h1 value="">Theaters (@Model.Theaters.Count())</h1>
-   <a href="/admin/theater/add">Add</a>
-   <a href="/Admin">Admin</a>
+@* <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
+<h1 value="">Theaters (@Model.Theaters.Count())</h1>
+<a href="/admin/theater/add">Add</a>
+<a href="/Admin">Admin</a>
 
-   <div class="flex flex-col gap-4 text-left">
-      @foreach (var theater in Model.Theaters)
-      {
-         <div class="flex gap-3">
-            <a href=@($"/admin/theater/{theater.Id}/edit" )>@theater.Name</a>
-            <form method="post">
-               <input type="hidden" name="Id" value="@theater.Id" />
-               <button asp-page-handler="Delete" style="color: red">Delete</button>
-            </form>
-            <a href=@($"/admin/room/{theater.Id}" ) style="color: yellow">Room</a>
-         </div>
-      }
-   </div>
+<div class="flex flex-col gap-4 text-left">
+@foreach (var theater in Model.Theaters)
+{
+<div class="flex gap-3">
+<a href=@($"/admin/theater/{theater.Id}/edit" )>@theater.Name</a>
+<form method="post">
+<input type="hidden" name="Id" value="@theater.Id" />
+<button asp-page-handler="Delete" style="color: red">Delete</button>
+</form>
+<a href=@($"/admin/room/{theater.Id}" ) style="color: yellow">Room</a>
 </div>
+}
+</div>
+</div> *@
 
 <head>
-   <link rel="stylesheet" href="~/Css/theaterlist.css">
-
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<div class="TheaterList_vertical_all">
-   <div class="TheaterList_List_Cinema">
-      <div class="TheaterList_List_Cinema_form" style="margin-top:20px;padding:10px">
-         <div class="TheaterList_List_Cinema_form_left" style="display: flex;">
-            <div class="form-container" style="color: #000;border:1px solid #000;width:100%">
-
-               <div class=" TheaterList_List_Cinema_nav_button" style="width: 100%;margin:auto">
-                  <div class="TheaterList_List_Cinema_nav_button-left">
-
-                     <span style="font-size: 30px;font-weight:bold">Danh sách rạp phim</span>
-
-
-                  </div>
-               </div>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>ID</th>
-                        <th>Tên rạp</th>
-                        <th>Địa chỉ</th>
-                        <th>Số phòng</th>
-                        <th>Ảnh rạp</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>1</td>
-                        <td>Cinestar Hai Bà Trưng</td>
-                        <td>123 Hai Bà Trưng, Quận 1, TP.HCM</td>
-                        <td>5</td>
-                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
-                        <td class="actions">
-                           <button onclick="editCinema(1)">Sửa</button>
-                        </td>
-                        <td class="actions">
-                           <button onclick="deleteCinema(1)">Xóa</button>
-                        </td>
-
-                     </tr>
-                     <tr>
-                        <td>2</td>
-                        <td>Cinestar Đà Lạt</td>
-                        <td>Quảng trường Lâm Viên, P.10. Tp. Đà Lạt</td>
-                        <td>10</td>
-                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
-                        <td class="actions">
-                           <button onclick="editCinema(1)">Sửa</button>
-                        </td>
-                        <td class="actions">
-                           <button onclick="deleteCinema(2)">Xóa</button>
-                        </td>
-                     </tr>
-                     <!-- Thêm các hàng (rows) khác tương tự cho các rạp khác -->
-                     <tr>
-                        <td>3</td>
-                        <td>Cinestar Quốc Thanh</td>
-                        <td>271 Nguyễn Trãi, P. Nguyễn Cư Trinh, Q.1, Tp. Hồ Chí Minh</td>
-                        <td>15</td>
-                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
-                        <td class="actions">
-                           <button onclick="editCinema(3)">Sửa</button>
-                        </td>
-                        <td>
-                           <button onclick="deleteCinema(3)">Xóa</button>
-                        </td>
-
-                     </tr>
-                     <tr>
-                        <td>4</td>
-                        <td>Cinestar Huế</td>
-                        <td>25 Hai Bà Trưng, P. Vĩnh Ninh, Tp. Huế</td>
-                        <td>12</td>
-                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
-                        <td class="actions">
-                           <button onclick="editCinema(4)">Sửa</button>
-
-                        </td>
-                        <td class="actions">
-                           <button onclick="deleteCinema(4)">Xóa</button>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>5</td>
-                        <td>Cinestar Mỹ Tho</td>
-                        <td>52, Đinh Bộ Lĩnh, Phường 3, TP. Mỹ Tho, tỉnh Tiền Giang</td>
-                        <td>12</td>
-                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
-                        <td class="actions">
-                           <button onclick="editCinema(5)">Sửa</button>
-                        </td>
-                        <td class="actions">
-                           <button onclick="deleteCinema(4)">Xóa</button>
-                        </td>
-
-                     </tr>
-                     <tr>
-                        <td>6</td>
-                        <td>Cinestar Sinh Viên</td>
-                        <td>Nhà Văn hóa Sinh viên Đại học Quốc gia TP.HCM, P. Đông Hòa, tx. Dĩ An, Bình Dương</td>
-                        <td>20</td>
-                        <td><img src="link_to_image.jpg" alt="Ảnh rạp" style="max-width: 100px;"></td>
-                        <td class="actions">
-                           <button onclick="editCinema(5)">Sửa</button>
-                        </td>
-                        <td class="actions">
-                           <button onclick="deleteCinema(4)">Xóa</button>
-                        </td>
-                     </tr>
-               </table>
-
+<div class="flex h-screen">
+   <div class="w-3/4 bg-white">
+      <div class="p-10">
+         <div class="flex justify-between mb-6">
+            <div class="text-lg font-bold text-black ">Danh sách rạp phim</div>
+            <div class=" flex mt-4">
+               <a href="/admin/theater/add" class="text-red-500 flex items-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     class="h-6 w-6">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  <span class="ml-1 text-red-500">Thêm rạp</span>
+               </a>
             </div>
          </div>
+         <table class="w-full">
+            <thead>
+               <tr>
+                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">ID</th>
+                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Tên rạp</th>
+                  <th class=" border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Địa chỉ</th>
+                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Số phòng</th>
+                  <th class=" border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Ảnh rạp</th>
+                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Sửa</th>
+                  <th class=" border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Xóa</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="border border-gray-300 px-4 py-2 text-black"">1</td>
+                  <td class=" border border-gray-300 px-4 py-2 text-black"">Cinestar Hai Bà Trưng</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black"">123 Hai Bà Trưng, Quận 1, TP.HCM</td>
+                  <td class=" border border-gray-300 px-4 py-2 text-black"">5</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black""><img src=" link_to_image.jpg" alt="Ảnh rạp"
+                     class="max-w-full"></td>
+                  <td class="border border-gray-300 px-4 py-2">
+                     <button onclick="editCinema(1)"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sửa</button>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2">
+                     <button onclick="deleteCinema(1)"
+                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Xóa</button>
+                  </td>
+               </tr>
+               <!-- Repeat similar rows for other cinemas -->
+            </tbody>
+         </table>
       </div>
-
    </div>
-   <div class="TheaterList_All_toolbar" style="width: 25%;">
-      <div class="TheaterList_All_toolbar_logo">
-         <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+   <div class="bg-[#35355c] w-[25%] h-[600px] flex flex-col items-center">
+      <div class="w-1/2 p-2 mx-auto">
+         <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
       </div>
-      <div class="TheaterList_All_toolbar_list">
-         <ul>
-            <li class="TheaterList_list-items"><a href="">Tổng quan</a></li>
-            <li class="TheaterList_list-items"><a href="/Management">Quản lý phim</a></li>
-            <li class="TheaterList_list-items"><a href="/TheaterList">Quản lý xuất chiếu</a></li>
-            <li class="TheaterList_list-items"><a href="/ticket">Quản lý vé</a></li>
-            <li class="TheaterList_list-items"><a href="/customer">Quản lý khách hàng</a></li>
-            <li class="TheaterList_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+      <div class="w-3/4 mx-auto">
+         <ul class=" list-none p-0">
+            <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
+            <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
+            <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
+            <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
+            <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
+            <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
          </ul>
       </div>
    </div>
 </div>
-</div>
-<script>
-   // Hàm chuyển hướng đến trang chỉnh sửa rạp phim
-   function editCinema(id) {
-      window.location.href = `/Admin/Theater/${id}/Edit`;
-   }
-
-   // Hàm xóa rạp phim
-   function deleteCinema(id) {
-      // Xác nhận trước khi xóa
-      if (confirm('Bạn có chắc chắn muốn xóa rạp phim này?')) {
-         // Gửi yêu cầu xóa đến server hoặc xử lý xóa tại đây
-         console.log('Rạp phim với ID ' + id + ' đã bị xóa.');
-      }
-   }
-   @* function deleteCinema() {
-      var row = event.target.parentNode.parentNode;
-      row.parentNode.removeChild(row);
-      // Có thể thêm xử lý xác nhận xóa trước khi thực hiện
-      } *@
-
-</script>

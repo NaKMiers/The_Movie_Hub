@@ -13,6 +13,10 @@ where name = 'TheMovieHub')
 use TheMovieHub
 go
 
+
+
+
+
 create table Theater
 (
     id char(50) primary key,
@@ -21,6 +25,10 @@ create table Theater
     image nvarchar(255),
     roomAmount int default 0
 );
+
+
+
+
 
 create table Room
 (
@@ -105,6 +113,7 @@ create table MovieGenre
     movieId char(50) foreign key (movieId) references Movie(id),
     genreId char(50) foreign key (genreid) references Genre(id),
 );
+
 
 
 

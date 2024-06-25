@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace the_movie_hub.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class TMH : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -126,7 +126,7 @@ namespace the_movie_hub.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoomId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RoomId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SeatRow = table.Column<int>(type: "int", nullable: false),
                     SeatColumn = table.Column<int>(type: "int", nullable: false),
                     SeatType = table.Column<string>(type: "nvarchar(max)", nullable: true),

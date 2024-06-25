@@ -146,6 +146,7 @@ namespace the_movie_hub.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("RoomId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("RoomId1")

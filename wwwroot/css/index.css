@@ -1054,3 +1054,21 @@ book-ticket-choose-cinema-nav ul li {
   background-image: 0 100%;
   background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
 }
+@media (max-width:601px) {
+  .book-ticket-quickly-sub
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .book-ticket-choose-movie,
+  .book-ticket-choose-cinema,
+  .book-ticket-choose-date,
+  .book-ticket-choose-time,
+  .button-book-ticket
+  {
+   width: 100%;
+  }
+ 
+
+}

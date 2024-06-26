@@ -20,3 +20,61 @@ Submit
 </button>
 </form>
 </div> *@
+<div class="flex h-screen">
+   <div class="w-full bg-white">
+      <div class="mt-5 p-2 w-full">
+         <div class="flex w-full">
+            <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
+
+               <div class="w-full mx-auto">
+                  <div class="flex w-full justify-between items-center">
+                     <div
+                        class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
+                           fill="currentColor">
+                           <path fill-rule="evenodd"
+                              d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
+                              clip-rule="evenodd" />
+                        </svg>
+                        <a href="/admin/genre"><span class="text-black">Quay lại</span></a>
+                     </div>
+
+                  </div>
+               </div>
+
+               <div class="text-center w-full mx-auto py-8 px-8 rounded-lg text-white bg-purple-800">
+                  <!-- Đổi max-w-2xl thành max-w-4xl -->
+                  <h1 class="text-2xl font-bold mb-4">THÊM THỂ LOẠI PHIM</h1>
+
+                  <form action="/admin/add_genre" method="post" enctype="multipart/form-data"
+                     class="mt-4 text-dark flex flex-col items-center gap-3">
+                     <input
+                        class="w-full max-w-[500px] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        required type="text" name="Title" placeholder="Enter genre title..." autofocus>
+
+                     <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Submit</button>
+                  </form>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="bg-[#35355c] w-[25%] h-screen flex flex-col items-center ">
+      <div class="w-1/2 p-2 mx-auto">
+         <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+      </div>
+      <div class="w-3/4 mx-auto">
+         <ul class="list-none p-0">
+            <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
+            <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
+            <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
+            <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
+            <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
+            <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+         </ul>
+      </div>
+   </div>
+</div>

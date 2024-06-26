@@ -9,7 +9,7 @@
 @model the_movie_hub.Models.Main.User
 
 <head>
-    <link rel="stylesheet" href="~/Css/index.css">
+    <link rel="stylesheet" href="~/css/index.css">
     <link rel="stylesheet" href="wwwroot/css/output.css">
     <style>
         .carousel-item {
@@ -64,11 +64,11 @@
                 </div>
             </div>
             <button
-                class="carousel-control-prev absolute top-1/2 mt-5  transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-                style="left: 165px;" id="prevButton">&#10094;</button>
+                class="carousel-control-prev absolute top-1/2 mt-5  transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full "
+                style="left: 165px; z-index:0" id="prevButton">&#10094;</button>
             <button
-                class="carousel-control-next absolute top-1/2 mt-5 transform -translate-y-1/2  bg-gray-800 text-white p-2 rounded-full"
-                style="right: 165px;" id="nextButton">&#10095;</button>
+                class="carousel-control-next absolute top-1/2 mt-5 transform -translate-y-1/2  bg-gray-800 text-white p-2 rounded-full "
+                style="right: 165px; z-index:0" id="nextButton">&#10095;</button>
         </div>
     </div>
     @* slide-page *@
@@ -179,7 +179,7 @@
                                     NGOẠI
                                     2D PĐ (T13)</span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -209,7 +209,7 @@
                                 <span class="Blograsoul_title">MÓNG VUỐT (T16)
                                 </span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -239,7 +239,7 @@
                                 <span class="Blograsoul_title">STALKER: TỘI ÁC
                                     HOÀN HẢO </span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -270,7 +270,7 @@
                                     QUÁI
                                     4 (T16)</span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -299,7 +299,7 @@
                                 <span class="Blograsoul_title">NHỮNG GÃ TRAI
                                     HƯ:CHƠI HAY BỊ XƠI </span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -329,7 +329,7 @@
                                     (T18)
                                 </span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -359,7 +359,7 @@
                                 <span class="Blograsoul_title">TOTTO-CHAN (K):
                                     CÔ BÉ BÊN CỬA SỔ</span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -389,7 +389,7 @@
                                     QUẬY
                                     2D LT (K)</span>
                             </div>
-                            <div class="Infor-trailer">
+                            <div class="Infor-trailer justify-center">
                                 <div class="trailer-movie">
                                     <div class="icon-trailer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -431,12 +431,11 @@
                 <ul id="movieList">
                     <li style="width:30%;"><a href=""><img
                                 style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
-                                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fposter-nhung-ke-theo-doi.jpg&w=1920&q=75"
-                                alt="nhung ke theo doi">
+                                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fposter-nhung-ke-theo-doi.jpg&w=2048&q=75"
+                                alt="NHỮNG KẺ THEO DÕI(T16)">
                             <div class="name-movie">
-                                <span class="Blograsoul_title">NHỮNG KẺ THEO
-                                    DÕI
-                                </span>
+                                <span class="Blograsoul_title">NHỮNG MẢNH GHÉP
+                                    CẢM XÚC 2 2D </span>
                             </div>
                             <div class="Infor-trailer">
                                 <div class="trailer-movie">
@@ -673,31 +672,36 @@
             <a class="next" style="left: 6%;" id="prev_left_two">&#10094;</a>
             <a class="prev" style="right: 6%;" id="next_right_two">&#10095;</a>
         </div>
-        @* Discount *@
-        <div class="slideshow-container">
-            <span style="margin-left:40px">KHUYẾN MÃI</span>
-            <div style="width: 100%;">
-                <ul class="slide_nomain_four_image" id="discontlist">
-                    <li class="carousel_image"><img style="width: 100%; "
+        <div class="relative w-full overflow-hidden mb-16 font-body">
+            <span class="ml-10 text-xl">KHUYẾN MÃI</span>
+            <div class="w-full">
+                <ul class="flex transition-transform duration-500 ease-in-out" id="discontlist">
+                    <li class="flex-none w-1/3 p-6"><img class="w-full h-auto object-cover"
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-1.jpg&w=1920&q=75"
                             alt="..."></li>
-                    <li class="carousel_image"><img style="width: 100%; "
+                    <li class="flex-none w-1/3 p-6"><img class="w-full h-auto object-cover"
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-2.jpg&w=1920&q=75"
                             alt="..."></li>
-                    <li class="carousel_image"><img style="width: 100%; "
+                    <li class="flex-none w-1/3 p-6"><img class="w-full h-auto object-cover"
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-3.jpg&w=1920&q=75"
                             alt="..."></li>
-                    <li class="carousel_image"><img style="width: 100%; "
+                    <li class="flex-none w-1/3 p-6"><img class="w-full h-auto object-cover"
                             src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fmonday_1_.jpg&w=1920&q=75"
-                            alt="... "></li>
+                            alt="..."></li>
                 </ul>
             </div>
-            <a class=" prev">&#10094;</a>
-            <a class="next">&#10095;</a>
-            <div class="All-Offers" style="margin-top:20px;">
-                TẤT CẢ ƯU ĐÃI
+            <button
+                class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full prev">&#10094;</button>
+            <button
+                class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full next">&#10095;</button>
+            <div class="text-center mt-5 text-xl">
+                <a href="#"
+                    class="All-Offers inline-block border border-gray-300 rounded px-4 py-2 bg-yellow-300 hover:bg-purple-700 hover:text-white transition duration-300">TẤT
+                    CẢ ƯU ĐÃI</a>
             </div>
         </div>
+
+
         @* discount *@
         @* member offers *@
         <div class="MemberProgramBanner">
@@ -973,4 +977,6 @@
     window.addEventListener("load", handleResizeMovieList);
     window.addEventListener("resize", handleResizeMovieList);
     ////
+
+
 </script>

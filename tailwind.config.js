@@ -17,6 +17,7 @@ module.exports = {
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif'],
         body: ['Anton', 'sans-serif'],
+        
       },
       spacing: {
         21: '21px',

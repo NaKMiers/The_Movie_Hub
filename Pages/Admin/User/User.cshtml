@@ -8,103 +8,88 @@
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.User.UserModel;
 
-<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-    <h1 value="">Users (@Model.Users.Count())</h1>
-    <a href="/Admin">Admin</a>
+@* <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
+<h1 value="">Users (@Model.Users.Count())</h1>
+<a href="/Admin">Admin</a>
 
-    <div class="flex flex-col gap-4 text-left">
-        @foreach (var user in Model.Users)
-        {
-            <div class="flex gap-3">
-                <div class="flex gap-2">
-                    <span>@user.FullName</span> -
-                    <span>@user.Username</span> -
+<div class="flex flex-col gap-4 text-left">
+@foreach (var user in Model.Users)
+{
+<div class="flex gap-3">
+<div class="flex gap-2">
+<span>@user.FullName</span> -
+<span>@user.Username</span> -
+</div>
+
+<form method="post">
+<input type="hidden" name="Id" value="@user.Id" />
+<button asp-page-handler="Delete" style="color: red">Delete</button>
+</form>
+</div>
+}
+</div>
+</div> *@
+<div class="flex h-screen">
+    <div class="w-3/4 bg-white">
+        <div class="p-10">
+            <div class="flex justify-between mb-6">
+
+                <div class=" flex mt-4">
+
                 </div>
-
-                <form method="post">
-                    <input type="hidden" name="Id" value="@user.Id" />
-                    <button asp-page-handler="Delete" style="color: red">Delete</button>
-                </form>
             </div>
-        }
+
+            <div class="container mx-auto mt-8 text-black">
+                <h2 class="text-2xl font-bold mb-6">Danh sách người dùng</h2>
+                <table class="min-w-full bg-white border border-gray-300">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border border-gray-300">ID</th>
+                            <th class="py-2 px-4 border border-gray-300">Tên người dùng</th>
+                            <th class="py-2 px-4 border border-gray-300">Ngày sinh</th>
+                            <th class="py-2 px-4 border border-gray-300">Số điện thoại</th>
+                            <th class="py-2 px-4 border border-gray-300">CCCD</th>
+                            <th class="py-2 px-4 border border-gray-300">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody class="w-full">
+                        <tr>
+                            <td class="py-2 px-4 text-center border border-gray-300">1</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">Nguyễn Văn A</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">01/01/1990</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">0901234567</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">123456789012</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">nguyenvana@example.com</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 text-center border border-gray-300">2</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">Trần Thị B</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">02/02/1992</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">0912345678</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">234567890123</td>
+                            <td class="py-2 px-4 text-center border border-gray-300">tranthib@example.com</td>
+                        </tr>
+                        <!-- Thêm các hàng người dùng khác ở đây -->
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="bg-[#35355c] w-[25%] h-screen flex flex-col items-center">
+        <div class="w-1/2 p-2 mx-auto">
+            <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+        </div>
+        <div class="w-3/4 mx-auto">
+            <ul class=" list-none p-0">
+                <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
+                <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
+                <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
+                <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
+                <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
+                <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+            </ul>
+        </div>
     </div>
 </div>
-
-
-@* <link rel="stylesheet" href="~/css/customer.css">
-<div class="Customer_Movie">
-<div class="Customer_All_table">
-<div class="Customer_All_table_title">
-<span>Quản lý khách hàng </span>
-</div>
-<span></span>
-<div class="Customer_All_table_Listadd">
-<div class="Customer_List_Movie">
-<span>Danh sách khách hàng</span>
-</div>
-<div class="Customer_Add_Movie" id="addMovieBtn">
-<div class="Customer_Add_Movie_icon">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-stroke="currentColor" class="size-6">
-<path stroke-linecap="round" stroke-linejoin="round"
-d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
-
-</div>
-<div class="Customer_Add_Movie_text">
-<span>Thêm phim</span>
-</div>
-</div>
-</div>
-<div class="Customer_All_table_movie">
-<table class="Table_Customer">
-<tr class="Table_Customer_tr">
-<th class="Table_Customer_th">Họ và Tên</th>
-<th class="Table_Customer_th">Số điện thoại</th>
-<th class="Table_Customer_th">Email</th>
-<th class="Table_Customer_th">Ngày sinh nhật</th>
-<th class="Table_Customer_th">Password</th>
-<th class="Table_Customer_th">Chi tiêu</th>
-
-</tr>
-<tr class="Table_Customer_tr">
-<td class="Table_Customer_td">Lưu Hồng Hữu</td>
-<td class="Table_Customer_td">0886007589</td>
-<td class="Table_Customer_td"> luuhonghuu530@gmail.com</td>
-<td class="Table_Customer_td">25/11/2004</td>
-<td class="Table_Customer_td">asdasd</td>
-<td class="Table_Customer_td">300.000vnđ</td>
-
-</tr>
-
-</table>
-</div>
-</div>
-<div class="Customer_All_toolbar">
-<div class="Customer_All_toolbar_logo">
-<img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-</div>
-<div class="Customer_All_toolbar_list">
-<ul>
-<li class="Customer_list-items"><a href="">Tổng quan</li>
-<li class="Customer_list-items"><a href="/Management">Quản lý phim</a></li>
-<li class="Customer_list-items"><a href="/export">Quản lý xuất chiếu</a></li>
-<li class="Customer_list-items"><a href="/ticket">Quản lý vé</a></li>
-<li class="Customer_list-items"><a href="/customer">Quản lý khách hàng</a></li>
-<li class="Customer_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-<script>
-document.getElementById('addMovieBtn').addEventListener('click', function () {
-var movieForm = document.getElementById('movieForm');
-movieForm.style.display = 'block'; // Hiển thị bảng nhập liệu
-});
-
-document.getElementById('closeBtn').addEventListener('click', function () {
-var movieForm = document.getElementById('movieForm');
-movieForm.style.display = 'none'; // Ẩn bảng nhập liệu
-});
-</script> *@

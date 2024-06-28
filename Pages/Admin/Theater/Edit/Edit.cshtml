@@ -33,93 +33,87 @@ Submit
    <link rel="stylesheet" href="~/Css/theateredit.css">
 
 </head>
-<div class="TheaterEdit_vertical_all">
-   <div class="TheaterEdit_List_Cinema">
-      <div class="TheaterEdit_List_Cinema_form" style="margin-top:20px;padding:10px">
-         <div class="TheaterEdit_List_Cinema_form_left" style="display: flex;">
-            <div class="form-container" style="color: #000;border:1px solid #000;width:100%">
 
-               <div class=" TheaterEdit_List_Cinema_nav_button" style="width: 100%;margin:auto">
-                  <div class="TheaterEdit_List_Cinema_nav_button-left">
-                     <div class="Cinema_nav_button-left-back">
-                        <svg xmlns="http://www.w3.org/2000/svg" style="color: #000;width:20px" viewBox=" 0 0 20 20"
-                           fill="currentColor" class="size-5">
-                           <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875
+<head>
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<div class="flex flex-col lg:flex-row h-auto lg:h-screen">
+   <div class="w-4/5 bg-white">
+      <div class="p-10">
+         <div class="flex items-center justify-between mb-5">
+            <div class="border border-black p-3 rounded flex items-center">
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875
 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1
 1.06.025Z" clip-rule="evenodd" />
-                        </svg>
-                        <span style="color: #000;">Quay lại</span>
-                     </div>
-                     <div class="Cinema_nav_button-left-update" style="">
-                        <svg xmlns="http://www.w3.org/2000/svg" style="color: #000;width:20px" viewBox="0 0 20 20"
-                           fill="currentColor" class="size-5">
-                           <path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0
+               </svg>
+               <span class="text-black">Quay lại</span>
+            </div>
+            <div class="border border-black p-3 rounded flex items-center">
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0
 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0
 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0
 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd" />
-                        </svg>
-                        <span style="color: #000;">Cập nhập rạp mới </span>
-                     </div>
-                  </div>
-               </div>
-               <form id="infoForm" style="display: flex;gap:30px">
-                  <div class="infoForm-left" style="width: 40%;">
-                     <div class="form-group">
-                        <label for="name-cinema">Tên rạp</label>
-                        <input type="text" id="name" name="name" placeholder="Cinestar Hai Bà Chưng" required>
-                     </div>
-                     <div class="form-group">
-                        <label for="address-cinema">Địa chỉ rạp</label>
-                        <input type="text" id="address-cinema"
-                           placeholder="135 Hai Bà Trưng, Bến Nghé, Quận 1, Hồ Chí Minh " name="address" required>
-                     </div>
-                     <div class="form-group">
-                        <label for="room">Phòng</label>
-                        <div style="display: flex; align-items: center;">
-                           <input type="number" id="room" name="room" value="1" min="1" required
-                              style="width: 600px; text-align: center;">
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="cinema-image">Ảnh rạp</label>
-                        <input type="file" id="cinema-image" name="cinema-image" accept="image/*" required>
-                        <img style="width: 200px"
-                           src="https://cinestar-api.monamedia.net/media/wysiwyg/CinemaImage/03-Hai_Ba_Trung_masthead.jpg"
-                           alt="">
-                     </div>
-                     <div class="form-group">
-                        <button type="submit" style="margin-top: 20px;">Lưu</button>
-                     </div>
-                  </div>
-                  <div class="google-map">
-                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3744067430584!2d106.69557627451728!3d10.782609459080678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f366a781d37%3A0x1f5346650cf7ceb8!2sCinestar%20Hai%20B%C3%A0%20Tr%C6%B0ng!5e0!3m2!1svi!2s!4v1719163061625!5m2!1svi!2s"
-                        width="590" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                  </div>
-               </form>
-
+               </svg>
+               <span class="text-black">Cập nhập rạp mới </span>
             </div>
          </div>
+         <form id="infoForm" class="flex gap-5">
+            <div class="w-2/5">
+               <div class="mb-5">
+                  <label for="name-cinema" class="block">Tên rạp</label>
+                  <input type="text" id="name" name="name" placeholder="Cinestar Hai Bà Chưng" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded">
+               </div>
+               <div class="mb-5">
+                  <label for="address-cinema" class="block">Địa chỉ rạp</label>
+                  <input type="text" id="address-cinema" placeholder="135 Hai Bà Trưng, Bến Nghé, Quận 1, Hồ Chí Minh "
+                     name="address" required class="w-full px-3 py-2 border border-gray-300 rounded">
+               </div>
+               <div class="mb-5">
+                  <label for="room" class="block">Phòng</label>
+                  <input type="number" id="room" name="room" value="1" min="1" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded text-center">
+               </div>
+               <div class="mb-5">
+                  <label for="cinema-image" class="block">Ảnh rạp</label>
+                  <input type="file" id="cinema-image" name="cinema-image" accept="image/*" required class="mb-2">
+                  <img src="https://cinestar-api.monamedia.net/media/wysiwyg/CinemaImage/03-Hai_Ba_Trung_masthead.jpg"
+                     alt="Cinema Image" class="w-48">
+               </div>
+               <div>
+                  <button type="submit"
+                     class="w-full py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600">Lưu</button>
+               </div>
+            </div>
+            <div class="google-map">
+               <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3744067430584!2d106.69557627451728!3d10.782609459080678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f366a781d37%3A0x1f5346650cf7ceb8!2sCinestar%20Hai%20B%C3%A0%20Tr%C6%B0ng!5e0!3m2!1svi!2s!4v1719163061625!5m2!1svi!2s"
+                  width="590" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+         </form>
       </div>
-
    </div>
-   <div class="TheaterEdit_All_toolbar" style="width: 25%;">
-      <div class="TheaterEdit_All_toolbar_logo">
-         <img style="width: 100%;" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+   <div class="bg-[#35355c] w-full lg:w-[25%] h-auto lg:h-screen flex flex-col items-center">
+      <div class="w-1/2 p-1 mx-auto">
+         <img src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="Cinestar Logo" class="w-full">
       </div>
-      <div class="TheaterEdit_All_toolbar_list">
-         <ul>
-            <li class="TheaterEdit_list-items"><a href="">Tổng quan</a></li>
-            <li class="TheaterEdit_list-items"><a href="/Management">Quản lý phim</a></li>
-            <li class="TheaterEdit_list-items"><a href="/TheaterEdit">Quản lý xuất chiếu</a></li>
-            <li class="TheaterEdit_list-items"><a href="/ticket">Quản lý vé</a></li>
-            <li class="TheaterEdit_list-items"><a href="/customer">Quản lý khách hàng</a></li>
-            <li class="TheaterEdit_list-items"><a href="/cinema">Quản lý rạp phim</a></li>
+      <div class="w-3/4 mx-auto">
+         <ul class="list-none p-0">
+            <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
+            <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
+            <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
+            <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
+            <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
+            <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chổ ngồi</a></li>
+            <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
+            <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
+            <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
          </ul>
       </div>
    </div>
-</div>
 </div>
 
 <script>

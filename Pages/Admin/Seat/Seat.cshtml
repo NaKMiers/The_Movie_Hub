@@ -8,12 +8,229 @@
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.Seat.SeatModel
 
-
+@*
 <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-    <h1 value="">Seats (@Model.Seats?.Count())</h1>
-    <a href="/Admin">Admin</a>
+<h1 value="">Seats (@Model.Seats?.Count())</h1>
+<a href="/Admin">Admin</a>
 
-    <div class="grid grid-cols-10">
+<div class="grid grid-cols-10">
 
+</div>
+</div> *@
+<div class="flex h-[700px]">
+    <div class="w-full bg-white">
+        <div class="mt-5 p-2">
+            <div class="flex">
+                <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
+                    <div class="w-full mx-auto">
+                        <div class="flex w-full justify-between items-center">
+                            <div
+                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-black">Quay lại</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="max-w-4xl mx-auto my-8">
+                        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                            <h2 class="text-lg font-semibold mb-4">Bảng ghế trong rạp phim</h2>
+                            <div class="grid grid-cols-6 gap-4">
+
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">A1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">B1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">C1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">D1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">E1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">F1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">H1</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">G1</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">A2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">B2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">C2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">D2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">E2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">F2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">H2</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">G2</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">A3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">B3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">C3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">D3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">E3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">F3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">H3</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">G3</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">A4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">B4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">C4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">D4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">E4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">F4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">H4</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">G4</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">A5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">B5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">C5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">D5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">E5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">F5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">H5</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">G5</span>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">A6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">B6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">C6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">D6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">E6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">F6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">H6</span>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-300 rounded px-4 py-2 text-center mb-2">
+                                        <span class="text-xs">G6</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-[#35355c] w-[25%] h-[700px] flex flex-col items-center ">
+        <div class="w-1/2 p-2 mx-auto">
+            <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
+        </div>
+        <div class="w-3/4 mx-auto">
+            <ul class="list-none p-0">
+                <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
+                <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
+                <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
+                <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
+                <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
+                <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+            </ul>
+        </div>
     </div>
 </div>

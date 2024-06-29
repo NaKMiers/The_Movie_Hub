@@ -35,35 +35,36 @@ int max = Model.Rooms.Count() + 1;
 </form>
 </div>
 </div> *@
-<div class="flex h-[700px]">
-    <div class="w-full bg-white">
+<div class="flex flex-col md:flex-row h-screen">
+    <!-- Main Content -->
+    <div class="md:w-3/4 bg-white">
         <div class="mt-5 p-2">
             <div class="flex">
-                <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
-                    <div class="w-full mx-auto">
-                        <div class="flex w-full justify-between items-center">
-                            <div
-                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-black">Quay lại</span>
-                            </div>
-                            <div
-                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-black">Tạo phòng chiếu mới</span>
-                            </div>
+                <div class="w-full mx-auto">
+                    <div
+                        class="flex justify-between items-center p-5 bg-white border border-black rounded-lg shadow-lg">
+                        <div
+                            class="flex gap-2 items-center cursor-pointer hover:bg-gray-200 border border-black rounded px-2 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-black">Quay lại</span>
+                        </div>
+                        <div
+                            class="flex gap-2 items-center cursor-pointer hover:bg-yellow-400 hover:text-white transition duration-1000 border border-black rounded px-2 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-black">Tạo phòng chiếu mới</span>
                         </div>
                     </div>
+
                     <div class="max-w-md mx-auto my-8">
                         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                             <div class="mb-4">
@@ -107,25 +108,27 @@ int max = Model.Rooms.Count() + 1;
                             </div>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-[#35355c] w-[25%] h-[700px] flex flex-col items-center ">
-        <div class="w-1/2 p-2 mx-auto">
+    <!-- Sidebar -->
+    <div class="md:w-1/4 bg-[#35355c] flex flex-col items-center">
+        <div class="w-1/2 p-1 mx-auto">
             <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
         </div>
         <div class="w-3/4 mx-auto">
             <ul class="list-none p-0">
-                <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
-                <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
-                <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
-                <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
-                <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
-                <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+                <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
+                <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
+                <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại</a></li>
+                <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
+                <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
+                <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chỗ ngồi</a></li>
+                <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
+                <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
+                <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
             </ul>
         </div>
     </div>

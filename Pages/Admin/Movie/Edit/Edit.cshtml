@@ -86,84 +86,75 @@ Submit
          <form action="" method="post" enctype="multipart/form-data" class="mt-8 space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                <!-- Left Column -->
-               <div>
-                  <div>
-                     <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                     <input id="title" type="text" name="Title" value="@Model.Movie?.Title"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Enter title..." required>
-                  </div>
-                  <div>
-                     <label for="releaseDate" class="block text-sm font-medium text-gray-700">Release Date</label>
-                     <input id="releaseDate" type="date" name="ReleaseDate"
-                        value="@Model.Movie?.ReleaseDate.ToString("yyyy-MM-dd")"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Select release date..." required>
-                  </div>
-                  <div>
-                     <label for="director" class="block text-sm font-medium text-gray-700">Director</label>
-                     <input id="director" type="text" name="Director" value="@Model.Movie?.Director"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Enter director..." required>
-                  </div>
-                  <div>
-                     <label for="actors" class="block text-sm font-medium text-gray-700">Actors</label>
-                     <input id="actors" type="text" name="Actors" value="@Model.Movie?.Actors"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Enter actors..." required>
-                  </div>
+               <div class="space-y-4">
+                  <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                  <input id="title" type="text" name="Title" value="@Model.Movie?.Title"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Enter title..." required>
+
+                  <label for="releaseDate" class="block text-sm font-medium text-gray-700">Release Date</label>
+                  <input id="releaseDate" type="date" name="ReleaseDate"
+                     value="@Model.Movie?.ReleaseDate.ToString("yyyy-MM-dd")"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Select release date..." required>
+
+                  <label for="director" class="block text-sm font-medium text-gray-700">Director</label>
+                  <input id="director" type="text" name="Director" value="@Model.Movie?.Director"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Enter director..." required>
+
+                  <label for="actors" class="block text-sm font-medium text-gray-700">Actors</label>
+                  <input id="actors" type="text" name="Actors" value="@Model.Movie?.Actors"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Enter actors..." required>
                </div>
                <!-- Right Column -->
-               <div>
-                  <div>
-                     <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-                     <textarea id="content" name="Content"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Enter content...">@Model.Movie?.Content</textarea>
-                  </div>
-                  <div>
-                     <label for="duration" class="block text-sm font-medium text-gray-700">Duration</label>
-                     <input id="duration" type="number" name="Duration" value="@Model.Movie?.Duration"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Enter duration in minutes..." required>
-                  </div>
-                  <div>
-                     <label for="trailerUrl" class="block text-sm font-medium text-gray-700">Trailer URL</label>
-                     <input id="trailerUrl" type="url" name="TrailerUrl" value="@Model.Movie?.TrailerUrl"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Enter trailer URL...">
-                  </div>
-                  <div>
-                     <label for="selectedGenres" class="block text-sm font-medium text-gray-700">Genres</label>
-                     <div class="mt-1 grid grid-cols-2 gap-4">
-                        @foreach (var genre in Model.Genres)
-                        {
-                           <div class="flex items-center">
-                              <input id="@genre.Id" type="checkbox" name="SelectedGenres" value="@genre.Id"
-                              @(Model.MovieGenres.Contains(genre.Id.ToString()) ? "checked" : "")
-                                 class="rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                              <label for="@genre.Id" class="ml-2 text-sm text-gray-700">@genre.Title</label>
-                           </div>
-                        }
-                     </div>
+               <div class="space-y-4">
+                  <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+                  <textarea id="content" name="Content"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Enter content...">@Model.Movie?.Content</textarea>
+
+                  <label for="duration" class="block text-sm font-medium text-gray-700">Duration</label>
+                  <input id="duration" type="number" name="Duration" value="@Model.Movie?.Duration"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Enter duration in minutes..." required>
+
+                  <label for="trailerUrl" class="block text-sm font-medium text-gray-700">Trailer URL</label>
+                  <input id="trailerUrl" type="url" name="TrailerUrl" value="@Model.Movie?.TrailerUrl"
+                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     placeholder="Enter trailer URL...">
+
+                  <label for="selectedGenres" class="block text-sm font-medium text-gray-700">Genres</label>
+                  <div class="grid grid-cols-2 gap-4">
+                     @foreach (var genre in Model.Genres)
+                     {
+                        <div class="flex items-center">
+                           <input id="@genre.Id" type="checkbox" name="SelectedGenres" value="@genre.Id"
+                           @(Model.MovieGenres.Contains(genre.Id.ToString()) ? "checked" : "")
+                              class="rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4">
+                           <label for="@genre.Id" class="ml-2 text-sm text-gray-700">@genre.Title</label>
+                        </div>
+                     }
                   </div>
                </div>
             </div>
 
-            <div class="space-y-6">
-               <div>
+            <div class="space-y-4">
+               <div class="flex items-center space-x-4">
                   <label for="banner" class="block text-sm font-medium text-gray-700">Banner Image</label>
                   <input id="banner" type="file" name="Banner" accept="image/*"
-                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     class="block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                      placeholder="Choose banner image..." required>
-                  <img src="@($"/uploads/{Model.Movie?.Banner}")" alt="Banner preview" class="mt-2 w-40 h-auto">
+                  <img src="@($"/uploads/{Model.Movie?.Banner}")" alt="Banner preview" class="w-20 h-auto">
                </div>
-               <div>
+
+               <div class="flex items-center space-x-4">
                   <label for="image" class="block text-sm font-medium text-gray-700">Movie Image</label>
                   <input id="image" type="file" name="Image" accept="image/*"
-                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                     class="block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                      placeholder="Choose movie image...">
-                  <img src="@($"/uploads/{Model.Movie?.Image}")" alt="Movie image preview" class="mt-2 w-40 h-auto">
+                  <img src="@($"/uploads/{Model.Movie?.Image}")" alt="Movie image preview" class="w-20 h-auto">
                </div>
             </div>
 
@@ -177,22 +168,26 @@ Submit
    </div>
 
    <!-- Sidebar -->
-   <div class="hidden md:block bg-[#35355c] w-[25%] h-[750px] items-center">
-      <div class="w-1/2 p-2 mx-auto">
+   <div class="hidden md:block bg-[#35355c] w-[25%] h-[700px]  flex-col items-center">
+      <div class="w-1/2 p-1 mx-auto">
          <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
       </div>
       <div class="w-3/4 mx-auto">
          <ul class="list-none p-0">
-            <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
-            <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
-            <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
-            <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
-            <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
-            <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+            <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
+            <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
+            <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
+            <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
+            <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
+            <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chổ ngồi</a></li>
+            <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
+            <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
+            <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
          </ul>
       </div>
    </div>
 </div>
+
 
 <!-- JavaScript for handling radio button style and date picker -->
 <script>

@@ -23,16 +23,15 @@ Submit
 
 
 </div> *@
-<div class="flex h-screen">
-   <div class="w-full bg-white">
+<div class="flex flex-col lg:flex-row h-auto lg:h-screen">
+   <div class="w-full lg:w-3/4 bg-white">
       <div class="mt-5 p-2 w-full">
          <div class="flex w-full">
             <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
-
                <div class="w-full mx-auto">
-                  <div class="flex w-full justify-between items-center">
+                  <div class="flex w-full justify-between items-center flex-col sm:flex-row">
                      <div
-                        class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
+                        class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200 mb-2 sm:mb-0">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
                            fill="currentColor">
                            <path fill-rule="evenodd"
@@ -49,43 +48,42 @@ Submit
                               d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
                               clip-rule="evenodd" />
                         </svg>
-                        <a href="/Admin/Genre/Add"> <span class="text-black">Cập nhập</span></a>
+                        <a href="/Admin/Genre/Add"><span class="text-black">Cập nhập</span></a>
                      </div>
                   </div>
                </div>
 
                <div class="text-center w-full mx-auto py-8 px-8 rounded-lg text-white bg-purple-800 mt-5">
-                  <!-- Đổi max-w-2xl thành max-w-4xl -->
                   <h1 class="text-2xl font-bold mb-4">THÊM THỂ LOẠI PHIM</h1>
-
                   <form action="/admin/add_genre" method="post" enctype="multipart/form-data"
                      class="mt-4 text-dark flex flex-col items-center gap-3">
                      <input
                         class="w-full max-w-[500px] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
                         required type="text" name="Title" placeholder="Enter genre title..." autofocus>
-
                      <button type="submit"
                         class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">Submit</button>
                   </form>
                </div>
-
             </div>
          </div>
       </div>
    </div>
 
-   <div class="bg-[#35355c] w-[25%] h-screen flex flex-col items-center ">
-      <div class="w-1/2 p-2 mx-auto">
+   <div class="bg-[#35355c] w-full lg:w-1/4 h-auto lg:h-[730px] flex flex-col items-center">
+      <div class="w-1/2 p-1 mx-auto">
          <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
       </div>
       <div class="w-3/4 mx-auto">
          <ul class="list-none p-0">
-            <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
-            <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
-            <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
-            <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
-            <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
-            <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+            <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
+            <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
+            <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại</a></li>
+            <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
+            <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
+            <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chỗ ngồi</a></li>
+            <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
+            <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
+            <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
          </ul>
       </div>
    </div>

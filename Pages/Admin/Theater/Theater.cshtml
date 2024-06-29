@@ -69,8 +69,8 @@
                   <td class="border border-gray-300 px-4 py-2 text-black""><img src=" link_to_image.jpg" alt="Ảnh rạp"
                      class="max-w-full"></td>
                   <td class="border border-gray-300 px-4 py-2">
-                     <button onclick="editCinema(1)"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sửa</button>
+                     <a href="/Admin/Theater/{Id}/Edit"> <button onclick="editCinema(1)"
+                           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sửa</button></a>
                   </td>
                   <td class="border border-gray-300 px-4 py-2">
                      <button onclick="deleteCinema(1)"
@@ -82,18 +82,22 @@
          </table>
       </div>
    </div>
-   <div class="bg-[#35355c] w-[25%] h-[600px] flex flex-col items-center">
-      <div class="w-1/2 p-2 mx-auto">
+   <div class="bg-[#35355c] w-[25%] h-[730px] flex flex-col items-center">
+      <div class="w-1/2 p-1 mx-auto">
          <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
       </div>
-      <div class="w-3/4 mx-auto">
+      <div class="w-3/4  mx-auto">
          <ul class=" list-none p-0">
-            <li class="p-5"><a href="" class="text-white">Tổng quan</a></li>
-            <li class="p-5"><a href="/Management" class="text-white">Quản lý phim</a></li>
-            <li class="p-5"><a href="/TheaterAdd" class="text-white">Quản lý xuất chiếu</a></li>
-            <li class="p-5"><a href="/ticket" class="text-white">Quản lý vé</a></li>
-            <li class="p-5"><a href="/customer" class="text-white">Quản lý khách hàng</a></li>
-            <li class="p-5"><a href="/cinema" class="text-white">Quản lý rạp phim</a></li>
+            <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
+            <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
+            <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
+            <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
+            <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
+            <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chổ ngồi</a></li>
+            <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
+            <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
+            <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
+
          </ul>
       </div>
    </div>

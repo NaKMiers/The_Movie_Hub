@@ -1063,7 +1063,9 @@ book-ticket-choose-cinema-nav ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 275px;
+    height: 300px;
+    gap:5px;
+    margin-top: -20px;
   }
   .book-ticket-quickly{
     height: 275px;
@@ -1071,13 +1073,15 @@ book-ticket-choose-cinema-nav ul li {
   .Contact{
     display: block;
     align-items: center;
-    width: 70%;
+    width: 70%; 
     margin: auto;
     height: 865px;
+    margin-top: 100px;
   }
   .Contact-us{
     margin-top: 0;
     width: 100%;;
+    
   }
   .Contact-us-title{
     text-align: center;
@@ -1087,11 +1091,13 @@ book-ticket-choose-cinema-nav ul li {
     margin: auto;
   }
   .Contact-us-zalo{
-    width: 76%;
+    width: 80%;
     margin: auto;
+    margin-top: 10px;
   }
   .contact-form{
     width: 100%;
+    margin-top: 10px;
   }
   .book-ticket-choose-movie,
   .book-ticket-choose-cinema,

@@ -1,0 +1,94 @@
+@page "/allevent"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Tất cả sự kiện";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
+<style>
+    .bg-kidzone {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/s/e/service-1_1_.png');
+    }
+
+    .bg-monngon {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/r/e/rectangle_3463983_1_.png');
+    }
+
+    .bg-bowling {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/b/o/bowling-dt-2_1_.png');
+    }
+
+    .bg-billiards {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/b/i/billards-dt-2_1_.png');
+    }
+
+    .bg-opera {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/o/p/opera-dt-2_1_.png');
+    }
+
+    .bg-gym {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/g/y/gym-dt-2_1_.png');
+    }
+
+    .bg-coffee {
+        background-image: url('https://api-website.cinestar.com.vn/media/entertainment_images/c/o/coffee-dt-2_1_.png');
+    }
+</style>
+
+<div class="bg-gray-900 text-white w-full">
+    <div class="container mx-auto py-8 w-full items-center">
+        <h1 class="text-center text-4xl mb-8 font-body">Tất cả các giải trí</h1>
+
+        <div class="space-y-4">
+            <!-- Kidzone -->
+            <a href="/kidzone">
+                <div
+                    class="bg-kidzone bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+
+            <!-- Món ngon -->
+            <a href="/restaurant">
+                <div
+                    class="bg-monngon bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+
+            <!-- Bowling -->
+            <a href="/bowling">
+                <div
+                    class="bg-bowling bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+
+            <!-- Billiards -->
+            <a href="/billiard">
+                <div
+                    class="bg-billiards bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+
+            <!-- Opera House -->
+            <a href="/opera">
+                <div class="bg-opera bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+
+            <!-- Gym -->
+            <a href="/gym">
+                <div class="bg-gym bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+
+            <!-- Coffee -->
+            <a href="/coffee">
+                <div
+                    class="bg-coffee bg-no-repeat bg-cover bg-center w-full h-48 flex items-center justify-center mb-2">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+@page "/eventrentail"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Thuê sự kiện ";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
+<div class="font-body p-5">
+    <div class="w-full px-4 sm:px-8 lg:px-16">
+        <div class="text-center mt-5">
+            <div class="text-4xl font-body">Thuê sự kiện</div>
+            <div class="mt-5 text-[14px] ">Lên kế hoạch cho sự kiện</div>
+            <div class="mt-5 text-[14px]">Chúng tôi có nhiều lựa chọn để sự kiện của bạn trở nên khó quên</div>
+        </div>
+        <div class="flex flex-col sm:flex-row mt-10">
+            <div class="w-full sm:w-[50%] flex flex-col justify-center p-10">
+                <div class="text-3xl  font-body">Fanclub, Cầu hôn, Sinh nhật</div>
+                <div class="mt-5">Cinestar Cinemas kỳ vọng sẽ đứng đằng sau làm sân khấu để tôn vinh câu chuyện của
+                    doanh nghiệp bạn.</div>
+                <div
+                    class="Book-your-ticket-now  font-body cursor-pointer bg-yellow-500 p-1.5 text-center text-sm text-black mt-3">
+                    Liên Hệ Ngay</div>
+            </div>
+            <div class="w-full sm:w-[50%] mx-auto p-10">
+                <img src="https://api-website.cinestar.com.vn/media/.renditions/wysiwyg/CMSPage/to-chuc-su-kien/fanclub.png"
+                    alt="Fanclub Event">
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row mt-10">
+            <div class="w-full sm:w-[65%] mx-auto p-10">
+                <img src="https://api-website.cinestar.com.vn/media/.renditions/wysiwyg/CMSPage/to-chuc-su-kien/chuong-trinh.png"
+                    alt="Program Launch">
+            </div>
+            <div class="w-full sm:w-[65%] flex flex-col justify-center p-10">
+                <div class="text-3xl  font-body">Ra Mắt Chương Trình, Họp Nôị Bộ, Music Video, Ra Mắt Phim</div>
+                <div class="mt-5">Cinestar Cinemas kỳ vọng sẽ đứng đằng sau làm sân khấu để tôn vinh câu chuyện của
+                    doanh nghiệp bạn.</div>
+                <div
+                    class="Book-your-ticket-now cursor-pointer  font-body bg-yellow-500 p-1.5 text-center text-sm text-black mt-3">
+                    Liên Hệ Ngay</div>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row mt-10">
+            <div class="w-full sm:w-[50%] flex flex-col justify-center p-10">
+                <div class="text-3xl  font-body">Nội Bộ, Film Festival</div>
+                <div class="mt-5">Cinestar Cinemas kỳ vọng sẽ đứng đằng sau làm sân khấu để tôn vinh câu chuyện của
+                    doanh nghiệp bạn.</div>
+                <div
+                    class="Book-your-ticket-now cursor-pointer  font-body  bg-yellow-500 p-1.5 text-center text-sm text-black mt-3">
+                    Liên Hệ Ngay</div>
+            </div>
+            <div class="w-full sm:w-[50%] mx-auto p-10">
+                <img src="https://api-website.cinestar.com.vn/media/.renditions/wysiwyg/CMSPage/to-chuc-su-kien/noi-bo.png"
+                    alt="Internal Event">
+            </div>
+        </div>
+    </div>
+</div>

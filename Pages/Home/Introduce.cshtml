@@ -1,0 +1,130 @@
+@page "/introduce"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Giới Thiệu";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+
+<div class="bg-gray-900 text-white w-full">
+    <!-- Hero Section -->
+    <div class="relative bg-purple-900 h-[500px] flex items-center justify-center">
+        <img src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Abouts/ht-qc-br.jpg" alt="Cinema"
+            class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <div class="relative text-center p-8">
+            <h1 class="text-5xl font-bold">HỆ THỐNG CỤM RẠP TRÊN TOÀN QUỐC</h1>
+            <p class="mt-4 text-lg max-w-2xl mx-auto">
+                Cinestar là một trong những hệ thống rạp chiếu phim được yêu thích nhất tại Việt Nam, cung cấp nhiều mô
+                hình giải trí hấp dẫn bao gồm Các Cụm Rạp Chiếu Phim hiện đại, Nhà hát, Khu vui chơi trẻ em Kidzone,
+                Bowling, Billiards, Games, Phòng Gym, Nhà Hàng, và Phố Bia C'Beer. Với mục tiêu trở thành điểm đến giải
+                trí cho mọi gia đình Việt Nam, Cinestar đang được biết đến là cụm rạp ủng hộ phim Việt, góp phần phát
+                triển điện ảnh Việt. Không chỉ chiếu các bộ phim bom tấn quốc tế, Cinestar còn đồng hành cùng các nhà
+                làm phim Việt Nam, đưa những tác phẩm điện ảnh đặc sắc của Việt Nam đến gần hơn với khán giả.
+            </p>
+        </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+        <h2 class="text-4xl text-center font-bold mb-12">SỨ MỆNH</h2>
+        <div class="container mx-auto flex flex-wrap justify-center gap-10">
+            <div class="bg-blue-600 p-8 rounded-lg shadow-lg w-80 text-center">
+                <div class="text-2xl font-bold mb-4">01</div>
+                <p class="text-lg">Góp phần tăng trưởng thị phần điện ảnh, văn hóa, giải trí của người Việt Nam</p>
+            </div>
+            <div class="bg-blue-600 p-8 rounded-lg shadow-lg w-80 text-center">
+                <div class="text-2xl font-bold mb-4">02</div>
+                <p class="text-lg">Phát triển dịch vụ xuất sắc với mức giá tối ưu, phù hợp với thu nhập người Việt Nam.
+                </p>
+            </div>
+            <div class="bg-blue-600 p-8 rounded-lg shadow-lg w-80 text-center">
+                <div class="text-2xl font-bold mb-4">03</div>
+                <p class="text-lg">Mang nghệ thuật điện ảnh, văn hóa Việt Nam hội nhập quốc tế.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cinemas Grid Section -->
+    <div class="text-center py-8">
+        <h1 class="text-4xl font-bold mb-8">HỆ THỐNG CỤM RẠP</h1>
+    </div>
+
+    <div class="container mx-auto pb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cinema 1 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/Quoc_Thanh_01_Mat_Tien.jpg"
+                    alt="Cinestar Quốc Thanh" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR QUỐC THANH</h2>
+                </div>
+            </div>
+            <!-- Cinema 2 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/Hai-Ba-Trung-01_Mat_Tien.jpg"
+                    alt="Cinestar Hai Bà Trưng" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR HAI BÀ TRƯNG (TP.HCM)</h2>
+                </div>
+            </div>
+            <!-- Cinema 3 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/Sinh-Vien-01-Facade.jpg"
+                    alt="Cinestar Sinh Viên" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR SINH VIÊN (BÌNH DƯƠNG)</h2>
+                </div>
+            </div>
+            <!-- Cinema 4 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/My-Tho-01-Facade.jpg"
+                    alt="Cinestar Mỹ Tho" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR MỸ THO</h2>
+                </div>
+            </div>
+            <!-- Cinema 5 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/Kien-Giang-01-Facade.jpg"
+                    alt="Cinestar Kiên Giang" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR KIÊN GIANG</h2>
+                </div>
+            </div>
+            <!-- Cinema 6 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/Lam-Dong-01-Facade.jpg"
+                    alt="Cinestar Lâm Đồng" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR LÂM ĐỒNG</h2>
+                </div>
+            </div>
+            <!-- Cinema 7 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/01-Mat-Tien.jpg"
+                    alt="Cinestar Đà Lạt" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR ĐÀ LẠT</h2>
+                </div>
+            </div>
+            <!-- Cinema 8 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/HUE-01_Mat_Tien.jpg"
+                    alt="Cinestar Huế" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">CINESTAR HUẾ</h2>
+                </div>
+            </div>
+            <!-- Cinema 9 -->
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/09-01-thumbnail.jpg"
+                    alt="Gym/Kidzone" class="rounded-t-lg w-full object-cover h-48">
+                <div class="text-center mt-4">
+                    <h2 class="text-xl font-bold">GYM/KIDZONE</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

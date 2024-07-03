@@ -196,8 +196,8 @@
                                     </div>
                                 </div>
                                 <div class="order-ticket">
-                                    <button>ĐẶT
-                                        VÉ</button>
+                                 <a href="/movie/{id}"> <button>ĐẶT
+                                        VÉ</button></a>  
                                 </div>
                             </div>
                         </a></li>
@@ -691,9 +691,11 @@
                 </ul>
             </div>
             <button
-                class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full prev">&#10094;</button>
+                class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full prev"
+                id="prev_left_three">&#10094;</button>
             <button
-                class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full next">&#10095;</button>
+                class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full next"
+                id="next_right_three">&#10095;</button>
             <div class="text-center mt-5 text-xl">
                 <a href="#"
                     class="All-Offers inline-block border border-gray-300 rounded   bg-yellow-300 hover:bg-purple-700 hover:text-white transition duration-300">TẤT
@@ -979,5 +981,37 @@
     window.addEventListener("resize", handleResizeMovieList);
     ////
 
+    // Carousel cho các bộ phim sắp tới
+    const arrowRightthree = document.getElementById("next_right_three");
+    const arrowLeftthree = document.getElementById("prev_left_three");
+    const Discontlist = document.getElementById("discontlist");
 
+    let currentPosition2 = 0;
+
+    function updateDiscontlistPosition() {
+        Discontlist.style.transform = `translateX(${currentPosition2}%)`;
+    }
+
+    arrowRightthree.addEventListener("click", () => {
+        if (currentPosition2 > -35) {
+            currentPosition2 -= 35;
+            updateDiscontlistPosition();
+        }
+    });
+
+    arrowLeftthree.addEventListener("click", () => {
+        if (currentPosition2 < 0) {
+            currentPosition2 += 35;
+            updateDiscontlistPosition();
+        }
+    });
+
+    function handleResizeDiscontlist() {
+        currentPosition2 = 0;
+        updateDiscontlistPosition();
+    }
+
+    window.addEventListener("load", handleResizeDiscontlist);
+    window.addEventListener("resize", handleResizeDiscontlist);
+    ////
 </script>

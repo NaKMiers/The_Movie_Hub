@@ -1,0 +1,96 @@
+@page "/advice"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Khuyến mãi";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<div class="w-full p-5">
+    <div class="mx-auto flex flex-col sm:flex-row w-[90%] lg:w-[80%] justify-center gap-10 sm:gap-20">
+        <div class="mt-15 sm:mt-5">
+            <div>
+                <div class="w-full text-2xl sm:text-3xl">C’STUDENT - 45K CHO HỌC SINH VIÊN</div>
+                <div class="text-sm sm:text-[16px]">Đồng giá 45K/2D cho HSSV/GV/U22 cả tuần tại mọi cụm rạp Cinestar
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="text-sm sm:text-[16px] font-bold">Condition:</div>
+                <div>
+                    <ul>
+                        <li class="text-xs sm:text-[14px]">HSSV xuất trình thẻ HSSV hoặc CCCD từ dưới 22 tuổi.</li>
+                        <li class="text-xs sm:text-[14px]">Giảng viên/ giáo viên xuất trình thẻ giảng viên.</li>
+                    </ul>
+                </div>
+                <div
+                    class="Book-your-ticket-now cursor-pointer bg-yellow-500 p-1.5 px-12 text-center text-sm text-black mt-3">
+                    Đặt vé ngay
+                </div>
+            </div>
+        </div>
+        <div class="w-full sm:w-[50%]">
+            <img class="w-full"
+                src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-2.jpg&w=1920&q=75"
+                alt="Cinestar Promotion" />
+        </div>
+    </div>
+
+    <div class="mx-auto mt-5 flex flex-col sm:flex-row w-[90%] lg:w-[80%] gap-10 sm:gap-20 justify-center">
+        <div class="w-full sm:w-[50%]">
+            <img src="https://api-website.cinestar.com.vn/media/.renditions/wysiwyg/CMSPage/Promotions/C_TEN.png"
+                alt="Cinestar Promotion" />
+        </div>
+        <div class="mt-5 sm:mt-5">
+            <div>
+                <div class="w-full text-2xl sm:text-3xl">C'MONDAY - HAPPY DAY - ĐỒNG GIÁ 45K/ 2D</div>
+                <div class="text-sm sm:text-[16px]">Đồng giá 45K/2D cho HSSV/GV/U22 cả tuần tại mọi cụm rạp Cinestar
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="text-sm sm:text-[16px] font-bold">Condition:</div>
+                <div>
+                    <ul>
+                        <li class="text-xs sm:text-[14px]">HSSV xuất trình thẻ HSSV hoặc CCCD từ dưới 22 tuổi.</li>
+                        <li class="text-xs sm:text-[14px]">Giảng viên/ giáo viên xuất trình thẻ giảng viên.</li>
+                    </ul>
+                </div>
+                <div
+                    class="Book-your-ticket-now cursor-pointer bg-yellow-500 p-1.5 px-12 text-center text-sm text-black mt-3">
+                    Đặt vé ngay
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto flex flex-col sm:flex-row w-[90%] lg:w-[80%] justify-center gap-10 sm:gap-20 mt-5">
+        <div class="mt-5 sm:mt-5">
+            <div>
+                <div class="w-full text-2xl sm:text-3xl">C'MEMBER - HAPPY MEMBER’S DAY - GIÁ CHỈ 45K/ 2D</div>
+                <div class="text-sm sm:text-[16px]">Áp dụng giá 45K/ 2D và 55K/ 3D cho khách hàng là thành viên Cinestar
+                    vào ngày thứ 4 hàng tuần.</div>
+            </div>
+            <div class="mt-3">
+                <div class="text-sm sm:text-[16px] font-bold">Condition:</div>
+                <div>
+                    <ul>
+                        <li class="text-xs sm:text-[14px]">Khách hàng là thành C’FRIEND hoặc C’VIP của Cinestar.</li>
+                        <li class="text-xs sm:text-[14px]">Áp dụng tại App/Web Cinestar hoặc mua trực tiếp tại rạp.</li>
+                        <li class="text-xs sm:text-[14px]">Giảm thêm 10% giá trị hóa đơn bắp nước cho chủ thẻ C’FRIEND
+                            và 15% cho chủ thẻ C’VIP.</li>
+                        <li class="text-xs sm:text-[14px]">Không áp dụng cho các ngày lễ/tết.</li>
+                    </ul>
+                </div>
+                <div
+                    class="Book-your-ticket-now cursor-pointer bg-yellow-500 p-1.5 px-12 text-center text-sm text-black mt-3">
+                    Đặt vé ngay
+                </div>
+            </div>
+        </div>
+        <div class="w-full sm:w-[50%] mt-5 sm:mt-5">
+            <img class="w-full"
+                src="https://api-website.cinestar.com.vn/media/.renditions/wysiwyg/CMSPage/Member/monday_1_.jpg"
+                alt="Cinestar Promotion" />
+        </div>
+    </div>
+</div>

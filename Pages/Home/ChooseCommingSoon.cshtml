@@ -1,0 +1,83 @@
+@page "/Choosecommingsoon"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Phim sắp chiếu";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<div class="relative bg-cover bg-center bg-no-repeat h-64"
+    style="background-image: url('https://cinestar-api.monamedia.net/media/wysiwyg/CinemaImage/01-Quoc-Thanh-masthead.jpg')">
+    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <h2 class="text-white text-2xl font-bold">CINESTAR QUỐC THANH</h2>
+                <div class="flex">
+                    <a href="/Choosecinema" class="text-white hover:text-gray-300">PHIM ĐANG CHIẾU</a>
+                    <a href="/Choosecommingsoon" class="text-white hover:text-gray-300 ml-4">PHIM SẮP CHIẾU</a>
+                    <a href="/specialshow" class="text-white hover:text-gray-300 ml-4">SUẤT CHIẾU ĐẶC BIỆT</a>
+                    <a href="/priceticket" class="text-white hover:text-gray-300 ml-4">BẢNG GIÁ VÉ</a>
+                </div>
+            </div>
+
+            <p class="text-white mt-4">6271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh</p>
+        </div>
+    </div>
+
+</div>
+<div class="relative bg-cover bg-center bg-no-repeat h-64"
+    style="background-image: url('https://media.istockphoto.com/id/1398944176/vi/vec-to/tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-l%C3%A0m-m%E1%BB%9D-m%C3%A0u-t%C3%ADm-%C4%91%E1%BB%8F-cam-%C4%91%E1%BB%8F-t%C6%B0%C6%A1i-n%E1%BB%81n-m%C3%A0u-t%C3%ADm-ph%C3%B4ng-n%E1%BB%81n-gradient-m%E1%BB%81m-v%E1%BB%9Bi-v%E1%BB%8B-tr%C3%AD-cho.jpg?s=612x612&w=0&k=20&c=hqAVQlS9aYoBV81Xc0aAeYUkoCeGkuLtTb1RqRar_-g=')">
+    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://api-website.cinestar.com.vn/media/wysiwyg/Posters/07-2024/xin-chao-jadoo-dai-duong-dieu-ky.jpg"
+                        alt="Kẻ Trộm Mặt Trăng 4" class="w-30 h-24 mr-4">
+                    <h2 class="text-white text-2xl font-bold">XIN CHÀO JADOO: ĐẠI DƯƠNG DIỆU KỲ</h2>
+                </div>
+                <div class="flex">
+                    <a href="#" class="text-white hover:text-gray-300">LỊCH CHIẾU</a>
+                    <a href="#" class="text-white hover:text-gray-300 ml-4">TRAILER</a>
+                    <a href="#" class="text-white hover:text-gray-300 ml-4">ĐẶT VÉ</a>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p class="text-white">Hoạt hình</p>
+                <p class="text-white">Khởi chiếu: 19/07/2024</p>
+                <p class="text-white">Thể loại: P (Phim dành cho khán giả mọi lứa tuổi)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="relative bg-cover bg-center bg-no-repeat h-64"
+    style="background-image: url('https://media.istockphoto.com/id/1398944176/vi/vec-to/tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-l%C3%A0m-m%E1%BB%9D-m%C3%A0u-t%C3%ADm-%C4%91%E1%BB%8F-cam-%C4%91%E1%BB%8F-t%C6%B0%C6%A1i-n%E1%BB%81n-m%C3%A0u-t%C3%ADm-ph%C3%B4ng-n%E1%BB%81n-gradient-m%E1%BB%81m-v%E1%BB%9Bi-v%E1%BB%8B-tr%C3%AD-cho.jpg?s=612x612&w=0&k=20&c=hqAVQlS9aYoBV81Xc0aAeYUkoCeGkuLtTb1RqRar_-g=')">
+    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://api-website.cinestar.com.vn/media/wysiwyg/Posters/07-2024/tham-hoa-tren-cau-poster.png"
+                        alt="Kẻ Trộm Mặt Trăng 4" class="w-30 h-24 mr-4">
+                    <h2 class="text-white text-2xl font-bold">DỰ ÁN MẬT: THẢM HOẠ TRÊN CẦU</h2>
+                </div>
+                <div class="flex">
+                    <a href="#" class="text-white hover:text-gray-300">LỊCH CHIẾU</a>
+                    <a href="#" class="text-white hover:text-gray-300 ml-4">TRAILER</a>
+                    <a href="#" class="text-white hover:text-gray-300 ml-4">ĐẶT VÉ</a>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p class="text-white">Khác</p>
+                <p class="text-white">Khởi chiếu: 19/07/2024</p>
+                <p class="text-white">
+                    T13: Phim dành cho khán giả từ đủ 13 tuổi trở lên (13+)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe class="w-screen p-10"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.618599109379!2d106.68247797596254!3d10.763849132079605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f19e63f0a05%3A0xd4c41b784ebcc3e8!2sCinestar%20Cinema%20Qu%E1%BB%91c%20Thanh!5e0!3m2!1svi!2s!4v1720067287490!5m2!1svi!2s"
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>

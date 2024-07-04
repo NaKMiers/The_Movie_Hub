@@ -1256,6 +1256,13 @@ video {
   -webkit-line-clamp: 6;
 }
 
+.line-clamp-1{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
 .line-clamp-none{
   overflow: visible;
   display: block;
@@ -1611,6 +1618,14 @@ video {
   min-width: 100%;
 }
 
+.min-w-\[80\%\]{
+  min-width: 80%;
+}
+
+.min-w-\[500px\]{
+  min-width: 500px;
+}
+
 .max-w-0{
   max-width: 0px;
 }
@@ -1647,6 +1662,10 @@ video {
   max-width: 500px;
 }
 
+.max-w-\[calc\(100\%-500px\)\]{
+  max-width: calc(100% - 500px);
+}
+
 .max-w-full{
   max-width: 100%;
 }
@@ -1657,6 +1676,18 @@ video {
 
 .max-w-xl{
   max-width: 36rem;
+}
+
+.max-w-\[100px\]{
+  max-width: 100px;
+}
+
+.max-w-\[100\%\]{
+  max-width: 100%;
+}
+
+.max-w-\[calc\(100vw-4\*21px\)\]{
+  max-width: calc(100vw - 4 * 21px);
 }
 
 .flex-1{
@@ -3193,6 +3224,16 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
+.bg-yellow-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+
+.bg-rose-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 63 94 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-10{
   --tw-bg-opacity: 0.1;
 }
@@ -3558,6 +3599,11 @@ video {
 .py-\[30px\]{
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.py-0\.5{
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
 }
 
 .pb-0{
@@ -4060,6 +4106,11 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-slate-500{
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
 .text-opacity-100{
@@ -5057,6 +5108,11 @@ svg path {
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-yellow-500:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
 .hover\:fill-highlight:hover{
   fill: #f3ea28;
 }
@@ -5372,6 +5428,10 @@ svg path {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .md\:flex-row{
     flex-direction: row;
   }
@@ -5438,6 +5498,10 @@ svg path {
 
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:flex-row{

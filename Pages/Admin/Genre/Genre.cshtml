@@ -79,39 +79,25 @@ Submit
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="py-2 px-4">1</td>
-                            <td class="py-2 px-4">Tiểu thuyết</td>
-                            <td class="py-2 px-4">
-                                <a href="/admin/genre/{id}/edit"><button
-                                        class="text-indigo-600 hover:text-indigo-900">Sửa</button></a>
-                                <button class="text-red-600 hover:text-red-900 ml-2">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4">2</td>
-                            <td class="py-2 px-4">Khoa học</td>
-                            <td class="py-2 px-4">
-                                <a href="/admin/genre/{id}/edit"><button
-                                        class="text-indigo-600 hover:text-indigo-900">Sửa</button></a>
-                                <button class="text-red-600 hover:text-red-900 ml-2">Xóa</button>
-                            </td>
-                        </tr>
-                        <!-- Add more rows as needed -->
+
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <tr>
+                                <td class="py-2 px-4">@genre.Id</td>
+                                <td class="py-2 px-4">@genre.Title</td>
+                                <td class="py-2 px-4">
+                                    <a href='/Admin/Genre/@genre.Id/Edit'
+                                        class="text-indigo-600 hover:text-indigo-900">Sửa</a>
+                                    <form method="post">
+                                        <input type="hidden" name="Id" value="@genre.Id" />
+                                        <button asp-page-handler="Delete" style="color: red">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    function changeRoomCount(amount) {
-        var roomInput = document.getElementById('room');
-        var currentCount = parseInt(roomInput.value);
-        var newCount = currentCount + amount;
-        if (newCount >= 1) {
-            roomInput.value = newCount;
-        }
-    }
-</script>

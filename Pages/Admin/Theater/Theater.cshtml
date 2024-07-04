@@ -80,15 +80,22 @@
                            class="block pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-sky-400 text-dark hover:bg-sky-500 trans-200">
                            Edit
                         </a>
-                        <button
-                           class="pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-rose-400 text-dark hover:bg-rose-500 trans-200">
-                           Delete
-                        </button>
+
+                        <form method="post" class="w-full">
+                           <input type="hidden" name="Id" value="@theater.Id" />
+                           <button asp-page-handler="Delete"
+                              class="w-full pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-rose-400 text-dark hover:bg-rose-500 trans-200">
+                              Delete
+                           </button>
+                        </form>
+
+                        <a href=@($"/admin/room/{theater.Id}" )
+                           class="w-full text-nowrap pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-yellow-400 text-dark hover:bg-yellow-500 trans-200">
+                           View Room</a>
                      </div>
                   </td>
                </tr>
             }
-            <!-- Repeat similar rows for other cinemas -->
       </table>
    </div>
 </div>

@@ -40,7 +40,7 @@
                             d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
                             clip-rule="evenodd" />
                     </svg>
-                    <a href='/' class="text-black">Quay lại</a>
+                    <a href='/Admin' class="text-black">Quay lại</a>
                 </div>
                 <div
                     class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
@@ -54,45 +54,30 @@
                 </div>
             </div>
         </div>
-        <div class="bg-gray-100 p-8">
+
+        <div class="bg-gray-100 p-8 mt-4 rounded-lg">
             <div class="container mx-auto">
                 <h1 class="text-2xl font-bold mb-4">Danh sách các phim</h1>
-                <div class="overflow-x-auto">
-                    <table class="table-auto w-full border-collapse border border-gray-300 bg-white">
-                        <thead>
-                            <tr class="bg-gray-200">
-                                <th class="border border-gray-300 px-4 py-2">Id</th>
-                                <th class="border border-gray-300 px-4 py-2">Tên Phim</th>
-                                <th class="border border-gray-300 px-4 py-2">Thể loại</th>
-                                <th class="border border-gray-300 px-4 py-2">Đạo diễn</th>
-                                <th class="border border-gray-300 px-4 py-2">Diễn viên</th>
-                                <th class="border border-gray-300 px-4 py-2">Hình thức chiếu</th>
-                                <th class="border border-gray-300 px-4 py-2">Ngày chiếu</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Dữ liệu phim được thay thế bằng dữ liệu từ backend hoặc form submission -->
-                            <tr class="hover:bg-gray-100">
-                                <td class="border border-gray-300 px-4 py-2">1</td>
-                                <td class="border border-gray-300 px-4 py-2">Avengers: Endgame</td>
-                                <td class="border border-gray-300 px-4 py-2">Hành động</td>
-                                <td class="border border-gray-300 px-4 py-2">Anthony Russo, Joe Russo</td>
-                                <td class="border border-gray-300 px-4 py-2">Robert Downey Jr., Chris Evans
-                                </td>
-                                <td class="border border-gray-300 px-4 py-2">IMAX</td>
-                                <td class="border border-gray-300 px-4 py-2">2024-06-25</td>
-                            </tr>
-                            <tr class="hover:bg-gray-100">
-                                <td class="border border-gray-300 px-4 py-2">2</td>
-                                <td class="border border-gray-300 px-4 py-2">Parasite</td>
-                                <td class="border border-gray-300 px-4 py-2">Kinh dị</td>
-                                <td class="border border-gray-300 px-4 py-2">Bong Joon-ho</td>
-                                <td class="border border-gray-300 px-4 py-2">Song Kang-ho, Lee Sun-kyun</td>
-                                <td class="border border-gray-300 px-4 py-2">2D Standard</td>
-                                <td class="border border-gray-300 px-4 py-2">2024-06-25</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    @foreach (var movie in Model.Movies)
+                    {
+                        <div class="rounded-lg shadow-lg p-2">
+                            <p>Id: @movie.Id</p>
+                            <p>Title: @movie.Title</p>
+                            <p>ReleaseDate: @movie.ReleaseDate</p>
+                            <p>Content: @movie.Content</p>
+                            <p>Director: @movie.Director</p>
+                            <p>Actors: @movie.Actors</p>
+                            <p>Duration: @movie.Duration</p>
+                            <p>TrailerUrl: @movie.TrailerUrl</p>
+                            <p>Rating: @movie.Rating</p>
+                            <p>Country: @movie.Country</p>
+                            <p>Note: @movie.Note</p>
+                            <p>Banner: @movie.Banner</p>
+                            <p>Image: @movie.Image</p>
+                            <p>Active: @movie.Active</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

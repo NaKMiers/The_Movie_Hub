@@ -32,39 +32,34 @@
 <div class="p-21">
     <div class="p-21 bg-white text-dark rounded-lg shadow-lg overflow-x-scroll">
         <h2 class="text-2xl font-bold mb-6">Danh sách người dùng</h2>
-        <table class="min-w-full border border-gray-300">
-            <thead>
-                <tr>
-                    <th class="py-2 px-4 border border-gray-300">Id</th>
-                    <th class="py-2 px-4 border border-gray-300">FullName</th>
-                    <th class="py-2 px-4 border border-gray-300">Username</th>
-                    <th class="py-2 px-4 border border-gray-300">Email</th>
-                    <th class="py-2 px-4 border border-gray-300">Phone</th>
-                    <th class="py-2 px-4 border border-gray-300">Password</th>
-                    <th class="py-2 px-4 border border-gray-300">AuthType</th>
-                    <th class="py-2 px-4 border border-gray-300">Birthday</th>
-                    <th class="py-2 px-4 border border-gray-300">Expended</th>
-                    <th class="py-2 px-4 border border-gray-300">CCCD</th>
-                </tr>
-            </thead>
-            <tbody class="w-full">
-                @foreach (var user in @Model.Users)
-                {
-                    <tr>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Id</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.FullName</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Username</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Email</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Phone</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Password</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.AuthType</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Birthday</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.Expended</td>
-                        <td class="py-2 px-4 text-center border border-gray-300">@user.CCCD</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            @foreach (var user in @Model.Users)
+            {
+                <div class="bg-white border border-dark p-2 rounded-lg shadow-lg">
+                    <p class="py-1">Id: <span class="font-semibold text-slate-500">@user.Id</span></p>
+                    <p class="py-1">FullName: <span class="font-semibold text-slate-500">@user.FullName</span></p>
+                    <p class="py-1">Username: <span class="font-semibold text-slate-500">@user.Username</span></p>
+                    <p class="py-1">Email: <span class="font-semibold text-slate-500">@user.Email</span></p>
+                    <p class="py-1">Phone: <span class="font-semibold text-slate-500">@user.Phone</span></p>
+                    <p class="py-1">Password: <span class="font-semibold text-slate-500">@user.Password</span></p>
+                    <p class="py-1">AuthType: <span class="font-semibold text-slate-500">@user.AuthType</span></p>
+                    <p class="py-1">Birthday: <span class="font-semibold text-slate-500">@user.Birthday</span></p>
+                    <p class="py-1">Expended: <span class="font-semibold text-slate-500">@user.Expended</span></p>
+                    <p class="py-1">CCCD: <span class="font-semibold text-slate-500">@user.CCCD</span></p>
+
+                    @* Action Buttons *@
+                    <div class="flex gap-2 justify-center items-center border rounded-lg py-1">
+                        <form method="post">
+                            <input type="hidden" name="Id" value="@user.Id" />
+                            <button asp-page-handler="Delete"
+                                class="bg-rose-400 border border-dark text-white rounded-md shadow-lg px-2 pt-1 text-sm hover:bg-rose-500 trans-200">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+
     </div>
 </div>
 

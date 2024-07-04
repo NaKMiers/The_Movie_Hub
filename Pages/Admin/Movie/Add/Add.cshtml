@@ -1,6 +1,6 @@
 @page "/Admin/Movie/Add"
 @{
-   Layout = "_Layout";
+   Layout = "_AdminLayout";
    ViewData["Title"] = "Add Movie";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
@@ -24,13 +24,6 @@
 }
 </div>
 
-<input class="w-full max-w-[500px] px-2" type="text" name="Title" placeholder="Title...">
-<input class="w-full max-w-[500px] px-2" type="text" name="ReleaseDate" placeholder="Release Date...">
-<textarea name="Content" placeholder="Content..." class="w-full max-w-[500px] px-2"></textarea>
-<input class="w-full max-w-[500px] px-2" type="text" name="Director" placeholder="Director...">
-<input class="w-full max-w-[500px] px-2" type="text" name="Actors" placeholder="Actors...">
-<input class="w-full max-w-[500px] px-2" type="number" name="Duration" placeholder="Duration...">
-<input class="w-full max-w-[500px] px-2" type="url" name="TrailerUrl" placeholder="Trailer Url...">
 <input type="file" name="Banner" class="text-white" placeholder="asds" />
 <input type="file" name="Image" class="text-white" />
 
@@ -40,9 +33,9 @@ Submit
 </form>
 </div> *@
 
-<div class="flex flex-col md:flex-row h-full">
+<div class="p-21">
    <!-- Main Content -->
-   <div class="w-full md:w-3/4 bg-white">
+   <div class="rounded-lg shadow-lg p-21 bg-white">
       <div class="bg-white text-black border border-black p-5 rounded-lg shadow-lg">
          <div class="w-full mx-auto">
             <div class="flex justify-between items-center">
@@ -54,17 +47,7 @@ Submit
                         d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
                         clip-rule="evenodd" />
                   </svg>
-                  <span class="text-black">Quay lại</span>
-               </div>
-               <div
-                  class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                     fill="currentColor">
-                     <path fill-rule="evenodd"
-                        d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
-                        clip-rule="evenodd" />
-                  </svg>
-                  <span class="text-black">Tạo phim mới</span>
+                  <a href='/Admin/Movie' class="text-black">Quay lại</a>
                </div>
             </div>
          </div>
@@ -74,7 +57,7 @@ Submit
             <div>
                <div class="mb-4">
                   <label for="name" class="block mb-2">Tên Phim</label>
-                  <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-md"
+                  <input type="text" id="name" name="Title" class="w-full p-2 border border-gray-300 rounded-md"
                      required>
                </div>
                <div class="mb-4">
@@ -84,7 +67,7 @@ Submit
                </div>
                <div class="mb-4">
                   <label for="movie-description" class="block mb-2">Mô tả phim</label>
-                  <textarea id="movie-description" name="movie-description"
+                  <textarea id="movie-description" name="Content"
                      class="w-full p-2 border h-20 border-gray-300 rounded-md resize-none" required></textarea>
                </div>
                <div class="mb-4">
@@ -100,120 +83,43 @@ Submit
                </div>
                <div class="mb-4">
                   <label for="director" class="block mb-2">Đạo diễn</label>
-                  <input type="text" id="director" name="director" class="w-full p-2 border border-gray-300 rounded-md"
+                  <input type="text" id="director" name="Director" class="w-full p-2 border border-gray-300 rounded-md"
                      required>
                </div>
                <div class="mb-4">
                   <label for="performer" class="block mb-2">Diễn viên</label>
-                  <input type="text" id="performer" name="performer"
-                     class="w-full p-2 border border-gray-300 rounded-md" required>
+                  <input type="text" id="performer" name="Actors" class="w-full p-2 border border-gray-300 rounded-md"
+                     required>
                </div>
             </div>
             <!-- Right Column -->
-            <div>
+            <div class="mb-4">
                <div class="mb-4">
-                  <label for="show-format" class="block mb-2">Hình thức chiếu</label>
-                  <select id="show-format" name="show-format" class="w-full p-3 border border-gray-300 rounded-md">
-                     <option value="" disabled selected>Chọn hình thức chiếu</option>
-                     <option value="2d">2D Standard</option>
-                     <option value="3d">3D</option>
-                     <option value="imax">IMAX</option>
-                     <option value="4dx">4DX</option>
-                     <option value="dbox">DBOX</option>
-                  </select>
+                  <label for="movie-date" class="block mb-2">Chọn Ngày</label>
+                  <input type="date" id="movie-date" name="ReleaseDate"
+                     class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
                </div>
                <div class="mb-4">
-                  <label for="subtitle-format" class="block mb-2">Hình thức dịch</label>
-                  <select id="subtitle-format" name="subtitle-format"
-                     class="w-full p-3 border border-gray-300 rounded-md">
-                     <option value="" disabled selected>Chọn hình thức dịch</option>
-                     <option value="sub-vietnamese">Tiếng Việt</option>
-                     <option value="sub-english">Tiếng Anh</option>
-                     <option value="sub-french">Tiếng Pháp</option>
-                     <option value="sub-spanish">Tiếng Tây Ban Nha</option>
-                     <option value="sub-german">Tiếng Đức</option>
-                  </select>
+                  <label for="movie-date" class="block mb-2">Thời Lượng</label>
+                  <input type="number" id="movie-date" name="Duration"
+                     class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
                </div>
-               <div class="mb-4 mt-5">
-                  <label class="block mb-2">Độ tuổi</label>
-                  <div class="flex gap-4">
-                     <label for="age-all" class="flex items-center cursor-pointer">
-                        <input type="radio" id="age-all" name="age-rating" value="all" class="hidden"
-                           onchange="handleRadioChange('age-all')">
-                        <span class="px-4 py-3 border border-gray-300 rounded-md bg-white text-gray-700">Tất cả</span>
-                     </label>
-                     <label for="age-16" class="flex items-center cursor-pointer">
-                        <input type="radio" id="age-16" name="age-rating" value="16" class="hidden"
-                           onchange="handleRadioChange('age-16')">
-                        <span class="px-4 py-3 border border-gray-300 rounded-md bg-white text-gray-700">16+</span>
-                     </label>
-                     <label for="age-18" class="flex items-center cursor-pointer">
-                        <input type="radio" id="age-18" name="age-rating" value="18" class="hidden"
-                           onchange="handleRadioChange('age-18')">
-                        <span class="px-4 py-3 border border-gray-300 rounded-md bg-white text-gray-700">18+</span>
-                     </label>
-                  </div>
-                  <div class="mb-4 mt-12">
-                     <label for="movie-date" class="block mb-2">Chọn Ngày</label>
-                     <input type="text" id="movie-date" name="movie-date"
-                        class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
-                  </div>
-                  <div class="mb-4">
-                     <label for="cinema-image" class="block mb-2">Ảnh rạp</label>
-                     <input type="file" id="cinema-image" name="cinema-image"
-                        class="w-full p-2 border border-gray-300 rounded-md" accept="image/*" required>
-                  </div>
-                  <div class="mt-8 flex justify-center">
-                     <button type="submit"
-                        class="w-full md:w-1/2 p-3 bg-green-500 text-white rounded-md hover:bg-green-600">Lưu</button>
-                  </div>
+               <div class="mb-4">
+                  <label for="cinema-banner" class="block mb-2">Ảnh Bìa</label>
+                  <input type="file" id="cinema-banner" name="Banner"
+                     class="w-full p-2 border border-gray-300 rounded-md" accept="image/*" required>
                </div>
+               <div class="mb-4">
+                  <label for="cinema-image" class="block mb-2">Thumbnail</label>
+                  <input type="file" id="cinema-image" name="Image" class="w-full p-2 border border-gray-300 rounded-md"
+                     accept="image/*" required>
+               </div>
+               <div class="mt-8 flex justify-center">
+                  <button type="submit"
+                     class="w-full md:w-1/2 p-3 bg-green-500 text-white rounded-md hover:bg-green-600">Lưu</button>
+               </div>
+            </div>
          </form>
       </div>
    </div>
 </div>
-<!-- Sidebar -->
-<div class="bg-[#35355c] w-full md:w-1/4 h-full md:h-[730px] flex flex-col items-center">
-   <div class="w-1/2 p-1 mx-auto">
-      <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-   </div>
-   <div class="w-3/4 mx-auto">
-      <ul class="list-none p-0">
-         <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
-         <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
-         <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
-         <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
-         <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
-         <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chỗ ngồi</a></li>
-         <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
-         <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
-         <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
-      </ul>
-   </div>
-</div>
-</div>
-
-<script>
-   function handleRadioChange(id) {
-      // Reset all labels to default style
-      const labels = document.querySelectorAll('.flex label');
-      labels.forEach(label => {
-         label.classList.remove('bg-blue-500', 'text-white');
-         label.classList.add('bg-white', 'text-gray-700');
-      });
-
-      // Find the selected label and change its style
-      const selectedLabel = document.querySelector(`label[for="${id}"]`);
-      if (selectedLabel) {
-         selectedLabel.classList.remove('bg-white', 'text-gray-700');
-         selectedLabel.classList.add('bg-blue-500', 'text-white');
-      }
-   }
-   /////////
-   flatpickr("#movie-date", {
-      dateFormat: "d/m/Y", // Định dạng hiển thị ngày
-      minDate: "today", // Ngày tối thiểu là hôm nay
-      inline: true, // Hiển thị lịch ngay trong input
-   });
-
-</script>

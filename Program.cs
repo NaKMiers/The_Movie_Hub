@@ -52,4 +52,5 @@ app.UseMiddleware<AuthenticationMiddleware>();
 
 app.MapRazorPages();
 
+
 app.Run();

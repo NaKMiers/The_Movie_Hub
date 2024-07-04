@@ -29,6 +29,7 @@ body {
   border-radius: 5px;
   padding: 10px;
   border:1px solid #959699;
+  width: 35%;
 }
 
 .Showtime-movie
@@ -36,6 +37,7 @@ body {
   border-radius: 5px;
   padding:10px;
   border:1px solid #959699;
+  width:25%;
 }
 .Showtime-movie-info
 {

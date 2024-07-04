@@ -1,0 +1,140 @@
+@page "/putcorn"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Đặt bắp nước";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<style>
+    body {
+        background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+    }
+</style>
+<div class="container mx-auto px-4 py-8 text-black">
+    <h1 class="text-4xl font-bold mb-4 text-white ">Đặt mua bắp nước</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Bắp rang -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <img src="https://api-website.cinestar.com.vn/media/.thumbswysiwyg/pictures/HinhQuayconnew/Combo-party.png?rand=1718957425"
+                alt="Bắp rang" class="mb-4 rounded-lg">
+            <h2 class="text-xl font-bold mb-2">Bắp rang</h2>
+            <p class="text-gray-600 mb-4">Giá: 25,000 VNĐ</p>
+
+            <label class="block mb-2">Số lượng:</label>
+            <input type="number" class="border border-gray-300 px-3 py-2 mb-2 rounded-md w-full" value="1">
+
+            <label class="block mb-2">Combo:</label>
+            <select class="border border-gray-300 px-3 py-2 mb-4 rounded-md w-full">
+                <option value="standard">Standard</option>
+                <option value="large">Large</option>
+            </select>
+
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+                Thêm vào giỏ hàng
+            </button>
+        </div>
+
+        <!-- Nước ngọt -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <img src="https://api-website.cinestar.com.vn/media/.thumbswysiwyg/pictures/HinhQuayconnew/coca.png?rand=1719572301"
+                alt="Nước ngọt" class="mb-4 rounded-lg">
+            <h2 class="text-xl font-bold mb-2">Nước ngọt</h2>
+            <p class="text-gray-600 mb-4">Giá: 15,000 VNĐ</p>
+
+            <label class="block mb-2">Số lượng:</label>
+            <input type="number" class="border border-gray-300 px-3 py-2 mb-2 rounded-md w-full" value="1">
+
+            <label class="block mb-2">Loại nước:</label>
+            <select class="border border-gray-300 px-3 py-2 mb-4 rounded-md w-full">
+                <option value="coke">Coca-Cola</option>
+                <option value="pepsi">Pepsi</option>
+                <option value="sprite">Sprite</option>
+            </select>
+
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+                Thêm vào giỏ hàng
+            </button>
+        </div>
+
+        <!-- Hotdog nước đóng chai -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <img src="https://api-website.cinestar.com.vn/media/.thumbswysiwyg/pictures/HinhQuayconnew/hotdog.png?rand=1719572227"
+                alt="Hotdog nước đóng chai" class="mb-4 rounded-lg">
+            <h2 class="text-xl font-bold mb-2">Hotdog </h2>
+            <p class="text-gray-600 mb-4">Giá: 35,000 VNĐ</p>
+
+            <label class="block mb-2">Số lượng:</label>
+            <input type="number" class="border border-gray-300 px-3 py-2 mb-2 rounded-md w-full" value="1">
+
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+                Thêm vào giỏ hàng
+            </button>
+        </div>
+
+        <!-- Bánh -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <img src="https://api-website.cinestar.com.vn/media/.thumbswysiwyg/pictures/HinhQuayconnew/lays-vi-bo_1_.png?rand=1719632844"
+                alt="Bánh" class="mb-4 rounded-lg">
+            <h2 class="text-xl font-bold mb-2">Bánh</h2>
+            <p class="text-gray-600 mb-4">Giá: 10,000 VNĐ</p>
+
+            <label class="block mb-2">Số lượng:</label>
+            <input type="number" class="border border-gray-300 px-3 py-2 mb-2 rounded-md w-full" value="1">
+
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+                Thêm vào giỏ hàng
+            </button>
+        </div>
+
+        <!-- Kẹo -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <img src="https://api-website.cinestar.com.vn/media/.thumbswysiwyg/pictures/HinhQuayconnew/NUTRI.png?rand=1719572506"
+                alt="Kẹo" class="mb-4 rounded-lg">
+            <h2 class="text-xl font-bold mb-2">Nước đóng chai</h2>
+            <p class="text-gray-600 mb-4">Giá: 5,000 VNĐ</p>
+
+            <label class="block mb-2">Số lượng:</label>
+            <input type="number" class="border border-gray-300 px-3 py-2 mb-2 rounded-md w-full" value="1">
+
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">
+                Thêm vào giỏ hàng
+            </button>
+        </div>
+    </div>
+
+    <div class="mt-8 p-4 bg-white shadow-md rounded-lg">
+        <h2 class="text-xl font-bold mb-4">Giỏ hàng</h2>
+        <ul>
+            <li class="flex justify-between mb-2">
+                <span>Bắp rang x 2 (Standard)</span>
+                <span>50,000 VNĐ</span>
+            </li>
+            <li class="flex justify-between mb-2">
+                <span>Nước ngọt (Coca-Cola)</span>
+                <span>15,000 VNĐ</span>
+            </li>
+            <li class="flex justify-between mb-2">
+                <span>Hotdog nước đóng chai x 1</span>
+                <span>35,000 VNĐ</span>
+            </li>
+            <li class="flex justify-between mb-2">
+                <span>Bánh x 1</span>
+                <span>10,000 VNĐ</span>
+            </li>
+            <li class="flex justify-between mb-2">
+                <span>Kẹo x 1</span>
+                <span>5,000 VNĐ</span>
+            </li>
+            <li class="flex justify-between border-t pt-2 mt-2">
+                <span class="font-bold">Tổng cộng:</span>
+                <span class="font-bold">115,000 VNĐ</span>
+            </li>
+        </ul>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mt-4 rounded w-full">
+            Thanh toán
+        </button>
+    </div>
+</div>

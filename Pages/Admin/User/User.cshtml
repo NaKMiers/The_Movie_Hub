@@ -1,6 +1,6 @@
 @page "/admin/user"
 @{
-    Layout = "_Layout";
+    Layout = "_AdminLayout";
     ViewData["Title"] = "Admin - User";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
@@ -29,71 +29,43 @@
 }
 </div>
 </div> *@
-<div class="flex flex-col lg:flex-row h-auto lg:h-screen">
-    <div class="w-3/4 bg-white">
-        <div class="p-10">
-            <div class="flex justify-between mb-6">
-
-                <div class=" flex mt-4">
-
-                </div>
-            </div>
-
-            <div class="container mx-auto mt-8 text-black">
-                <h2 class="text-2xl font-bold mb-6">Danh sách người dùng</h2>
-                <table class="min-w-full bg-white border border-gray-300">
-                    <thead>
-                        <tr>
-                            <th class="py-2 px-4 border border-gray-300">ID</th>
-                            <th class="py-2 px-4 border border-gray-300">Tên người dùng</th>
-                            <th class="py-2 px-4 border border-gray-300">Ngày sinh</th>
-                            <th class="py-2 px-4 border border-gray-300">Số điện thoại</th>
-                            <th class="py-2 px-4 border border-gray-300">CCCD</th>
-                            <th class="py-2 px-4 border border-gray-300">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody class="w-full">
-                        <tr>
-                            <td class="py-2 px-4 text-center border border-gray-300">1</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">Nguyễn Văn A</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">01/01/1990</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">0901234567</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">123456789012</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">nguyenvana@example.com</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 text-center border border-gray-300">2</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">Trần Thị B</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">02/02/1992</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">0912345678</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">234567890123</td>
-                            <td class="py-2 px-4 text-center border border-gray-300">tranthib@example.com</td>
-                        </tr>
-                        <!-- Thêm các hàng người dùng khác ở đây -->
-                    </tbody>
-                </table>
-            </div>
-
-
-        </div>
+<div class="p-21">
+    <div class="p-21 bg-white text-dark rounded-lg shadow-lg overflow-x-scroll">
+        <h2 class="text-2xl font-bold mb-6">Danh sách người dùng</h2>
+        <table class="min-w-full border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border border-gray-300">Id</th>
+                    <th class="py-2 px-4 border border-gray-300">FullName</th>
+                    <th class="py-2 px-4 border border-gray-300">Username</th>
+                    <th class="py-2 px-4 border border-gray-300">Email</th>
+                    <th class="py-2 px-4 border border-gray-300">Phone</th>
+                    <th class="py-2 px-4 border border-gray-300">Password</th>
+                    <th class="py-2 px-4 border border-gray-300">AuthType</th>
+                    <th class="py-2 px-4 border border-gray-300">Birthday</th>
+                    <th class="py-2 px-4 border border-gray-300">Expended</th>
+                    <th class="py-2 px-4 border border-gray-300">CCCD</th>
+                </tr>
+            </thead>
+            <tbody class="w-full">
+                @foreach (var user in @Model.Users)
+                {
+                    <tr>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Id</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.FullName</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Username</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Email</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Phone</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Password</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.AuthType</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Birthday</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.Expended</td>
+                        <td class="py-2 px-4 text-center border border-gray-300">@user.CCCD</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-    <div class="bg-[#35355c] w-full lg:w-[25%] h-auto lg:h-screen flex flex-col items-center">
-        <div class="w-1/2 p-1 mx-auto">
-            <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-        </div>
-        <div class="w-3/4  mx-auto">
-            <ul class=" list-none p-0">
-                <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
-                <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
-                <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
-                <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
-                <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
-                <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chổ ngồi</a></li>
-                <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
-                <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
-                <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
+</div>
 
-            </ul>
-        </div>
-    </div>
 </div>

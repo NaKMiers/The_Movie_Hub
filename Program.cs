@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<TheMovieHubDbContext>(options =>
     {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("localDB"));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("azureDB"));
         options.EnableSensitiveDataLogging(false);
     }
 );

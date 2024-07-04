@@ -1,0 +1,115 @@
+@page "/priceticket"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Giá Vé ";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<style>
+    .ticket {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .ticket:hover {
+        transform: scale(1.05);
+    }
+
+    .tab {
+        cursor: pointer;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
+    }
+
+    .tab:hover {
+        background-color: #d0d0d0;
+    }
+
+    .active-tab {
+        background-color: #d0d0d0;
+        font-weight: bold;
+    }
+
+    .gradient-bg {
+        background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+    }
+</style>
+<div class="relative bg-cover bg-center bg-no-repeat h-64"
+    style="background-image: url('https://cinestar-api.monamedia.net/media/wysiwyg/CinemaImage/01-Quoc-Thanh-masthead.jpg')">
+    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <h2 class="text-white text-2xl font-bold">CINESTAR QUỐC THANH</h2>
+                <div class="flex">
+                    <a href="/Choosecinema" class="text-white hover:text-gray-300">PHIM ĐANG CHIẾU</a>
+                    <a href="/Choosecommingsoon" class="text-white hover:text-gray-300 ml-4">PHIM SẮP CHIẾU</a>
+                    <a href="/specialshow" class="text-white hover:text-gray-300 ml-4">SUẤT CHIẾU ĐẶC BIỆT</a>
+                    <a href="/priceticket" class="text-white hover:text-gray-300 ml-4">BẢNG GIÁ VÉ</a>
+                </div>
+            </div>
+
+            <p class="text-white mt-4">6271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh</p>
+        </div>
+    </div>
+
+</div>
+<div class="bg-gray-100 p-10 gradient-bg">
+    <div class="p-5 text-center text-4xl font-bold text-white">BẢNG GIÁ VÉ</div>
+    <div class="flex justify-center mb-5">
+        <div class="tab active-tab text-black" onclick="showTab('ticket-1')">2D</div>
+        <div class="tab text-black" onclick="showTab('ticket-2')">3D</div>
+        <div class="tab text-black" onclick="showTab('ticket-3')">C'MÊ</div>
+    </div>
+    <div class="flex justify-center space-x-5">
+        <div class="ticket" id="ticket-1">
+            <img class="mx-auto w-3/4 rounded-lg p-3 shadow-md"
+                src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Ticket/QuocThanh/CQT_2D-min.png"
+                alt="2D Ticket">
+            <iframe class="w-3/4 mx-auto p-5"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.618598753725!2d106.68477397451703!3d10.7638491594266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f19e63f0a05%3A0xd4c41b784ebcc3e8!2sCinestar%20Cinema%20Qu%E1%BB%91c%20Thanh!5e0!3m2!1svi!2s!4v1720072885490!5m2!1svi!2s"
+                width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="ticket hidden" id="ticket-2">
+
+            <img class="mx-auto w-3/4 rounded-lg p-3 shadow-md"
+                src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Ticket/QuocThanh/CQT_3D-min.jpg"
+                alt="3D Ticket">
+            <iframe class="w-3/4 mx-auto p-5"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.618598753725!2d106.68477397451703!3d10.7638491594266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f19e63f0a05%3A0xd4c41b784ebcc3e8!2sCinestar%20Cinema%20Qu%E1%BB%91c%20Thanh!5e0!3m2!1svi!2s!4v1720072885490!5m2!1svi!2s"
+                width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="ticket hidden" id="ticket-3">
+
+            <img class="mx-auto w-3/4 rounded-lg p-3 shadow-md"
+                src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Ticket/QuocThanh/CQT_C_M__min_v2.jpg"
+                alt="C'MÊ Ticket">
+            <iframe class="w-3/4 mx-auto p-5"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.618598753725!2d106.68477397451703!3d10.7638491594266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f19e63f0a05%3A0xd4c41b784ebcc3e8!2sCinestar%20Cinema%20Qu%E1%BB%91c%20Thanh!5e0!3m2!1svi!2s!4v1720072885490!5m2!1svi!2s"
+                width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+<script>
+    function showTab(selectedId) {
+        const ids = ['ticket-1', 'ticket-2', 'ticket-3'];
+        ids.forEach(id => {
+            const element = document.getElementById(id);
+            const tab = document.querySelector(`.tab[onclick="showTab('${id}')"]`);
+            if (id === selectedId) {
+                element.classList.remove('hidden');
+                tab.classList.add('active-tab');
+            } else {
+                element.classList.add('hidden');
+                tab.classList.remove('active-tab');
+            }
+        });
+    }
+</script>

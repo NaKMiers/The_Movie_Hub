@@ -1,0 +1,50 @@
+@page "/specialshow"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Xuất chiếu đặc biệt";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<style>
+    .invert {
+        filter: invert(100%) brightness(0) contrast(1000%);
+    }
+
+    .gradient-bg {
+        background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
+    }
+</style>
+<div class="relative bg-cover bg-center bg-no-repeat h-64"
+    style="background-image: url('https://cinestar-api.monamedia.net/media/wysiwyg/CinemaImage/01-Quoc-Thanh-masthead.jpg')">
+    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <h2 class="text-white text-2xl font-bold">CINESTAR QUỐC THANH</h2>
+                <div class="flex">
+                    <a href="/Choosecinema" class="text-white hover:text-gray-300">PHIM ĐANG CHIẾU</a>
+                    <a href="/Choosecommingsoon" class="text-white hover:text-gray-300 ml-4">PHIM SẮP CHIẾU</a>
+                    <a href="/specialshow" class="text-white hover:text-gray-300 ml-4">SUẤT CHIẾU ĐẶC BIỆT</a>
+                    <a href="/priceticket" class="text-white hover:text-gray-300 ml-4">BẢNG GIÁ VÉ</a>
+                </div>
+            </div>
+
+            <p class="text-white mt-4">6271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh</p>
+        </div>
+    </div>
+
+</div>
+<div class="p-5 gradient-bg">
+    <div class="text-4xl text-center p-5 text-white">XUẤT CHIẾU ĐẶC BIỆT</div>
+    <div class="w-full">
+        <img class="invert mx-auto" src="https://cinestar.com.vn/assets/images/movie-updating.png" alt="Đang cập nhật">
+    </div>
+    <div class="text-4xl text-center p-5 text-white">
+        ĐANG CẬP NHẬT
+    </div>
+    <iframe class="w-[70%] mx-auto"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.618598753725!2d106.68477397451703!3d10.7638491594266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f19e63f0a05%3A0xd4c41b784ebcc3e8!2sCinestar%20Cinema%20Qu%E1%BB%91c%20Thanh!5e0!3m2!1svi!2s!4v1720072885490!5m2!1svi!2s"
+        width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>

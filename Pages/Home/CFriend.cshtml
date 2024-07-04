@@ -1,0 +1,66 @@
+@page "/cfriend"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "About Us";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<div class="w-full p-5">
+    <div class="mx-auto flex w-[90%] flex-col justify-center gap-10 sm:flex-row sm:gap-20 lg:w-[80%]">
+        <div class="mt-15 sm:mt-5">
+            <div>
+                <div class="w-full text-2xl sm:text-3xl">C’FRIEND</div>
+                <div class="text-sm sm:text-[16px]">
+                    Được cấp lần đầu khi mua 2 vé xem phim bất kỳ tại Cinestar.<br />
+                    Được tích lũy điểm theo giá trị mua hàng hóa dịch vụ như sau.<br />
+                    Được giảm 10% trực tiếp trên giá trị hóa đơn bắp nước khi mua tại quầy.<br />
+                    Được tặng 1 vé xem phim 2D vào tuần sinh nhật (tính từ Thứ Hai đến Chủ Nhật) với số điểm tích lũy
+                    tối thiểu 500 điểm.<br />
+                    Được tham gia các chương trình dành cho thành viên<br />
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <a href="/movie/{id}">
+                    <div
+                        class="Book-your-ticket-now mt-3 cursor-pointer bg-yellow-500 p-1.5 px-12 text-center text-sm text-black">
+                        Đặt vé ngay</div>
+                </a>
+
+            </div>
+        </div>
+        <div class="w-full sm:w-[50%]">
+            <img class="w-full"
+                src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Member/Desktop519x282_CMember.jpg"
+                alt="Cinestar Promotion" />
+        </div>
+    </div>
+
+    <div class="mx-auto mt-5 flex w-[90%] flex-col justify-center gap-10 sm:flex-row sm:gap-20 lg:w-[80%]">
+        <div class="w-full sm:w-[50%]">
+            <img src="https://api-website.cinestar.com.vn/media/.renditions/wysiwyg/CMSPage/Member/c-vip.jpg"
+                alt="Cinestar Promotion" />
+        </div>
+        <div class="mt-5 sm:mt-5">
+            <div>
+                <div class="w-full text-2xl sm:text-3xl">C’VIP</div>
+                <div class="text-sm sm:text-[16px]">
+                    Được cấp cho thành viên C’Friend khi tích lũy được ít nhất 10,000 điểm.<br />
+                    Được tích lũy điểm theo giá trị mua hàng hóa dịch vụ như sau.<br />
+                    Được giảm 15% trực tiếp trên giá trị hóa đơn bắp nước khi mua tại quầy.<br />
+                    Có cơ hội nhận vé tham gia Lễ Ra Mắt Phim và các chương trình khuyến mãi khác của Cinestar.<br />
+                </div>
+            </div>
+            <div class="mt-3">
+                <a href="/movie/{id}">
+                    <div
+                        class="Book-your-ticket-now mt-3 cursor-pointer bg-yellow-500 p-1.5 px-12 text-center text-sm text-black">
+                        Đặt vé ngay</div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>

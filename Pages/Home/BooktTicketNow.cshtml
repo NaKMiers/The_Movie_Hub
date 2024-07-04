@@ -1,0 +1,596 @@
+@page "/bookticketnow"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Đặt vé ngay";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Models.Main.User
+<link rel="stylesheet" href="~/css/index.css">
+<div class="Movie-Showing">
+    <div class="Showing-title">
+        <h2>
+            PHIM ĐANG CHIẾU</h2>
+    </div>
+    <div class="Watching">
+        <div class="Movie-Active">
+            <ul id="Slide_Blogcarouselticket" style=" transition: transform 1s ease;">
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fgia-tai-cua-ngoai-sneakshow.jpg&w=1920&q=75"
+                            alt="gia tai cua ngoai">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">GIA TÀI CỦA
+                                NGOẠI
+                                2D PĐ (T13)</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <a href="/movie/{id}"> <button>ĐẶT
+                                        VÉ</button></a>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fmong-vuot-new-poster.jpg&w=1920&q=75"
+                            alt="mong vuot">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">MÓNG VUỐT (T16)
+                            </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F05-2024%2Fstalker-toi-ac-hoan-hao.png&w=1920&q=75"
+                            alt="doraemon">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">STALKER: TỘI ÁC
+                                HOÀN HẢO </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F05-2024%2Fpee-nak-4.jpg&w=1920&q=75"
+                            alt="ngoi den ki quai">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">NGÔI ĐỀN KỲ
+                                QUÁI
+                                4 (T16)</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:94%;border: solid 1px
+                    #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fbad-boys.jpg&w=1920&q=75"
+                            alt="NHỮNG GÃ TRAI HƯ">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">NHỮNG GÃ TRAI
+                                HƯ:CHƠI HAY BỊ XƠI </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0
+                    1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:94%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fdung-mo-cua.jpeg&w=1920&q=75"
+                            alt="mong vuot">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">ĐỪNG MỞ CỬA
+                                (T18)
+                            </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:94%;border: solid 1px
+                    #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F05-2024%2Ftotto-chan-poster.jpg&w=1920&q=75"
+                            alt="doraemon">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">TOTTO-CHAN (K):
+                                CÔ BÉ BÊN CỬA SỔ</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0
+                    1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:94%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fcinestar.com.vn%2Fpictures%2FCinestar%2F05-2024%2Fmeo-beo-sieu-quay.jpg&w=1920&q=75  "
+                            alt="ngoi den ki quai">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">MÈO BÉO SIÊU
+                                QUẬY
+                                2D LT (K)</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>ĐẶT
+                                    VÉ</button>
+                            </div>
+                        </div>
+                    </a></li>
+
+            </ul>
+
+        </div>
+        <a class="next" style="left: 6%;" id="prev_leftticket">&#10094;</a>
+        <a class="prev" style="right: 6%;" id="next_rightticket">&#10095;</a>
+    </div>
+    <div class="More-Movie">
+        XEM THÊM
+    </div>
+</div>
+<div class="Comming-soon">
+    <div class="Comming-soon-title">
+        <h2>PHIM SẮP CHIẾU</h2>
+    </div>
+    <div class="Soon">
+        <div class="Movie-comming-soon">
+            <ul id="movieListticket" style=" transition: transform 1s ease;">
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fposter-nhung-ke-theo-doi.jpg&w=2048&q=75"
+                            alt="NHỮNG KẺ THEO DÕI(T16)">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">NHỮNG MẢNH GHÉP
+                                CẢM XÚC 2 2D </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fmanh-ghep-cam-xuc-2.png&w=1920&q=75"
+                            alt="NHỮNG MẢNH GHÉP CẢM XÚC 2">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">NHỮNG MẢNH GHÉP
+                                CẢM XÚC 2 2D </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fcuu-long-thanh-trai.png&w=1920&q=75"
+                            alt="CỬU LONG THÀNH TRẠI">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">CỬU LONG THÀNH
+                                TRẠI</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fbay-nuot-mang.jpg&w=1920&q=75"
+                            alt="BẪY NUỐT MẠNG">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">BẪY NUỐT MẠNG
+                            </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fcung-em-o-ngay-the-gioi-ket-thuc.jpg&w=1920&q=75"
+                            alt="CÙNG EM Ở NGÀY THẾ GIỚI KẾT THÚC">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">CÙNG EM Ở NGÀY
+                                THẾ GIỚI KẾT THÚC</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fvung-dat-cam-lang-2.jpg&w=1920&q=75"
+                            alt="VÙNG ĐẤT CÂM LẶNG: NGÀY MỘT">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">VÙNG ĐẤT CÂM
+                                LẶNG: NGÀY MỘT</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2024%2Fmua-he-dep-nhat-poster.jpg&w=1920&q=75"
+                            alt="MÙA HÈ ĐẸP NHẤT">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">MÙA HÈ ĐẸP NHẤT
+                            </span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+                <li style="width:30%;"><a href=""><img style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F07-2024%2Fminions.jpeg&w=1920&q=75  "
+                            alt="KẺ TRỘM MẶT TRĂNG 4">
+                        <div class="name-movie">
+                            <span class="Blograsoul_title">KẺ TRỘM MẶT
+                                TRĂNG
+                                4</span>
+                        </div>
+                        <div class="Infor-trailer justify-center">
+                            <div class="trailer-movie">
+                                <div class="icon-trailer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                    </svg>
+
+                                </div>
+                                <div class="watch-trailer">
+                                    <p>Xem Trailer</p>
+                                </div>
+                            </div>
+                            <div class="order-ticket">
+                                <button>Tìm hiểu thêm</button>
+                            </div>
+                        </div>
+                    </a></li>
+
+            </ul>
+            <div class="More-Movie">
+                XEM THÊM
+            </div>
+
+        </div>
+        <a class="next" style="left: 6%;" id="prev_left_ticket">&#10094;</a>
+        <a class="prev" style="right: 6%;" id="next_right_ticket">&#10095;</a>
+    </div>
+
+    <script>
+        // Ensure DOM content is loaded before accessing elements
+        document.addEventListener("DOMContentLoaded", function () {
+            const arrowRight = document.getElementById("next_rightticket");
+            const arrowLeft = document.getElementById("prev_leftticket");
+            const blocks = document.getElementById("Slide_Blogcarouselticket");
+
+            let currentPosition = 0;
+
+            function updateBlockPosition() {
+                blocks.style.transform = `translateX(${currentPosition}%)`;
+            }
+
+            arrowRight.addEventListener("click", () => {
+                if (currentPosition > -50) {
+                    currentPosition -= 50;
+                    updateBlockPosition();
+                }
+            });
+
+            arrowLeft.addEventListener("click", () => {
+                if (currentPosition < 0) {
+                    currentPosition += 50;
+                    updateBlockPosition();
+                }
+            });
+
+            function handleResize() {
+                if (window.innerWidth <= 990) {
+                    currentPosition = 0;
+                } else {
+                    currentPosition = 0; // Adjust as necessary based on your design
+                }
+                updateBlockPosition();
+            }
+
+            // Initial call to handleResize to set initial state
+            handleResize();
+
+            // Event listeners for window resize
+            window.addEventListener("resize", handleResize);
+        });
+
+        // Ensure DOM content is loaded before accessing elements
+        document.addEventListener("DOMContentLoaded", function () {
+            const arrowRight = document.getElementById("next_right_ticket");
+            const arrowLeft = document.getElementById("prev_left_ticket");
+            const blocks = document.getElementById("movieListticket");
+
+            let currentPosition = 0;
+
+            function updateBlockPosition() {
+                blocks.style.transform = `translateX(${currentPosition}%)`;
+            }
+
+            arrowRight.addEventListener("click", () => {
+                if (currentPosition > -50) {
+                    currentPosition -= 50;
+                    updateBlockPosition();
+                }
+            });
+
+            arrowLeft.addEventListener("click", () => {
+                if (currentPosition < 0) {
+                    currentPosition += 50;
+                    updateBlockPosition();
+                }
+            });
+
+            function handleResize() {
+                if (window.innerWidth <= 990) {
+                    currentPosition = 0;
+                } else {
+                    currentPosition = 0; // Adjust as necessary based on your design
+                }
+                updateBlockPosition();
+            }
+
+            // Initial call to handleResize to set initial state
+            handleResize();
+
+            // Event listeners for window resize
+            window.addEventListener("resize", handleResize);
+        });
+
+
+    </script>

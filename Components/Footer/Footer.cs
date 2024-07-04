@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace the_movie_hub.Components
 {
-   public class Footer : ViewComponent
+   public class FooterViewComponent : ViewComponent
    {
       public IViewComponentResult Invoke()
       {

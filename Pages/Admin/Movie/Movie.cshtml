@@ -1,13 +1,12 @@
 @page "/admin/movie"
-@{
-    Layout = "_Layout";
-    ViewData["Title"] = "Admin - Movie";
-}
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.Movie.MovieModel
-
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Admin - Movie";
+}
 
 @* <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
 <h1 value="">Movies (@Model.Movies.Count())</h1>
@@ -27,100 +26,75 @@
 }
 </div>
 </div> *@
-<div class="flex flex-col md:flex-row h-full">
-    <!-- Main Content -->
-    <div class="w-full md:w-3/4 bg-white">
-        <div class="mt-5 p-2">
-            <div class="flex">
-                <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
-                    <div class="w-full mx-auto">
-                        <div class="flex w-full justify-between items-center">
-                            <div
-                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-black">Quay lại</span>
-                            </div>
-                            <div
-                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <a href="/Admin/Movie/Add"><span class="text-black">Tạo phim mới</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-100 p-8">
-                        <div class="container mx-auto">
-                            <h1 class="text-2xl font-bold mb-4">Danh sách các phim</h1>
-                            <div class="overflow-x-auto">
-                                <table class="table-auto w-full border-collapse border border-gray-300 bg-white">
-                                    <thead>
-                                        <tr class="bg-gray-200">
-                                            <th class="border border-gray-300 px-4 py-2">Id</th>
-                                            <th class="border border-gray-300 px-4 py-2">Tên Phim</th>
-                                            <th class="border border-gray-300 px-4 py-2">Thể loại</th>
-                                            <th class="border border-gray-300 px-4 py-2">Đạo diễn</th>
-                                            <th class="border border-gray-300 px-4 py-2">Diễn viên</th>
-                                            <th class="border border-gray-300 px-4 py-2">Hình thức chiếu</th>
-                                            <th class="border border-gray-300 px-4 py-2">Ngày chiếu</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Dữ liệu phim được thay thế bằng dữ liệu từ backend hoặc form submission -->
-                                        <tr class="hover:bg-gray-100">
-                                            <td class="border border-gray-300 px-4 py-2">1</td>
-                                            <td class="border border-gray-300 px-4 py-2">Avengers: Endgame</td>
-                                            <td class="border border-gray-300 px-4 py-2">Hành động</td>
-                                            <td class="border border-gray-300 px-4 py-2">Anthony Russo, Joe Russo</td>
-                                            <td class="border border-gray-300 px-4 py-2">Robert Downey Jr., Chris Evans
-                                            </td>
-                                            <td class="border border-gray-300 px-4 py-2">IMAX</td>
-                                            <td class="border border-gray-300 px-4 py-2">2024-06-25</td>
-                                        </tr>
-                                        <tr class="hover:bg-gray-100">
-                                            <td class="border border-gray-300 px-4 py-2">2</td>
-                                            <td class="border border-gray-300 px-4 py-2">Parasite</td>
-                                            <td class="border border-gray-300 px-4 py-2">Kinh dị</td>
-                                            <td class="border border-gray-300 px-4 py-2">Bong Joon-ho</td>
-                                            <td class="border border-gray-300 px-4 py-2">Song Kang-ho, Lee Sun-kyun</td>
-                                            <td class="border border-gray-300 px-4 py-2">2D Standard</td>
-                                            <td class="border border-gray-300 px-4 py-2">2024-06-25</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+
+
+<div class="p-21">
+    <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
+        <div class="w-full mx-auto">
+            <div class="flex w-full justify-between items-center">
+                <div
+                    class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <a href='/' class="text-black">Quay lại</a>
+                </div>
+                <div
+                    class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <a href="/Admin/Movie/Add"><span class="text-black">Tạo phim mới</span></a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Sidebar -->
-    <div class="bg-[#35355c] w-full md:w-1/4 h-full md:h-[730px] flex flex-col items-center">
-        <div class="w-1/2 p-1 mx-auto">
-            <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-        </div>
-        <div class="w-3/4 mx-auto">
-            <ul class="list-none p-0">
-                <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
-                <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
-                <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
-                <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
-                <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
-                <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chỗ ngồi</a></li>
-                <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
-                <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
-                <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
-            </ul>
+        <div class="bg-gray-100 p-8">
+            <div class="container mx-auto">
+                <h1 class="text-2xl font-bold mb-4">Danh sách các phim</h1>
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full border-collapse border border-gray-300 bg-white">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="border border-gray-300 px-4 py-2">Id</th>
+                                <th class="border border-gray-300 px-4 py-2">Tên Phim</th>
+                                <th class="border border-gray-300 px-4 py-2">Thể loại</th>
+                                <th class="border border-gray-300 px-4 py-2">Đạo diễn</th>
+                                <th class="border border-gray-300 px-4 py-2">Diễn viên</th>
+                                <th class="border border-gray-300 px-4 py-2">Hình thức chiếu</th>
+                                <th class="border border-gray-300 px-4 py-2">Ngày chiếu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dữ liệu phim được thay thế bằng dữ liệu từ backend hoặc form submission -->
+                            <tr class="hover:bg-gray-100">
+                                <td class="border border-gray-300 px-4 py-2">1</td>
+                                <td class="border border-gray-300 px-4 py-2">Avengers: Endgame</td>
+                                <td class="border border-gray-300 px-4 py-2">Hành động</td>
+                                <td class="border border-gray-300 px-4 py-2">Anthony Russo, Joe Russo</td>
+                                <td class="border border-gray-300 px-4 py-2">Robert Downey Jr., Chris Evans
+                                </td>
+                                <td class="border border-gray-300 px-4 py-2">IMAX</td>
+                                <td class="border border-gray-300 px-4 py-2">2024-06-25</td>
+                            </tr>
+                            <tr class="hover:bg-gray-100">
+                                <td class="border border-gray-300 px-4 py-2">2</td>
+                                <td class="border border-gray-300 px-4 py-2">Parasite</td>
+                                <td class="border border-gray-300 px-4 py-2">Kinh dị</td>
+                                <td class="border border-gray-300 px-4 py-2">Bong Joon-ho</td>
+                                <td class="border border-gray-300 px-4 py-2">Song Kang-ho, Lee Sun-kyun</td>
+                                <td class="border border-gray-300 px-4 py-2">2D Standard</td>
+                                <td class="border border-gray-300 px-4 py-2">2024-06-25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

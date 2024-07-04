@@ -1,6 +1,6 @@
 @page "/admin/theater"
 @{
-   Layout = "_Layout";
+   Layout = "_AdminLayout";
    ViewData["Title"] = "Admin - Theater";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
@@ -32,73 +32,63 @@
 <head>
    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<div class="flex h-screen">
-   <div class="w-3/4 bg-white">
-      <div class="p-10">
-         <div class="flex justify-between mb-6">
-            <div class="text-lg font-bold text-black ">Danh sách rạp phim</div>
-            <div class=" flex mt-4">
-               <a href="/admin/theater/add" class="text-red-500 flex items-center mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                     class="h-6 w-6">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                  <span class="ml-1 text-red-500">Thêm rạp</span>
-               </a>
-            </div>
+<div class="p-21">
+   <div class="bg-white p-21 rounded-lg shadow-lg">
+      @* Head *@
+      <div class="flex items-center justify-between mb-6">
+         <div class="text-lg font-bold text-black ">Danh sách rạp phim</div>
+         <div class="flex items-center">
+            <a href="/admin/theater/add" class="text-red-500 flex items-center mr-4">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  class="h-6 w-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                     d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+               </svg>
+               <span class="ml-1 text-red-500">Thêm rạp</span>
+            </a>
          </div>
-         <table class="w-full">
-            <thead>
-               <tr>
-                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">ID</th>
-                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Tên rạp</th>
-                  <th class=" border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Địa chỉ</th>
-                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Số phòng</th>
-                  <th class=" border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Ảnh rạp</th>
-                  <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Sửa</th>
-                  <th class=" border border-gray-300 bg-gray-200 px-4 py-2 text-black"">Xóa</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td class="border border-gray-300 px-4 py-2 text-black"">1</td>
-                  <td class=" border border-gray-300 px-4 py-2 text-black"">Cinestar Hai Bà Trưng</td>
-                  <td class="border border-gray-300 px-4 py-2 text-black"">123 Hai Bà Trưng, Quận 1, TP.HCM</td>
-                  <td class=" border border-gray-300 px-4 py-2 text-black"">5</td>
-                  <td class="border border-gray-300 px-4 py-2 text-black""><img src=" link_to_image.jpg" alt="Ảnh rạp"
-                     class="max-w-full"></td>
-                  <td class="border border-gray-300 px-4 py-2">
-                     <a href="/Admin/Theater/{Id}/Edit"> <button onclick="editCinema(1)"
-                           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sửa</button></a>
-                  </td>
-                  <td class="border border-gray-300 px-4 py-2">
-                     <button onclick="deleteCinema(1)"
-                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Xóa</button>
-                  </td>
-               </tr>
-               <!-- Repeat similar rows for other cinemas -->
-            </tbody>
-         </table>
       </div>
-   </div>
-   <div class="bg-[#35355c] w-[25%] h-[730px] flex flex-col items-center">
-      <div class="w-1/2 p-1 mx-auto">
-         <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-      </div>
-      <div class="w-3/4  mx-auto">
-         <ul class=" list-none p-0">
-            <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
-            <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
-            <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
-            <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
-            <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
-            <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chổ ngồi</a></li>
-            <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
-            <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
-            <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
 
-         </ul>
-      </div>
+      @* Body *@
+      <table class="w-full rounded-lg overflow-hidden">
+         <thead>
+            <tr>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Id</th>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Name</th>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Address</th>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Image</th>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Room Amount</th>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">_</th>
+            </tr>
+         </thead>
+         <tbody>
+            @foreach (var theater in Model.Theaters)
+            {
+               <tr>
+                  <td class="border border-gray-300 px-4 py-2 text-black">@theater.Id</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">@theater.Name</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">@theater.Address</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">
+                     <div class="w-10 rounded-md shadow-lg">
+                        <img src="~/uploads/@theater.Image" class="w-full h-full object-contain" alt="thumbnail">
+                     </div>
+                  </td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">@theater.RoomAmount</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">
+                     <div class="flex flex-col gap-2 text-center">
+                        <a href='/Admin/Theater/@theater.Id/edit'
+                           class="block pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-sky-400 text-dark hover:bg-sky-500 trans-200">
+                           Edit
+                        </a>
+                        <button
+                           class="pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-rose-400 text-dark hover:bg-rose-500 trans-200">
+                           Delete
+                        </button>
+                     </div>
+                  </td>
+               </tr>
+            }
+            <!-- Repeat similar rows for other cinemas -->
+      </table>
    </div>
 </div>

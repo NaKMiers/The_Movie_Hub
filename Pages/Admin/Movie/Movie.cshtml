@@ -73,9 +73,30 @@
                             <p>Rating: @movie.Rating</p>
                             <p>Country: @movie.Country</p>
                             <p>Note: @movie.Note</p>
-                            <p>Banner: @movie.Banner</p>
-                            <p>Image: @movie.Image</p>
+                            <p>
+                                Banner:
+                                <img src="~/uploads/@movie.Banner" alt="Banner" class="rounded-lg" />
+                            </p>
+                            <p>
+                                Image:
+                                <img src="~/uploads/@movie.Image" alt="Image" class="rounded-lg" />
+                            </p>
                             <p>Active: @movie.Active</p>
+                            <p>
+                                Genres:
+                                @foreach (var genre in movie.MovieGenres)
+                                {
+                                    <span>@genre.Genre.Title</span>
+                                }
+                            </p>
+
+                            <div class="flex gap-3 justify-center items-center mt-4">
+                                <a href=@($"/admin/movie/{movie.Id}/edit" ) class="text-sky-500">Edit</a>
+                                <form method="post">
+                                    <input type="hidden" name="Id" value="@movie.Id" />
+                                    <button asp-page-handler="Delete" style="color: red">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     }
                 </div>

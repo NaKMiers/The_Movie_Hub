@@ -30,7 +30,7 @@ public partial class Movie
 
     public bool? Active { get; set; } = true;
 
-    public virtual ICollection<Genre> Genres { get; set; } = [];
+    public virtual ICollection<MovieGenre> MovieGenres { get; set; } = [];
 
     public virtual ICollection<Showtime> ShowTimes { get; set; } = [];
 }

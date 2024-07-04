@@ -55,28 +55,31 @@ namespace the_movie_hub.Pages.Admin.Movie
          MovieUpdate.Actors = movie.Actors.Trim();
          MovieUpdate.Duration = movie.Duration;
          MovieUpdate.TrailerUrl = movie.TrailerUrl;
+         MovieUpdate.Country = movie.Country;
+         MovieUpdate.Note = movie.Note;
 
-         // // update the movie-genres
-         // if (SelectedGenres != null)
-         // {
-         //    var movieGenres = db.MovieGenres.Where(m => m.MovieId == Movie.Id);
+         // update the movie-genres
+         if (SelectedGenres != null)
+         {
+            var movieGenres = db.MovieGenres.Where(m => m.MovieId == MovieUpdate.Id);
 
-         //    foreach (var movieGenre in movieGenres)
-         //    {
-         //       db.MovieGenres.Remove(movieGenre);
-         //    }
+            foreach (var movieGenre in movieGenres)
+            {
+               db.MovieGenres.Remove(movieGenre);
+            }
 
-         //    foreach (var genreId in SelectedGenres)
-         //    {
-         //       db.MovieGenres.Add(new MovieGenre
-         //       {
-         //          Id = Guid.NewGuid(),
-         //          MovieId = Movie.Id,
-         //          GenreId = Guid.Parse(genreId)
-         //       });
-         //    }
+            Console.WriteLine("SelectedGenres.Count: " + SelectedGenres.Count);
 
-         // }
+            foreach (var genreId in SelectedGenres)
+            {
+               db.MovieGenres.Add(new MovieGenre
+               {
+                  Id = Guid.NewGuid(),
+                  MovieId = MovieUpdate.Id,
+                  GenreId = Guid.Parse(genreId)
+               });
+            }
+         }
 
 
          // update movie banner

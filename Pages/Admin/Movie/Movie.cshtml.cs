@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Admin.Movie
@@ -14,7 +15,8 @@ namespace the_movie_hub.Pages.Admin.Movie
       // Methods
       public void OnGet()
       {
-         Movies = [.. db.Movies];
+         // get all movie and include the genres
+         Movies = [.. db.Movies.Include(movie => movie.MovieGenres).ThenInclude(movieGenre => movieGenre.Genre)];
       }
 
       public void OnPostDelete(string Id)

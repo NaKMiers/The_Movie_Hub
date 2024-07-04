@@ -51,15 +51,14 @@ placeholder="Trailer Url...">
 Submit
 </button>
 </form>
-</div> *@full">
+</div> *@
 <!-- Main Content -->
-<div class="flex flex-col md:flex-row h-[700px]">
+<div class="p-21">
    <!-- Main Content -->
-   <div class="w-full md:w-3/4 bg-white">
+   <div class="rounded-lg shadow-lg p-21 bg-white">
       <div class="bg-white text-black border border-black p-5 rounded-lg shadow-lg">
          <div class="w-full mx-auto">
             <div class="flex justify-between items-center">
-               <!-- Back Button -->
                <div
                   class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
@@ -68,149 +67,93 @@ Submit
                         d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
                         clip-rule="evenodd" />
                   </svg>
-                  <span class="text-black">Quay lại</span>
-               </div>
-               <!-- New Movie Button -->
-               <div
-                  class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                     fill="currentColor">
-                     <path fill-rule="evenodd"
-                        d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
-                        clip-rule="evenodd" />
-                  </svg>
-                  <span class="text-black">Tạo phim mới</span>
+                  <a href='/Admin/Movie' class="text-black">Quay lại</a>
                </div>
             </div>
          </div>
-         <form action="" method="post" enctype="multipart/form-data" class="mt-8 space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <!-- Left Column -->
-               <div class="space-y-4">
-                  <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                  <input id="title" type="text" name="Title" value="@Model.Movie?.Title"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Enter title..." required>
-
-                  <label for="releaseDate" class="block text-sm font-medium text-gray-700">Release Date</label>
-                  <input id="releaseDate" type="date" name="ReleaseDate"
-                     value="@Model.Movie?.ReleaseDate.ToString("yyyy-MM-dd")"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Select release date..." required>
-
-                  <label for="director" class="block text-sm font-medium text-gray-700">Director</label>
-                  <input id="director" type="text" name="Director" value="@Model.Movie?.Director"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Enter director..." required>
-
-                  <label for="actors" class="block text-sm font-medium text-gray-700">Actors</label>
-                  <input id="actors" type="text" name="Actors" value="@Model.Movie?.Actors"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Enter actors..." required>
+         <form id="infoForm" method="post" enctype="multipart/form-data"
+            class="grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
+            <div>
+               <div class="mb-4">
+                  <label for="name" class="block mb-2">Tên Phim</label>
+                  <input type="text" id="name" value="@Model.Movie?.Title" name="Title"
+                     class="w-full p-2 border border-gray-300 rounded-md" required>
                </div>
-               <!-- Right Column -->
-               <div class="space-y-4">
-                  <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-                  <textarea id="content" name="Content"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Enter content...">@Model.Movie?.Content</textarea>
-
-                  <label for="duration" class="block text-sm font-medium text-gray-700">Duration</label>
-                  <input id="duration" type="number" name="Duration" value="@Model.Movie?.Duration"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Enter duration in minutes..." required>
-
-                  <label for="trailerUrl" class="block text-sm font-medium text-gray-700">Trailer URL</label>
-                  <input id="trailerUrl" type="url" name="TrailerUrl" value="@Model.Movie?.TrailerUrl"
-                     class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Enter trailer URL...">
-
-                  <label for="selectedGenres" class="block text-sm font-medium text-gray-700">Genres</label>
-                  <div class="grid grid-cols-2 gap-4">
-                     @foreach (var genre in Model.Genres)
-                     {
-                        <div class="flex items-center">
-                           <input id="@genre.Id" type="checkbox" name="SelectedGenres" value="@genre.Id"
-                           @(Model.MovieGenres.Contains(genre.Id.ToString()) ? "checked" : "")
-                              class="rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                           <label for="@genre.Id" class="ml-2 text-sm text-gray-700">@genre.Title</label>
-                        </div>
-                     }
-                  </div>
+               <div class="mb-4">
+                  <label for="trailer" class="block mb-2">Trailer Phim</label>
+                  <input type="text" id="trailer" value="@Model.Movie?.TrailerUrl" name="trailer"
+                     class="w-full p-2 border border-gray-300 rounded-md">
+               </div>
+               <div class="mb-4">
+                  <label for="movie-description" class="block mb-2">Mô tả phim</label>
+                  <textarea id="movie-description" name="Content"
+                     class="w-full p-2 border h-20 border-gray-300 rounded-md resize-none" required>
+                     @Model.Movie?.Content
+                     </textarea>
+               </div>
+               <div class="mb-4">
+                  <label for="genre" class="block mb-2">Thể loại</label>
+                  @foreach (var genre in Model.Genres)
+                  {
+                     <div class="text-dark">
+                        <input id="@genre.Id" type="checkbox" name="SelectedGenres" value="@genre.Id"
+                        @(Model.MovieGenres.Contains(genre.Id.ToString()) == true ? "checked" : "") />
+                        <label for="@genre.Id">@genre.Title</label>
+                     </div>
+                  }
+               </div>
+               <div class="mb-4">
+                  <label for="director" class="block mb-2">Đạo diễn</label>
+                  <input type="text" id="director" value="@Model.Movie?.Director" name="Director"
+                     class="w-full p-2 border border-gray-300 rounded-md" required>
+               </div>
+               <div class="mb-4">
+                  <label for="performer" class="block mb-2">Diễn viên</label>
+                  <input type="text" id="performer" value="@Model.Movie?.Actors" name="Actors"
+                     class="w-full p-2 border border-gray-300 rounded-md" required>
                </div>
             </div>
-
-            <div class="space-y-4">
-               <div class="flex items-center space-x-4">
-                  <label for="banner" class="block text-sm font-medium text-gray-700">Banner Image</label>
-                  <input id="banner" type="file" name="Banner" accept="image/*"
-                     class="block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Choose banner image..." required>
-                  <img src="@($"/uploads/{Model.Movie?.Banner}")" alt="Banner preview" class="w-20 h-auto">
+            <div class="mb-4">
+               <div class="mb-4">
+                  <label for="movie-date" class="block mb-2">Chọn Ngày</label>
+                  <input type="date" id="movie-date" value="@Model.Movie?.ReleaseDate.ToString("yyyy-MM-dd")"
+                     class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
                </div>
-
-               <div class="flex items-center space-x-4">
-                  <label for="image" class="block text-sm font-medium text-gray-700">Movie Image</label>
-                  <input id="image" type="file" name="Image" accept="image/*"
-                     class="block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                     placeholder="Choose movie image...">
-                  <img src="@($"/uploads/{Model.Movie?.Image}")" alt="Movie image preview" class="w-20 h-auto">
+               <div class="mb-4">
+                  <label for="movie-date" class="block mb-2">Thời Lượng</label>
+                  <input type="number" id="movie-date" value="@Model.Movie?.Duration" name="Duration"
+                     class="w-full p-2 border border-gray-300 rounded-md" placeholder="Thời Lượng">
                </div>
-            </div>
+               <div class="mb-4">
+                  <label for="movie-date" class="block mb-2">Quốc gia</label>
+                  <input type="text" id="movie-date" value="@Model.Movie?.Country" name="Country"
+                     class="w-full p-2 border border-gray-300 rounded-md" placeholder="Quốc gia">
+               </div>
+               <div class="mb-4">
+                  <label for="movie-description" class="block mb-2">Ghi Chú</label>
+                  <textarea id="movie-description" value="@Model.Movie?.Note" name="Note"
+                     class="w-full p-2 border h-20 border-gray-300 rounded-md resize-none"></textarea>
+               </div>
+               <div class="mb-4">
+                  <label for="cinema-banner" class="block mb-2">Ảnh Bìa</label>
+                  <input type="file" id="cinema-banner" name="Banner"
+                     class="w-full p-2 border border-gray-300 rounded-md" accept="image/*">
 
-            <div class="mt-6">
-               <button type="submit"
-                  class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">Submit</button>
+                  <img width="200" src=@($"/uploads/{Model.Movie?.Banner}") alt="thumb">
+               </div>
+               <div class="mb-4">
+                  <label for="cinema-image" class="block mb-2">Thumbnail</label>
+                  <input type="file" id="cinema-image" name="Image" class="w-full p-2 border border-gray-300 rounded-md"
+                     accept="image/*">
+
+                  <img width="200" src=@($"/uploads/{Model.Movie?.Image}") alt="thumb">
+               </div>
+               <div class="mt-8 flex justify-center">
+                  <button type="submit"
+                     class="w-full md:w-1/2 p-3 bg-green-500 text-white rounded-md hover:bg-green-600">Lưu</button>
+               </div>
             </div>
          </form>
-
-      </div>
-   </div>
-
-   <!-- Sidebar -->
-   <div class="hidden md:block bg-[#35355c] w-[25%] h-[700px]  flex-col items-center">
-      <div class="w-1/2 p-1 mx-auto">
-         <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-      </div>
-      <div class="w-3/4 mx-auto">
-         <ul class="list-none p-0">
-            <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
-            <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
-            <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại </a></li>
-            <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
-            <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
-            <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chổ ngồi</a></li>
-            <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
-            <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
-            <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
-         </ul>
       </div>
    </div>
 </div>
-
-
-<!-- JavaScript for handling radio button style and date picker -->
-<script>
-   function handleRadioChange(id) {
-      // Reset all labels to default style
-      const labels = document.querySelectorAll('.flex label');
-      labels.forEach(label => {
-         label.classList.remove('bg-blue-500', 'text-white');
-         label.classList.add('bg-white', 'text-gray-700');
-      });
-
-      // Find the selected label and change its style
-      const selectedLabel = document.querySelector(`label[for="${id}"]`);
-      if (selectedLabel) {
-         selectedLabel.classList.remove('bg-white', 'text-gray-700');
-         selectedLabel.classList.add('bg-blue-500', 'text-white');
-      }
-   }
-
-   // Initialize flatpickr for date picker
-   flatpickr("#movie-date", {
-      dateFormat: "d/m/Y", // Định dạng hiển thị ngày
-      minDate: "today", // Ngày tối thiểu là hôm nay
-      inline: true, // Hiển thị lịch ngay trong input
-   });
-</script>

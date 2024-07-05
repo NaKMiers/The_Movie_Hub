@@ -24,39 +24,55 @@
                 </a>
             </div>
 
+
             @* Body *@
-            <form method="post" class="bg-white p-10 flex flex-col gap-6">
-                @* Email *@
-                <div class="text-dark">
-                    <p class="mb-1.5">Email *</p>
-                    <input name="Email" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="...">
-                </div>
+            <div class="bg-white p-10">
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="text-rose-500 mb-3 italic text-center">
+                        @foreach (var modelState in ViewData.ModelState)
+                        {
+                            foreach (var error in modelState.Value.Errors)
+                            {
+                                <div>@error.ErrorMessage</div>
+                            }
+                        }
+                    </div>
+                }
 
-                <div class="text-dark">
-                    <p class="mb-1.5">Mật khẩu *</p>
-                    <input name="Password" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="...">
-                </div>
+                <form method="post" class=" flex flex-col gap-6">
+                    @* Email *@
+                    <div class="text-dark">
+                        <p class="mb-1.5">Email *</p>
+                        <input asp-for="Email" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark flex gap-2 items-center">
-                    <input type="checkbox" class="w-4 h-4" placeholder="...">
-                    <p class="">Lưu mật khẩu đăng nhập *</p>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Mật khẩu *</p>
+                        <input asp-for="Password" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark flex justify-end">
-                    <a href="/forgot-password" class="block text-right text-sky-500 underline underline-offset-1">
-                        Quên mật khẩu
-                    </a>
-                </div>
+                    <div class="text-dark flex gap-2 items-center">
+                        <input id="save-password" type="checkbox" class="w-4 h-4" placeholder="...">
+                        <label for="save-password">Lưu mật khẩu đăng nhập *</label>
+                    </div>
 
-                <button
-                    class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
-                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
-                        ĐĂNG NHẬP
-                    </span>
-                </button>
-            </form>
+                    <div class="text-dark flex justify-end">
+                        <a href="/forgot-password" class="block text-right text-sky-500 underline underline-offset-1">
+                            Quên mật khẩu
+                        </a>
+                    </div>
+
+                    <button
+                        class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                        <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                            ĐĂNG NHẬP
+                        </span>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

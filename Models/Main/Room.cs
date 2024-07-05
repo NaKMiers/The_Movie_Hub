@@ -10,6 +10,8 @@ public partial class Room
 
     public int Capacity { get; set; }
 
+    public Guid RoomTypeId { get; set; }
+
     public virtual ICollection<Seat> Seats { get; set; } = [];
 
     public virtual ICollection<Showtime> ShowTimes { get; set; } = [];

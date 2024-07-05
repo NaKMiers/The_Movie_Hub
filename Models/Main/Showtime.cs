@@ -4,19 +4,18 @@ public partial class Showtime
 {
     public required Guid Id { get; set; }
 
-    public string? MovieId { get; set; }
+    public required Guid MovieId { get; set; }
 
-    public string? RoomId { get; set; }
+    public required Guid TheaterId { get; set; }
 
-    public string? TheaterId { get; set; }
+    public required Guid RoomTypeId { get; set; }
 
-    public DateTime Time { get; set; }
+    public DateTime StartAt { get; set; }
 
     public virtual Movie? Movie { get; set; }
 
-    public virtual Room? Room { get; set; }
+    public virtual RoomType? RoomType { get; set; }
 
     public virtual Theater? Theater { get; set; }
 
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

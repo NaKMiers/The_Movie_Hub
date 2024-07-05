@@ -1,0 +1,19 @@
+﻿@page "/search"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Search";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Home.Search.SearchModel
+
+<div class="text-center">
+    <h1 class="display-4">Search</h1>
+
+    @* show results of theaters *@
+    @foreach (var theater in Model.Theaters)
+    {
+        <div>@theater.Name</div>
+    }
+</div>

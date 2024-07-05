@@ -1,16 +1,17 @@
 ﻿@page "/movie/{id}"
-@{
-    Layout = "_Layout";
-    ViewData["Title"] = "Movie Detail";
-}
+
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
+@using System.Globalization
 @model the_movie_hub.Pages.Movie.MovieDetail.MovieDetailModel
 @{
-    var movie = Model.Movie!;
-}
+    Layout = "_Layout";
+    ViewData["Title"] = "Movie Detail";
 
+    var movie = Model.Movie!;
+    var showTimes = Model.ShowTimes!;
+}
 
 <link rel="stylesheet" href="~/Css/moviedetail.css">
 <div class="Container">
@@ -81,121 +82,54 @@
             </div>
         </div>
 
-        <div class="Show-time">
-            <div class="Heading-show-time">
-                <h3 class="text-center">LỊCH CHIẾU</h3>
-            </div>
-            <div class="Box-select">
-                <div class="Select-date">
-                    <div class="Box-time">
-                        <h3>--/--</h3>
-                        <p>Thứ Sáu</p>
-                    </div>
-                </div>
-                <div class="Select-date">
-                    <div class="Box-time">
-                        <h3>--/--</h3>
-                        <p>Thứ Bảy</p>
-                    </div>
-                </div>
-                <div class="Select-date">
-                    <div class="Box-time">
-                        <h3>--/--</h3>
-                        <p>Chủ Nhật</p>
-                    </div>
-                </div>
-                <div class="Select-date">
-                    <div class="Box-time">
-                        <h3>----</h3>
-                        <p>Thứ Hai</p>
-                    </div>
-                </div>
+        <div class="max-w-1200 mt-28">
+            <h3 class="text-center text-[40px] font-semibold font-body tracking-widest mb-6">LỊCH CHIẾU</h3>
+
+            <div class="flex gap-8 flex-wrap justify-center max-w-[600px] mx-auto">
+                    @foreach (var showtime in showTimes)
+                    {
+                    <form>
+                        <input hidden name="date" type="text" value="@showtime.StartAt.ToString("dd-MM")">
+                        <button class="bg-highlight rounded-md p-4 text-center text-primary-tw">
+                            <p class="font-semibold font-body tracking-wider text-xl">
+                                    @showtime.StartAt.ToString("dd/MM")</p>
+                            <p class="mt-1">@showtime.StartAt.ToString("dddd", new CultureInfo("vi-VN"))</p>
+                        </button>
+                    </form>
+                    }
             </div>
         </div>
-        <div class="Theater-list">
+
+            @* Theaters *@
+        <div class="flex flex-col gap-4 max-w-[800px] mx-auto mt-28">
             <div class="Heading-theater-list">
-                <h1 style="font-pri:" Josefin Sans", sans-serif;">DANH SÁCH RẠP</h1>
-            </div>
-            <div class="Choose-the-city">
-                <img src="~/Image/location.png" alt="Location Icon">
-                <p>Hồ Chí Minh</p>
-                <div class="city-list" id="cityList">
-                    <ul>
-                        <li data-city="HỒ CHÍ MINH" id="HCM">Hồ Chí Minh</li>
-                        <li data-city="ĐÀ LẠT" id="DALAT">Đà Lạt</li>
-                        <li data-city="BÌNH DƯƠNG">Bình Dương</li>
-                        <li data-city="HUẾ">Huế</li>
-                        <li data-city="TIỀN GIANG">Tiền Giang</li>
-                        <li data-city="KIÊN GIANG">Kiên Giang</li>
-                        <li data-city="LÂM ĐỒNG">Lâm Đồng</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="AllCity">
-            <div class="HoChiMinh1" id="HCMblog">
-                <div class="Content-AllCity">
-                    <h1>cinestar Quốc Khánh</h1>
-                    <p>271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh</p>
-                    <p>Standard</p>
-                    <div class="time">
-                        <button>13:30</button>
-                    </div>
-                    <p>Deluxe</p>
-                    <div class="time">
-                        <button>21:00</button>
-                    </div>
-                </div>
-                <div class="Content-AllCity" style="margin-bottom:50px;">
-                    <h1>cinestar Hai Bà Trưng (TP.HCM)</h1>
-                    <p>135 Hai Bà Trưng, Phường Bến Nghé ,Quận 1,Thành Phố Hồ Chí Minh</p>
-                    <p>Standard</p>
-                    <div class="time">
-                        <button>16:10</button>
-                    </div>
-                    <p>Deluxe</p>
-                    <div class="time">
-                        <button>08:20</button>
-                    </div>
-                </div>
-            </div>
-            <div class="HoChiMinh2" id="HCMblog">
-                <h1>cinestar Quốc Khánh </h1>
-            </div>
-            <div class="HoChiMinh3">
-                <h1>cinestar Quốc Khánh</h1>
-            </div>
-            <div class="HoChiMinh4">
-                <h1>cinestar Quốc Khánh</h1>
+                <h1>DANH SÁCH RẠP</h1>
             </div>
 
-            <div class="Dalat" id="DLblog">
-                <div class="Content-AllCity">
-                    <h1>cinestar Đà lạt 1</h1>
-                    <p>Quảng trường Lâm Viên, P10, TP.Đà Lạt, Lâm Đồng</p>
-                </div>
-
-            </div>
-            <div class="Dalat" </div>
-                <div class="HoChiMinh3">
-                    <h1>cinestar Quốc Khánh</h1>
-                </div>
-                <div class="HoChiMinh4">
-                    <h1>cinestar Quốc Khánh</h1>
-                </div>
-            </div>
-
-            <div class="Background_trailer">
-                <div class="video">
-                    <iframe id="trailer-video" width="100%" height="100%" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div style="position: absolute;top:0;right:0;">
-                        <img src="~/Image/close-white.png" loading="lazy" alt="Close " title="Close " width="30"
-                            height="30" id="icon_video_close">
+                @if (Model.Theaters.Any())
+                {
+                    @foreach (var theater in Model.Theaters)
+                    {
+                    <div class="bg-primary-tw rounded-lg shadow-lg p-6">
+                        <h4 class="font-semibold text-highlight text-2xl">@theater.Name</h4>
+                        <p class="my-6">@theater.Address</p>
+                            @foreach (var roomType in theater.RoomTypeShowTimes)
+                            {
+                            <h5 class="mb-3 mt-3">@roomType.Key</h5>
+                            <div class="flex flex-wrap gap-2">
+                                    @foreach (var time in roomType.Value)
+                                    {
+                                    <form id="timeForm">
+                                        <input name="time" value="@time" type="text" hidden>
+                                        <button type="button" class="rounded-md border border-white px-2 py-1 font-semibold"
+                                            onclick="submitFormWithQueryParams()">@time</button>
+                                    </form>
+                                    }
+                            </div>
+                            }
                     </div>
-                </div>
-            </div>
+                    }
+                }
         </div>
 
         <div class="Choose-Tickets">
@@ -260,7 +194,6 @@
                     </div>
                 </div>
                 <div class="seat-box">
-
                     <div class="seat-position">
                         <p class="row-of-seats">A</p>
                         <button class="seats">
@@ -860,235 +793,20 @@
             </div>
         </div>
     </div>
+</div>
 
+<script>
+    // to make sure the form is submitted with query params
+    function submitFormWithQueryParams() {
+        const form = document.getElementById('timeForm');
+        const formData = new FormData(form);
+        const params = new URLSearchParams(window.location.search);
 
+        for (const [key, value] of formData.entries()) {
+            params.append(key, value);
+        }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const buttonHCM = document.getElementById("HCM");
-            const buttonDALAT = document.getElementById("DALAT");
-            const HCMblog = document.getElementById("HCMblog");
-            const DLblog = document.getElementById("DLblog");
-
-            // Add event listener for HCM button
-            buttonHCM.addEventListener("click", function () {
-                HCMblog.style.display = "block";
-                DLblog.style.display = "none";
-            });
-
-            // Add event listener for DALAT button
-            buttonDALAT.addEventListener("click", function () {
-                HCMblog.style.display = "none";
-                DLblog.style.display = "block";
-            });
-        });
-
-
-        //nhấn xem trailer
-        document.addEventListener("DOMContentLoaded", function () {
-            var iconvideo = document.getElementById("icon_video_close");
-            var videoShowBehind = document.querySelector(".Background_trailer");
-            var trailerDiv = document.querySelector(".Trailer");
-            var trailerVideo = document.getElementById("trailer-video");
-
-            trailerDiv.addEventListener("click", function (event) {
-                event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
-                trailerVideo.src = "https://www.youtube.com/embed/xHpgjsgKJzo"; // Đặt URL video
-                videoShowBehind.style.display = "flex"; // Sử dụng flex để căn giữa
-            });
-
-            iconvideo.addEventListener("click", function () {
-                trailerVideo.pause();
-                trailerVideo.src = ""; // Xóa URL video khi đóng
-                videoShowBehind.style.display = "none";
-            });
-
-            // Đảm bảo chỉ ẩn trailer khi nhấp ra ngoài video
-            videoShowBehind.addEventListener("click", function (event) {
-                if (!event.target.closest('.video') && event.target !== iconvideo) {
-                    trailerVideo.src = ""; // Xóa URL video khi đóng
-                    videoShowBehind.style.display = "none";
-                }
-            });
-        });
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const boxTimes = document.querySelectorAll(".Box-time");
-
-            // Chỉ đặt lớp active cho box time đầu tiên
-            if (boxTimes.length > 0) {
-                boxTimes[0].classList.add("active");
-            }
-
-            // Thêm sự kiện click cho mỗi box-time
-            boxTimes.forEach(function (boxTime) {
-                boxTime.addEventListener("click", function () {
-                    // Xóa lớp active khỏi tất cả các phần tử Box-time
-                    boxTimes.forEach(function (bt) {
-                        bt.classList.remove("active");
-                    });
-                    // Thêm lớp active vào phần tử Box-time được nhấn
-                    boxTime.classList.add("active");
-                });
-            });
-        });
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const boxTimes = document.querySelectorAll(".Box-time");
-            const timeOffsets = [0, 1, 2, 3]; // Offset thời gian cho từng thẻ, ví dụ: 0 là hiện tại, 1 là +1 ngày, 2 là +2 ngày, v.v.
-
-            // Hàm để lấy ngày và thứ dựa trên offset thời gian
-            function getDayOfWeekAndDate(offset) {
-                const days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
-                const currentDate = new Date();
-                currentDate.setDate(currentDate.getDate() + offset);
-                const dayOfWeek = days[currentDate.getDay()];
-                const dateOfMonth = currentDate.getDate();
-                const month = currentDate.getMonth() + 1; // Lấy tháng từ 0 đến 11, nên cần +1
-                return { dayOfWeek, dateOfMonth, month };
-            }
-
-            // Cập nhật nội dung của các phần tử ".Box-time" dựa trên offset thời gian
-            function updateBoxTimes() {
-                timeOffsets.forEach((offset, index) => {
-                    const currentDay = getDayOfWeekAndDate(offset);
-                    const h3Element = boxTimes[index].querySelector("h3");
-                    const pElement = boxTimes[index].querySelector("p");
-                    // Cập nhật nội dung của thẻ h3 (ngày) và thẻ p (thứ)
-                    h3Element.textContent = currentDay.dateOfMonth + "/" + currentDay.month;
-                    pElement.textContent = currentDay.dayOfWeek;
-                });
-            }
-
-            // Gọi hàm cập nhật ngay khi trang được tải và sau mỗi giây (để cập nhật tự động)
-            updateBoxTimes();
-            setInterval(updateBoxTimes, 1000); // Cập nhật mỗi giây
-        });
-
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const boxTimes = document.querySelectorAll(".Box-time");
-            const HoChiMinhElements = document.querySelectorAll('[class^="HoChiMinh"]');
-
-            // Hàm lưu trạng thái hiển thị vào localStorage
-            function saveStateToLocalStorage(index) {
-                localStorage.setItem("activeBoxTimeIndex", index.toString());
-            }
-
-            // Hàm khôi phục trạng thái từ localStorage (nếu có)
-            function restoreStateFromLocalStorage() {
-                const index = localStorage.getItem("activeBoxTimeIndex");
-                if (index !== null) {
-                    const selectedIndex = parseInt(index);
-                    // Chỉ hiển thị phần tử "HoChiMinh" và đánh dấu là "active" cho box-time tương ứng
-                    HoChiMinhElements[selectedIndex].style.display = 'block';
-                    boxTimes[selectedIndex].classList.add("active");
-                }
-            }
-
-            // Thiết lập trạng thái ban đầu cho box time đầu tiên và thẻ div HoChiMinh1
-            function setInitialState(index = 0) {
-                // Xóa lớp active khỏi tất cả các phần tử Box-time
-                boxTimes.forEach(function (bt) {
-                    bt.classList.remove("active");
-                });
-
-                // Ẩn tất cả các phần tử "HoChiMinh" trước khi hiển thị phần tử tương ứng
-                HoChiMinhElements.forEach(function (HoChiMinh) {
-                    HoChiMinh.style.display = 'none';
-                });
-
-                // Hiển thị phần tử "HoChiMinh" tương ứng với box time được nhấn
-                HoChiMinhElements[index].style.display = 'block';
-
-                // Đánh dấu box-time là "active"
-                boxTimes[index].classList.add("active");
-                saveStateToLocalStorage(index);
-            }
-
-            // Gọi hàm thiết lập trạng thái ban đầu khi trang được tải lên
-            setInitialState();
-
-            // Khi có sự kiện click vào box-time, cập nhật trạng thái
-            boxTimes.forEach(function (boxTime, index) {
-                boxTime.addEventListener("click", function () {
-                    setInitialState(index);
-                });
-            });
-
-            // Khôi phục trạng thái từ localStorage nếu có
-            restoreStateFromLocalStorage();
-        });
-
-
-        //chọn thành phố
-        document.addEventListener("DOMContentLoaded", function () {
-            const chooseCity = document.querySelector('.Choose-the-city');
-            const cityList = document.querySelector('.city-list');
-
-            // Lấy danh sách các thành phố từ phần tử ul
-            const cities = document.querySelectorAll('.city-list li');
-
-            // Thêm sự kiện click cho mỗi thành phố
-            cities.forEach(function (city) {
-                city.addEventListener('click', function () {
-                    // Lấy nội dung của thành phố được chọn và chuyển thành chữ hoa
-                    const selectedCity = city.textContent.toUpperCase();
-                    // Thay đổi nội dung của phần tử <p> thành thành phố được chọn
-                    chooseCity.querySelector('p').textContent = selectedCity;
-                    // Ẩn danh sách thành phố sau khi chọn
-                    cityList.classList.remove('active');
-                });
-            });
-
-            // Thêm sự kiện click cho phần tử Choose-the-city
-            chooseCity.addEventListener('click', function () {
-                // Toggle hiển thị của city-list khi nhấn vào Choose-the-city
-                cityList.classList.toggle('active');
-            });
-
-            // Đảm bảo chỉ ẩn danh sách thành phố khi nhấp ra bên ngoài
-            window.addEventListener('click', function (event) {
-                if (!event.target.closest('.Choose-the-city')) {
-                    cityList.classList.remove('active');
-                }
-            });
-        });
-
-        //xử lý tăng giảm số lượng và thay đổi số lượng trong quantityInput
-        document.addEventListener('DOMContentLoaded', function () {
-            const buttons = document.querySelectorAll('.quantity-btn');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const targetId = this.getAttribute('data-target');
-                    const action = this.getAttribute('data-action');
-                    const quantityInput = document.getElementById(targetId);
-                    let quantity = parseInt(quantityInput.textContent);
-
-                    if (action === 'decrease' && quantity > 0) {
-                        quantity--;
-                    } else if (action === 'increase') {
-                        quantity++;
-                    }
-
-                    quantityInput.textContent = quantity;
-                });
-            });
-        });
-
-
-        //nhấn vào nút button sẽ đổi thành màu vàng và khi nhấn thêm lần nữa sẽ về màu mặc định
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const seats = document.querySelectorAll('.seats');
-            seats.forEach(seat => {
-                seat.addEventListener('click', () => {
-                    seat.classList.toggle('selected');
-                });
-            });
-        });
-
-    </script>
+        const url = `${window.location.pathname}?${params.toString()}`;
+        window.location.href = url;
+    }
+</script>

@@ -22,6 +22,8 @@ public partial class User
 
     public required string CCCD { get; set; }
 
+    public string? Avatar { get; set; }
+
     public virtual ICollection<Ticket> Tickets { get; set; } = [];
 
     // To String

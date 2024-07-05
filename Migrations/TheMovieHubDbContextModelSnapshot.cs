@@ -28,16 +28,11 @@ namespace the_movie_hub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("MovieId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
 
                     b.ToTable("Genres");
                 });
@@ -110,6 +105,10 @@ namespace the_movie_hub.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GenreId");
+
+                    b.HasIndex("MovieId");
+
                     b.ToTable("MovieGenres");
                 });
 
@@ -126,6 +125,9 @@ namespace the_movie_hub.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("RoomTypeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("TheaterId")
                         .HasColumnType("uniqueidentifier");
 
@@ -134,6 +136,21 @@ namespace the_movie_hub.Migrations
                     b.HasIndex("TheaterId");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("the_movie_hub.Models.Main.RoomType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoomTypes");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Seat", b =>
@@ -174,34 +191,28 @@ namespace the_movie_hub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MovieId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("MovieId1")
+                    b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("RoomId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("RoomId1")
+                    b.Property<Guid?>("RoomId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("TheaterId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("TheaterId1")
+                    b.Property<Guid>("RoomTypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Time")
+                    b.Property<DateTime>("StartAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("TheaterId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId1");
+                    b.HasIndex("MovieId");
 
-                    b.HasIndex("RoomId1");
+                    b.HasIndex("RoomId");
 
-                    b.HasIndex("TheaterId1");
+                    b.HasIndex("TheaterId");
 
                     b.ToTable("ShowTimes");
                 });
@@ -320,11 +331,23 @@ namespace the_movie_hub.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("the_movie_hub.Models.Main.Genre", b =>
+            modelBuilder.Entity("the_movie_hub.Models.Main.MovieGenre", b =>
                 {
-                    b.HasOne("the_movie_hub.Models.Main.Movie", null)
-                        .WithMany("Genres")
-                        .HasForeignKey("MovieId");
+                    b.HasOne("the_movie_hub.Models.Main.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("the_movie_hub.Models.Main.Movie", "Movie")
+                        .WithMany("MovieGenres")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genre");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Room", b =>
@@ -347,23 +370,21 @@ namespace the_movie_hub.Migrations
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Showtime", b =>
                 {
-                    b.HasOne("the_movie_hub.Models.Main.Movie", "Movie")
+                    b.HasOne("the_movie_hub.Models.Main.Movie", null)
                         .WithMany("ShowTimes")
-                        .HasForeignKey("MovieId1");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("the_movie_hub.Models.Main.Room", "Room")
+                    b.HasOne("the_movie_hub.Models.Main.Room", null)
                         .WithMany("ShowTimes")
-                        .HasForeignKey("RoomId1");
+                        .HasForeignKey("RoomId");
 
-                    b.HasOne("the_movie_hub.Models.Main.Theater", "Theater")
+                    b.HasOne("the_movie_hub.Models.Main.Theater", null)
                         .WithMany("ShowTimes")
-                        .HasForeignKey("TheaterId1");
-
-                    b.Navigation("Movie");
-
-                    b.Navigation("Room");
-
-                    b.Navigation("Theater");
+                        .HasForeignKey("TheaterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Ticket", b =>
@@ -373,7 +394,7 @@ namespace the_movie_hub.Migrations
                         .HasForeignKey("SeatId1");
 
                     b.HasOne("the_movie_hub.Models.Main.Showtime", "Showtime")
-                        .WithMany("Tickets")
+                        .WithMany()
                         .HasForeignKey("ShowtimeId1");
 
                     b.HasOne("the_movie_hub.Models.Main.User", "User")
@@ -389,7 +410,7 @@ namespace the_movie_hub.Migrations
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Movie", b =>
                 {
-                    b.Navigation("Genres");
+                    b.Navigation("MovieGenres");
 
                     b.Navigation("ShowTimes");
                 });
@@ -402,11 +423,6 @@ namespace the_movie_hub.Migrations
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Seat", b =>
-                {
-                    b.Navigation("Tickets");
-                });
-
-            modelBuilder.Entity("the_movie_hub.Models.Main.Showtime", b =>
                 {
                     b.Navigation("Tickets");
                 });

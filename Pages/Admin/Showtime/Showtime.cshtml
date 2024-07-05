@@ -1,0 +1,62 @@
+@page "/Admin/Showtime"
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Admin - ShowTime";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Showtime.ShowtimeModel
+
+<div class="p-21">
+    <div class="bg-white text-dark rounded-lg shadow-lg p-21">
+        <h1 class="font-semibold text-xl text-center">Quản lí suất chiếu</h1>
+
+        <div class="flex items-center justify-between">
+            <a href="/Admin" class="text-sky-500 underline underline-offset-1">Quay lại</a>
+            <a href="/Admin/Showtime/Add" class="text-sky-500 underline underline-offset-1">Thêm suất chiếu mới</a>
+        </div>
+
+        @* Body *@
+        <div class="mt-8">
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="border border-dark p-2">Rạp chiếu</th>
+                        <th class="border border-dark p-2">Phim</th>
+                        <th class="border border-dark p-2">Loại phòng</th>
+                        <th class="border border-dark p-2">Ngày chiếu</th>
+                        <th class="border border-dark p-2">_</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var showtime in Model.ShowTimes)
+                    {
+                        <tr>
+                            <td class="border border-dark p-2">@showtime.Theater?.Name</td>
+                            <td class="border border-dark p-2">@showtime.Movie?.Title</td>
+                            <td class="border border-dark p-2">@showtime.RoomType?.Title</td>
+                            <td class="border border-dark p-2">@showtime.StartAt</td>
+                            <td class="border border-dark p-2">
+                                <div class="flex flex-col gap-2 text-center">
+                                    <a href='/Admin/Showtime/@showtime.Id/edit'
+                                        class="block pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-sky-400 text-dark hover:bg-sky-500 trans-200">
+                                        Edit
+                                    </a>
+
+                                    <form method="post" class="w-full">
+                                        <input type="hidden" name="Id" value="@showtime.Id" />
+                                        <button asp-page-handler="Delete"
+                                            class="w-full pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-rose-400 text-dark hover:bg-rose-500 trans-200">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                <tbody>
+            </table>
+        </div>
+    </div>
+</div>

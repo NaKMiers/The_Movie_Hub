@@ -56,17 +56,17 @@ Submit
             <div>
                <div class="mb-4">
                   <label for="name" class="block mb-2">Tên Phim</label>
-                  <input type="text" id="name" name="Title" class="w-full p-2 border border-gray-300 rounded-md"
+                  <input type="text" id="name" asp-for="Title" class="w-full p-2 border border-gray-300 rounded-md"
                      required>
                </div>
                <div class="mb-4">
                   <label for="trailer" class="block mb-2">Trailer Phim</label>
-                  <input type="text" id="trailer" name="trailer" class="w-full p-2 border border-gray-300 rounded-md"
-                     required>
+                  <input type="text" id="trailer" asp-for="TrailerUrl"
+                     class="w-full p-2 border border-gray-300 rounded-md" required>
                </div>
                <div class="mb-4">
                   <label for="movie-description" class="block mb-2">Mô tả phim</label>
-                  <textarea id="movie-description" name="Content"
+                  <textarea id="movie-description" asp-for="Content"
                      class="w-full p-2 border h-20 border-gray-300 rounded-md resize-none" required></textarea>
                </div>
                <div class="mb-4">
@@ -81,34 +81,34 @@ Submit
                </div>
                <div class="mb-4">
                   <label for="director" class="block mb-2">Đạo diễn</label>
-                  <input type="text" id="director" name="Director" class="w-full p-2 border border-gray-300 rounded-md"
-                     required>
+                  <input type="text" id="director" asp-for="Director"
+                     class="w-full p-2 border border-gray-300 rounded-md" required>
                </div>
                <div class="mb-4">
                   <label for="performer" class="block mb-2">Diễn viên</label>
-                  <input type="text" id="performer" name="Actors" class="w-full p-2 border border-gray-300 rounded-md"
-                     required>
+                  <input type="text" id="performer" asp-for="Actors"
+                     class="w-full p-2 border border-gray-300 rounded-md" required>
                </div>
             </div>
             <div class="mb-4">
                <div class="mb-4">
                   <label for="movie-date" class="block mb-2">Chọn Ngày</label>
-                  <input type="date" id="movie-date" name="ReleaseDate"
+                  <input type="date" id="movie-date" asp-for="ReleaseDate"
                      class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
                </div>
                <div class="mb-4">
                   <label for="movie-date" class="block mb-2">Thời Lượng</label>
-                  <input type="number" id="movie-date" name="Duration"
+                  <input type="number" id="movie-date" asp-for="Duration"
                      class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
                </div>
                <div class="mb-4">
                   <label for="movie-date" class="block mb-2">Quốc gia</label>
-                  <input type="text" id="movie-date" name="Country" class="w-full p-2 border border-gray-300 rounded-md"
-                     placeholder="Chọn ngày chiếu">
+                  <input type="text" id="movie-date" asp-for="Country"
+                     class="w-full p-2 border border-gray-300 rounded-md" placeholder="Chọn ngày chiếu">
                </div>
                <div class="mb-4">
                   <label for="movie-description" class="block mb-2">Ghi Chú</label>
-                  <textarea id="movie-description" name="Note"
+                  <textarea id="movie-description" asp-for="Note"
                      class="w-full p-2 border h-20 border-gray-300 rounded-md resize-none" required></textarea>
                </div>
                <div class="mb-4">

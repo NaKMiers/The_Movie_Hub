@@ -1,0 +1,54 @@
+@page "/Admin/Showtime/{Id}/Edit"
+@{
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "Admin - Showtime";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Showtime.EditShowtimeModel
+
+<div class="p-21">
+  <div class="bg-white rounded-lg text-dark shadow-lg p-21">
+    <h1 class="text-xl text-center font-semibold">Thêm suất chiếu</h1>
+
+    <div class="flex justify-between items-center">
+      <a href="/Admin/Showtime" class="text-sky-500 underline">Quay lại</a>
+    </div>
+
+    @* Body *@
+    <div class="mt-8">
+      <form method="post" class="flex flex-col gap-4">
+        <div>
+          <label for="theater" class="block font-medium text-gray-700">Rạp chiếu</label>
+          <select asp-for="TheaterId" asp-items="@(new SelectList(Model.Theaters, "Id", "Name"))"
+            class="border-2 border-dark px-3 py-1.5 rounded-md" required>
+          </select>
+        </div>
+
+        <div>
+          <label for="theater" class="block font-medium text-gray-700">Phim</label>
+          <select asp-for="MovieId" asp-items="@(new SelectList(Model.Movies, "Id", "Title"))"
+            class="border-2 border-dark px-3 py-1.5 rounded-md" required>
+          </select>
+        </div>
+
+        <div>
+          <label for="theater" class="block font-medium text-gray-700">Loại phòng</label>
+          <select asp-for="RoomTypeId" asp-items="@(new SelectList(Model.RoomTypes, "Id", "Title"))"
+            class="border-2 border-dark px-3 py-1.5 rounded-md" required>
+          </select>
+        </div>
+
+        <div>
+          <label for="theater" class="block font-medium text-gray-700">Ngày chiếu</label>
+          <input asp-for="StartAt" type="datetime-local" class="border-2 border-dark px-3 py-1.5 rounded-md" required />
+        </div>
+
+        <button class="bg-green-500 rounded-lg text-dark py-1.5 px-3">
+          Lưu
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

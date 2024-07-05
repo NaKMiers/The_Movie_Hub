@@ -1,0 +1,31 @@
+@page "/Admin/RoomType/{id}/Edit"
+@{
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "Admin - RoomType";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.RoomType.EditRoomTypeModel
+
+<div class="p-21">
+  <div class="bg-white rounded-lg text-dark shadow-lg p-21">
+    <h1 class="text-xl text-center font-semibold">Thêm loại phòng</h1>
+
+    <div class="flex justify-between items-center">
+      <a href="/Admin/RoomType" class="text-sky-500 underline">Quay lại</a>
+    </div>
+
+    @* Body *@
+    <div class="mt-8">
+      <form method="post" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label for="name" class="font-semibold">Tên loại phòng</label>
+          <input type="text" id="name" asp-for="Title" class="border border-gray-300 rounded-lg p-2" />
+        </div>
+
+        <button type="submit" class="rounded-lg p-2 text-dark bg-green-500">Lưu</button>
+      </form>
+    </div>
+  </div>
+</div>

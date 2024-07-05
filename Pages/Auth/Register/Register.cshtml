@@ -24,91 +24,119 @@
                 </a>
             </div>
 
+
             @* Body *@
-            <form method="post" class="bg-white p-10 flex flex-col gap-6">
-                @* Tài khoản, Email hoặc số điện thoại *@
-                <div class="text-dark">
-                    <p class="mb-1.5">Họ và tên *</p>
-                    <input name="FullName" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="..." required>
-                </div>
+            <div class="bg-white p-10">
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="text-rose-500 mb-3 italic text-center">
+                        @foreach (var modelState in ViewData.ModelState)
+                        {
+                            foreach (var error in modelState.Value.Errors)
+                            {
+                                <div>@error.ErrorMessage</div>
+                            }
+                        }
+                    </div>
+                }
 
-                <div class="text-dark">
-                    <p class="mb-1.5">Ngày sinh *</p>
-                    <input name="Birthday" type="date" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="..." required>
-                </div>
+                <form method="post" class="flex flex-col gap-6">
+                    @* Tài khoản, Email hoặc số điện thoại *@
+                    <div class="text-dark">
+                        <p class="mb-1.5">Họ và tên *</p>
+                        <input asp-for="FullName" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark">
-                    <p class="mb-1.5">Số điện thoại *</p>
-                    <input name="Phone" type="number" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="..." required>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Tên tài khoản *</p>
+                        <input asp-for="Username" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark">
-                    <p class="mb-1.5">CCCD/CMND *</p>
-                    <input name="CCCD" type="number" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="..." required>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Ngày sinh *</p>
+                        <input asp-for="Birthday" type="date" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark">
-                    <p class="mb-1.5">Email *</p>
-                    <input name="Email" type="email" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="..." required>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Số điện thoại *</p>
+                        <input asp-for="Phone" type="number" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark">
-                    <p class="mb-1.5">Mật khẩu *</p>
-                    <input name="Password" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
-                        placeholder="..." required>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">CCCD/CMND *</p>
+                        <input asp-for="CCCD" type="number" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark">
-                    <p class="mb-1.5">Nhập lại mật khẩu *</p>
-                    <input type="password" class="px-21 w-full border h-[46px] focus:outline-0" placeholder="..."
-                        required>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Email *</p>
+                        <input asp-for="Email" type="email" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark">
-                    <label for="privacy" class="cursor-pointer select-none">
-                        <span class="ml-1">➡️</span> Chính sách bảo mật
-                    </label>
-                    <input hidden type="checkbox" class="peer" id="privacy">
-                    <p class="peer-checked:max-h-[150px] max-h-0 trans-200 overflow-y-auto">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti commodi distinctio aperiam,
-                        dicta at animi maiores harum cupiditate iste omnis dolores neque quam quisquam, excepturi
-                        tenetur amet incidunt dolore fuga vero debitis perferendis inventore qui quis odit! Temporibus,
-                        laborum esse? Molestias consequatur commodi facilis vel molestiae officia voluptate iure
-                        maiores, aliquam inventore recusandae sint, necessitatibus quas repellat itaque eos, architecto
-                        dolorem odio quae magni ipsa ex! Quod, optio molestias! Accusamus ipsum numquam explicabo
-                        corporis illum recusandae rem facere fuga quam iste vero, cum dolorem adipisci totam autem
-                        consequatur! Dolor eaque a commodi vel dolorem tenetur amet dignissimos molestiae nemo culpa,
-                        quibusdam voluptatibus animi similique sapiente exercitationem labore aut eos qui aperiam
-                        distinctio molestias eius cum cumque minima? Aperiam doloribus dolor nemo veniam impedit,
-                        similique ab reiciendis excepturi, ad architecto facilis voluptates, corporis ut. Laudantium
-                        alias adipisci nemo autem facilis dolor dolore eius. Adipisci sapiente eos, alias aspernatur
-                        accusamus, doloremque maxime fugit id cumque tempore porro dolorum at voluptatum est. Laborum
-                        quaerat eveniet quas maxime ipsam adipisci voluptatibus corrupti magni numquam. Vero mollitia
-                        modi inventore omnis eligendi porro provident eum dolorem facilis, numquam consequatur saepe
-                        ipsum fugiat, perspiciatis ducimus reiciendis laudantium tempora a iste eos temporibus
-                        blanditiis libero? Quam, ea ipsa?
-                    </p>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Mật khẩu *</p>
+                        <input asp-for="Password" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <div class="text-dark flex gap-2 items-start">
-                    <input id="agree" type="checkbox" class="mt-1 w-4 h-4" placeholder="..." required>
-                    <label for="agree">
-                        Khách hàng đã đồng ý các điều khoản, điều kiện của thành viên Cinestar *
-                    </label>
-                </div>
+                    <div class="text-dark">
+                        <p class="mb-1.5">Nhập lại mật khẩu *</p>
+                        <input asp-for="RePassword" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
+                            placeholder="..." required>
+                    </div>
 
-                <button
-                    class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
-                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
-                        ĐĂNG KÝ
-                    </span>
-                </button>
-            </form>
+                    <div class="text-dark">
+                        <label for="privacy" class="cursor-pointer select-none">
+                            <span class="ml-1">➡️</span> Chính sách bảo mật
+                        </label>
+                        <input hidden type="checkbox" class="peer" id="privacy">
+                        <p class="peer-checked:max-h-[150px] max-h-0 trans-200 overflow-y-auto">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti commodi distinctio
+                            aperiam,
+                            dicta at animi maiores harum cupiditate iste omnis dolores neque quam quisquam, excepturi
+                            tenetur amet incidunt dolore fuga vero debitis perferendis inventore qui quis odit!
+                            Temporibus,
+                            laborum esse? Molestias consequatur commodi facilis vel molestiae officia voluptate iure
+                            maiores, aliquam inventore recusandae sint, necessitatibus quas repellat itaque eos,
+                            architecto
+                            dolorem odio quae magni ipsa ex! Quod, optio molestias! Accusamus ipsum numquam explicabo
+                            corporis illum recusandae rem facere fuga quam iste vero, cum dolorem adipisci totam autem
+                            consequatur! Dolor eaque a commodi vel dolorem tenetur amet dignissimos molestiae nemo
+                            culpa,
+                            quibusdam voluptatibus animi similique sapiente exercitationem labore aut eos qui aperiam
+                            distinctio molestias eius cum cumque minima? Aperiam doloribus dolor nemo veniam impedit,
+                            similique ab reiciendis excepturi, ad architecto facilis voluptates, corporis ut. Laudantium
+                            alias adipisci nemo autem facilis dolor dolore eius. Adipisci sapiente eos, alias aspernatur
+                            accusamus, doloremque maxime fugit id cumque tempore porro dolorum at voluptatum est.
+                            Laborum
+                            quaerat eveniet quas maxime ipsam adipisci voluptatibus corrupti magni numquam. Vero
+                            mollitia
+                            modi inventore omnis eligendi porro provident eum dolorem facilis, numquam consequatur saepe
+                            ipsum fugiat, perspiciatis ducimus reiciendis laudantium tempora a iste eos temporibus
+                            blanditiis libero? Quam, ea ipsa?
+                        </p>
+                    </div>
+
+                    <div class="text-dark flex gap-2 items-start">
+                        <input id="agree" type="checkbox" class="mt-1 w-4 h-4" placeholder="..." required>
+                        <label for="agree">
+                            Khách hàng đã đồng ý các điều khoản, điều kiện của thành viên Cinestar *
+                        </label>
+                    </div>
+
+                    <button
+                        class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                        <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                            ĐĂNG KÝ
+                        </span>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

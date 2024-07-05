@@ -11,6 +11,36 @@ namespace the_movie_hub.Pages.Admin.Movie
       private readonly IWebHostEnvironment environment = environment;
 
       // Properties
+      [BindProperty]
+      public required string Title { get; set; }
+
+      [BindProperty]
+      public required DateOnly ReleaseDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+      [BindProperty]
+      public new required string Content { get; set; }
+
+      [BindProperty]
+      public required string Director { get; set; }
+
+      [BindProperty]
+      public required string Actors { get; set; }
+
+      [BindProperty]
+      public required int Duration { get; set; }
+
+      [BindProperty]
+      public required string TrailerUrl { get; set; }
+
+      [BindProperty]
+      public required string Country { get; set; }
+
+      [BindProperty]
+      public required string Note { get; set; }
+
+
+
+
       public IEnumerable<Models.Main.Genre> Genres { get; set; } = [];
 
       public void OnGet()
@@ -20,20 +50,22 @@ namespace the_movie_hub.Pages.Admin.Movie
       }
 
       // Methods
-      public async Task OnPostAsync(Models.Main.Movie movie, List<string> SelectedGenres, IFormFile image, IFormFile banner)
+      public async Task OnPostAsync(List<string> SelectedGenres, IFormFile image, IFormFile banner)
       {
          Guid Id = Guid.NewGuid();
 
          var newMovie = new Models.Main.Movie
          {
             Id = Id,
-            Title = movie.Title.Trim(),
-            ReleaseDate = movie.ReleaseDate,
-            Content = movie.Content.Trim(),
-            Director = movie.Director.Trim(),
-            Actors = movie.Actors.Trim(),
-            Duration = movie.Duration,
-            TrailerUrl = movie.TrailerUrl,
+            Title = Title.Trim(),
+            ReleaseDate = ReleaseDate,
+            Content = Content.Trim(),
+            Director = Director.Trim(),
+            Actors = Actors.Trim(),
+            Duration = Duration,
+            TrailerUrl = TrailerUrl,
+            Country = Country.Trim(),
+            Note = Note.Trim()
          };
 
          if (SelectedGenres != null)
@@ -81,6 +113,9 @@ namespace the_movie_hub.Pages.Admin.Movie
 
          db.Movies.Add(newMovie);
          await db.SaveChangesAsync();
+
+         Response.Redirect("/Admin/Movie/Add");
+         return;
       }
    }
 }

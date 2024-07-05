@@ -1,0 +1,52 @@
+@page "/Admin/RoomType"
+@{
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "Admin - RoomType";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.RoomType.RoomTypeModel
+
+<div class="p-21">
+  <div class="bg-white text-dark rounded-lg shadow-lg p-21">
+    <h1 class="font-semibold text-2xl text-center">Quản lí loại phòng</h1>
+
+    <div class="flex items-center justify-between">
+      <a href="/Admin">Quay lại</a>
+      <a href="/Admin/RoomType/Add" class="text-sky-500 underline underline-offset-1">Thêm loại phòng mới</a>
+    </div>
+
+    <div>
+      <h1 class="text-2xl font-bold mb-4">Danh sách loại phòng</h1>
+
+      <table class="w-full bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
+        <thead class="bg-gray-100 text-gray-700">
+          <tr>
+            <th class="py-2 px-4 text-left">ID</th>
+            <th class="py-2 px-4 text-left">Tên loại phòng</th>
+            <th class="py-2 px-4 text-left">_</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          @foreach (var item in Model.RoomTypes)
+          {
+            <tr>
+              <td class="py-2 px-4">@item.Id</td>
+              <td class="py-2 px-4">@item.Title</td>
+              <td class="py-2 px-4">
+                <a href='/Admin/RoomType/@item.Id/Edit' class="text-indigo-600 hover:text-indigo-900">Sửa</a>
+                <form method="post">
+                  <input type="hidden" name="Id" value="@item.Id" />
+                  <button asp-page-handler="Delete" style="color: red">Delete</button>
+                </form>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

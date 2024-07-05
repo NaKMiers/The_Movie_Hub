@@ -17,6 +17,8 @@ public partial class TheMovieHubDbContext : DbContext
 
     public virtual DbSet<Room> Rooms { get; set; }
 
+    public virtual DbSet<RoomType> RoomTypes { get; set; }
+
     public virtual DbSet<Seat> Seats { get; set; }
 
     public virtual DbSet<Showtime> ShowTimes { get; set; }

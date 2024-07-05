@@ -1,0 +1,636 @@
+﻿@page "/"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Home.Index.IndexModel
+
+<head>
+    <!-- Thư viện CSS của Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/css/index.css">
+    <link rel="stylesheet" href="wwwroot/css/output.css">
+    <style>
+        .carousel-item {
+            display: none;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            /* Hiệu ứng trượt */
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            /* Đảm bảo các ảnh có độ rộng bằng nhau */
+        }
+    </style>
+</head>
+
+<div class="Home-Page">
+    <div class="text-white flex items-center justify-center">
+        <div class="carousel-container relative w-full max-w-4xl overflow-hidden">
+            <div id="carouselExample"
+                class="carousel-inner relative flex transition-transform ease-in-out duration-500">
+                <div class="carousel-item active flex-shrink-0 w-full relative">
+                    <img class="w-full"
+                        src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2F20_-coke.jpg&w=1920&q=75"
+                        alt="...">
+                    <div
+                        class="Book-your-ticket-now absolute bottom-5 right-5 transform -translate-y-1/2 text-black bg-yellow-500 cursor-pointer p-1.5 px-20 text-sm hidden md:block">
+                        Đặt vé ngay
+                    </div>
+                </div>
+                <div class="carousel-item flex-shrink-0 w-full relative">
+                    <img class="w-full"
+                        src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2F1215x365_1_.jpg&w=1920&q=75"
+                        alt="...">
+                    <div
+                        class="Book-your-ticket-now absolute bottom-3 right-5 transform -translate-y-1/2 text-black bg-yellow-500 cursor-pointer p-1.5 px-12 text-sm hidden md:block">
+                        Đặt vé ngay
+                    </div>
+                </div>
+                <div class="carousel-item flex-shrink-0 w-full relative">
+                    <img class="w-full"
+                        src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2F1215x365_5_.jpeg&w=1920&q=75"
+                        alt="...">
+                    <div
+                        class="Book-your-ticket-now absolute bottom-3 right-5 transform -translate-y-1/2 text-black bg-yellow-500 cursor-pointer p-1.5 px-12 text-sm hidden md:block">
+                        Đặt vé ngay
+                    </div>
+                </div>
+                <div class="carousel-item flex-shrink-0 w-full relative">
+                    <img class="w-full"
+                        src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2F1215x365_4_.jpg&w=1920&q=75"
+                        alt="...">
+                    <div
+                        class="Book-your-ticket-now absolute bottom-3 right-5 transform -translate-y-1/2 text-black bg-yellow-500 cursor-pointer p-1.5 px-12 text-sm hidden md:block">
+                        Đặt vé ngay
+                    </div>
+                </div>
+            </div>
+            <!-- Nút điều khiển previous -->
+            <button id="prevButton" class="carousel-control-prev absolute top-1/2 mt-5 -translate-y-1/2 text-white z-10"
+                style="left:10%;">&#10094;</button>
+            <!-- Nút điều khiển next -->
+            <button id="nextButton" class="carousel-control-next absolute top-1/2 mt-5 -translate-y-1/2 text-white z-10"
+                style="right:10%;">&#10095;</button>
+        </div>
+    </div>
+
+
+    @* slide-page *@
+    @* Book tickets quickly *@
+    <div class="book-ticket-quickly">
+        <div class="book-ticket-quickly-sub ">
+            <div class="book-ticket-title">
+                <span>ĐẶT VÉ NHANH</span>
+            </div>
+            <div class="book-ticket-choose">
+                <div class="book-ticket-choose-cinema" onclick="toggleNav()">
+                    <span> 1. Chọn Rạp</span>
+                    <div class="book-ticket-choose-cinema-nav">
+                        <ul>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Quốc
+                                    Thanh</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Hai
+                                    Bà
+                                    Trưng</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Sinh
+                                    Viên</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar
+                                    Huế</a>
+                            </li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Đà
+                                    Lạt</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Lâm
+                                    Đồng</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Mỹ
+                                    Tho</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">Cinestar Kiên
+                                    Giang</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="book-ticket-choose-movie">
+                    <span>2. Chọn Phim</span>
+                    <div class="book-ticket-choose-movie-nav">
+                        <ul>
+                            <li><a href="" style="color:#000;text-decoration:none;">DORAEMON LT
+                                    (P):NOBITA VÀ BẢN GIAO HƯỞNG ĐỊA CẦU</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">MÓNG VUỐT
+                                    (T16)</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">NGÔI ĐỀN KÌ
+                                    QUÁI
+                                    (T16)</a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">GIA TÀI CỦA
+                                    NGOẠI
+                                    2D PĐ (T13)</a>
+                            </li>
+                            <li><a href="" style="color:#000;text-decoration:none;">MÈO BÉO SIÊU
+                                    QUẬY
+                                    2D LT (KT)</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="book-ticket-choose-date">
+                    <span>3. Chọn Ngày</span>
+                    <div class="book-ticket-choose-date-nav">
+                        <ul>
+                            <li><a href="" style="color:#000;text-decoration:none;">Thứ Năm,
+                                    06/06
+                                </a></li>
+
+                    </div>
+                </div>
+                <div class="book-ticket-choose-time">
+                    <span> 4.
+                        Chọn
+                        Suất</span>
+                    <div class="book-ticket-choose-time-nav">
+                        <ul>
+                            <li><a href="" style="color:#000;text-decoration:none;">18:00 - 2D
+                                    Standard
+                            <li><a href="" style="color:#000;text-decoration:none;">18:50 - 2D
+                                    Standard
+                            <li><a href="" style="color:#000;text-decoration:none;">20:50 - 2D
+                                    Standard
+                                </a></li>
+                            <li><a href="" style="color:#000;text-decoration:none;">23:25 - 2D
+                                    Standard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="button-book-ticket">
+                    <button style="border-radius:10px;width:100%;font-family: Anton, sans-serif;">ĐẶT NGAY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* Book tickets quickly *@
+    <div class="Movie-Showing">
+        <div class="Showing-title">
+            <h2>
+                PHIM ĐANG CHIẾU</h2>
+        </div>
+        <div class="Watching mt-6">
+            <div class="Movie-Active max-h-[420px]">
+                <ul id="Slide_Blogcarousel">
+                    @* RENDER CÁC PHIM ĐANG CHIẾU TỪ DATABASE *@
+                    @foreach (var movie in Model.OnGoingMovies)
+                    {
+                        <li class="w-full h-full sm:w-1/2 lg:w-1/3 p-2">
+                            <a href="/movie/@movie.Id" class="block">
+                                <img class="w-full border border-solid border-gray-200 rounded-md" src="~/uploads/@movie.Image"
+                                    alt="gia tai cua ngoai">
+                                <div class="name-movie mt-2">
+                                    <span class="Blograsoul_title text-center">
+                                        @movie.Title
+                                    </span>
+                                </div>
+                                <div class="Infor-trailer flex justify-center mt-2">
+                                    <div class="trailer-movie mr-2">
+                                        <div class="icon-trailer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                            </svg>
+
+                                        </div>
+                                        <div class="watch-trailer">
+                                            <p class="text-sm">Xem Trailer</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-ticket">
+                                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                                            ĐẶT VÉ
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <a class="next" style="left: 6%;" id="prev_left">&#10094;</a>
+            <a class="prev" style="right: 6%;" id="next_right">&#10095;</a>
+        </div>
+        <div class="More-Movie">
+            XEM THÊM
+        </div>
+    </div>
+    <div class="Comming-soon">
+        <div class="Comming-soon-title">
+            <h2>PHIM SẮP CHIẾU</h2>
+        </div>
+        <div class="Soon">
+            <div class="Movie-comming-soon">
+                <ul id="movieList">
+                    @foreach(var movie in Model.UpComingMovies) {
+                        <li>
+                            <a href="">
+                                <img
+                                    style="width:100%;border: solid 1px #c0c0c0;border-radius:5px"
+                                    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F07-2024%2Fminions.jpeg&w=1920&q=75  "
+                                    alt="KẺ TRỘM MẶT TRĂNG 4">
+                                <div class="name-movie">
+                                    <span class="Blograsoul_title">KẺ TRỘM MẶT
+                                        TRĂNG
+                                        4</span>
+                                </div>
+                                <div class="Infor-trailer justify-center">
+                                    <div class="trailer-movie">
+                                        <div class="icon-trailer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" />
+                                            </svg>
+
+                                        </div>
+                                        <div class="watch-trailer">
+                                            <p>Xem Trailer</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-ticket">
+                                        <button>Tìm hiểu thêm</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="More-Movie">
+                    XEM THÊM
+                </div>
+
+            </div>
+            <a class="next" style="left: 6%;" id="prev_left_two">&#10094;</a>
+            <a class="prev" style="right: 6%;" id="next_right_two">&#10095;</a>
+        </div>
+        <div class="relative w-full overflow-hidden mb-16 font-body p-3">
+            <span class="ml-10 text-4xl">KHUYẾN MÃI</span>
+            <div class="w-full">
+                <ul class="flex transition-transform duration-500 ease-in-out" id="discontlist">
+                    <li class="flex-none w-full sm:w-1/2 lg:w-1/3 p-2 sm:p-6"><img class="w-full h-auto object-cover"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-1.jpg&w=1920&q=75"
+                            alt="..."></li>
+                    <li class="flex-none w-full sm:w-1/2 lg:w-1/3 p-2 sm:p-6"><img class="w-full h-auto object-cover"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-2.jpg&w=1920&q=75"
+                            alt="..."></li>
+                    <li class="flex-none w-full sm:w-1/2 lg:w-1/3 p-2 sm:p-6"><img class="w-full h-auto object-cover"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fkm-m-3.jpg&w=1920&q=75"
+                            alt="..."></li>
+                    <li class="flex-none w-full sm:w-1/2 lg:w-1/3 p-2 sm:p-6"><img class="w-full h-auto object-cover"
+                            src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2FMageINIC%2Fbannerslider%2Fmonday_1_.jpg&w=1920&q=75"
+                            alt="..."></li>
+                </ul>
+            </div>
+            <button
+                class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full prev"
+                id="prev_left_three">&#10094;</button>
+            <button
+                class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 p-2 rounded-full next"
+                id="next_right_three">&#10095;</button>
+            <div class="text-center mt-5 text-xl">
+                <a href="#"
+                    class="All-Offers inline-block border border-gray-300 rounded   bg-yellow-300 hover:bg-purple-700 hover:text-white transition duration-300">TẤT
+                    CẢ ƯU ĐÃI</a>
+            </div>
+        </div>
+
+
+
+        @* discount *@
+        @* member offers *@
+        <div class="MemberProgramBanner">
+            <div class="MemberProgramBanner-title">
+                <h1>CHƯƠNG TRÌNH THÀNH VIÊN</h1>
+            </div>
+            <div class="member-img">
+                <div style="display: flex;flex-direction: column;width:40%;">
+                    <div style="width:100%;height:auto;border-radius:5px">
+                        <img style="border-radius: 5px;width:100%"
+                            src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Member/Desktop519x282_CMember.jpg"
+                            alt="">
+                    </div>
+                    <div style="width: 100%;text-align:start">
+                        <div class="Member-C-Friend-two" style=" width: 100%;margin-top:30px">
+                            <span>THÀNH VIÊN C'FRIEND</span>
+                            <p>Thẻ C'Friend ưu đãi hơn cho thành viên mới</p>
+                            <a href="/cfriend">
+                                <div class="Find-Out-Now-Friend" style="text-align:center">
+                                    TÌM HIỂU NGAY
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: column;width:40%;">
+                    <div style="width:100%;height:auto;border-radius:5px">
+                        <img style="border-radius: 5px;width:100%"
+                            src="https://api-website.cinestar.com.vn/media/wysiwyg/CMSPage/Member/Desktop519x282_CMember.jpg"
+                            alt="">
+                    </div>
+                    <div style="width: 100%;text-align:start">
+                        <div class="Member-C-Friend-two" style=" width: 100%;margin-top:30px">
+                            <span>THÀNH VIÊN C'Vip</span>
+                            <p>Thẻ Vip CineStar mang đến sự ưu đãi độc quyền</p>
+                            <a href="/cfriend">
+                                <div class="Find-Out-Now-Friend" style="text-align:center">
+                                    TÌM HIỂU NGAY
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* member-offers *@
+        @* entertaiment *@
+
+
+        <div class="Entertaiment">
+            <div class="Entertaiment-title" style="">
+                <div class="Entertaiment-title-h1">
+                    <h1>TẤT CẢ CÁC GIẢI TRÍ</h1>
+                </div>
+                <div class="Entertaiment-title-p">
+                    <p>
+                        Ngoài hệ thống rạp chiếu phim chất lượng cao, Cinestar còn cung cấp cho bạn nhiều loại <br> hình
+                        giải trí tuyệt vời khác.
+                    </p>
+                </div>
+            </div>
+            <div class="Entertaiment-img">
+                <ul>
+                    <li style="width: 100%;">
+                        <img style="width:100%" src="https://cinestar.com.vn/assets/images/img-service0.jpg" alt="">
+
+                    </li>
+                    <li style="width: 100%;">
+                        <img style="width:100%" src="https://cinestar.com.vn/assets/images/img-service3.jpg" alt="">
+
+                    </li>
+                    <li style="width: 100%;">
+                        <img style="width:100%" src="https://cinestar.com.vn/assets/images/img-service1.jpg" alt="">
+
+                    </li>
+                    <li style="width: 100%;">
+                        <img style="width:100%" src="https://cinestar.com.vn/assets/images/img-service4.jpg" alt="">
+
+                    </li>
+                    <li style="width: 100%;">
+                        <img style="width:100%" src="https://cinestar.com.vn/assets/images/img-service2.jpg" alt="">
+
+                    </li>
+                    <li style="width: 100%;">
+                        <img style="width:100%" src="https://cinestar.com.vn/assets/images/img-service5.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="Contact">
+            <div class="Contact-us">
+                <div class="Contact-us-title">
+                    <h1 class="text-3xl">LIÊN HỆ VỚI CHÚNG TÔI</h1>
+                </div>
+                <div class="Contact-us-facebook">
+                    <button> FACEBOOK</button>
+
+                </div>
+                <div class="Contact-us-zalo">
+                    <button> ZALO</button>
+                </div>
+
+            </div>
+            <div class="contact-form">
+                <h2>THÔNG TIN LIÊN HỆ</h2>
+                <div class="contact-form-email">
+                    <div class="contact-form-email-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColo     r" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="contact-form-text">marketing.cinestar@gmail.com</div>
+                </div>
+                <div class="contact-form-phone" ">
+                    <div class=" contact-form-phone-icon" style="color:#F3EA28"><svg xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg></div>
+                <div class="contact-form-text">028 7300 8881</div>
+            </div>
+            <div class="contact-form-address">
+                <div class="contact-form-address-icon" style="color:#F3EA28"><svg xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6" style="color:#F3EA28" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg></div>
+                <div class="contact-form-text">135 Hai Bà Trưng, phường Bến Nghé, Quận 1, TP.HCM</div>
+            </div>
+            <form>
+                <label for="name">Họ và Tên</label>
+                <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email" required>
+
+                <label for="message">Thông Tin</label>
+                <textarea id="message" name="message" placeholder="Nhập thông tin" rows="4" required></textarea>
+
+                <button type="submit" style="font-family: Anton, sans-serif;">GỬI NGAY</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+</script>
+<script>
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const items = document.querySelectorAll('.carousel-inner .carousel-item');
+
+    let currentIndex = 0;
+
+    function showItem(index) {
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+        showItem(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+        showItem(currentIndex);
+    });
+    ////
+    function toggleNav(selector) {
+        const nav = document.querySelector(selector);
+        nav.style.display = nav.style.display === 'none' || nav.style.display === '' ? 'block' : 'none';
+    }
+
+    document.querySelector('.book-ticket-choose-cinema').addEventListener('click', function () {
+        toggleNav('.book-ticket-choose-cinema-nav');
+    });
+
+    document.querySelector('.book-ticket-choose-movie').addEventListener('click', function () {
+        toggleNav('.book-ticket-choose-movie-nav');
+    });
+
+    document.querySelector('.book-ticket-choose-date').addEventListener('click', function () {
+        toggleNav('.book-ticket-choose-date-nav');
+    });
+
+    document.querySelector('.book-ticket-choose-time').addEventListener('click', function () {
+        toggleNav('.book-ticket-choose-time-nav');
+    });
+
+    /////
+    // Blograesel
+    const arrowRight = document.getElementById("next_right");
+    const arrowLeft = document.getElementById("prev_left");
+    const blocks = document.getElementById(
+        "Slide_Blogcarousel"
+    );
+
+    let currentPosition = 0;
+
+    function updateBlockPosition() {
+        blocks.style.transform = `translateX(${currentPosition}%)`;
+    }
+
+    arrowRight.addEventListener("click", () => {
+        if (currentPosition > -50) {
+            currentPosition -= 50;
+            updateBlockPosition();
+        }
+    });
+
+    arrowLeft.addEventListener("click", () => {
+
+
+        if (currentPosition < 0) {
+            currentPosition += 50;
+            updateBlockPosition();
+        }
+    });
+
+    function handleResize() {
+        if (window.innerWidth <= 990) {
+            currentPosition = 0;
+        } else {
+            currentPosition = 0;
+        }
+
+        updateBlockPosition();
+    }
+
+    window.addEventListener("load", handleResize);
+    window.addEventListener("resize", handleResize);
+    ////
+    // Carousel cho các bộ phim sắp tới
+    const arrowRighttwo = document.getElementById("next_right_two");
+    const arrowLefttwo = document.getElementById("prev_left_two");
+    const movieList = document.getElementById("movieList");
+
+    let currentPosition1 = 0;
+
+    function updateMovieListPosition() {
+        movieList.style.transform = `translateX(${currentPosition1}%)`;
+    }
+
+    arrowRighttwo.addEventListener("click", () => {
+        if (currentPosition1 > -50) {
+            currentPosition1 -= 50;
+            updateMovieListPosition();
+        }
+    });
+
+    arrowLefttwo.addEventListener("click", () => {
+        if (currentPosition1 < 0) {
+            currentPosition1 += 50;
+            updateMovieListPosition();
+        }
+    });
+
+    function handleResizeMovieList() {
+        currentPosition1 = 0;
+        updateMovieListPosition();
+    }
+
+    window.addEventListener("load", handleResizeMovieList);
+    window.addEventListener("resize", handleResizeMovieList);
+    ////
+
+    // Carousel cho các bộ phim sắp tới
+    const arrowRightthree = document.getElementById("next_right_three");
+    const arrowLeftthree = document.getElementById("prev_left_three");
+    const Discontlist = document.getElementById("discontlist");
+
+    let currentPosition2 = 0;
+
+    function updateDiscontlistPosition() {
+        Discontlist.style.transform = `translateX(${currentPosition2}%)`;
+    }
+
+    arrowRightthree.addEventListener("click", () => {
+        if (currentPosition2 > -35) {
+            currentPosition2 -= 35;
+            updateDiscontlistPosition();
+        }
+    });
+
+    arrowLeftthree.addEventListener("click", () => {
+        if (currentPosition2 < 0) {
+            currentPosition2 += 35;
+            updateDiscontlistPosition();
+        }
+    });
+
+    function handleResizeDiscontlist() {
+        currentPosition2 = 0;
+        updateDiscontlistPosition();
+    }
+
+    window.addEventListener("load", handleResizeDiscontlist);
+    window.addEventListener("resize", handleResizeDiscontlist);
+    ////
+
+</script>

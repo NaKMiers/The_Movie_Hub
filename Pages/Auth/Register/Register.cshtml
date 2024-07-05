@@ -8,62 +8,107 @@
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Auth.Register.RegisterModel
 
-<link rel="stylesheet" href="~/css/login.css" />
-
-<div class="account-container w-[50%] mx-auto">
-    <div class="Account" style="display: flex;">
-        <a href='/login' id="login-tab" style="margin: auto; cursor: pointer;">
-            <h2>ĐĂNG NHẬP</h2>
-        </a>
-        <a href='/register' id="register-tab" style="margin: auto; cursor: pointer;">
-            <h2>ĐĂNG KÍ</h2>
-        </a>
-    </div>
-
-    <div id="register-form">
-
-        <form method="post">
-            <div class="form-group">
-                <label for="register-username">Họ và Tên</label>
-                <input type="text" id="register-username" name="FullName" required placeholder="Nhập họ và tên">
-            </div>
-            <div class="form-group">
-                <label for="register-birthdate">Ngày sinh</label>
-                <input type="date" id="register-birthdate" name="BirthDay" required>
-            </div>
-            <div class="form-group">
-                <label for="phone-number">Số điện thoại</label>
-                <input type="number" id="phone-number" name="Phone" required placeholder="Số điện thoại">
-            </div>
-            <div class="form-group">
-                <label for="name-user">Tên đăng nhâp</label>
-                <input type="name" id="name-user" name="Username" required placeholder="Tên đăng nhập">
-            </div>
-            <div class="form-group">
-                <label for="name-user">CCCD/CMND</label>
-                <input type="id-user" id="id-user" name="CCCD" required placeholder="Số CCCD/CMND">
-            </div>
-            <div class="form-group">
-                <label for="name-user">Email</label>
-                <input type="id-user" id="id-user" name="Email" required placeholder="Điền email">
-            </div>
-            <div class="form-group">
-                <label for="name-user">Mật khẩu</label>
-                <input type="password" id="password" name="Password" required placeholder="Mật khẩu">
-            </div>
-            <div class="form-group">
-                <label for="name-user">Xác thực mật khẩu</label>
-                <input type="password" id="re-password" required placeholder="Mật khẩu">
-            </div>
-            <div class="form-group">
-                <button type="submit">ĐĂNG KÍ</button>
-            </div>
-            <p class="login-text">Bạn đã có tài khoản?
-                <a href="/login" class="login-link">
-                    <span>Đăng nhập</span>
+<div class="w-full py-14 px-21 mb-0" style="background: url(/images/bg.jpg); background-repeat: no-repeat; background-position: center;
+    background-size: cover;">
+    <div class="max-w-1200 mx-auto">
+        <div class="rounded-lg shadow-lg overflow-hidden max-w-[620px] w-full">
+            @* Top *@
+            <div class="flex ">
+                <a href='/login'
+                    class="font-body tracking-wider uppercase rounded-t-lg text-white w-1/2 px-21 py-2 text-center">
+                    Đăng Nhập
                 </a>
-            </p>
-        </form>
+                <a href='/register'
+                    class="font-body tracking-wider uppercase rounded-t-lg bg-white text-dark w-1/2 px-21 py-2 text-center">
+                    Đăng Ký
+                </a>
+            </div>
 
+            @* Body *@
+            <form method="post" class="bg-white p-10 flex flex-col gap-6">
+                @* Tài khoản, Email hoặc số điện thoại *@
+                <div class="text-dark">
+                    <p class="mb-1.5">Họ và tên *</p>
+                    <input name="FullName" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="..." required>
+                </div>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">Ngày sinh *</p>
+                    <input name="Birthday" type="date" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="..." required>
+                </div>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">Số điện thoại *</p>
+                    <input name="Phone" type="number" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="..." required>
+                </div>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">CCCD/CMND *</p>
+                    <input name="CCCD" type="number" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="..." required>
+                </div>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">Email *</p>
+                    <input name="Email" type="email" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="..." required>
+                </div>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">Mật khẩu *</p>
+                    <input name="Password" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="..." required>
+                </div>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">Nhập lại mật khẩu *</p>
+                    <input type="password" class="px-21 w-full border h-[46px] focus:outline-0" placeholder="..."
+                        required>
+                </div>
+
+                <div class="text-dark">
+                    <label for="privacy" class="cursor-pointer select-none">
+                        <span class="ml-1">➡️</span> Chính sách bảo mật
+                    </label>
+                    <input hidden type="checkbox" class="peer" id="privacy">
+                    <p class="peer-checked:max-h-[150px] max-h-0 trans-200 overflow-y-auto">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti commodi distinctio aperiam,
+                        dicta at animi maiores harum cupiditate iste omnis dolores neque quam quisquam, excepturi
+                        tenetur amet incidunt dolore fuga vero debitis perferendis inventore qui quis odit! Temporibus,
+                        laborum esse? Molestias consequatur commodi facilis vel molestiae officia voluptate iure
+                        maiores, aliquam inventore recusandae sint, necessitatibus quas repellat itaque eos, architecto
+                        dolorem odio quae magni ipsa ex! Quod, optio molestias! Accusamus ipsum numquam explicabo
+                        corporis illum recusandae rem facere fuga quam iste vero, cum dolorem adipisci totam autem
+                        consequatur! Dolor eaque a commodi vel dolorem tenetur amet dignissimos molestiae nemo culpa,
+                        quibusdam voluptatibus animi similique sapiente exercitationem labore aut eos qui aperiam
+                        distinctio molestias eius cum cumque minima? Aperiam doloribus dolor nemo veniam impedit,
+                        similique ab reiciendis excepturi, ad architecto facilis voluptates, corporis ut. Laudantium
+                        alias adipisci nemo autem facilis dolor dolore eius. Adipisci sapiente eos, alias aspernatur
+                        accusamus, doloremque maxime fugit id cumque tempore porro dolorum at voluptatum est. Laborum
+                        quaerat eveniet quas maxime ipsam adipisci voluptatibus corrupti magni numquam. Vero mollitia
+                        modi inventore omnis eligendi porro provident eum dolorem facilis, numquam consequatur saepe
+                        ipsum fugiat, perspiciatis ducimus reiciendis laudantium tempora a iste eos temporibus
+                        blanditiis libero? Quam, ea ipsa?
+                    </p>
+                </div>
+
+                <div class="text-dark flex gap-2 items-start">
+                    <input id="agree" type="checkbox" class="mt-1 w-4 h-4" placeholder="..." required>
+                    <label for="agree">
+                        Khách hàng đã đồng ý các điều khoản, điều kiện của thành viên Cinestar *
+                    </label>
+                </div>
+
+                <button
+                    class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                        ĐĂNG KÝ
+                    </span>
+                </button>
+            </form>
+        </div>
     </div>
 </div>

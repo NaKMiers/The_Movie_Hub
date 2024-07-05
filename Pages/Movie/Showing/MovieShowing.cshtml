@@ -6,8 +6,13 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
-@model the_movie_hub.Models.Main.User
+@model the_movie_hub.Pages.Movie.MovieShowing.MovieShowingModel
 
 <div class="text-center">
     <h1 class="display-4">Movie Showing</h1>
+
+    @foreach (var movie in Model.Movies)
+    {
+        <div>@movie.Title</div>
+    }
 </div>

@@ -1,12 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Components
 {
-   public class FooterViewComponent : ViewComponent
+   public class FooterViewComponent(TheMovieHubDbContext db) : ViewComponent
    {
-      public IViewComponentResult Invoke()
+      // Database context
+      private readonly TheMovieHubDbContext db = db;
+
+      // Properties
+
+
+      // Methods
+      public async Task<IViewComponentResult> InvokeAsync()
       {
-         return View("~/Components/Footer/Footer.cshtml");
+         var theaters = await db.Theaters.ToListAsync();
+         return View("~/Components/Footer/Footer.cshtml", theaters);
       }
    }
 }

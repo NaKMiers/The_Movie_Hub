@@ -1,3 +1,8 @@
+@using the_movie_hub.Models
+@using Newtonsoft.Json
+@using the_movie_hub.Models.Main
+@model IEnumerable<the_movie_hub.Models.Main.Theater>
+
 <footer
    class="bg-[#0f172a] md:bg-gradient px-4 pt-[40px] xl:pt-[100px] pb-[40px] border-t border-slate-700 mb-[60px] md:mb-0">
    @* Static footer in medium screen*@
@@ -226,32 +231,13 @@
                         <a href="/book-tickets" class="hover:text-highlight hover:tracking-wider trans-200">Tất cả hệ
                            thống rạp</a>
                      </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Quốc Thanh</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Hai Bà Trưng
-                           (TP.HCM)</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Sinh Viên (Bình
-                           Dương)</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Mỹ Tho</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Kiên Giang</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Lâm Đồng</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Đà Lạt</a>
-                     </li>
-                     <li>
-                        <a href="/" class="hover:text-highlight hover:tracking-wider trans-200">Cinestar Huế</a>
-                     </li>
+                     @foreach (var theater in Model)
+                     {
+                        <li>
+                           <a href="/book-tickets/@theater.Id"
+                              class="hover:text-highlight hover:tracking-wider trans-200">@theater.Name</a>
+                        </li>
+                     }
                   </ul>
                </div>
             </div>

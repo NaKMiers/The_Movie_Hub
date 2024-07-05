@@ -1,12 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using the_movie_hub.Models.Main;
 
-namespace the_movie_hub.Components
+namespace the_movie_hub.Components.Header
 {
-   public class HeaderViewComponent : ViewComponent
+   public class HeaderViewComponent(TheMovieHubDbContext db) : ViewComponent
    {
-      public IViewComponentResult Invoke()
+      // Database context
+      private readonly TheMovieHubDbContext db = db;
+
+      // Properties
+
+
+      // Methods
+      public async Task<IViewComponentResult> InvokeAsync()
       {
-         return View("~/Components/Header/Header.cshtml");
+         var theaters = await db.Theaters.ToListAsync();
+         return View("~/Components/Header/Header.cshtml", theaters);
       }
    }
 }

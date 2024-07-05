@@ -6,39 +6,47 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
-@model the_movie_hub.Models.Main.User
+@model the_movie_hub.Pages.Movie.MovieDetail.MovieDetailModel
+@{
+    var movie = Model.Movie!;
+}
+
+
 <link rel="stylesheet" href="~/Css/moviedetail.css">
 <div class="Container">
     <div class="Box">
         <div class="Movie-Detail">
-            <div class="Movie-img">
-                <img class="img-imggg"
-                    src="https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F04-2024%2Fposter-lat-mat-7.jpg&w=1920&q=75">
+            <div class="Movie-img rounded-lg overflow-hidden shadow-lg">
+                <img class="img-imggg" src="~/uploads/@movie.Image">
             </div>
             <div class="Details">
-                <h1>LẬT MẶT 7: MỘT ĐIỀU ƯỚC (K)</h1>
+                <h1>@movie.Title</h1>
                 <div class="info-item">
                     <img src="https://cinestar.com.vn/assets/images/icon-tag.svg" alt="">
-                    <p>Tình Cảm, Phim Hài</p>
+                    <p>
+                        @foreach (var genre in movie.MovieGenres)
+                        {
+                            <span>@genre.Genre.Title</span>
+                        }
+                    </p>
                 </div>
                 <div class="info-item">
                     <img src="https://cinestar.com.vn/assets/images/icon-clock.svg" alt="">
-                    <p>138'</p>
+                    <p>@movie.Duration'</p>
                 </div>
                 <div class="info-item">
                     <img src="~/images/globe-removebg-preview.png" alt="">
-                    <p>Việt Nam</p>
+                    <p>@movie.Country</p>
                 </div>
                 <div class="info-item">
                     <img src="https://cinestar.com.vn/assets/images/subtitle.svg" alt="">
-                    <p>VN</p>
+                    <p>@movie.Country</p>
                 </div>
                 <div class="info-item">
                     <img src="~/images/user-check.png" alt="">
-                    <p style="background-color: rgb(245, 245, 19);color:black">K: Phim dành cho khán giả từ dưới 13 tuổi
-                        với điều
-                        kiện xem
-                        cùng cha, mẹ hoặc người giám hộ.</p>
+                    <p style="background-color: rgb(245, 245, 19);color:black">
+                        K: Phim dành cho khán giả từ dưới 13 tuổi với điều kiện xem cùng cha, mẹ hoặc người giám hộ.
+                    </p>
                 </div>
 
                 <div class="Describe">
@@ -46,10 +54,9 @@
                         <h2">MÔ TẢ</h2>
                     </div>
                     <ul>
-                        <li>Đạo diễn: Lý Hải</li>
-                        <li>Diễn viên: Thanh Hiền, Trương Minh Cường, Đinh Y Nhung, Quách Ngọc Tuyên, Trâm Anh, Trần Kim
-                            Hải</li>
-                        <li>Khởi chiếu: 20/04/2024</li>
+                        <li>Đạo diễn: @movie.Director</li>
+                        <li>Diễn viên: @movie.Actors</li>
+                        <li>Khởi chiếu: @movie.ReleaseDate</li>
                     </ul>
                 </div>
 
@@ -58,8 +65,9 @@
                         <h2>NỘI DUNG PHIM</h2>
                     </div>
                     <ul>
-                        <li>Một câu chuyện lần đầu được kể bằng tất cả tình yêu, và từ tất cả những hồi ức xao xuyến
-                            nhất của đấng sinh thành</li>
+                        <li>
+                        @movie.Content
+                        </li>
                     </ul>
                 </div>
 

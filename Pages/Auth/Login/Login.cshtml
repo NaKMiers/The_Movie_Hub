@@ -7,45 +7,55 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models
 @model the_movie_hub.Pages.Auth.Login.LoginModel;
-<link rel="stylesheet" href="~/css/login.css" />
 
-<div class="Login w-full flex justify-center items-center">
-    <div class=" account-container">
-        <div class="Account" style="display: flex;">
-            <a href='/login' id="login-tab" style="margin: auto; cursor: pointer;">
-                <h2>ĐĂNG NHẬP</h2>
-            </a>
-            <a href='/register' id="register-tab" style="margin: auto; cursor: pointer;">
-                <h2>ĐĂNG KÍ</h2>
-            </a>
-        </div>
+<div class="w-full py-14 px-21 mb-0" style="background: url(/images/bg.jpg); background-repeat: no-repeat; background-position: center;
+    background-size: cover;">
+    <div class="max-w-1200 mx-auto">
+        <div class="rounded-lg shadow-lg overflow-hidden max-w-[620px] w-full">
+            @* Top *@
+            <div class="flex ">
+                <a href='/login'
+                    class="font-body tracking-wider uppercase rounded-t-lg bg-white text-dark w-1/2 px-21 py-2 text-center">
+                    Đăng Nhập
+                </a>
+                <a href='/register'
+                    class="font-body tracking-wider uppercase rounded-t-lg text-white w-1/2 px-21 py-2 text-center">
+                    Đăng Ký
+                </a>
+            </div>
 
-        <div id="login-form">
-            <form method="post">
-                <div class="form-group">
-                    <label style="margin-top: 30px;" for="email">Tài khoản, Email hoặc số điện thoại </label>
-                    <input type="text" id="email" name="Email" required>
+            @* Body *@
+            <form method="post" class="bg-white p-10 flex flex-col gap-6">
+                @* Email *@
+                <div class="text-dark">
+                    <p class="mb-1.5">Email *</p>
+                    <input name="Email" type="text" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="...">
                 </div>
-                <div class="form-group">
-                    <label style="margin-top: 30px;" for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="Password" required>
+
+                <div class="text-dark">
+                    <p class="mb-1.5">Mật khẩu *</p>
+                    <input name="Password" type="password" class="px-21 w-full border h-[46px] focus:outline-0"
+                        placeholder="...">
                 </div>
-                <div class="form-group checkbox-group" style="display: flex;">
-                    <div style="margin: auto; margin-left: -1px;">
-                        <input type="checkbox" id="remember" name="Remember">
-                    </div>
-                    <div style="margin:auto;margin-left:-470px;  margin-top: 5px;">
-                        <label for="remember">Remember me</label>
-                    </div>
+
+                <div class="text-dark flex gap-2 items-center">
+                    <input type="checkbox" class="w-4 h-4" placeholder="...">
+                    <p class="">Lưu mật khẩu đăng nhập *</p>
                 </div>
-                <div class="forgot-password">
-                    <a href="/change-password">
-                        <p style="margin-left:450px;margin-bottom:20px">Quên mật khẩu?</p>
+
+                <div class="text-dark flex justify-end">
+                    <a href="/forgot-password" class="block text-right text-sky-500 underline underline-offset-1">
+                        Quên mật khẩu
                     </a>
                 </div>
-                <div class="form-group">
-                    <button type="submit">ĐĂNG NHẬP</button>
-                </div>
+
+                <button
+                    class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                        ĐĂNG NHẬP
+                    </span>
+                </button>
             </form>
         </div>
     </div>

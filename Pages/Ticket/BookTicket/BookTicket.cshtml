@@ -6,9 +6,10 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
-@model the_movie_hub.Models.Main.User
+@model the_movie_hub.Pages.Ticket.BookTicket.BookTicketModel
 
 <div class="text-center">
     <h1 class="display-4">Book Ticket</h1>
-</div>
 
+    @Model.Theater?.Name
+</div>

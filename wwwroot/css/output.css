@@ -2485,6 +2485,10 @@ video {
        column-gap: 21px;
 }
 
+.gap-y-10{
+  row-gap: 2.5rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -5622,6 +5626,10 @@ svg path {
 
   .md\:max-w-\[368px\]{
     max-width: 368px;
+  }
+
+  .md\:max-w-\[276px\]{
+    max-width: 276px;
   }
 
   .md\:grid-cols-2{

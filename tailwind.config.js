@@ -14,6 +14,9 @@ module.exports = {
         warning: '#f1c40f',
         error: '#e74c3c',
       },
+      screens: {
+        'below601': { 'max': '600px' },
+      },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif'],
         body: ['Anton', 'sans-serif'],

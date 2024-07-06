@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using the_movie_hub.Models.Main;
 
@@ -11,9 +12,11 @@ using the_movie_hub.Models.Main;
 namespace the_movie_hub.Migrations
 {
     [DbContext(typeof(TheMovieHubDbContext))]
-    partial class TheMovieHubDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240705194858_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -250,20 +253,14 @@ namespace the_movie_hub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MovieId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("MovieId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PaymentMethod")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoomId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("RoomId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("SeatId")
                         .HasColumnType("nvarchar(max)");
@@ -271,26 +268,11 @@ namespace the_movie_hub.Migrations
                     b.Property<Guid?>("SeatId1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("StartAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
+                    b.Property<string>("ShowtimeId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TheaterId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("TheaterId1")
+                    b.Property<Guid?>("ShowtimeId1")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("TicketTypeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("TicketTypeId1")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<float?>("Total")
-                        .HasColumnType("real");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -300,41 +282,13 @@ namespace the_movie_hub.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId1");
-
-                    b.HasIndex("RoomId1");
-
                     b.HasIndex("SeatId1");
 
-                    b.HasIndex("TheaterId1");
-
-                    b.HasIndex("TicketTypeId1");
+                    b.HasIndex("ShowtimeId1");
 
                     b.HasIndex("UserId1");
 
                     b.ToTable("Tickets");
-                });
-
-            modelBuilder.Entity("the_movie_hub.Models.Main.TicketType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Label")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TicketTypes");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.User", b =>
@@ -374,9 +328,6 @@ namespace the_movie_hub.Migrations
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -458,39 +409,21 @@ namespace the_movie_hub.Migrations
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Ticket", b =>
                 {
-                    b.HasOne("the_movie_hub.Models.Main.Movie", "Movie")
-                        .WithMany()
-                        .HasForeignKey("MovieId1");
-
-                    b.HasOne("the_movie_hub.Models.Main.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId1");
-
                     b.HasOne("the_movie_hub.Models.Main.Seat", "Seat")
                         .WithMany("Tickets")
                         .HasForeignKey("SeatId1");
 
-                    b.HasOne("the_movie_hub.Models.Main.Theater", "Theater")
+                    b.HasOne("the_movie_hub.Models.Main.Showtime", "Showtime")
                         .WithMany()
-                        .HasForeignKey("TheaterId1");
-
-                    b.HasOne("the_movie_hub.Models.Main.TicketType", "TicketType")
-                        .WithMany()
-                        .HasForeignKey("TicketTypeId1");
+                        .HasForeignKey("ShowtimeId1");
 
                     b.HasOne("the_movie_hub.Models.Main.User", "User")
                         .WithMany("Tickets")
                         .HasForeignKey("UserId1");
 
-                    b.Navigation("Movie");
-
-                    b.Navigation("Room");
-
                     b.Navigation("Seat");
 
-                    b.Navigation("Theater");
-
-                    b.Navigation("TicketType");
+                    b.Navigation("Showtime");
 
                     b.Navigation("User");
                 });

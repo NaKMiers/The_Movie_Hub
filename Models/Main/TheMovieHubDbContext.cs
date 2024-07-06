@@ -28,4 +28,6 @@ public partial class TheMovieHubDbContext : DbContext
     public virtual DbSet<Ticket> Tickets { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<TicketType> TicketTypes { get; set; }
 }

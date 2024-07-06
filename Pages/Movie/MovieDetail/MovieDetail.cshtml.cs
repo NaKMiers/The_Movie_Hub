@@ -14,6 +14,7 @@ namespace the_movie_hub.Pages.Movie.MovieDetail
 
   public class TheaterViewModel
   {
+    public required String Id { get; set; }
     public required string Name { get; set; }
     public required string Address { get; set; }
     public Dictionary<string, List<string>> RoomTypeShowTimes { get; set; } = [];
@@ -71,6 +72,7 @@ namespace the_movie_hub.Pages.Movie.MovieDetail
             .GroupBy(s => s.Theater)
             .Select(g => new TheaterViewModel
             {
+              Id = g.Key.Id.ToString(),
               Name = g.Key.Name,
               Address = g.Key.Address,
               RoomTypeShowTimes = g.GroupBy(r => r.RoomType.Title)

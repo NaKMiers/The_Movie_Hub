@@ -24,6 +24,8 @@ public partial class User
 
     public string? Avatar { get; set; }
 
+    public string? Role { get; set; } = "user";
+
     public virtual ICollection<Ticket> Tickets { get; set; } = [];
 
     // To String

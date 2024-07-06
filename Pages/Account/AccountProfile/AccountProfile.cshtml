@@ -8,262 +8,166 @@
 @model the_movie_hub.Pages.Account.AccountProfile.AccountProfileModel
 
 @{
-    Layout = "_Layout";
-    ViewData["Title"] = "Account Profile";
-    string? session = HttpContext.Session.GetString("User");
-    var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
+  Layout = "_Layout";
+  ViewData["Title"] = "Account Profile";
+  string? session = HttpContext.Session.GetString("User");
+  var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
+
+  if (user == null)
+  {
+    Response.Redirect("/Login");
+    return;
+  }
 }
 
-<link rel="stylesheet" href="~/css/AccountInfo.css">
-<div class="prof ht">
-    <div class="container">
-        <div class="prof-wr">
-            <div class="prof-row row">
-                <div class="side-bar col col-2">
-                    <div class="acc-sbar">
-                        <div class="acc-sbar-block">
-                            <div class="about-user">
-                                <div class="ava">
-                                    <img class="rounded-[100%]"
-                                        src="https://cinestar.monamedia.net/assets/images/ic-header-auth.svg" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="name">@user?.FullName</p>
-                                    <div>
-                                        <div class="popup popup-noti  ">
-                                            <div class="popup-overlay"></div>
-                                            <div class="popup-main">
-                                                <div class="popup-main-wrapper">
-                                                    <div class="popup-over">
-                                                        <div class="popup-wrapper">
-                                                            <div class="popup-noti-wr">
-                                                                <div class="popup-noti-ctr">
-                                                                    <div class="btn btn--outline">
-                                                                        <span class="txt">OK</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<div class="bg-gradient-radial from-[#36c] to-[#0f172a]">
+  <div class="max-w-1200 mx-auto text-dark pt-[50px] pb-[100px]">
+    <div class="flex gap-21">
+      @* Sidebar *@
+      <div class="relative max-w-[276px] w-full text-white">
+        <div class="sticky top-[150px] rounded-lg shadow-lg p-4 bg-gradient-to-r from-[#639] to-[#36c] ">
+          @* Avatar *@
+          <div class="flex gap-3">
+            @if (user != null && user.Avatar != null)
+            {
+              <div class="w-[42px] h-[42px] aspect-square overflow-hidden rounded-full shadow-lg">
+                <img src="~/uploads/@user.Avatar" alt="avatar" class="w-full h-full object-cover" />
+              </div>
+            }
+            else
+            {
+              <svg fill="#fff" class="h-[42px] wiggle group-hover:fill-highlight trans-200"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
+              </svg>
+            }
+            <div class="-mt-1">
+              <div class="font-semibold">@user?.FullName</div>
+              <form id="avatarForm" method="post" enctype="multipart/form-data" asp-page-handler="ChangeAvatar">
+                <label class="about-user-action text-xs underline cursor-pointer" for="avatarInput">Thay đổi ảnh
+                  đại</label>
+                <input type="file" id="avatarInput" asp-for="Avatar" accept="image/*" style="display: none;"
+                  onchange="submitForm()">
+              </form>
+            </div>
+          </div>
 
-                                                <i class="fas fa-times icon"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <form id="avatarForm" method="post" enctype="multipart/form-data"
-                                        asp-page-handler="ChangeAvatar">
-                                        <label class="about-user-action" for="avatarInput">Thay đổi ảnh đại diện</label>
-                                        <label for="avatarInput" class="btn btn-primary">Upload Avatar</label>
-                                        <input type="file" id="avatarInput" asp-for="Avatar" accept="image/*"
-                                            style="display: none;" onchange="submitForm()">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about-user-lv">C'Friends</div>
-                        <div class="acc-points">
-                            <div class="ct">
-                                <span class="tt">Tích điểm <span style="color: rgb(243, 234, 40);"> C'Friends</span>
-                                </span>
-                            </div>
-                            <div class="block-bar">
-                                <div class="curr-bar" style="width: 0%;"></div>
-                            </div>
-                            <span class="point">
-                                <span class="poin-current">0</span>
-                                <span class="dot">/</span>
-                                <span class="poin-total">10K</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="acc-sbar-block">
-                        <div class="acc-menu">
-                            <div class="acc-menu-slider">
-                                <div class="swiper-container">
-                                    <div class="swiper rows">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide col active">
-                                                <a class="acc-menu-link" href="/account/account-profile/">
-                                                    <img src="~/images/ic-user-circle.png" alt="">
-                                                    <span class="txt">Thông tin khách hàng</span>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide col">
-                                                <a class="acc-menu-link" href="/account/account-member/">
-                                                    <img src="~/images/acc-menu-2.png" alt="">
-                                                    <span class="txt">Thành viên Cinestar</span>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide col">
-                                                <a class="acc-menu-link" href="/account/account-history/">
-                                                    <img src="~/images/acc-menu-3.png" alt="">
-                                                    <span class="txt">Lịch sử mua hàng</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="acc-sbar-block">
-                        <div class="act-logout">
-                            <a class="logout" href="">
-                                <span class="ic">
-                                    <img src="~/images/ic-logout.png" alt="">
-                                </span>
-                                <span class="txt">Đăng xuất</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="popup popup-logout">
-                    <div class="popup-overlay"></div>
-                    <div class="popup-main">
-                        <div class="popup-main-wrapper">
-                            <div class="popup-over">
-                                <div class="popup-wrapper">
-                                    <div class="popup-logout-wr">
-                                        <p class="popup-logout-title">Bạn có chắc chắn đăng xuất khỏi CINESTAR chứ ?
-                                        </p>
-                                        <div class="popup-logout-ctr">
-                                            <button class="btn btn--pri">
-                                                <span class="txt">ĐĂNG XUẤT</span>
-                                            </button>
-                                            <button class="btn btn--outline">
-                                                <span class="txt">HUỶ</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="popup-close popupClose">
-                            <i class="fas fa-times icon"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="prof-main col col-10">
-                <div class="sec-heading" data-aos="fade-up">
-                    <h2 class="heading">Thông tin khách hàng</h2>
-                </div>
-                <div class="acc-prf">
-                    <div class="">
-                        <div class="">
-                            <div class="acc-prf-block">
-                                <p class="acc-prf-block-title">Thông tin cá nhân</p>
-                                <div class="acc-prf-form re-form">
-                                    <form>
-                                        <div class="f-list row">
-                                            <div class="f-item col col-6">
-                                                <label for="" class="re-label">Họ và tên</label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="text" required="">
-                                                </div>
-                                            </div>
-                                            <div class="f-item col col-6">
-                                                <label for="" class="re-label">Ngày sinh</label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="date" required=""
-                                                        style="padding: 1.3rem 1.4rem;">
-                                                </div>
-                                            </div>
-                                            <div class="f-item col col-6">
-                                                <label for="" class="re-label">Số điện thoại</label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="tel" required="">
-                                                </div>
-                                            </div>
-                                            <div class="f-item col col-6">
-                                                <label for="" class="re-label">Email</label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="email" required="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn --gray --m-top">
-                                            <span class="txt">Lưu thông tin</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden">
-                            <div class="w-[50px] h-[50px]">
-                                <div class="lding !bg-[inherit]">
-                                    <div class="lding-wr">
-                                        <div class="lding-box">
-                                            <div class="inner"></div>
-                                        </div>
-                                        <div class="lding-line"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="">
-                            <div class="acc-prf-block mt-[23px]">
-                                <p class="acc-prf-block-title">Đổi mật khẩu</p>
-                                <div class="acc-prf-form re-form">
-                                    <form>
-                                        <div class="f-list row">
-                                            <div class="f-item col">
-                                                <label for="" class="re-label">Mật khẩu cũ <span
-                                                        class="text-error">*</span>
-                                                </label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="password" required="">
-                                                </div>
-                                            </div>
-                                            <div class="f-item col">
-                                                <label for="" class="re-label">Mật khẩu mới <span
-                                                        class="text-error">*</span>
-                                                </label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="password" required="">
-                                                </div>
-                                            </div>
-                                            <div class="f-item col">
-                                                <label for="" class="re-label">Xác thực mật khẩu <span
-                                                        class="text-error">*</span>
-                                                </label>
-                                                <div class="w-full relative mb-input undefined">
-                                                    <input class="re-input " type="password" required="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn --gray --m-top">
-                                            <span class="txt">Đổi mật khẩu</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden">
-                            <div class="w-[50px] h-[50px]">
-                                <div class="lding !bg-[inherit]">
-                                    <div class="lding-wr">
-                                        <div class="lding-box">
-                                            <div class="inner"></div>
-                                        </div>
-                                        <div class="lding-line"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <button
+            class="bg-highlight h-9 w-full rounded-md font-body tracking-wider flex items-center justify-center text-black mt-4">
+            C'Friends
+          </button>
+
+          <div class="flex flex-col gap-1 mt-4">
+            <p>Tích điểm <span class="text-highlight">C'Friends</span></p>
+            <div class="rounded-lg bg-slate-400 w-full h-2"></div>
+            <p>0/10K</p>
+          </div>
+
+          <div class="border-t mt-4 mb-4 border-slate-500"></div>
+
+          <ul>
+            <li class="text-highlight border-l-2 border-highlight">
+              <a href="/account/account-profile" class="h-[45px] flex items-center pl-3">Thông tin khách hàng</a>
+            </li>
+            <li class="">
+              <a href="/account/account-profile" class="h-[45px] flex items-center pl-3">Thành viên Cinestar</a>
+            </li>
+            <li class="">
+              <a href="/account/account-profile" class="h-[45px] flex items-center pl-3">Lịch sử mua hàng</a>
+            </li>
+          </ul>
+
+          <div class="border-t mt-4 mb-4 border-slate-500"></div>
+
+          <a href="/logout" class="text-highlight">Đăng xuất</a>
         </div>
+      </div>
+
+      @* Main *@
+      <div class="flex-1">
+        <h1 class="font-body tracking-wider uppercase text-3xl text-white">Thông Tin Khách Hàng</h1>
+
+        @* Basic Info *@
+        <div class="bg-white text-dark p-5 mt-10 rounded-lg shadow-lg">
+          <h2 class="font-body text-xl tracking-wider">Thông tin cá nhân</h2>
+
+          <form method="post" asp-page-handler="UpdateInfo" class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-3">
+            <div class="flex flex-col gap-1">
+              <label for="fullName" class="font-semibold">Họ và tên</label>
+              <input type="text" id="fullName" asp-for="FullName" class="border border-gray-300 rounded-lg p-[14px]"
+                required />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label for="bithday" class="font-semibold">Ngày sinh</label>
+              <input type="date" id="bithday" asp-for="Birthday" class="border border-gray-300 rounded-lg  p-[14px]"
+                required />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label for="phone" class="font-semibold">Số điện thoại</label>
+              <input type="text" id="phone" asp-for="Phone" class="border border-gray-300 rounded-lg  p-[14px]"
+                required />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label for="email" class="font-semibold">Email</label>
+              <input type="email" id="email" asp-for="Email" class="border border-gray-300 rounded-lg  p-[14px]"
+                required />
+            </div>
+
+            <div>
+              <button class="bg-highlight text-black px-4 py-2 rounded-lg mt-4 font-body tracking-wider">Lưu thông
+                tin</button>
+            </div>
+          </form>
+        </div>
+
+        @* Change password *@
+        <div class="bg-white text-dark p-5 mt-10 rounded-lg shadow-lg">
+          <h2 class="font-body text-xl tracking-wider">Đổi mật khẩu</h2>
+
+          @if (!ViewData.ModelState.IsValid)
+          {
+            <div class="text-rose-500 mb-3 italic text-center">
+              <div>@ViewData.ModelState["Password"]?.Errors[0]?.ErrorMessage</div>
+            </div>
+          }
+
+          <form method="post" asp-page-handler="ChangePassword" class="flex flex-col mt-4 gap-3">
+            <div class="flex flex-col gap-1">
+              <label for="oldPassword" class="font-semibold">Mật khẩu cũ</label>
+              <input type="password" id="oldPassword" asp-for="OldPassword"
+                class="border border-gray-300 rounded-lg p-[14px]" required />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label for="newPassword" class="font-semibold">Mật khẩu mới</label>
+              <input type="password" id="newPassword" asp-for="NewPassword"
+                class="border border-gray-300 rounded-lg  p-[14px]" required />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label for="ConfirmPassword" class="font-semibold">Xác thực mật khẩu</label>
+              <input type="password" id="ConfirmPassword" asp-for="ConfirmPassword"
+                class="border border-gray-300 rounded-lg  p-[14px]" required />
+            </div>
+
+            <div>
+              <button class="bg-highlight text-black px-4 py-2 rounded-lg mt-4 font-body tracking-wider">
+                Đổi mật khẩu</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
 </div>
 
 <script>
-    function submitForm() {
-        document.getElementById('avatarForm').submit();
-    }
+  function submitForm() {
+    document.getElementById('avatarForm').submit();
+  }
 </script>

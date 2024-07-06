@@ -16,7 +16,48 @@ namespace the_movie_hub.Pages.Account.AccountProfile
     [BindProperty]
     public IFormFile? Avatar { get; set; }
 
+    [BindProperty]
+    public required string FullName { get; set; }
+
+    [BindProperty]
+    public required string Email { get; set; }
+
+    [BindProperty]
+    public required string Phone { get; set; }
+
+    [BindProperty]
+    public DateOnly? Birthday { get; set; }
+
+    [BindProperty]
+    public required string OldPassword { get; set; }
+
+    [BindProperty]
+    public required string NewPassword { get; set; }
+
+    [BindProperty]
+    public required string ConfirmPassword { get; set; }
+
     // Methods
+    public void OnGet()
+    {
+      // get userId from the session
+      string? session = HttpContext.Session.GetString("User");
+      var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
+
+      if (user == null)
+      {
+        // redirect to the login page
+        Response.Redirect("/Login");
+        return;
+      }
+
+      // Ensure user properties are not null before assigning
+      FullName = user.FullName;
+      Email = user.Email;
+      Phone = user.Phone;
+      Birthday = user.Birthday;
+    }
+
     public async Task OnPostChangeAvatarAsync()
     {
       // get userId from the session
@@ -31,6 +72,7 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       }
 
       var updateUser = db.Users.FirstOrDefault(t => t.Id.ToString() == user.Id.ToString());
+
       if (updateUser == null)
       {
         Response.Redirect("/Account/Account-Profile");
@@ -58,15 +100,112 @@ namespace the_movie_hub.Pages.Account.AccountProfile
           }
         }
 
+        Console.WriteLine(path);
+
         updateUser.Avatar = path;
       }
 
       // update the user by id
       await db.SaveChangesAsync();
 
+      // update the session
+      HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
+
       // redirect to the user page
       Response.Redirect("/Account/Account-Profile");
       return;
+    }
+
+    public async Task<IActionResult> OnPostUpdateInfo()
+    {
+      Console.WriteLine(12312);
+
+      string? session = HttpContext.Session.GetString("User");
+      var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
+
+      if (user == null)
+      {
+        // redirect to the login page
+        Response.Redirect("/Login");
+        return Page();
+      }
+
+      var updateUser = db.Users.FirstOrDefault(t => t.Id.ToString() == user.Id.ToString());
+
+      if (updateUser == null)
+      {
+        return Page();
+      }
+
+
+
+      // Ensure user properties are not null before assigning
+      updateUser.FullName = FullName;
+      updateUser.Email = Email;
+      updateUser.Phone = Phone;
+      updateUser.Birthday = Birthday;
+
+      // update the user by id
+      await db.SaveChangesAsync();
+
+      // update the session
+      HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
+
+      // redirect to the user page
+      Response.Redirect("/Account/Account-Profile");
+      return Page();
+    }
+
+    public async Task<IActionResult> OnPostChangePassword()
+    {
+      // check if the new password and confirm password are the same
+      if (NewPassword != ConfirmPassword)
+      {
+        ModelState.AddModelError("Password", "Mật khẩu không khớp");
+        return Page();
+      }
+
+      // get userId from the session
+      string? session = HttpContext.Session.GetString("User");
+      var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
+
+      if (user == null)
+      {
+        // redirect to the login page
+        Response.Redirect("/Login");
+        return Page();
+      }
+
+      var updateUser = db.Users.FirstOrDefault(t => t.Id.ToString() == user.Id.ToString());
+      if (updateUser == null)
+      {
+        return Page();
+      }
+
+      // check if the old password is correct
+      if (updateUser.Password != OldPassword)
+      {
+        ModelState.AddModelError("Password", "Mật khẩu cũ không đúng");
+        return Page();
+      }
+
+      // check if the new password is the same as the old password
+      if (updateUser.Password == NewPassword)
+      {
+        ModelState.AddModelError("Password", "Mật khẩu mới không được trùng với mật khẩu cũ");
+        return Page();
+      }
+
+      // update the password
+      updateUser.Password = NewPassword;
+      await db.SaveChangesAsync();
+
+      // update the session
+      HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
+
+      // redirect to the user page
+      Response.Redirect("/Account/Account-Profile");
+      return Page();
     }
   }
 }

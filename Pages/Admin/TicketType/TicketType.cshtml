@@ -1,0 +1,78 @@
+@page "/Admin/TicketType"
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Admin - Ticket Type";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Ticket.TicketTypeModel
+@*
+<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
+<h1>Tickets (@Model.Tickets.Count())</h1>
+<a href="/Admin">Admin</a>
+
+<div class="flex flex-col gap-4 text-left">
+@foreach (var ticket in Model.Tickets)
+{
+<div class="flex gap-3">
+<div class="flex gap-2">
+</div>
+
+<form method="post">
+<input type="hidden" name="Id" value="@ticket.Id" />
+<button asp-page-handler="Delete" style="color: red">Delete</button>
+</form>
+</div>
+}
+</div>
+</div> *@
+<div class="p-21">
+    <div class="p-21 bg-white rounded-lg shadow-lg">
+        <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
+            <div class="text-center text-2xl font-semibold">Quản lí loại vé</div>
+
+            <div class="flex justify-between items-center gap-2">
+                <a href="/Admin" class="text-sky-500 underline">Quay lại</a>
+                <a href="/Admin/TicketType/Add" class="text-sky-500 underline">Thêm loại vé</a>
+            </div>
+
+            @* Body *@
+            <div class="mt-8">
+                <h1 class="text-2xl font-bold mb-4">Danh sách loại vé</h1>
+
+                <table class="w-full bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="py-2 px-4 text-left">ID</th>
+                            <th class="py-2 px-4 text-left">Label</th>
+                            <th class="py-2 px-4 text-left">Price</th>
+                            <th class="py-2 px-4 text-left">Description</th>
+                            <th class="py-2 px-4 text-left">_</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.TicketTypes)
+                        {
+                            <tr>
+                                <td class="py-2 px-4">@item.Id</td>
+                                <td class="py-2 px-4">@item.Label</td>
+                                <td class="py-2 px-4">@item.Price</td>
+                                <td class="py-2 px-4">@item.Description</td>
+                                <td class="py-2 px-4">
+                                    <a href='/Admin/TicketType/@item.Id/Edit'
+                                        class="text-indigo-600 hover:text-indigo-900">Sửa</a>
+                                    <form method="post">
+                                        <input type="hidden" name="Id" value="@item.Id" />
+                                        <button asp-page-handler="Delete" style="color: red">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

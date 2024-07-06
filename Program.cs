@@ -1,7 +1,7 @@
 using the_movie_hub.Models.Main;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Microsoft.AspNetCore.Authentication;
+using the_movie_hub.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -37,6 +37,7 @@ JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -49,6 +50,7 @@ if (!app.Environment.IsDevelopment())
 app.UseSession();
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -56,6 +58,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.UseMiddleware<AuthenticationMiddleware>();
+
 
 app.MapRazorPages();
 

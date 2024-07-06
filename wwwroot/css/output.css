@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 /*
-! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -1496,6 +1496,10 @@ video {
   height: 60px;
 }
 
+.h-\[730px\]{
+  height: 730px;
+}
+
 .h-\[calc\(100vh-60px\)\]{
   height: calc(100vh - 60px);
 }
@@ -1631,18 +1635,6 @@ video {
 
 .w-\[90\%\]{
   width: 90%;
-}
-
-.w-\[this-is\\\\\]{
-  width: this-is\\;
-}
-
-.w-\[this-is\]{
-  width: this-is;
-}
-
-.w-\[weird-and-invalid\]{
-  width: weird-and-invalid;
 }
 
 .w-auto{
@@ -3129,11 +3121,6 @@ video {
   background-color: rgb(102 51 153 / var(--tw-bg-opacity));
 }
 
-.bg-\[rgb\(255\2c 0\2c 0\)\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -4192,10 +4179,6 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
 }
 
-.text-\[\#336699\]\/\[\.35\]{
-  color: rgb(51 102 153 / .35);
-}
-
 .text-\[\#CBD5E1\]{
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
@@ -4821,11 +4804,6 @@ video {
   contain: var(--tw-contain-size) var(--tw-contain-layout) var(--tw-contain-paint) var(--tw-contain-style);
 }
 
-.content-\[\'this-is-also-valid\]-weirdly-enough\'\]{
-  --tw-content: 'this-is-also-valid]-weirdly-enough';
-  content: var(--tw-content);
-}
-
 .forced-color-adjust-auto{
   forced-color-adjust: auto;
 }
@@ -5117,48 +5095,6 @@ svg path {
   }
 }
 
-@media (min-width: 640px){
-  .sm\:container{
-    width: 100%;
-  }
-
-  @media (min-width: 640px){
-    .sm\:container{
-      max-width: 640px;
-    }
-  }
-
-  @media (min-width: 768px){
-    .sm\:container{
-      max-width: 768px;
-    }
-  }
-
-  @media (min-width: 900px){
-    .sm\:container{
-      max-width: 900px;
-    }
-  }
-
-  @media (min-width: 1024px){
-    .sm\:container{
-      max-width: 1024px;
-    }
-  }
-
-  @media (min-width: 1200px){
-    .sm\:container{
-      max-width: 1200px;
-    }
-  }
-
-  @media (min-width: 1536px){
-    .sm\:container{
-      max-width: 1536px;
-    }
-  }
-}
-
 .before\:absolute::before{
   content: var(--tw-content);
   position: absolute;
@@ -5344,10 +5280,6 @@ svg path {
   fill: #f3ea28;
 }
 
-.hover\:font-bold:hover{
-  font-weight: 700;
-}
-
 .hover\:tracking-wider:hover{
   letter-spacing: 0.05em;
 }
@@ -5377,16 +5309,6 @@ svg path {
   color: rgb(250 204 21 / var(--tw-text-opacity));
 }
 
-.before\:hover\:text-center:hover::before{
-  content: var(--tw-content);
-  text-align: center;
-}
-
-.hover\:before\:text-center:hover::before{
-  content: var(--tw-content);
-  text-align: center;
-}
-
 .hover\:after\:translate-x-0:hover::after{
   content: var(--tw-content);
   --tw-translate-x: 0px;
@@ -5398,29 +5320,19 @@ svg path {
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
+.focus\:border-gray-500:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+
+.focus\:bg-white:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.focus\:outline-0:focus{
-  outline-width: 0px;
-}
-
-.focus\:hover\:text-center:hover:focus{
-  text-align: center;
-}
-
-.hover\:focus\:text-center:focus:hover{
-  text-align: center;
-}
-
-.group:hover .group-hover\:flex{
-  display: flex;
-}
-
-.group:hover .group-hover\:grid{
-  display: grid;
 }
 
 .group:hover .group-hover\:scale-\[1\.2\]{
@@ -5524,8 +5436,20 @@ svg path {
     margin-bottom: 0px;
   }
 
+  .sm\:mr-2{
+    margin-right: 0.5rem;
+  }
+
   .sm\:mt-5{
     margin-top: 1.25rem;
+  }
+
+  .sm\:block{
+    display: block;
+  }
+
+  .sm\:hidden{
+    display: none;
   }
 
   .sm\:w-1\/2{
@@ -5538,6 +5462,10 @@ svg path {
 
   .sm\:w-\[65\%\]{
     width: 65%;
+  }
+
+  .sm\:w-auto{
+    width: auto;
   }
 
   .sm\:grid-cols-2{
@@ -5572,10 +5500,6 @@ svg path {
 
   .sm\:text-\[16px\]{
     font-size: 16px;
-  }
-
-  .sm\:underline{
-    text-decoration-line: underline;
   }
 }
 
@@ -5729,13 +5653,5 @@ svg path {
 
   .xl\:pt-\[100px\]{
     padding-top: 100px;
-  }
-}
-
-@media (prefers-color-scheme: dark){
-  @media (min-width: 1024px){
-    .dark\:lg\:hover\:\[paint-order\:markers\]:hover{
-      paint-order: markers;
-    }
   }
 }

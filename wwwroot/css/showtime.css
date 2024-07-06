@@ -209,7 +209,8 @@ border-radius: 3px 0 0 3px;
 {
   position: absolute;
   top:100px;
-  width:100%;
+  width:103%;
+
 }
 .Showtime-movie-left {
   margin-left: 0;
@@ -282,4 +283,27 @@ hr {
   }
  
 
+}
+.dropdown-content-cinema {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content-cinema a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content-cinema a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
 }

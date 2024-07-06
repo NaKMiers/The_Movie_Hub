@@ -1,15 +1,7 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-
-}
 
 main {
   width: 100%;
-
 }
-
 body {
   background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
 }
@@ -41,15 +33,18 @@ body {
   transition: background-color 1s ease-in-out;
   font-family: Anton, sans-serif;
 }
-
+.Find-Out-Now-Friend
+{
+  width: 100%;
+}
 .All-Offers {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 8px;
+  padding: 3px;
   justify-content: center;
   margin: auto;
   margin-bottom: 20px;
-  width: 20%;
+  width: 25%;
   text-align: center;
   background-color: #f3ea28;
   color: black;
@@ -121,18 +116,14 @@ body {
   top: 50%;
   transform: translateY(-50%);
   width: auto;
-  padding: 16px;
+  margin-top: -80px;
   color: white;
-
   font-size: 20px;
   transition: 3s ease;
   border-radius: 0 3px 3px 0;
 }
 
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+
 
 .MemberProgramBanner {
   background-image: url("https://cinestar.com.vn/_next/image/?url=%2Fassets%2Fimages%2Fbg-cfriends.jpg&w=640&q=75");
@@ -279,11 +270,7 @@ body {
   opacity: 0.8;
 }
 
-.contact-form {
-  background-color: #3366cccc;
-  color: #fff;
-  z-index: 0;
-}
+
 
 .contact-form .form-label {
   font-size: 1.2em;
@@ -321,6 +308,7 @@ body {
 .Infor-trailer {
   display: flex;
   margin-top: 15px;
+  height: 100px;
 }
 
 .trailer-movie {
@@ -356,10 +344,6 @@ body {
   }
 }
 
-.order-ticket {
-  margin-top: -5px;
-  padding:4px 11px;
-}
 
 .member-img {
   display: flex;
@@ -427,7 +411,7 @@ body {
   height: 600px;
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 100px;
   margin-bottom: 100px;
 }
@@ -450,7 +434,7 @@ body {
 
 .Contact-us-facebook button {
   background-color: #5C3CA2;
-  padding: 20px 100px;
+  padding: 20px 95px;
   border-radius: 5px;
 
 }
@@ -492,6 +476,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+  
 }
 
 .carousel-control-prev {
@@ -706,7 +692,8 @@ book-ticket-choose-cinema-nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: border-color 0.3s ease;
+  transition: border-color 3s ease;
+  
 }
 
 .carousel-control-prev {
@@ -885,7 +872,7 @@ book-ticket-choose-cinema-nav ul li {
   margin: 5px 0;
 }
 
-.order-ticket button {
+.order-ticket-1 button {
   padding: 5px 35px;
   border: solid 1px #000;
   background-color: #f3ea28;
@@ -894,9 +881,110 @@ book-ticket-choose-cinema-nav ul li {
   text-align: center;
   font-family: Anton, sans-serif;
 }
+.order-ticket-2 button {
 
+  border: solid 1px #000;
+  background-color: #f3ea28;
+  color: #000;
+  border-radius: 5px;
+  text-align: center;
+  font-family: Anton, sans-serif;
+}
+@media  (max-width:601px)
+ {
+  .Member-C-Friend-two span
+  {
+    font-size:20px
+  }
+  .member-img div {
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+
+  .order-ticket-2 button 
+  {
+    width: 120%;
+    font-size: 12px;
+    margin-top: -30px;
+  }
+  .next
+  {
+    margin-top: -80px;
+  }
+  .prev
+  {
+    margin-top: -80px;
+    padding: 12px;
+   
+  }
+.All-Offers 
+{
+  font-size: 14px;
+}
+  
+  .carousel-control-prev
+  {
+    width: 20%;
+  }
+   .book-ticket-quickly-sub,.book-ticket-choose
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    gap:5px;
+    margin-top: -20px;
+  }
+  .book-ticket-quickly{
+    height: 275px;
+  }
+  .Contact{
+    display: block;
+    align-items: center;
+    width: 70%; 
+    margin: auto;
+    height: 865px;
+    margin-top: 100px;
+  }
+  .Contact-us{
+    margin-top: 0;
+    width: 100%;;
+    
+  }
+  .Contact-us-title{
+    text-align: center;
+  }
+  .Contact-us-facebook{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .Contact-us-zalo{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .book-ticket-choose-movie,
+  .book-ticket-choose-cinema,
+  .book-ticket-choose-date,
+  .book-ticket-choose-time,
+  .button-book-ticket
+  {
+   width: 100%;
+  }
+ 
+  .Entertaiment{
+    height: 600px;
+  }
+}
 .Comming-soon {
   width: 100%;
+
+  margin-top: 20px;
+  margin-bottom: 140px;
 }
 
 .Comming-soon-title h2 {
@@ -911,7 +999,6 @@ book-ticket-choose-cinema-nav ul li {
   display: flex;
   position: relative;
 }
-
 .Movie-comming-soon {
   width: 80%;
   margin: auto;
@@ -939,10 +1026,12 @@ book-ticket-choose-cinema-nav ul li {
   text-decoration: none;
 }
 
-.order-ticket button:hover {
+.order-ticket-1 button:hover {
   background-color: #663399;
 }
-
+.order-ticket-2 button:hover {
+  background-color: #663399;
+}
 .More-Movie {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -963,21 +1052,11 @@ book-ticket-choose-cinema-nav ul li {
   background-color: orange;
   color: #fff;
 }
-
+#carouselExample,
 #movieList,
 #Slide_Blogcarousel {
   transition: transform 0.5s ease-in-out;
 }
-
-.contact-form {
-  background: #2c57ac;
-  padding: 20px;
-  border-radius: 3px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 40%;
-  color: #fff;
-}
-
 .contact-form h2 {
   margin-bottom: 15px;
   font-size: 22px;
@@ -1021,94 +1100,9 @@ book-ticket-choose-cinema-nav ul li {
   padding: 20px;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 40%;
-  color: #fff;
-}
-
-
-.contact-form label {
-  display: block;
-  margin-bottom: 5px;
-  color: #fff;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.contact-form button {
-  padding: 5px 45px;
-  background: #f3ea28;
-  border: none;
-  color: #000;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  background-color: rgb(118, 44, 118);
-  color: #fff;
-  transition: all 0.4s ease-in-out;
-  background-image: 0 100%;
-  background-image: linear-gradient(to right, rgba(118, 44, 118, 0), rgba(118, 44, 118, 1));
-}
-@media (max-width:601px) {
-  .book-ticket-quickly-sub,.book-ticket-choose
-  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 300px;
-    gap:5px;
-    margin-top: -20px;
-  }
-  .book-ticket-quickly{
-    height: 275px;
-  }
-  .Contact{
-    display: block;
-    align-items: center;
-    width: 70%; 
-    margin: auto;
-    height: 865px;
-    margin-top: 100px;
-  }
-  .Contact-us{
-    margin-top: 0;
-    width: 100%;;
-    
-  }
-  .Contact-us-title{
-    text-align: center;
-  }
-  .Contact-us-facebook{
-    width: 80%;
-    margin: auto;
-  }
-  .Contact-us-zalo{
-    width: 80%;
-    margin: auto;
-    margin-top: 10px;
-  }
-  .contact-form{
-    width: 100%;
-    margin-top: 10px;
-  }
-  .book-ticket-choose-movie,
-  .book-ticket-choose-cinema,
-  .book-ticket-choose-date,
-  .book-ticket-choose-time,
-  .button-book-ticket
-  {
-   width: 100%;
-  }
  
-  .Entertaiment{
-    height: 600px;
-  }
+  color: #fff;
+  margin-top: 20px;
 }
+
+

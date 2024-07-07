@@ -818,6 +818,10 @@ video {
   z-index: 30;
 }
 
+.z-50{
+  z-index: 50;
+}
+
 .order-1{
   order: 1;
 }

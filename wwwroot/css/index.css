@@ -113,7 +113,7 @@ body {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   width: auto;
   margin-top: -80px;
@@ -121,6 +121,7 @@ body {
   font-size: 20px;
   transition: 3s ease;
   border-radius: 0 3px 3px 0;
+  padding: 2px;
 }
 
 

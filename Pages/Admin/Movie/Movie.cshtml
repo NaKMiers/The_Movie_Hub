@@ -8,26 +8,6 @@
     ViewData["Title"] = "Admin - Movie";
 }
 
-@* <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-<h1 value="">Movies (@Model.Movies.Count())</h1>
-<a href="/admin/movie/add">Add</a>
-<a href="/Admin">Admin</a>
-
-<div class="flex flex-col gap-4 text-left">
-@foreach (var movie in Model.Movies)
-{
-<div class="flex gap-3">
-<a href=@($"/admin/movie/{movie.Id}/edit" )>@movie.Title</a>
-<form method="post">
-<input type="hidden" name="Id" value="@movie.Id" />
-<button asp-page-handler="Delete" style="color: red">Delete</button>
-</form>
-</div>
-}
-</div>
-</div> *@
-
-
 <div class="p-21">
     <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
         <div class="w-full mx-auto">

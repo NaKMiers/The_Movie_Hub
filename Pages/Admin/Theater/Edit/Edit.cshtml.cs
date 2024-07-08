@@ -42,7 +42,7 @@ namespace the_movie_hub.Pages.Admin.Theater
          // create a new theater
          Theater.Name = theater.Name;
          Theater.Address = theater.Address;
-         Theater.RoomAmount = theater.RoomAmount;
+         Theater.City = theater.City;
 
          // upload file, file must be an image
          if (image != null && image.ContentType.Contains("image/"))

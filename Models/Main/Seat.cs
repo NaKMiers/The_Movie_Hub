@@ -16,5 +16,5 @@ public partial class Seat
 
     public virtual Room? Room { get; set; }
 
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public virtual ICollection<Ticket> Tickets { get; set; } = [];
 }

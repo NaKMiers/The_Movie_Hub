@@ -1,102 +1,77 @@
-@page "/admin/seat/{roomId}"
+@page "/Admin/Seat/{RoomId}"
 @{
-    Layout = "_Layout";
-    ViewData["Title"] = "Admin - Seat";
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "Admin - Seat";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
-@using the_movie_hub.Models;
+@using the_movie_hub.Models
 @model the_movie_hub.Pages.Admin.Seat.SeatModel
 
-@*
-<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-<h1 value="">Seats (@Model.Seats?.Count())</h1>
-<a href="/Admin">Admin</a>
+<div class="p-21">
+  <div class="p-21 bg-white rounded-lg shadow-lg text-dark">
+    <h1 class="font-semibold text-2xl text-center">Quản lí chỗ ngồi của phòng <span
+        class="text-yellow-500">@Model.Room?.Name</span> của rạp
+      <span class="text-green-500">@Model.Room?.Theater?.Name</span>
+    </h1>
 
-<div class="grid grid-cols-10">
+    <div class="flex items-center justify-between gap-3">
+      <a href="/Admin/Room/@Model.Room?.Theater?.Id" class="text-sky-500 underline underline-offset-1">Quay
+        lại</a>
+    </div>
 
-</div>
-</div> *@
-<div class="flex flex-col lg:flex-row h-auto lg:h-screen">
-    <div class="w-full bg-white">
-        <div class="mt-5 p-2">
-            <div class="flex">
-                <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">
-                    <div class="w-full mx-auto">
-                        <div class="flex w-full justify-between items-center">
-                            <div
-                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-gray-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-black">Quay lại</span>
-                            </div>
-                            <div
-                                class="flex gap-2 items-center cursor-pointer border border-black rounded px-2 py-1 hover:bg-yellow-400 hover:text-white transition duration-1000">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-black" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-black">Tạo rạp phim mới</span>
-                            </div>
-                        </div>
-                    </div>
+    <form asp-page-handler="AddSeat" class="flex items-center justify-center gap-2 mt-3">
+      <input class="rounded-lg shadow-lg border px-3 pb-1.5 pt-2" name="row" type="number" placeholder="Số hàng..."
+        min="1" required>
+      <input class="rounded-lg shadow-lg border px-3 pb-1.5 pt-2" name="col" type="number" placeholder="Số cột..."
+        min="1" required>
+      <select class="rounded-lg shadow-lg border px-3 pb-1.5 pt-2" name="type">
+        <option value="normal">Thường</option>
+        <option value="vip">VIP</option>
+        <option value="couple">Couple</option>
+      </select>
+      <button class="border px-4 py-2 text-dark rounded-lg shadow-lg font-semibold text-sm bg-green-400">Add</button>
+    </form>
 
-                    <form method="post" enctype="multipart/form-data" class="w-full flex flex-wrap">
-                        <div class="w-full p-5">
-                            <div class="mb-4 flex md:block gap-5">
-                                <label for="name" class="block mb-2">Tên rạp</label>
-                                <input type="text" id="name" name="Name"
-                                    class="w-full p-2 border border-gray-300 rounded" required placeholder="Name...">
-                            </div>
-                            <div class="mb-4 flex md:block gap-5">
-                                <label for="address-cinema" class="block mb-2">Địa chỉ rạp</label>
-                                <input type="text" id="address-cinema" name="Address"
-                                    class="w-full p-2 border border-gray-300 rounded" required placeholder="Address...">
-                            </div>
-                            <div class="mb-4 flex md:block gap-5">
-                                <label for="room" class="block mb-2">Phòng</label>
-                                <input type="number" id="room" name="room"
-                                    class="w-full p-2 border border-gray-300 rounded text-center" value="1" min="1"
-                                    required placeholder="Room Amount...">
-                            </div>
-                            <div class="mb-4 flex md:block gap-5">
-                                <label for="cinema-image" class="block mb-2">Ảnh rạp</label>
-                                <input type="file" id="cinema-image" name="cinema-image"
-                                    class="w-full p-2 border border-gray-300 rounded" accept="image/*" required>
-                            </div>
-                            <div class="mt-5 flex md:block gap-5">
-                                <button type="submit"
-                                    class="w-full p-3 bg-green-500 text-white rounded hover:bg-green-600">Lưu</button>
-                            </div>
-                        </div>
+    @* Body *@
+    <div class="mt-8">
+      <h1 class="text-2xl font-bold mb-4">Danh chỗ ngồi</h1>
+
+      @if (Model.SeatMatrix != null)
+      {
+        <div class="flex flex-col gap-2 p-2 border rounded-lg shadow-md shadow-sky-200">
+          @for (int i = 1; i <= Model.SeatMatrix.GetLength(0) - 1; i++)
+          {
+            <div class="flex gap-2">
+              @for (int j = 1; j <= Model.SeatMatrix.GetLength(1) - 1; j++)
+              {
+                var seat = Model.SeatMatrix[i, j];
+                if (seat != null)
+                {
+                  <div class="relative group">
+                    <span
+                      class="flex items-center justify-center h-6 w-8 rounded-md shadow-md border-2 @(seat.SeatType == "normal" ?  "border-slate-500": seat.SeatType == "vip" ? "border-green-500" : "border-rose-500") @(seat.IsAvailable == true ? "" : "bg-slate-300" )">@seat.SeatRow-@seat.SeatColumn
+                    </span>
+                    <form asp-page-handler="DeleteSeat"
+                      class="group-hover:opacity-100 opacity-0 trans-200 rounded-md absolute top-0 left-0 h-full w-full flex items-center justify-center bg-black bg-opacity-50">
+                      <input hidden name="seatId" value="@seat.Id">
+                      <button class="text-rose-300 text-4xl -mt-1">&times;</button>
                     </form>
-                </div>
+                  </div>
+                }
+                else
+                {
+                  <div class="h-6 w-8"></div>
+                }
+              }
             </div>
+          }
         </div>
+      }
+      else
+      {
+        <p>No seats found for this room.</p>
+      }
     </div>
-
-    <div class="bg-[#35355c] w-full lg:w-[25%] h-auto lg:h-screen flex flex-col items-center">
-        <div class="w-1/2 p-1 mx-auto">
-            <img class="w-full" src="https://mona.media/wp-content/uploads/2024/01/logo-cinestar.png" alt="">
-        </div>
-        <div class="w-3/4 mx-auto">
-            <ul class="list-none p-0">
-                <li class="p-4"><a href="" class="text-white">Tổng quan</a></li>
-                <li class="p-4"><a href="/Admin/movie" class="text-white">Quản lý phim</a></li>
-                <li class="p-4"><a href="/Admin/genre" class="text-white">Quản lý thể loại</a></li>
-                <li class="p-4"><a href="/admin/screening" class="text-white">Quản lý xuất chiếu</a></li>
-                <li class="p-4"><a href="/Admin/ticket" class="text-white">Quản lý vé</a></li>
-                <li class="p-4"><a href="/admin/seat/{roomId}" class="text-white">Quản lý chỗ ngồi</a></li>
-                <li class="p-4"><a href="/admin/room/{theaterId}" class="text-white">Quản lý phòng chiếu</a></li>
-                <li class="p-4"><a href="/Admin/user" class="text-white">Quản lý khách hàng</a></li>
-                <li class="p-4"><a href="/Admin/theater" class="text-white">Quản lý rạp phim</a></li>
-            </ul>
-        </div>
-    </div>
+  </div>
 </div>

@@ -20,28 +20,37 @@ namespace the_movie_hub.Pages.Admin.Theater
 
       public void OnPostDelete(string Id)
       {
+         // get theater to delete
          var theater = db.Theaters.FirstOrDefault(t => t.Id.ToString() == Id);
-         if (theater != null)
+
+         // check if theater exists
+         if (theater == null)
          {
-            if (theater.Image != null)
-            {
-               // remove old image
-               if (System.IO.File.Exists(Path.Combine(environment.WebRootPath, "uploads", theater.Image)))
-               {
-                  System.IO.File.Delete(Path.Combine(environment.WebRootPath, "uploads", theater.Image));
-               }
-            }
-
-            // remove theater's rooms
-            var roomsToRemove = db.Rooms.Where(room => room.TheaterId.ToString() == theater.Id.ToString());
-            db.Rooms.RemoveRange(roomsToRemove);
-
-            // remove theater
-            db.Theaters.Remove(theater);
-
-            db.SaveChanges();
+            Response.Redirect("/Admin/Theater");
+            return;
          }
 
+         // not allow to delete theater if there are any rooms
+         var rooms = db.Rooms.Where(room => room.TheaterId.ToString() == theater.Id.ToString());
+         if (rooms.Any())
+         {
+            Response.Redirect("/Admin/Theater");
+            return;
+         }
+
+         // remove theater's image
+         if (theater.Image != null)
+         {
+            // remove old image
+            if (System.IO.File.Exists(Path.Combine(environment.WebRootPath, "uploads", theater.Image)))
+            {
+               System.IO.File.Delete(Path.Combine(environment.WebRootPath, "uploads", theater.Image));
+            }
+         }
+
+         // remove theater
+         db.Theaters.Remove(theater);
+         db.SaveChanges();
 
          // redirect to the theaters page
          Response.Redirect("/Admin/Theater");

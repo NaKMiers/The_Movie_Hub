@@ -1,0 +1,157 @@
+@page "/Admin/Ticket/Add"
+@{
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "Admin - Add Ticket";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Ticket.AddTicketModel
+
+<div class="p-21">
+  <div class="bg-white rounded-lg text-dark shadow-lg p-21">
+    <h1 class="text-xl text-center font-semibold">Thêm Vé (Test)</h1>
+
+    <div class="flex justify-between items-center">
+      <a href="/Admin/Ticket" class="text-sky-500 underline">Quay lại</a>
+    </div>
+
+    @* Body *@
+    <div class="mt-8">
+      <form method="post" class="flex flex-col gap-4">
+        @* UserId *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-green-300 p-3">
+          <label for="user" class="w-full">User</label>
+          <select name="UserId" id="user" class="w-full p-2 rounded-lg outline-none">
+            <option value="user1">User 1</option>
+            <option value="user2">User 2</option>
+            <option value="user3">User 3</option>
+            <option value="user4">User 4</option>
+            <option value="user5">User 5</option>
+          </select>
+        </div>
+
+        @* MovieId *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-blue-300 p-3">
+          <label for="movie" class="w-full">Movie</label>
+          <select name="MovieId" id="movie" class="w-full p-2 rounded-lg outline-none">
+            <option value="movie1">Movie 1</option>
+            <option value="movie2">Movie 2</option>
+            <option value="movie3">Movie 3</option>
+            <option value="movie4">Movie 4</option>
+            <option value="movie5">Movie 5</option>
+          </select>
+        </div>
+
+        @* TicketTypeId *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-yellow-300 p-3">
+          <label for="ticketType" class="w-full">Ticket Type</label>
+          <select name="TicketTypeId" id="ticketType" class="w-full p-2 rounded-lg outline-none">
+            <option value="ticketType1">TicketType 1</option>
+            <option value="ticketType2">TicketType 2</option>
+            <option value="ticketType3">TicketType 3</option>
+            <option value="ticketType4">TicketType 4</option>
+            <option value="ticketType5">TicketType 5</option>
+          </select>
+        </div>
+
+        @* TheaterId *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-sky-300 p-3">
+          <label for="theater" class="w-full">Theater</label>
+          <select name="theaterId" id="theater" class="w-full p-2 rounded-lg outline-none">
+            <option value="theater1">Theater 1</option>
+            <option value="theater2">Theater 2</option>
+            <option value="theater3">Theater 3</option>
+            <option value="theater4">Theater 4</option>
+            <option value="theater5">Theater 5</option>
+          </select>
+        </div>
+
+        @* RoomId *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-rose-300 p-3">
+          <label for="room" class="w-full">Room</label>
+          <select name="RoomId" id="room" class="w-full p-2 rounded-lg outline-none">
+            <option value="room1">Room 1</option>
+            <option value="room2">Room 2</option>
+            <option value="room3">Room 3</option>
+            <option value="room4">Room 4</option>
+            <option value="room5">Room 5</option>
+          </select>
+        </div>
+
+        @* SeatId *@
+        <div>
+          @if (Model.SeatMatrix != null)
+          {
+            <div class="flex flex-col gap-2 p-2 border rounded-lg shadow-md shadow-sky-200">
+              @for (int i = 1; i <= Model.SeatMatrix.GetLength(0) - 1; i++)
+              {
+                <div class="flex gap-2">
+                  @for (int j = 1; j <= Model.SeatMatrix.GetLength(1) - 1; j++)
+                  {
+                    var seat = Model.SeatMatrix[i, j];
+                    if (seat != null)
+                    {
+                      <div class="relative group">
+                        <span
+                          class="flex items-center justify-center h-6 w-8 rounded-md shadow-md border-2 @(seat.SeatType == "normal" ?  "border-slate-500": seat.SeatType == "vip" ? "border-green-500" : "border-rose-500") @(seat.IsAvailable == true ? "" : "bg-slate-300" )">@seat.SeatRow-@seat.SeatColumn
+                        </span>
+                        <form asp-page-handler="DeleteSeat"
+                          class="group-hover:opacity-100 opacity-0 trans-200 rounded-md absolute top-0 left-0 h-full w-full flex items-center justify-center bg-black bg-opacity-50">
+                          <input hidden name="seatId" value="@seat.Id">
+                          <button class="text-rose-300 text-4xl -mt-1">&times;</button>
+                        </form>
+                      </div>
+                    }
+                    else
+                    {
+                      <div class="h-6 w-8"></div>
+                    }
+                  }
+                </div>
+              }
+            </div>
+          }
+          else
+          {
+            <p>No seats found for this room.</p>
+          }
+        </div>
+
+        @* StartAt *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-slate-300 p-3">
+          <label for="startAt" class="w-full">Start At</label>
+          <input type="datetime-local" name="StartAt" id="startAt" class="w-full p-2 rounded-lg outline-none">
+        </div>
+
+        @* Total *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-rose-300 p-3">
+          <label for="total" class="w-full">Total</label>
+          <input type="number" name="Total" id="total" class="w-full p-2 rounded-lg outline-none">
+        </div>
+
+        @* PaymentMethod *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-green-300 p-3">
+          <label for="paymentMethod" class="w-full">Payment Method</label>
+          <select name="PaymentMethod" id="paymentMethod" class="w-full p-2 rounded-lg outline-none">
+            <option value="cash">Cash</option>
+            <option value="credit">Credit</option>
+            <option value="debit">Debit</option>
+          </select>
+        </div>
+
+        @* Status *@
+        <div class="flex flex-col w-full rounded-lg shadow-lg bg-blue-300 p-3">
+          <label for="status" class="w-full">Status</label>
+          <select name="Status" id="status" class="w-full p-2 rounded-lg outline-none">
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+
+        <button type="submit" class="rounded-lg p-2 text-dark bg-green-500">Thêm</button>
+      </form>
+    </div>
+  </div>
+</div>

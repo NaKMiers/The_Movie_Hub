@@ -23,7 +23,7 @@ namespace the_movie_hub.Pages.Admin.Theater
             Id = Id,
             Name = theater.Name,
             Address = theater.Address,
-            RoomAmount = theater.RoomAmount
+            City = theater.City,
          };
 
          if (image == null || !image.ContentType.Contains("image/"))
@@ -44,17 +44,6 @@ namespace the_movie_hub.Pages.Admin.Theater
 
          // add the theater to the database
          db.Theaters.Add(Theater);
-
-         // add rooms to the theater
-         for (int i = 0; i < Theater.RoomAmount; i++)
-         {
-            db.Rooms.Add(new Models.Main.Room
-            {
-               Id = Guid.NewGuid(),
-               TheaterId = Id,
-               Name = $"Room {i + 1}"
-            });
-         }
 
          await db.SaveChangesAsync();
       }

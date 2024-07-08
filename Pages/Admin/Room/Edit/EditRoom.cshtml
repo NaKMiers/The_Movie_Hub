@@ -1,0 +1,41 @@
+@page "/Admin/Room/{TheaterId}/{Id}/Edit"
+@{
+  Layout = "_AdminLayout";
+  ViewData["Title"] = "Admin - Room";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Admin.Room.EditRoomModel
+
+<div class="p-21">
+  <div class="bg-white rounded-lg text-dark shadow-lg p-21">
+    <h1 class="text-xl text-center font-semibold">Sửa phòng cho rạp: @Model.Theater?.Name</h1>
+
+    <div class="flex justify-between items-center">
+      <a href="/Admin/Room/@Model.TheaterId" class="text-sky-500 underline">Quay lại</a>
+    </div>
+
+    @* Body *@
+    <div class="mt-8">
+      <form method="post" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label for="name" class="font-semibold">Tên phòng</label>
+          <input type="text" id="name" asp-for="Name" class="border border-gray-300 rounded-lg p-2" required />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="roomTypeId" class="font-semibold">Loại phòng</label>
+          <select asp-for="RoomTypeId" id="roomTypeId" class="border px-2 py-3 rounded-lg" required>
+            @foreach (var item in Model.RoomTypes)
+            {
+              <option value="@item.Id" class="p-4">@item.Title</option>
+            }
+          </select>
+        </div>
+
+        <button type="submit" class="rounded-lg p-2 text-dark bg-green-500">Lưu</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -118,7 +118,7 @@ namespace the_movie_hub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Capacity")
+                    b.Property<int?>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -132,6 +132,8 @@ namespace the_movie_hub.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoomTypeId");
 
                     b.HasIndex("TheaterId");
 
@@ -226,6 +228,10 @@ namespace the_movie_hub.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -409,11 +415,21 @@ namespace the_movie_hub.Migrations
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Room", b =>
                 {
-                    b.HasOne("the_movie_hub.Models.Main.Theater", null)
+                    b.HasOne("the_movie_hub.Models.Main.RoomType", "RoomType")
+                        .WithMany()
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("the_movie_hub.Models.Main.Theater", "Theater")
                         .WithMany("Rooms")
                         .HasForeignKey("TheaterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("RoomType");
+
+                    b.Navigation("Theater");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Seat", b =>

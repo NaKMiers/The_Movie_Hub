@@ -7,27 +7,6 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models
 @model the_movie_hub.Pages.Admin.Theater.EditTheaterModel;
-@*
-<div class="text-center max-w-1200 mx-auto py-8 rounded-lg text-white bg-slate-700">
-<h1>Edit Theater</h1>
-<a href="/admin/theater">Theater</a>
-
-<form action="" method="post" enctype="multipart/form-data" class="text-dark flex flex-col items-center gap-3">
-<input class="w-full max-w-[500px] px-2" required type="text" value=@Model.Theater?.Name name="Name"
-placeholder="Name...">
-<input class="w-full max-w-[500px] px-2" required type="text" value=@Model.Theater?.Address name="Address"
-placeholder="Addresss...">
-<input class="w-full max-w-[500px] px-2" required type="number" value=@Model.Theater?.RoomAmount name="RoomAmount"
-placeholder="Room Amount...">
-<input type="file" name="Image" class="text-white" />
-
-<img width="200" src=@($"/uploads/{Model.Theater?.Image}") alt="thumb">
-
-<button class="bg-white px-2 py-1">
-Submit
-</button>
-</form>
-</div> *@
 
 <div class="w-full p-21">
    <div class="bg-white rounded-lg shadow-lg p-21 text-dark">
@@ -52,14 +31,14 @@ Submit
                   class="w-full p-2 border border-gray-300 rounded" required placeholder="Name...">
             </div>
             <div class="mb-4 flex md:block gap-5">
-               <label for="address-cinema" class="block mb-2">Địa chỉ rạp</label>
-               <input type="text" id="address-cinema" value="@Model.Theater?.Address" name="Address"
+               <label for="address-cinema" class="block mb-2">Thành phố</label>
+               <input type="text" id="address-cinema" value="@Model.Theater?.City" name="City"
                   class="w-full p-2 border border-gray-300 rounded" required placeholder="Address...">
             </div>
             <div class="mb-4 flex md:block gap-5">
-               <label for="room" class="block mb-2">Phòng</label>
-               <input type="number" id="room" value="@Model.Theater?.RoomAmount" name="RoomAmount"
-                  class="w-full p-2 border border-gray-300 rounded" min="1" required placeholder="Room Amount...">
+               <label for="address-cinema" class="block mb-2">Địa chỉ rạp</label>
+               <input type="text" id="address-cinema" value="@Model.Theater?.Address" name="Address"
+                  class="w-full p-2 border border-gray-300 rounded" required placeholder="Address...">
             </div>
             <div class="mb-4 flex md:block gap-5">
                <label for="cinema-image" class="block mb-2">Ảnh rạp</label>

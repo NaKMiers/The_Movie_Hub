@@ -55,6 +55,7 @@
             <tr>
                <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Id</th>
                <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Name</th>
+               <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">City</th>
                <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Address</th>
                <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Image</th>
                <th class="border border-gray-300 bg-gray-200 px-4 py-2 text-black">Room Amount</th>
@@ -67,13 +68,15 @@
                <tr>
                   <td class="border border-gray-300 px-4 py-2 text-black">@theater.Id</td>
                   <td class="border border-gray-300 px-4 py-2 text-black">@theater.Name</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">@theater.City</td>
                   <td class="border border-gray-300 px-4 py-2 text-black">@theater.Address</td>
                   <td class="border border-gray-300 px-4 py-2 text-black">
-                     <div class="w-10 rounded-md shadow-lg">
+                     <div class="max-w-[100px] rounded-md shadow-lg overflow-hidden">
                         <img src="~/uploads/@theater.Image" class="w-full h-full object-contain" alt="thumbnail">
                      </div>
                   </td>
-                  <td class="border border-gray-300 px-4 py-2 text-black">@theater.RoomAmount</td>
+                  <td class="border border-gray-300 px-4 py-2 text-black">@(theater.RoomAmount > 0 ? theater.RoomAmount :
+                  0)</td>
                   <td class="border border-gray-300 px-4 py-2 text-black">
                      <div class="flex flex-col gap-2 text-center">
                         <a href='/Admin/Theater/@theater.Id/edit'
@@ -91,7 +94,7 @@
 
                         <a href=@($"/admin/room/{theater.Id}" )
                            class="w-full text-nowrap pt-1 rounded-md border-2 px-1.5 text-xs border-dark bg-yellow-400 text-dark hover:bg-yellow-500 trans-200">
-                           View Room</a>
+                           View Rooms</a>
                      </div>
                   </td>
                </tr>

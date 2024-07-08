@@ -8,23 +8,6 @@
 @using the_movie_hub.Models
 @model the_movie_hub.Pages.Admin.Theater.AddTheaterModel
 
-@* <div class="text-center max-w-1200 mx-auto py-8 rounded-lg text-white bg-slate-700">
-<h1>Add Theater</h1>
-<a href="/Admin/Theater">Theaters</a>
-
-<form method="post" enctype="multipart/form-data" class="text-dark flex flex-col items-center gap-3">
-<input class="w-full max-w-[500px] px-2" required type="text" name="Name" placeholder="Name...">
-<input class="w-full max-w-[500px] px-2" required type="text" name="Address" placeholder="Addresss...">
-<input class="w-full max-w-[500px] px-2" required type="number" name="RoomAmount" min="1" max="10"
-placeholder="Room Amount...">
-<input type="file" name="Image" class="text-white" />
-
-<button class="bg-white px-2 py-1">
-Submit
-</button>
-</form>
-</div> *@
-
 <div class="p-21">
    <div class="rounded-lg shadow-lg bg-white p-21">
       <div class="flex">
@@ -52,14 +35,14 @@ Submit
                         placeholder="Name...">
                   </div>
                   <div class="mb-4 flex md:block gap-5">
-                     <label for="address-cinema" class="block mb-2">Địa chỉ rạp</label>
-                     <input type="text" id="address-cinema" name="Address"
+                     <label for="address-cinema" class="block mb-2">Thành phố</label>
+                     <input type="text" id="address-cinema" name="City"
                         class="w-full p-2 border border-gray-300 rounded" required placeholder="Address...">
                   </div>
                   <div class="mb-4 flex md:block gap-5">
-                     <label for="room" class="block mb-2">Phòng</label>
-                     <input type="number" id="room" name="RoomAmount" class="w-full p-2 border border-gray-300 rounded"
-                        min="1" required placeholder="Room Amount...">
+                     <label for="cinema-image" class="block mb-2">Ảnh rạp</label>
+                     <input type="file" id="cinema-image" name="Image" class="w-full p-2 border border-gray-300 rounded"
+                        accept="image/*" required>
                   </div>
                   <div class="mb-4 flex md:block gap-5">
                      <label for="cinema-image" class="block mb-2">Ảnh rạp</label>

@@ -8,9 +8,13 @@ public partial class Room
 
     public string Name { get; set; } = null!;
 
-    public int Capacity { get; set; }
+    public int? Capacity { get; set; }
 
     public Guid RoomTypeId { get; set; }
+
+    public virtual Theater? Theater { get; set; }
+
+    public virtual RoomType? RoomType { get; set; }
 
     public virtual ICollection<Seat> Seats { get; set; } = [];
 

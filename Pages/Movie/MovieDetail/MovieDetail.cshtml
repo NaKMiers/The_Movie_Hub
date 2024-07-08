@@ -2,816 +2,125 @@
 
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
-@using the_movie_hub.Models;
+@using the_movie_hub.Models
 @using System.Globalization
+@using System.Text.Json
 @model the_movie_hub.Pages.Movie.MovieDetail.MovieDetailModel
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Movie Detail";
-
-    var movie = Model.Movie!;
-    var showTimes = Model.ShowTimes!;
 }
-<style>
-    body {
-        background: linear-gradient(to right, #0f172a, #0f172a 20%, #234389 80%, #234389);
-    }
-</style>
-<link rel="stylesheet" href="~/Css/moviedetail.css">
-<div class="Container">
-    <div class="Box">
-        <div class="Movie-Detail">
-            <div class="Movie-img rounded-lg overflow-hidden shadow-lg">
-                <img class="img-imggg" src="~/uploads/@movie.Image">
+
+<div class="p-21">
+    <div class="max-w-1200 mx-auto">
+        @* Movie Detail *@
+        <div id="MovieId" data-movie-id="@Model.Movie?.Id" class="grid grid-cols-12 gap-6">
+            <div class="col-span-5">
+                <div class="w-full rounded-lg shadow-lg aspect-[2/3] overflow-hidden">
+                    <img class="w-full h-full object-cover" src="~/uploads/@Model.Movie?.Image" alt="thumbnail">
+                </div>
             </div>
-            <div class="Details">
-                <h1>@movie.Title</h1>
-                <div class="info-item">
-                    <img src="https://cinestar.com.vn/assets/images/icon-tag.svg" alt="">
-                    <p>
-                        @foreach (var genre in movie.MovieGenres)
+            <div class="col-span-7">
+                <h1 class="text-[40px] font-body tracking-wider">@Model.Movie?.Title</h1>
+
+                <div class="flex text-lg gap-2 mt-5">
+                    <img class="h-6" loading="lazy" decoding="async" data-nimg="fill" src="~/images/tag.svg">
+                    <p class="txt">
+                        @foreach (var genre in Model.Movie?.MovieGenres)
                         {
                             <span>@genre.Genre.Title</span>
                         }
                     </p>
                 </div>
-                <div class="info-item">
-                    <img src="https://cinestar.com.vn/assets/images/icon-clock.svg" alt="">
-                    <p>@movie.Duration'</p>
-                </div>
-                <div class="info-item">
-                    <img src="~/images/globe-removebg-preview.png" alt="">
-                    <p>@movie.Country</p>
-                </div>
-                <div class="info-item">
-                    <img src="https://cinestar.com.vn/assets/images/subtitle.svg" alt="">
-                    <p>@movie.Country</p>
-                </div>
-                <div class="info-item">
-                    <img src="~/images/user-check.png" alt="">
-                    <p style="background-color: rgb(245, 245, 19);color:black">
-                        K: Phim dành cho khán giả từ dưới 13 tuổi với điều kiện xem cùng cha, mẹ hoặc người giám hộ.
-                    </p>
+
+                <div class="flex text-lg gap-2 mt-3">
+                    <img class="h-6" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                    <span class="txt">@Model.Movie?.Duration`</span>
                 </div>
 
-                <div class="Describe">
-                    <div class="Heading-Describe">
-                        <h2">MÔ TẢ</h2>
-                    </div>
-                    <ul>
-                        <li>Đạo diễn: @movie.Director</li>
-                        <li>Diễn viên: @movie.Actors</li>
-                        <li>Khởi chiếu: @movie.ReleaseDate</li>
-                    </ul>
+                <div class="flex text-lg gap-2 mt-3">
+                    <img class="h-6" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                    <span class="txt">@Model.Movie?.Country</span>
                 </div>
 
-                <div class="Movie-Content">
-                    <div class="Heading-Content">
-                        <h2>NỘI DUNG PHIM</h2>
-                    </div>
-                    <ul>
-                        <li>
-                        @movie.Content
-                        </li>
-                    </ul>
+                <div class="flex text-lg gap-2 mt-3">
+                    <img class="h-6" loading="lazy" decoding="async" data-nimg="fill" src="~/images/subtitle.svg">
+                    <span class="txt">Phụ đề</span>
                 </div>
 
+                <div class="flex text-lg gap-2 mt-3">
+                    <img class="h-6" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                    <span class="txt">P: Phim dành cho khán giả mọi lứa tuổi
+                    </span>
+                </div>
 
-                <div class="Trailer">
-                    <a href="javascript:void(0)" class="Trailer_view">
-                        <img src="https://cinestar.com.vn/assets/images/ic-play-circle-red.svg" alt="">
-                        <p>Xem Trailer</p>
-                    </a>
+                <h2 class="text-[24px] font-body tracking-wider mt-5">Mô tả</h2>
+
+                <p class="mt-4">Đạo diễn: @Model.Movie?.Director</p>
+                <p class="mt-1">Diễn viên: @Model.Movie?.Actors</p>
+                <p class="mt-1">Khởi chiếu: @Model.Movie?.ReleaseDate</p>
+
+                <h2 class="text-[24px] font-body tracking-wider mt-5">NỘI DUNG PHIM</h2>
+
+                <p class="mt-4">
+                    @Model.Movie?.Content
+                </p>
+
+                <div class="flex items-center gap-4 mt-7">
+                    <img src="~/images/ic-play-circle-red.svg" class="h-[38px] w-[38px] border p-0.5 rounded-full"
+                        alt="play">
+                    <a href="@Model.Movie?.TrailerUrl" class="underline text-xl underline-offset-2">Xem Trailer</a>
                 </div>
             </div>
         </div>
 
+        @* Show Times By Day *@
         <div class="max-w-1200 mt-28">
-            <h3 class="text-center text-[40px] font-semibold font-body tracking-widest mb-6">LỊCH CHIẾU</h3>
+            <h1 class="font-semibold text-[40px] font-body tracking-wider text-center mt-12 uppercase">Lịch chiếu</h1>
 
-            <div class="flex gap-8 flex-wrap justify-center max-w-[600px] mx-auto">
-                    @foreach (var showtime in showTimes)
-                    {
-                    <form>
-                        <input hidden name="date" type="text" value="@showtime.StartAt.ToString("dd-MM")">
-                        <button class="bg-highlight rounded-md p-4 text-center text-primary-tw">
-                            <p class="font-semibold font-body tracking-wider text-xl">
-                                    @showtime.StartAt.ToString("dd/MM")</p>
-                            <p class="mt-1">@showtime.StartAt.ToString("dddd", new CultureInfo("vi-VN"))</p>
-                        </button>
-                    </form>
-                    }
-            </div>
-        </div>
-
-            @* Theaters *@
-        <div class="flex flex-col gap-4 max-w-[800px] mx-auto mt-28">
-            <div class="Heading-theater-list">
-                <h1>DANH SÁCH RẠP</h1>
-            </div>
-
-                @if (Model.Theaters.Any())
+            <div class="flex gap-8 flex-wrap justify-center max-w-[600px] mx-auto mt-7">
+                @if (Model?.ShowTimesByDate?.Any() == true)
                 {
-                    @foreach (var theater in Model.Theaters)
+                    var showTimesList = Model.ShowTimesByDate.ToList();
+                    @for (int i = 0; i < showTimesList.Count; i++)
                     {
-                    <div class="bg-primary-tw rounded-lg shadow-lg p-6">
-                        <h4 class="font-semibold text-highlight text-2xl">@theater.Name</h4>
-                        <p class="my-6">@theater.Address</p>
-                            @foreach (var roomType in theater.RoomTypeShowTimes)
-                            {
-                            <h5 class="mb-3 mt-3">@roomType.Key</h5>
-                            <div class="flex flex-wrap gap-2">
-                                    @foreach (var time in roomType.Value)
-                                    {
-                                    <form id="timeForm">
-                                        <input name="time" value="@time" type="text" hidden>
-                                        <input name="theaterId" value="@theater.Id" type="text" hidden>
-                                        <button type="button" class="rounded-md border border-white px-2 py-1 font-semibold"
-                                            onclick="submitFormWithQueryParams()">@time</button>
-                                    </form>
-                                    }
-                            </div>
-                            }
-                    </div>
+                        var showtime = showTimesList[i];
+                        var day = @showtime.StartAt.ToString("dd/MM");
+                        var dayInWeek = @showtime.StartAt.ToString("dddd", new CultureInfo("vi-VN"));
+                        <div>
+                            <input hidden id="@showtime.Id" data-day="@day" type="radio" name="day" class="peer" @(i == 0 ?
+                        "checked" : "")>
+                            <label for="@showtime.Id"
+                                class="peer-checked:bg-highlight peer-checked:text-primary-tw border-2 border-highlight rounded-md block px-6 py-5 text-center text-highlight cursor-pointer trans-200">
+                                <p class="font-semibold font-body tracking-wider text-xl">
+                                    @day</p>
+                                <p class="mt-1">@dayInWeek</p>
+                            </label>
+                        </div>
                     }
                 }
+            </div>
         </div>
 
-        <div class="Choose-Tickets">
-            <div class="Heading-choose">
-                <h1>CHỌN LOẠI VÉ</h1>
-            </div>
-            <div class="Ticket-type">
-                <div class="combo-item">
-                    <div class="Content-ticket-type">
-                        <p class="Name-poiter">NGƯỜI LỚN</p>
-                        <p style="color:yellow;">ĐƠN</p>
-                        <P class="Movie-ticket-prices">45.000 VNĐ</P>
-                        <div class="aaaa">
-                            <div class="count">
-                                <button class="quantity-btn" data-target="quantity-input-1"
-                                    data-action="decrease">-</button>
-                                <p class="quantity-input" id="quantity-input-1">0</p>
-                                <button class="quantity-btn" data-target="quantity-input-1"
-                                    data-action="increase">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Content-ticket-type">
-                        <p class="Name-poiter">HSSV-NGƯỜI CAO TUỔI</p>
-                        <p style="color: yellow;">ĐƠN</p>
-                        <P class="Movie-ticket-prices">45.000 VNĐ</P>
-                        <div class="aaaa">
-                            <div class="count">
-                                <button class="quantity-btn" data-target="quantity-input-2"
-                                    data-action="decrease">-</button>
-                                <p class="quantity-input" id="quantity-input-2">0</p>
-                                <button class="quantity-btn" data-target="quantity-input-2"
-                                    data-action="increase">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Content-ticket-type">
-                        <p class="Name-poiter">NGƯỜI LỚN</p>
-                        <p style="color: yellow;">ĐÔI</p>
-                        <P class="Movie-ticket-prices">95.000 VNĐ</P>
-                        <div class="aaaa">
-                            <div class="count">
-                                <button class="quantity-btn" data-target="quantity-input-3"
-                                    data-action="decrease">-</button>
-                                <p class="quantity-input" id="quantity-input-3">0</p>
-                                <button class="quantity-btn" data-target="quantity-input-3"
-                                    data-action="increase">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        @* Theaters *@
+        <div class="flex flex-col gap-4 max-w-[800px] mx-auto mt-28">
+            <div class="flex items-center justify-between gap-4">
+                <h1 class="font-semibold text-[40px] font-body tracking-wider text-center uppercase">Danh sách rạp
+                </h1>
+                <select name="" id="citySelector" data-cities="@JsonSerializer.Serialize(Model.Cities)"
+                    class="outline-none rounded-lg px-4 py-2 text-highlight border-2 border-highlight bg-transparent">
+                    @foreach (var city in Model.Cities)
+                    {
+                        <option value="@city">@city</option>
+                    }
+                </select>
             </div>
 
-            <div class="Choose-Seat">
-                <div class="note-box">
-                    <div class="Heading-choose-seat">
-                        <h1>CHỌN GHẾ</h1>
-                    </div>
-                    <div class="screen-img">
-                        <img src="https://cinestar.com.vn/assets/images/img-screen.png" alt="">
-                        <h3 class="note">Màn hình</h3>
-                    </div>
-                </div>
-                <div class="seat-box">
-                    <div class="seat-position">
-                        <p class="row-of-seats">A</p>
-                        <button class="seats">
-                            <span class="Chair-order">A14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">A02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">A01</span>
-                        </button>
-                    </div>
+            <div id="theaterContainer" class="">
 
-                    <div class="seat-position">
-                        <p class="row-of-seats">B</p>
-                        <button class="seats">
-                            <span class="Chair-order">B14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">B02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">B01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">C</p>
-                        <button class="seats">
-                            <span class="Chair-order">C14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">C02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">C01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">D</p>
-                        <button class="seats">
-                            <span class="Chair-order">D14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">D02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">D01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">E</p>
-                        <button class="seats">
-                            <span class="Chair-order">E14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">E02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">E</p>
-                        <button class="seats">
-                            <span class="Chair-order">E14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">E02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">E01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">F</p>
-                        <button class="seats">
-                            <span class="Chair-order">F14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">F02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">F01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">G</p>
-                        <button class="seats">
-                            <span class="Chair-order">G14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">G02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">G01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">H</p>
-                        <button class="seats">
-                            <span class="Chair-order">H14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">H02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">H01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats" style="width: 30px;">J</p>
-                        <button class="seats">
-                            <span class="Chair-order">J14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">J02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">J01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">K</p>
-                        <button class="seats">
-                            <span class="Chair-order">K14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">K02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">K01</span>
-                        </button>
-                    </div>
-
-                    <div class="seat-position">
-                        <p class="row-of-seats">L</p>
-                        <button class="seats">
-                            <span class="Chair-order">L14</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L13</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L12</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L11</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L10</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L09</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L08</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L07</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L06</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L05</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L04</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L03</span>
-                        </button>
-                        <div class="null"></div>
-                        <div class="null"></div>
-                        <button class="seats">
-                            <span class="Chair-order">L02</span>
-                        </button>
-                        <button class="seats">
-                            <span class="Chair-order">L01</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="note-seat">
-                    <div class="row-regular-chair">
-                        <div class="regular-chair">
-                        </div>
-                        <p class="text-note-seat" style="margin-left: 8px;">Ghế Thường</p>
-                    </div>
-
-                    <div class="row-selected-chair">
-                        <div class="selected-chair">
-                        </div>
-                        <p class="text-note-seat" style="margin-left: 8px;">Ghế Chọn</p>
-                    </div>
-                    <div class="row-reserved-seats">
-                        <div class="reserved-seats">
-                        </div>
-                        <p class="text-note-seat" style="margin-left: 8px;">Ghế Đã Đặt</p>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-    // to make sure the form is submitted with query params
-    function submitFormWithQueryParams() {
-        const form = document.getElementById('timeForm');
-        const formData = new FormData(form);
-        const params = new URLSearchParams(window.location.search);
-
-        for (const [key, value] of formData.entries()) {
-            params.append(key, value);
-        }
-
-        const url = `${window.location.pathname}?${params.toString()}`;
-        window.location.href = url;
-    }
-</script>
+<script defer src="~/js/movieDetail.js" asp-append-version="true"></script>

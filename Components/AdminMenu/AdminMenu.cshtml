@@ -1,7 +1,6 @@
 @* Pusher *@
-<div class="_pusher max-w-[250px] w-full trans-300" />
-
-<div class="_sidebar trans-300 fixed right-0 h-screen w-full max-w-[250px] bg-neutral-800 flex flex-col p-21">
+<div
+  class="_sidebar trans-300 translate-x-full fixed right-0 h-screen w-full max-w-[250px] bg-neutral-800 flex flex-col p-21">
   <button
     class="_open-btn absolute top-0 left-0 -translate-x-full group p-2 rounded-l-md bg-yellow-500 hover:bg-dark-200">
     <svg class="fill-white group-hover:fill-yellow-500 trans-200" height="20px" xmlns="http://www.w3.org/2000/svg"
@@ -41,26 +40,23 @@
       <li class="px-4 py-2">
         <a href="/Admin/TicketType" class="hover:text-yellow-400 trans-200">Quản lý loại vé</a>
       </li>
+      <li class="px-4 py-2">
+        <a href="/Admin/Ticket" class="hover:text-yellow-400 trans-200">Quản lý vé</a>
+      </li>
     </ul>
   </div>
 </div>
 
 <script>
-  let open = true
+  let open = false
   const openBtn = document.querySelector('._open-btn')
 
   openBtn.addEventListener('click', () => {
     if (open) {
       open = false
-      document.querySelector('._pusher').classList.remove('max-w-[250px]')
-      document.querySelector('._pusher').classList.add('max-w-0')
-
       document.querySelector('._sidebar').classList.add('translate-x-full')
     } else {
       open = true
-      document.querySelector('._pusher').classList.remove('max-w-0')
-      document.querySelector('._pusher').classList.add('max-w-[250px]')
-
       document.querySelector('._sidebar').classList.remove('translate-x-full')
     }
   })

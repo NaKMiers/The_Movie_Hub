@@ -111,7 +111,14 @@
             </a>
             @if (user != null)
             {
-              <a href="/logout"
+              @if (user.Role == "admin") {
+                <a href="/Admin"
+                class="flex items-center gap-3">
+                  <span class="text-nowrap trans-200 hover:text-highlight">Admin</span>
+                </a>
+              }
+              
+              <a href="/Logout"
               class="flex items-center gap-3">
                 <span class="text-nowrap trans-200 hover:text-highlight">Đăng xuất</span>
               </a>

@@ -12,7 +12,7 @@ public partial class Theater
 
     public int? RoomAmount { get; set; }
 
-    // public required string City { get; set; }
+    public required string City { get; set; }
 
     public virtual ICollection<Room> Rooms { get; set; } = [];
 

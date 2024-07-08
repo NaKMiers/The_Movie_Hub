@@ -1,8 +1,6 @@
 // Write your JavaScript code.
 
 $(function () {
-  console.log('123123')
-
   // Float Up on hover
   const hoverFloatUp = $('.hover-float').closest('.relative')
 

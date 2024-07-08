@@ -1,4 +1,3 @@
-using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -6,20 +5,6 @@ using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Movie.MovieDetail
 {
-  public class ShowtimeViewModel
-  {
-    public DateTime Date { get; set; }
-    public List<TheaterViewModel> Theaters { get; set; } = new();
-  }
-
-  public class TheaterViewModel
-  {
-    public required String Id { get; set; }
-    public required string Name { get; set; }
-    public required string Address { get; set; }
-    public Dictionary<string, List<string>> RoomTypeShowTimes { get; set; } = [];
-  }
-
   public class MovieDetailModel(TheMovieHubDbContext db) : PageModel
   {
     // Database context
@@ -32,10 +17,9 @@ namespace the_movie_hub.Pages.Movie.MovieDetail
 
     public IEnumerable<Showtime> ShowTimes { get; set; } = [];
 
-    public IEnumerable<TheaterViewModel> Theaters { get; set; } = [];
+    public IEnumerable<Showtime> ShowTimesByDate { get; set; } = [];
 
-    [BindProperty(SupportsGet = true)]
-    public string? Date { get; set; }
+    public IEnumerable<string> Cities { get; set; } = [];
 
     // Methods
     public void OnGet()
@@ -55,31 +39,20 @@ namespace the_movie_hub.Pages.Movie.MovieDetail
 
       // get showTimes
       ShowTimes = db.ShowTimes
+          .Include(s => s.Theater)
           .Where(s => s.MovieId.ToString() == Id)
           .OrderBy(s => s.StartAt);
 
-      if (DateTime.TryParseExact(Date, "dd-MM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime selectedDate))
-      {
-        // group showTimes
-        var showTimes = db.ShowTimes
-            .Where(s => s.MovieId.ToString() == Id && s.StartAt.Date == selectedDate.Date)
-            .OrderBy(s => s.StartAt)
-            .Include(s => s.Theater)
-            .Include(s => s.RoomType)
-            .ToList();
+      // group showTimes by date
+      ShowTimesByDate = ShowTimes
+          .GroupBy(s => s.StartAt.Date)
+          .Select(g => g.First());
 
-        Theaters = showTimes
-            .GroupBy(s => s.Theater)
-            .Select(g => new TheaterViewModel
-            {
-              Id = g.Key.Id.ToString(),
-              Name = g.Key.Name,
-              Address = g.Key.Address,
-              RoomTypeShowTimes = g.GroupBy(r => r.RoomType.Title)
-                    .ToDictionary(rt => rt.Key, rt => rt.Select(s => s.StartAt.ToString("HH:mm")).ToList())
-            }).ToList();
-      }
-
+      // get theaters from showTimes then group by city
+      Cities = ShowTimes
+          .Select(s => s.Theater.City)
+          .Distinct()
+          .OrderBy(c => c);
     }
   }
 }

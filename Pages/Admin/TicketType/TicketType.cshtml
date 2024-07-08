@@ -1,32 +1,14 @@
 @page "/Admin/TicketType"
-@{
-    Layout = "_AdminLayout";
-    ViewData["Title"] = "Admin - Ticket Type";
-}
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.Ticket.TicketTypeModel
-@*
-<div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-<h1>Tickets (@Model.Tickets.Count())</h1>
-<a href="/Admin">Admin</a>
-
-<div class="flex flex-col gap-4 text-left">
-@foreach (var ticket in Model.Tickets)
-{
-<div class="flex gap-3">
-<div class="flex gap-2">
-</div>
-
-<form method="post">
-<input type="hidden" name="Id" value="@ticket.Id" />
-<button asp-page-handler="Delete" style="color: red">Delete</button>
-</form>
-</div>
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Admin - Ticket Type";
 }
-</div>
-</div> *@
+
+
 <div class="p-21">
     <div class="p-21 bg-white rounded-lg shadow-lg">
         <div class="bg-white text-black border border-black w-full p-5 rounded-lg shadow-lg">

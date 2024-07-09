@@ -131,6 +131,9 @@ $(function () {
         $('section#ChooseTicket').removeClass('hidden')
         $('#ticketTypeContainer').html(html)
 
+        // show choose seat
+        $('section#ChooseSeats').removeClass('hidden')
+
         // calculate max row and column
         const maxRow = Math.max(...seats.map(seat => seat.seatRow))
         const maxColumn = Math.max(...seats.map(seat => seat.seatColumn))

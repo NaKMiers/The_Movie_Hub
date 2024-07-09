@@ -21,6 +21,10 @@
   @apply transition-all duration-300;
 }
 
+.trans-500 {
+  @apply transition-all duration-500;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -164,4 +168,16 @@ svg path {
   100% {
     -webkit-transform: rotate(45deg);
   }
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: max-content !important;
+  padding-bottom: 64px !important;
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+  position: relative;
+}
+.swiper-pagination-bullet {
+  background: #4f46e5;
 }

@@ -1,7 +1,7 @@
 ﻿@page "/book-tickets"
 @{
-    Layout = "_Layout";
-    ViewData["Title"] = "Ticket";
+  Layout = "_Layout";
+  ViewData["Title"] = "Ticket";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
@@ -9,182 +9,27 @@
 @model the_movie_hub.Pages.Ticket.Index.IndexModel
 
 
-<div class="text-center">Book Tickets</div>
+<div class="min-h-screen pt-16 px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
+  <div class="max-w-1200 mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-21">
+      @foreach (var theater in Model.Theaters)
+      {
+        <div class="relative rounded-lg shadow-lg aspect-[5/4] overflow-hidden group">
+          <img class="w-full h-full object-cover" src="~/uploads/@theater.Image" alt="theater">
 
-@foreach (var theater in Model.Theaters)
-{
-    <a href='/book-tickets/@theater.Id'>@theater.Name</a>
-}
-
-@* <link rel="stylesheet" href="~/css/book-tickets.css"> *@
-@* <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> *@
-
-@* <div class="Container">
-<div class="text-center">
-<div class="Heading-booktickets">
-<h1 style="font-family: 'Anton', sans-serif;">PHIM ĐANG CHIẾU</h1>
+          <div
+            class="absolute bottom-0 left-0 w-full flex flex-col justify-end gap-2 group:h-full p-4 bg-gradient-to-r from-[#663399] to-[#3366CCCC]">
+            <a href='/book-tickerts/@theater.Id' class="font-body tracking-wider text-2xl">@theater.Name</a>
+            <a href='/book-tickerts/@theater.Id'>@theater.Address</a>
+            <a href='/book-tickets/@theater.Id'
+              class="relative min-w-[150px] h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+              <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                ĐẶT VÉ
+              </span>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </div>
-</div>
-<div class="Box">
-<div class="Box-film">
-<div class="Img" style="margin-right: 5px;">
-<img
-src="https://api-website.cinestar.com.vn/media/wysiwyg/Posters/06-2024/gia-tai-cua-ngoai-sneakshow.jpg">
-</div>
-<div class="mv-Content" style="margin-left: 5px;">
-<a href="">
-<h3 class="mv-name" style="font-family: 'Anton', sans-serif;font-size:20px">GIA TÀI CỦA NGOẠI 2D PĐ
-(T13)</h3>
-</a>
-
-<div class="mv-Type" style="display:flex">
-<div class="mv-txt">
-<img src=" https://cinestar.com.vn/assets/images/icon-tag.svg">
-<p class="txt">Tâm Lý</p>
-</div>
-
-<div class=" mv-txt">
-<img src="https://cinestar.com.vn/assets/images/icon-clock.svg">
-<p class="txt">127</p>
-</div>
-
-<div class=" mv-txt">
-<img src="~/images/globe-removebg-preview.png">
-<p class="txt">Thái Lan</p>
-</div>
-
-<div class=" mv-txt">
-<img src="https://cinestar.com.vn/assets/images/subtitle.svg">
-<p class="txt">Phụ Đề</p>
-</div>
-
-<div class=" mv-txt">
-<img src="~/images/user-check.png">
-<p class="txt">T13: Phim dành cho khán giả từ đủ 13 tuổi trở lên (13+)
-</p>
-</div>
-<div class="Time-frame">
-<div class="day">
-<p class="Time-frame-txt" style="font-size: 14px;">Ngày: 23/06/2024</p>
-<div class="Angle-top">
-<img src="~/images/arrowhead-up.png" style="width:17px;">
-</div>
-</div>
-<div class="dsa">
-<P class="Time-frame-txt" style="font-size: 12px">STANDARD</P>
-</div>
-<div class="item-time-mv">
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30
-</p>
-</div>
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30</p>
-</div>
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30</p>
-</div>
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30</p>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="Box-film">
-<div class="Img" style="margin-right: 5px;">
-<img
-src="https://api-website.cinestar.com.vn/media/wysiwyg/Posters/06-2024/gia-tai-cua-ngoai-sneakshow.jpg">
-</div>
-<div class="mv-Content" style="margin-left: 5px;">
-<a href="">
-<h3 class="mv-name" style="font-family: 'Anton', sans-serif;font-size:20px">GIA TÀI CỦA NGOẠI 2D PĐ
-(T13)</h3>
-</a>
-
-<div class="mv-Type" style="display:flex">
-<div class="mv-txt">
-<img src=" https://cinestar.com.vn/assets/images/icon-tag.svg">
-<p class="txt">Tâm Lý</p>
-</div>
-
-<div class=" mv-txt">
-<img src="https://cinestar.com.vn/assets/images/icon-clock.svg">
-<p class="txt">127</p>
-</div>
-
-<div class=" mv-txt">
-<img src="~/images/globe-removebg-preview.png">
-<p class="txt">Thái Lan</p>
-</div>
-
-<div class=" mv-txt">
-<img src="https://cinestar.com.vn/assets/images/subtitle.svg">
-<p class="txt">Phụ Đề</p>
-</div>
-
-<div class=" mv-txt">
-<img src="~/images/user-check.png">
-<p class="txt">T13: Phim dành cho khán giả từ đủ 13 tuổi trở lên (13+)
-</p>
-</div>
-<div class="Time-frame">
-<div class="day">
-<p class="Time-frame-txt" style="font-size: 14px;">Ngày: 23/06/2024</p>
-<div class="Angle-top">
-<img src="~/images/arrowhead-up.png" style="width:17px;">
-</div>
-</div>
-<div class="dsa">
-<P class="Time-frame-txt" style="font-size: 12px">STANDARD</P>
-</div>
-<div class="item-time-mv">
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30
-</p>
-</div>
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30</p>
-</div>
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30</p>
-</div>
-<div class="time-mv">
-<p class="Time-frame-txt" style="font-size: 13px;text-align: center; ">22:30</p>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-const angleTopElements = document.querySelectorAll(".Angle-top");
-const timeFrames = document.querySelectorAll(".Time-frame");
-
-angleTopElements.forEach(function (angleTopElement, index) {
-angleTopElement.addEventListener("click", function () {
-timeFrames[index].classList.toggle("collapsed");
-
-this.classList.toggle("active");
-
-if (timeFrames[index].classList.contains("collapsed")) {
-timeFrames[index].style.maxHeight = "30px";
-} else {
-timeFrames[index].style.maxHeight = "218px";
-}
-});
-});
-});
-
-
-
-</script> *@

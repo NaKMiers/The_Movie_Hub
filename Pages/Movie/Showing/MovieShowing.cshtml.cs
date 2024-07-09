@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Movie.MovieShowing
 {
-  public class MovieShowingModel(TheMovieHubDbContext db, IWebHostEnvironment environment) : PageModel
+  public class MovieShowingModel(TheMovieHubDbContext db) : PageModel
   {
     // Database context
     private readonly TheMovieHubDbContext db = db;

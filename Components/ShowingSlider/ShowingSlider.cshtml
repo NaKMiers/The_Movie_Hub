@@ -1,0 +1,131 @@
+@using the_movie_hub.Models
+@using Newtonsoft.Json
+@model the_movie_hub.Models.ViewModels.SliderViewModel
+
+
+<div class="relative showing-slider mt-12 flex overflow-hidden">
+  <button
+    class="showing-prev-slide-btn flex items-center justify-center hover:fill-highlight fill-white w-10 h-10 absolute z-20 top-[40%] left-0 -translate-y-1/2 rounded-lg bg-black bg-opacity-50">
+    <svg class="h-6 w-6 trans-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+      <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256
+                246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+    </svg>
+  </button>
+
+  <button
+    class="showing-next-slide-btn flex items-center justify-center hover:fill-highlight fill-white w-10 h-10 absolute z-20 top-[40%] right-0 -translate-y-1/2 rounded-lg bg-black bg-opacity-50">
+    <svg class="h-6 w-6 trans-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+      <path
+        d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+    </svg>
+  </button>
+  <div class="showing-slide-track w-full h-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
+    @foreach (var movie in Model.Movies)
+    {
+      <div class="slide w-1/2 sm:w-1/3 xl:w-1/4 flex-shrink-0 px-3 snap-start">
+        <a href='/movie/@movie.Id' class="group flex flex-col gap-5 cursor-pointer">
+          @* Thumbnail *@
+          <div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden shadow-md shadow-highlight">
+            <img class="w-full h-full object-cover" src="~/uploads/@movie.Image" alt="thumbnail">
+
+            <div
+              class="group-hover:opacity-100 opacity-0 trans-300 absolute top-0 left-0 p-6 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+              <div class="w-full">
+                <p
+                  class="text-left font-semibold text-lg trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                  @movie.Title </p>
+
+                <div
+                  class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-5">
+                  <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/tag.svg">
+                  <p class="text-sm">
+                    @foreach (var genre in movie.MovieGenres)
+                    {
+                      <span>@genre.Genre.Title</span>
+                    }
+                  </p>
+                </div>
+
+                <div
+                  class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-3">
+                  <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                  <p class="text-sm">
+                    @movie.Duration'
+                  </p>
+                </div>
+
+                <div
+                  class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-3">
+                  <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                  <p class="text-sm">
+                    @movie.Country'
+                  </p>
+                </div>
+
+                <div
+                  class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-3">
+                  <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                  <p class="text-sm">
+                    Lồng tiếng
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          @* Title *@
+          <h2 class="text-lg text-center tracking-wider font-semibold">KẺ TRỘM MẶT TRĂNG 4 2D LT</h2>
+
+          @* Action Buttons *@
+          <div class="flex gap-4 justify-between mt-4">
+            <div class="flex items-center justify-center gap-2 text-nowrap">
+              <div class="w-6 h-6 border rounded-full aspect-square p-0.5 flex items-center justify-center">
+                <img class=" object-cover" src="~/images/ic-play-circle-red.svg" alt="play">
+              </div>
+              <a href="/" class="underline underline-offset-2 text-sm">Xem trailer</a>
+            </div>
+            <a href='/movie/@movie.Id'
+              class="flex-1 relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+              <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                ĐẶT VÉ NGAY
+              </span>
+            </a>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
+</div>
+
+<script>
+  const showingSlider = document.querySelector('.showing-slider');
+  const showingTrack = document.querySelector('.showing-slide-track');
+
+  const showingPrevBtn = showingSlider.querySelector('.showing-prev-slide-btn');
+  const showingNextBtn = showingSlider.querySelector('.showing-next-slide-btn');
+
+
+  showingPrevBtn.onclick = () => {
+    console.log(1)
+    // width of child
+    const width = showingTrack.children[0].offsetWidth;
+
+    showingTrack.scrollBy({
+      top: 0,
+      left: -width,
+      behavior: 'smooth'
+    });
+  }
+
+  showingNextBtn.onclick = () => {
+    console.log(2)
+    // width of child
+    const width = showingTrack.children[0].offsetWidth;
+
+    showingTrack.scrollBy({
+      top: 0,
+      left: width,
+      behavior: 'smooth'
+    });
+  }
+</script>

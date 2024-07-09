@@ -15,7 +15,7 @@ module.exports = {
         error: '#e74c3c',
       },
       screens: {
-        'below601': { 'max': '600px' },
+        below601: { max: '600px' },
       },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif'],
@@ -89,7 +89,6 @@ module.exports = {
         lg: '1024px',
 
         xl: '1200px',
-        // => @media (min-width: 1280px) { ... }
 
         '2xl': '1536px',
       },

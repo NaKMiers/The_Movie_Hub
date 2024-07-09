@@ -8,13 +8,13 @@ public partial class Showtime
 
     public required Guid TheaterId { get; set; }
 
-    public required Guid RoomTypeId { get; set; }
+    public required Guid RoomId { get; set; }
 
     public DateTime StartAt { get; set; }
 
     public virtual Movie? Movie { get; set; }
 
-    public virtual RoomType? RoomType { get; set; }
+    public virtual Room? Room { get; set; }
 
     public virtual Theater? Theater { get; set; }
 

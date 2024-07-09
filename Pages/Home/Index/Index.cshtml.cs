@@ -17,9 +17,7 @@ namespace the_movie_hub.Pages.Home.Index
     public void OnGet()
     {
       OnGoingMovies = db.Movies.Where(m => m.Active == true);
-      OnGoingMovies = [.. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies,];
       UpComingMovies = db.Movies.Where(m => m.Active == false);
-      UpComingMovies = [.. UpComingMovies, .. UpComingMovies, .. UpComingMovies, .. UpComingMovies, .. UpComingMovies, .. UpComingMovies,];
     }
   }
 }

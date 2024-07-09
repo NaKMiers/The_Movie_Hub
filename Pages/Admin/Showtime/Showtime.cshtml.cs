@@ -16,7 +16,7 @@ namespace the_movie_hub.Pages.Admin.Showtime
     public void OnGet()
     {
       // get all movie and include the genres, group by theater but still show all and room type
-      ShowTimes = db.ShowTimes.Include(t => t.Movie).Include(t => t.Theater).Include(t => t.RoomType).OrderBy(t => t.Theater);
+      ShowTimes = db.ShowTimes.Include(t => t.Movie).Include(t => t.Theater).Include(t => t.Room).ThenInclude(r => r.RoomType).OrderBy(t => t.Theater);
     }
 
     public void OnPostDelete(string Id)

@@ -14,7 +14,7 @@
 <div class="p-21">
     <div class="max-w-1200 mx-auto">
         @* Movie Detail *@
-        <div id="MovieId" data-movie-id="@Model.Movie?.Id" class="grid grid-cols-12 gap-6">
+        <section id="MovieId" data-movie-id="@Model.Movie?.Id" class="grid grid-cols-12 gap-6">
             <div class="col-span-5">
                 <div class="w-full rounded-lg shadow-lg aspect-[2/3] overflow-hidden">
                     <img class="w-full h-full object-cover" src="~/uploads/@Model.Movie?.Image" alt="thumbnail">
@@ -72,10 +72,10 @@
                     <a href="@Model.Movie?.TrailerUrl" class="underline text-xl underline-offset-2">Xem Trailer</a>
                 </div>
             </div>
-        </div>
+        </section>
 
         @* Show Times By Day *@
-        <div class="max-w-1200 mt-28">
+        <section class="max-w-1200 mt-28">
             <h1 class="font-semibold text-[40px] font-body tracking-wider text-center mt-12 uppercase">Lịch chiếu</h1>
 
             <div class="flex gap-8 flex-wrap justify-center max-w-[600px] mx-auto mt-7">
@@ -100,24 +100,67 @@
                     }
                 }
             </div>
+        </section>
+    </div>
+
+    @* Theaters *@
+    <section class="flex flex-col gap-4 max-w-[800px] mx-auto mt-28">
+        <div class="flex items-center justify-between gap-4">
+            <h1 class="font-semibold text-[40px] font-body tracking-wider text-center uppercase">Danh sách rạp
+            </h1>
+            <select name="" id="citySelector" data-cities="@JsonSerializer.Serialize(Model.Cities)"
+                class="outline-none rounded-lg px-4 py-2 text-highlight border-2 border-highlight bg-transparent">
+                @foreach (var city in Model.Cities)
+                {
+                    <option value="@city">@city</option>
+                }
+            </select>
         </div>
 
-        @* Theaters *@
-        <div class="flex flex-col gap-4 max-w-[800px] mx-auto mt-28">
-            <div class="flex items-center justify-between gap-4">
-                <h1 class="font-semibold text-[40px] font-body tracking-wider text-center uppercase">Danh sách rạp
-                </h1>
-                <select name="" id="citySelector" data-cities="@JsonSerializer.Serialize(Model.Cities)"
-                    class="outline-none rounded-lg px-4 py-2 text-highlight border-2 border-highlight bg-transparent">
-                    @foreach (var city in Model.Cities)
-                    {
-                        <option value="@city">@city</option>
-                    }
-                </select>
-            </div>
+        @* Theater List *@
+        <div id="theaterContainer" class="flex flex-col gap-4"></div>
+    </section>
 
-            <div id="theaterContainer" class="">
+    @* Choose Ticket *@
+    <section id="ChooseTicket" class="hidden">
+        <h1 class="font-semibold text-[40px] font-body tracking-wider text-center uppercase mt-28">Chọn loại vé</h1>
 
+        <div id="ticketTypeContainer" class="grid md:grid-cols-3 gap-6 mt-8"></div>
+    </section>
+
+    @* Choose Seats *@
+    <section id="ChooseSeats" class="mt-28 max-w-[800px] mx-auto">
+        <h1 class="font-semibold text-[40px] font-body tracking-wider text-center uppercase mt-28">Chọn ghế - Phòng 06
+        </h1>
+
+        <div class="w-full mt-8 relative">
+            <img src="~/images/screen.png" alt="screen">
+            <span class="absolute left-1/2 -translate-x-1/2 top-4 font-semibold text-3xl">Màn hình</span>
+        </div>
+        <div id="seatContainer" class="mt-4 flex flex-col gap-2"></div>
+    </section>
+
+    @* Total Bar *@
+    <div id="total-bar"
+        class="hidden fixed z-40 bottom-0 left-0 w-full h-[106px] border-t border-slate-300 p-2.5 justify-between bg-secondary-tw gap-2.5">
+        <div class="flex flex-col justify-center">
+            <h1 class=" font-body text-2xl">@Model.Movie?.Title</h1>
+            <p class="selected-theater-name"></p>
+            <p class="selected-room-seat-time"></p>
+        </div>
+
+        <div class="flex gap-2">
+            <div class="flex flex-col gap-3 min-w-[240px]">
+                <p class="flex justify-between items-center gap-2">
+                    <span class="">Tạm tính</span>
+                    <span id="total-price" class=" text-2xl">0 VND</span>
+                </p>
+                <button
+                    class="relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                        ĐẶT VÉ
+                    </span>
+                </button>
             </div>
         </div>
     </div>

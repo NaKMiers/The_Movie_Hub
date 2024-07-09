@@ -30,4 +30,15 @@ public partial class TheMovieHubDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<TicketType> TicketTypes { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Showtime>()
+            .HasOne(s => s.Theater)
+            .WithMany(t => t.ShowTimes)
+            .HasForeignKey(s => s.TheaterId)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
 }

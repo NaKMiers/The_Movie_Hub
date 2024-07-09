@@ -1,30 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Admin.Showtime
 {
-  public class AddShowtimeModel(TheMovieHubDbContext db, IWebHostEnvironment environment) : PageModel
+  public class AddShowtimeModel(TheMovieHubDbContext db) : PageModel
   {
     // Database context
     private readonly TheMovieHubDbContext db = db;
-    private readonly IWebHostEnvironment environment = environment;
 
     // Properties
     public IEnumerable<Models.Main.Movie> Movies { get; set; } = [];
 
     public IEnumerable<Models.Main.Theater> Theaters { get; set; } = [];
 
-    public IEnumerable<Models.Main.RoomType> RoomTypes { get; set; } = [];
 
-    [BindProperty]
+    [FromQuery]
     public required string TheaterId { get; set; }
 
     [BindProperty]
     public required string MovieId { get; set; }
 
     [BindProperty]
-    public required string RoomTypeId { get; set; }
+    public required string RoomId { get; set; }
+
+    public IEnumerable<Models.Main.Room> Rooms { get; set; } = [];
 
     [BindProperty]
     public required DateTime StartAt { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0);
@@ -32,14 +33,15 @@ namespace the_movie_hub.Pages.Admin.Showtime
     // Methods
     public void OnGet()
     {
+
       // Get all movies is active
       Movies = db.Movies.Where(m => m.Active == true);
 
       // Get all theaters
       Theaters = db.Theaters;
 
-      // Get all room types
-      RoomTypes = db.RoomTypes;
+      // Get all room
+      Rooms = db.Rooms.Where(r => r.TheaterId.ToString() == TheaterId).Include(r => r.RoomType);
     }
 
     public void OnPost()
@@ -52,7 +54,7 @@ namespace the_movie_hub.Pages.Admin.Showtime
         Id = Guid.NewGuid(),
         TheaterId = Guid.Parse(TheaterId),
         MovieId = Guid.Parse(MovieId),
-        RoomTypeId = Guid.Parse(RoomTypeId),
+        RoomId = Guid.Parse(RoomId),
         StartAt = StartAt
       };
 

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Admin.Ticket
@@ -13,10 +14,13 @@ namespace the_movie_hub.Pages.Admin.Ticket
       [FromRoute]
       public IEnumerable<TicketType> TicketTypes { get; set; } = [];
 
+      public IEnumerable<Models.Main.RoomType> RoomTypes { get; set; } = [];
+
       // Methods
       public void OnGet()
       {
-         TicketTypes = db.TicketTypes;
+         TicketTypes = db.TicketTypes.Include(t => t.RoomType);
+         RoomTypes = db.RoomTypes;
       }
 
       public void OnPostDelete(string Id)

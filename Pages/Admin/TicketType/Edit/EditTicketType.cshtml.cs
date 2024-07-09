@@ -23,6 +23,11 @@ namespace the_movie_hub.Pages.Admin.Ticket
     [BindProperty]
     public required string Description { get; set; }
 
+    [BindProperty]
+    public Guid RoomTypeId { get; set; }
+
+    public IEnumerable<Models.Main.RoomType> RoomTypes { get; set; } = [];
+
     // Methods
     public void OnGet()
     {
@@ -35,14 +40,25 @@ namespace the_movie_hub.Pages.Admin.Ticket
         return;
       }
 
-      // Set the properties
+      // get room types
+      RoomTypes = db.RoomTypes;
+
+      // get the properties
       Label = ticketType.Label;
       Price = ticketType.Price;
       Description = ticketType.Description;
+      RoomTypeId = ticketType.RoomTypeId;
     }
 
     public void OnPost()
     {
+      // check if room type is selected
+      if (RoomTypeId == Guid.Empty)
+      {
+        ModelState.AddModelError("RoomTypeId", "Please select a room type");
+        return;
+      }
+
       var updatedTicketType = db.TicketTypes.FirstOrDefault(item => item.Id.ToString() == Id);
 
       if (updatedTicketType == null)
@@ -54,6 +70,7 @@ namespace the_movie_hub.Pages.Admin.Ticket
       updatedTicketType.Label = Label;
       updatedTicketType.Price = Price;
       updatedTicketType.Description = Description;
+      updatedTicketType.RoomTypeId = RoomTypeId;
 
       db.SaveChanges();
 

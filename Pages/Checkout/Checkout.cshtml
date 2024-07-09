@@ -1,0 +1,69 @@
+﻿@page "/checkout"
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Checkout";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Checkout.CheckoutModel
+
+<div class="p-21">
+    <div class="max-w-1200">
+        <h1 class="font-body text-[40px] tracking-wider">Trang Thanh Toán</h1>
+
+        <div class="flex items-center gap-3 mt-8">
+            <div class="text-highlight flex flex-col gap-2 text-[20px] justify-center items-center tracking-wider">
+                <span class="font-body">1</span>
+                <p class="font-body uppercase">Thông tin khách hàng</p>
+            </div>
+            <div class="h-0.5 w-10 bg-white"></div>
+            <div class="flex flex-col gap-2 text-[20px] justify-center items-center tracking-wider">
+                <span class="font-body">2</span>
+                <p class="font-body uppercase">Thanh toán</p>
+            </div>
+            <div class="h-0.5 w-10 bg-white"></div>
+            <div class="flex flex-col gap-2 text-[20px] justify-center items-center tracking-wider">
+                <span class="font-body">3</span>
+                <p class="font-body uppercase">Thông tin vé phim</p>
+            </div>
+        </div>
+
+        <div class="flex gap-6 mt-12">
+            <div class="flex flex-col gap-6 w-1/2">
+                <div>
+                    <label for="fullName">Họ và tên</label>
+                    <input id="fullName" type="text"
+                        class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark">
+                </div>
+                <div>
+                    <label for="phone">Số điện thoại</label>
+                    <input id="phone" type="text"
+                        class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="email"
+                        class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark">
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <div class="flex gap-3 items-center">
+                        <input id="age-asure" type="checkbox"
+                            class="h-4 w-4 accent-orange-500 -mt-1 outline-none rounded-md shadow-lg text-dark">
+                        <label class="cursor-pointer" for="age-asure">Đảm bảo mua vé đúng số tuổi quy định.
+                        </label>
+                    </div>
+
+                    <div class="flex gap-3 items-center">
+                        <input id="privacy" type="checkbox"
+                            class="h-4 w-4 accent-orange-500 -mt-1 outline-none rounded-md shadow-lg text-dark">
+                        <label class="cursor-pointer" for="privacy">Đồng ý với <a
+                                href='https://cinestar.com.vn/dieu-khoan-chung' class="underline">điều khoản của
+                                Cinestar</a>.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

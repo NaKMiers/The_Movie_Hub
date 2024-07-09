@@ -19,19 +19,35 @@ namespace the_movie_hub.Pages.Admin.Ticket
     [BindProperty]
     public required string Description { get; set; }
 
+    public IEnumerable<Models.Main.RoomType> RoomTypes { get; set; } = [];
+
+    [BindProperty]
+    public Guid RoomTypeId { get; set; }
+
     // Methods
+    public void OnGet()
+    {
+      RoomTypes = db.RoomTypes;
+    }
+
     public void OnPost()
     {
-      Console.WriteLine(Label);
-      Console.WriteLine(Price);
-      Console.WriteLine(Description);
+      Console.WriteLine("RoomTypeId: " + RoomTypeId);
+
+      // check if room type is selected
+      if (RoomTypeId == Guid.Empty)
+      {
+        ModelState.AddModelError("RoomTypeId", "Please select a room type");
+        return;
+      }
 
       var ticketType = new TicketType
       {
         Id = Guid.NewGuid(),
         Label = Label,
         Price = Price,
-        Description = Description
+        Description = Description,
+        RoomTypeId = RoomTypeId
       };
 
       db.TicketTypes.Add(ticketType);

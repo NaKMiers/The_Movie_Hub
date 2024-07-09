@@ -28,6 +28,7 @@
                         <tr>
                             <th class="py-2 px-4 text-left">ID</th>
                             <th class="py-2 px-4 text-left">Label</th>
+                            <th class="py-2 px-4 text-left">Room Type</th>
                             <th class="py-2 px-4 text-left">Price</th>
                             <th class="py-2 px-4 text-left">Description</th>
                             <th class="py-2 px-4 text-left">_</th>
@@ -40,6 +41,7 @@
                             <tr>
                                 <td class="py-2 px-4">@item.Id</td>
                                 <td class="py-2 px-4">@item.Label</td>
+                                <td class="py-2 px-4">@item.RoomType?.Title</td>
                                 <td class="py-2 px-4">@item.Price</td>
                                 <td class="py-2 px-4">@item.Description</td>
                                 <td class="py-2 px-4">

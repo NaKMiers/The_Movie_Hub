@@ -196,10 +196,7 @@ namespace the_movie_hub.Migrations
                     b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("RoomId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("RoomTypeId")
+                    b.Property<Guid>("RoomId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("StartAt")
@@ -213,8 +210,6 @@ namespace the_movie_hub.Migrations
                     b.HasIndex("MovieId");
 
                     b.HasIndex("RoomId");
-
-                    b.HasIndex("RoomTypeId");
 
                     b.HasIndex("TheaterId");
 
@@ -338,7 +333,12 @@ namespace the_movie_hub.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
+                    b.Property<Guid>("RoomTypeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RoomTypeId");
 
                     b.ToTable("TicketTypes");
                 });
@@ -449,25 +449,21 @@ namespace the_movie_hub.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("the_movie_hub.Models.Main.Room", null)
+                    b.HasOne("the_movie_hub.Models.Main.Room", "Room")
                         .WithMany("ShowTimes")
-                        .HasForeignKey("RoomId");
-
-                    b.HasOne("the_movie_hub.Models.Main.RoomType", "RoomType")
-                        .WithMany()
-                        .HasForeignKey("RoomTypeId")
+                        .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("the_movie_hub.Models.Main.Theater", "Theater")
                         .WithMany("ShowTimes")
                         .HasForeignKey("TheaterId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Movie");
 
-                    b.Navigation("RoomType");
+                    b.Navigation("Room");
 
                     b.Navigation("Theater");
                 });
@@ -509,6 +505,17 @@ namespace the_movie_hub.Migrations
                     b.Navigation("TicketType");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("the_movie_hub.Models.Main.TicketType", b =>
+                {
+                    b.HasOne("the_movie_hub.Models.Main.RoomType", "RoomType")
+                        .WithMany()
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RoomType");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.Movie", b =>

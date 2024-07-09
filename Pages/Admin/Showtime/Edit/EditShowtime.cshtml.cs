@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Admin.Showtime
@@ -17,16 +18,16 @@ namespace the_movie_hub.Pages.Admin.Showtime
 
     public IEnumerable<Models.Main.Theater> Theaters { get; set; } = [];
 
-    public IEnumerable<Models.Main.RoomType> RoomTypes { get; set; } = [];
+    public IEnumerable<Models.Main.Room> Rooms { get; set; } = [];
 
-    [BindProperty]
+    [FromQuery]
     public required string TheaterId { get; set; }
 
     [BindProperty]
     public required string MovieId { get; set; }
 
     [BindProperty]
-    public required string RoomTypeId { get; set; }
+    public required string RoomId { get; set; }
 
     [BindProperty]
     public required DateTime StartAt { get; set; } = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0);
@@ -41,9 +42,8 @@ namespace the_movie_hub.Pages.Admin.Showtime
       if (showtime != null)
       {
         // set the properties
-        TheaterId = showtime.TheaterId.ToString();
         MovieId = showtime.MovieId.ToString();
-        RoomTypeId = showtime.RoomTypeId.ToString();
+        RoomId = showtime.RoomId.ToString();
         StartAt = showtime.StartAt;
       }
 
@@ -53,8 +53,8 @@ namespace the_movie_hub.Pages.Admin.Showtime
       // Get all theaters
       Theaters = db.Theaters;
 
-      // Get all room types
-      RoomTypes = db.RoomTypes;
+      // Get all rooms and group by theater
+      Rooms = db.Rooms.Where(r => r.TheaterId.ToString() == TheaterId).Include(r => r.RoomType);
     }
 
     public void OnPost()
@@ -65,7 +65,7 @@ namespace the_movie_hub.Pages.Admin.Showtime
       {
         showtime.TheaterId = Guid.Parse(TheaterId);
         showtime.MovieId = Guid.Parse(MovieId);
-        showtime.RoomTypeId = Guid.Parse(RoomTypeId);
+        showtime.RoomId = Guid.Parse(RoomId);
         showtime.StartAt = StartAt;
 
         db.SaveChanges();

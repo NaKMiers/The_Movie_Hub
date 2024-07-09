@@ -18,24 +18,39 @@
 
     @* Body *@
     <div class="mt-8">
-      <form method="post" class="flex flex-col gap-4">
-        <div>
-          <label for="theater" class="block font-medium text-gray-700">Rạp chiếu</label>
-          <select asp-for="TheaterId" asp-items="@(new SelectList(Model.Theaters, "Id", "Name"))"
-            class="border-2 border-dark px-3 py-1.5 rounded-md" required>
-          </select>
+      <div>
+        <label for="theater" class="block font-medium text-gray-700">Rạp chiếu</label>
+
+        <div class="flex gap-2 flex-wrap">
+          @foreach (var theater in Model.Theaters)
+          {
+            <form method="GET" class="flex items-center gap-4">
+              <input hidden type="text" name="TheaterId" value="@theater.Id"
+                class="border-2 border-dark px-3 py-1.5 rounded-md" required />
+              <button
+                class="@(Model.TheaterId == @theater.Id.ToString() ? "bg-green-300" : "") block font-medium text-gray-700 border-2 border-green-300 p-2 rounded-lg">@theater.Name</button>
+            </form>
+          }
         </div>
+      </div>
+
+      <form method="post" class="flex flex-col gap-4 mt-4">
+        @if (Model.Rooms.Any() == true)
+        {
+          <div>
+            <label for="theater" class="block font-medium text-gray-700">Chọn Phòng</label>
+            <select asp-for="RoomId" class="border-2 border-dark px-3 py-1.5 rounded-md" required>
+              @foreach (var room in Model.Rooms)
+              {
+                <option value="@room.Id">@room.Name @room.RoomType.Title</option>
+              }
+            </select>
+          </div>
+        }
 
         <div>
           <label for="theater" class="block font-medium text-gray-700">Phim</label>
           <select asp-for="MovieId" asp-items="@(new SelectList(Model.Movies, "Id", "Title"))"
-            class="border-2 border-dark px-3 py-1.5 rounded-md" required>
-          </select>
-        </div>
-
-        <div>
-          <label for="theater" class="block font-medium text-gray-700">Loại phòng</label>
-          <select asp-for="RoomTypeId" asp-items="@(new SelectList(Model.RoomTypes, "Id", "Title"))"
             class="border-2 border-dark px-3 py-1.5 rounded-md" required>
           </select>
         </div>

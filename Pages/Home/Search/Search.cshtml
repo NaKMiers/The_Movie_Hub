@@ -1,22 +1,37 @@
 ﻿@page "/search"
 @{
-    Layout = "_Layout";
-    ViewData["Title"] = "Search";
+  Layout = "_Layout";
+  ViewData["Title"] = "Search";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Home.Search.SearchModel
 
-<div class="text-center">
-    <h1 class="display-4">Search</h1>
+<div class="min-h-screen px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
+  <div class="max-w-1200 mx-auto">
+    <h1 class="font-body text-[40px] text-center">Search</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-21">
-        @foreach (var theater in Model.Theaters)
-        {
-            <div>
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-21 mt-8">
+      @foreach (var theater in Model.Theaters)
+      {
+          <div class="relative rounded-lg shadow-lg aspect-[5/4] overflow-hidden group">
+            <img class="w-full h-full object-cover" src="~/uploads/@theater.Image" alt="theater">
+
+            <div
+              class="absolute bottom-0 left-0 w-full flex flex-col justify-end gap-2 group:h-full p-4 bg-gradient-to-r from-[#663399] to-[#3366CCCC]">
+              <a href='/book-tickerts/@theater.Id' class="font-body tracking-wider text-2xl">@theater.Name</a>
+              <a href='/book-tickerts/@theater.Id'>@theater.Address</a>
+              <a href='/book-tickets/@theater.Id'
+                class="relative min-w-[150px] h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                  ĐẶT VÉ
+                </span>
+              </a>
             </div>
-        }
+          </div>
+      }
     </div>
+  </div>
 </div>

@@ -39,24 +39,24 @@ namespace the_movie_hub.Middlewares
             }
          }
 
-         // // required ADMIN for route '/admin/*
-         // if (context.Request.Path.StartsWithSegments("/admin"))
-         // {
-         //    if (user == null)
-         //    {
-         //       // redirect to the login page
-         //       context.Response.Redirect("/Login");
-         //       return;
-         //    }
+         // required ADMIN for route '/admin/*
+         if (context.Request.Path.StartsWithSegments("/admin"))
+         {
+            if (user == null)
+            {
+               // redirect to the login page
+               context.Response.Redirect("/Login");
+               return;
+            }
 
-         //    // check if the user is an admin
-         //    if (user.Role != "admin")
-         //    {
-         //       // redirect to the login page
-         //       context.Response.Redirect("/Login");
-         //       return;
-         //    }
-         // }
+            // check if the user is an admin
+            if (user.Role != "admin")
+            {
+               // redirect to the login page
+               context.Response.Redirect("/Login");
+               return;
+            }
+         }
 
          await _next(context);
       }

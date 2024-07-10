@@ -8,9 +8,9 @@
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Checkout.CheckoutModel
 
-<div class="p-21">
+<div class="p-21 min-h-screen px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
     <div class="max-w-1200">
-        <h1 class="font-body text-[40px] tracking-wider">Trang Thanh Toán</h1>
+        <h1 class="font-body text-[32px] uppercase">Trang Thanh Toán</h1>
 
         <div class="flex items-center gap-3 mt-8">
             <div class="text-highlight flex flex-col gap-2 text-[20px] justify-center items-center tracking-wider">
@@ -29,41 +29,171 @@
             </div>
         </div>
 
-        <div class="flex gap-6 mt-12">
-            <div class="flex flex-col gap-6 w-1/2">
-                <div>
-                    <label for="fullName">Họ và tên</label>
-                    <input id="fullName" type="text"
-                        class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark">
-                </div>
-                <div>
-                    <label for="phone">Số điện thoại</label>
-                    <input id="phone" type="text"
-                        class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark">
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input id="email" type="email"
-                        class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark">
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <div class="flex gap-3 items-center">
-                        <input id="age-asure" type="checkbox"
-                            class="h-4 w-4 accent-orange-500 -mt-1 outline-none rounded-md shadow-lg text-dark">
-                        <label class="cursor-pointer" for="age-asure">Đảm bảo mua vé đúng số tuổi quy định.
-                        </label>
+        <div class=" flex gap-6 mt-12">
+            <div class="w-1/2">
+                @* Step 1 *@
+                <div class="checkout__step hidden flex-col gap-6">
+                    <div>
+                        <label for="fullName">Họ và tên</label>
+                        <input id="fullName" type="text"
+                            class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark" required>
+                    </div>
+                    <div>
+                        <label for="phone">Số điện thoại</label>
+                        <input id="phone" type="text"
+                            class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" type="email"
+                            class="w-full px-4 py-3 outline-none rounded-md shadow-lg mt-3 text-dark" required>
                     </div>
 
-                    <div class="flex gap-3 items-center">
-                        <input id="privacy" type="checkbox"
-                            class="h-4 w-4 accent-orange-500 -mt-1 outline-none rounded-md shadow-lg text-dark">
-                        <label class="cursor-pointer" for="privacy">Đồng ý với <a
-                                href='https://cinestar.com.vn/dieu-khoan-chung' class="underline">điều khoản của
-                                Cinestar</a>.
-                        </label>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-3 items-center">
+                            <input id="age-asure" type="checkbox"
+                                class="h-4 w-4 accent-orange-500 -mt-1 outline-none rounded-md shadow-lg text-dark">
+                            <label class="cursor-pointer" for="age-asure">Đảm bảo mua vé đúng số tuổi quy định.
+                            </label>
+                        </div>
+
+                        <div class="flex gap-3 items-center">
+                            <input id="privacy" type="checkbox"
+                                class="h-4 w-4 accent-orange-500 -mt-1 outline-none rounded-md shadow-lg text-dark">
+                            <label class="cursor-pointer" for="privacy">Đồng ý với <a
+                                    href='https://cinestar.com.vn/dieu-khoan-chung' class="underline">điều khoản của
+                                    Cinestar</a>.
+                            </label>
+                        </div>
                     </div>
+                </div>
+
+                @* Step 2 *@
+                <div class="checkout__step hidden flex-col gap-5">
+                    <button
+                        class="flex gap-2 px-8 py-5 items-center border-2 border-white rounded-md hover:bg-white hover:text-dark trans-300">
+                        <div class="w-12">
+                            <img class="w-8 h-8" src="~/images/momo.png" alt="/momo">
+                        </div>
+                        <span>Thanh toán Momo</span>
+                    </button>
+
+                    <button
+                        class="flex gap-2 px-8 py-5 items-center border-2 border-white rounded-md hover:bg-white hover:text-dark trans-300">
+                        <div class="w-12">
+                            <img class="h-8" src="~/images/mastercard.png" alt="banking">
+                        </div>
+                        <span>Thanh toán thẻ nội địa</span>
+                    </button>
+
+                    <button
+                        class="flex gap-2 px-8 py-5 items-center border-2 border-white rounded-md hover:bg-white hover:text-dark trans-300">
+                        <div class="w-12">
+                            <img class="h-8" src="~/images/mastercard.png" alt="banking">
+                        </div>
+                        <span>Thanh toán thẻ quốc tế</span>
+                    </button>
+                </div>
+
+                <div class="flex gap-8 mt-8">
+                    <button
+                        class="checkout__prev-btn relative flex-1 h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                        <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                            Quay lại
+                        </span>
+                    </button>
+                    <button
+                        class="checkout__next-btn relative flex-1 h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                        <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                            Tiếp tục
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class='flex flex-col gap-3 rounded-lg shadow-lg bg-[#3266cc] p-6'>
+                <h1 class="font-body text-[20px]">KẺ TRỘM MẶT TRĂNG 4 2D LT (P)</h1>
+
+                <p>Phim dành cho khán giả mọi lứa tuổi</p>
+
+                <div>
+                    <h2 class="text-[20px]">Cinestar Quốc Thanh</h2>
+                    <p class="text-sm">271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành Phố Hồ Chí Minh</p>
+                </div>
+
+                <div>
+                    <p>Thời gian</p>
+                    <p class="text-[20px]">10:00 Thứ Tư 10/07/2024</p>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col">
+                        <span class="text-highlight">Phòng chiếu</span>
+                        <span class="text-[20px]">01</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-highlight">Số vé</span>
+                        <span class="text-[20px]">2</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-highlight">Loại vé</span>
+                        <span class="text-[20px]">Loại vé</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col">
+                        <span class="text-highlight">Loại ghế</span>
+                        <span class="text-[20px]">Ghế Thường</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-highlight">Số ghế</span>
+                        <span class="text-[20px]">J09, J10</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-between gap-3 border-t-2 border-dotted border-white pt-3">
+                    <span class="text-highlight text-[20px]">SỐ TIỀN CẦN THANH TOÁN</span>
+                    <span class="font-semibold text-[26px]">130.000VND</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<script>
+    let curStep = 1
+
+    const prevBtn = document.querySelector('.checkout__prev-btn')
+    const nextBtn = document.querySelector('.checkout__next-btn')
+
+    const updateStep = () => {
+        const steps = document.querySelectorAll('.checkout__step')
+        console.log(steps)
+
+        steps.forEach(step => {
+            step.classList.add('hidden')
+            step.classList.remove('flex')
+        })
+        steps[curStep - 1].classList.remove('hidden')
+        steps[curStep - 1].classList.add('flex')
+    }
+
+    updateStep()
+
+    prevBtn.addEventListener('click', () => {
+        if (curStep > 1) {
+            curStep--
+            updateStep()
+        }
+    })
+
+    nextBtn.addEventListener('click', () => {
+        console.log(saasd)
+        if (curStep < 3) {
+            curStep++
+            updateStep()
+        }
+    })
+
+</script>

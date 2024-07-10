@@ -14,12 +14,6 @@ builder.Services.AddDbContext<TheMovieHubDbContext>(options =>
     }
 );
 
-// builder.Services.AddAuthentication()
-// .AddGoogle(options =>
-// {
-//     options.ClientId = builder.Configuration["Auth:Google:ClientId"];
-//     options.ClientSecret = builder.Configuration["Auth:Google:ClientSecret"];
-// });
 
 // config session
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

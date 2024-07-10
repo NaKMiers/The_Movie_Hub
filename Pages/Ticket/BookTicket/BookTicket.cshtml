@@ -1,15 +1,33 @@
 ﻿@page "/book-tickets/{id}"
 @{
-    Layout = "_Layout";
-    ViewData["Title"] = "Book Ticket";
+  Layout = "_Layout";
+  ViewData["Title"] = "Book Ticket";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Ticket.BookTicket.BookTicketModel
 
-<div class="text-center">
-    <h1 class="display-4">Book Ticket</h1>
+<div class="p-21">
+  <div class="max-w-1200 mx-auto">
+    <h1 class="text-center">Book Ticket</h1>
 
-    @Model.Theater?.Name
+    <div class="grid grid-cols-2 gap-6">
+      @foreach (var movieGroup in Model.MovieShowTimeGroups)
+      {
+        <div class="flex gap-2">
+          @* Thumbnail *@
+          <div class="w-1/2">
+            <div class="aspect-[1/2] rounded-lg shadow-md shadow-highlight overflow-hidden">
+              <img class="w-full h-full object-cover" src="~/uploads/@movieGroup.Movie.Image" alt="thumbnail">
+            </div>
+          </div>
+
+          @* Info *@
+          <div class="w-1/2">
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </div>

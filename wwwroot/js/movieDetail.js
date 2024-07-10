@@ -175,6 +175,7 @@ $(function () {
 
   // change ticket type quantity
   const ticketTypeQuantities = {}
+  let totalPrice = 0
   $(document).on('change', 'input[name="ticket-type-quantity"]', function () {
     const quantity = +$(this).val()
     const ticketTypeData = $(this).data('ticket-type')
@@ -192,7 +193,6 @@ $(function () {
     console.log(Object.entries(ticketTypeQuantities))
 
     // calc total price
-    let totalPrice = 0
     for (const key in ticketTypeQuantities) {
       if (ticketTypeQuantities.hasOwnProperty(key)) {
         const { price, quantity } = ticketTypeQuantities[key]
@@ -208,7 +208,7 @@ $(function () {
     let totalQuantity = 0
     for (const key in ticketTypeQuantities) {
       if (ticketTypeQuantities.hasOwnProperty(key)) {
-        totalQuantity += ticketTypeQuantities[key]
+        totalQuantity += ticketTypeQuantities[key].quantity
       }
     }
     return totalQuantity
@@ -262,8 +262,33 @@ $(function () {
         .join(', ')}`
 
       selectedRoomSeatTime.text(str)
-
-      // calc total
     }
+  })
+
+  // store data to local storage when click on order-ticket-btn
+  $('#order-ticket-btn').click(function () {
+    if (selectedSeats.length < totalQuantity()) {
+      alert('Vui lòng chọn đủ số lượng ghế.')
+      return
+    }
+
+    const ticket = {
+      movieId,
+      theaterId: selectedTheater.id,
+      roomId: selectedRoom.id,
+      showTimeId: selectedShowTime.id,
+      ticketTypes: Object.entries(ticketTypeQuantities).map(([label, { price, quantity }]) => ({
+        label,
+        price,
+        quantity,
+      })),
+      seats: selectedSeats,
+      startAt: selectedShowTime.time,
+      total: totalPrice,
+    }
+
+    console.log('ticket', ticket)
+
+    localStorage.setItem('ticket', JSON.stringify(ticket))
   })
 })

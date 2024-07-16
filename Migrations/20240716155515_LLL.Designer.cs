@@ -12,8 +12,8 @@ using the_movie_hub.Models.Main;
 namespace the_movie_hub.Migrations
 {
     [DbContext(typeof(TheMovieHubDbContext))]
-    [Migration("20240716111919_First")]
-    partial class First
+    [Migration("20240716155515_LLL")]
+    partial class LLL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

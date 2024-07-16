@@ -8,26 +8,121 @@
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Ticket.BookTicket.BookTicketModel
 
-<div class="min-h-screen pt-16 px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
+<div class="min-h-screen px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
   <div class="max-w-1200 mx-auto">
-    <h1 class="text-center">Book Ticket</h1>
-
-    <div class="grid grid-cols-2 gap-6">
-      @foreach (var movieGroup in Model.MovieShowTimeGroups)
-      {
-        <div class="flex gap-2">
-          @* Thumbnail *@
-          <div class="w-1/2">
-            <div class="aspect-[1/2] rounded-lg shadow-md shadow-highlight overflow-hidden">
-              <img class="w-full h-full object-cover" src="~/uploads/@movieGroup.Movie.Image" alt="thumbnail">
-            </div>
-          </div>
-
-          @* Info *@
-          <div class="w-1/2">
-          </div>
+    @* Theater *@
+    <div class="">
+      <div class="flex h-[172px]">
+        <div class="max-w-[420px] flex-shrink-0">
+          <img class="w-full h-full object-cover" src="~/uploads/@Model.Theater?.Image" alt="theater">
         </div>
-      }
+        <div class="flex flex-col justify-center gap-2 py-5 px-12 w-full bg-gradient-to-r from-[#633294] to-[#395dc4]">
+          <h1 class="uppercase text-[46px] font-body tracking-wider">@Model.Theater.Name</h1>
+          <p>@Model.Theater.Address</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 uppercase text-nowrap">
+        <a href='/book-tickets/@Model.Id'
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-highlight p-2.5 h-[60px]">
+          Phim Đang Chiếu
+        </a>
+        <a href='/book-tickets/@Model.Id?status=coming-soon'
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-transparent p-2.5 h-[60px]">
+          Phim Sắp Chiếu
+        </a>
+        <a href='/book-tickets/@Model.Id?status=special'
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-transparent p-2.5 h-[60px]">
+          Suất Chiếu Đặc Biệt
+        </a>
+        <a href='/book-tickets/@Model.Id?status='
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-transparent p-2.5 h-[60px]">
+          Bảng Giá Vé
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <h1 class="font-body tracking-wider uppercase text-[40px] text-center">Phim Đang Chiếu</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        @foreach (var group in Model.MovieShowTimeGroups)
+        {
+          <div class="flex gap-2">
+            <a href='/Movie/@group.Movie.Id'
+              class="w-1/2 flex-shrink-0 rounded-lg shadow-lg aspect-[2/3] overflow-hidden">
+              <img class="w-full h-full object-cover" src="~/uploads/@group.Movie.Image" alt="thumbnail">
+            </a>
+            <div class="flex flex-col gap-3">
+              <a href="/Movie/@group.Movie.Id" class="text-[20px] font-body tracking-wider">@group.Movie.Title</a>
+
+              <div class="flex flex-col gap-1">
+                <div class="flex text-sm gap-2">
+                  <img class="h-3" loading="lazy" decoding="async" data-nimg="fill" src="~/images/tag.svg">
+                  <p class="txt">
+                    @foreach (var genre in group.Movie?.MovieGenres)
+                    {
+                      <span>@genre.Genre.Title</span>
+                    }
+                  </p>
+                </div>
+                <div class="flex text-sm gap-2">
+                  <img class="h-3" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                  <span class="txt">@group.Movie?.Duration'</span>
+                </div>
+
+                <div class="flex text-sm gap-2">
+                  <img class="h-3" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                  <span class="txt">@group.Movie?.Country</span>
+                </div>
+
+                <div class="flex text-sm gap-2">
+                  <img class="h-3" loading="lazy" decoding="async" data-nimg="fill" src="~/images/subtitle.svg">
+                  <span class="txt">Phụ đề</span>
+                </div>
+
+                <div class="flex text-sm gap-2">
+                  <img class="h-3" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                  <span class="txt">P: Phim dành cho khán giả mọi lứa tuổi
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                @foreach (var dateGroup in group.DateGroups)
+                {
+                  <div class="rounded-lg border p-2">
+                    <p>@dateGroup.Date.ToShortDateString()</p>
+
+                    <div class="flex flex-col gap-2">
+                      @foreach (var roomTypeShowTime in dateGroup.RoomTypeShowTimes)
+                      {
+                        <div class="">
+                          <span class="text-xs uppercase">@roomTypeShowTime.Key</span>
+
+                          <div class="flex gap-2">
+                            @foreach (var showTime in roomTypeShowTime.Value)
+                            {
+                              <button class="border rounded-md p-1.5 text-nowrap text-xs">
+                                @showTime.StartAt.ToShortTimeString()
+                              </button>
+                            }
+                          </div>
+
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+          </div>
+        }
+
+      </div>
     </div>
   </div>
+
+</div>
 </div>

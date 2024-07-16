@@ -11,19 +11,50 @@ namespace the_movie_hub.Pages.Admin.Movie
       private readonly IWebHostEnvironment environment = environment;
 
       // Properties
+      [BindProperty]
+      public required string Title { get; set; }
+
+      [BindProperty]
+      public required DateOnly ReleaseDate { get; set; }
+
+      [BindProperty]
+      public new required string Content { get; set; }
+
+      [BindProperty]
+      public required string Director { get; set; }
+
+      [BindProperty]
+      public required string Actors { get; set; }
+
+      [BindProperty]
+      public required int Duration { get; set; }
+
+      [BindProperty]
+      public required string TrailerUrl { get; set; }
+
+      [BindProperty]
+      public required string Country { get; set; }
+
+      [BindProperty]
+      public required string Note { get; set; }
+
+      [BindProperty]
+      public required string Banner { get; set; }
+
+      [BindProperty]
+      public required string Image { get; set; }
+
       public IEnumerable<Models.Main.Genre> Genres { get; set; } = [];
       public List<string> MovieGenres { get; set; } = [];
 
       [FromRoute]
       public required string Id { get; set; }
-      public Models.Main.Movie? Movie { get; set; }
-
       public void OnGet()
       {
          // get movie
-         Movie = db.Movies.FirstOrDefault(m => m.Id.ToString() == Id);
+         var movie = db.Movies.FirstOrDefault(m => m.Id.ToString() == Id);
 
-         if (Movie == null)
+         if (movie == null)
          {
             Response.Redirect("/Admin/Movie");
             return;
@@ -32,12 +63,24 @@ namespace the_movie_hub.Pages.Admin.Movie
          // get all genres
          Genres = db.Genres;
 
+         Title = movie.Title;
+         ReleaseDate = movie.ReleaseDate;
+         Content = movie.Content;
+         Director = movie.Director;
+         Actors = movie.Actors;
+         Duration = movie.Duration;
+         TrailerUrl = movie.TrailerUrl;
+         Country = movie.Country;
+         Note = movie.Note;
+         Banner = movie.Banner;
+         Image = movie.Image;
+
          // get movie-genres
-         MovieGenres = [.. db.MovieGenres.Where(m => m.MovieId == Movie.Id).Select(m => m.GenreId.ToString().ToLower())];
+         MovieGenres = [.. db.MovieGenres.Where(m => m.MovieId == movie.Id).Select(m => m.GenreId.ToString().ToLower())];
       }
 
       // Methods
-      public async Task OnPostAsync(Models.Main.Movie movie, List<string> SelectedGenres, IFormFile image, IFormFile banner)
+      public async Task OnPostAsync(List<string> SelectedGenres, IFormFile image, IFormFile banner)
       {
          var MovieUpdate = db.Movies.FirstOrDefault(t => t.Id.ToString() == Id);
          if (MovieUpdate == null)
@@ -48,15 +91,15 @@ namespace the_movie_hub.Pages.Admin.Movie
          }
 
          // update the movie
-         MovieUpdate.Title = movie.Title.Trim();
-         MovieUpdate.ReleaseDate = movie.ReleaseDate;
-         MovieUpdate.Content = movie.Content.Trim();
-         MovieUpdate.Director = movie.Director.Trim();
-         MovieUpdate.Actors = movie.Actors.Trim();
-         MovieUpdate.Duration = movie.Duration;
-         MovieUpdate.TrailerUrl = movie.TrailerUrl;
-         MovieUpdate.Country = movie.Country;
-         MovieUpdate.Note = movie.Note;
+         MovieUpdate.Title = Title.Trim();
+         MovieUpdate.ReleaseDate = ReleaseDate;
+         MovieUpdate.Content = Content.Trim();
+         MovieUpdate.Director = Director.Trim();
+         MovieUpdate.Actors = Actors.Trim();
+         MovieUpdate.Duration = Duration;
+         MovieUpdate.TrailerUrl = TrailerUrl;
+         MovieUpdate.Country = Country;
+         MovieUpdate.Note = Note;
 
          // update the movie-genres
          if (SelectedGenres != null)

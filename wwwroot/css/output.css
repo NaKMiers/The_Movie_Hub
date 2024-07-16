@@ -1605,6 +1605,14 @@ video {
   height: 100vh;
 }
 
+.h-\[172px\]{
+  height: 172px;
+}
+
+.h-3{
+  height: 0.75rem;
+}
+
 .\!max-h-fit{
   max-height: -moz-fit-content !important;
   max-height: fit-content !important;
@@ -1620,6 +1628,10 @@ video {
 
 .min-h-screen{
   min-height: 100vh;
+}
+
+.min-h-\[172px\]{
+  min-height: 172px;
 }
 
 .w-1{
@@ -1759,6 +1771,10 @@ video {
   width: 100vw;
 }
 
+.w-1\/4{
+  width: 25%;
+}
+
 .min-w-\[150px\]{
   min-width: 150px;
 }
@@ -1815,6 +1831,10 @@ video {
   max-width: 143px;
 }
 
+.max-w-\[200px\]{
+  max-width: 200px;
+}
+
 .max-w-\[250px\]{
   max-width: 250px;
 }
@@ -1851,12 +1871,8 @@ video {
   max-width: 36rem;
 }
 
-.max-w-\[200px\]{
-  max-width: 200px;
-}
-
-.max-w-\[300px\]{
-  max-width: 300px;
+.max-w-\[420px\]{
+  max-width: 420px;
 }
 
 .flex-1{
@@ -3160,6 +3176,10 @@ video {
   border-top-width: 0.5px;
 }
 
+.border-b-\[4px\]{
+  border-bottom-width: 4px;
+}
+
 .border-solid{
   border-style: solid;
 }
@@ -3287,6 +3307,10 @@ video {
 .border-white{
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-transparent{
+  border-color: transparent;
 }
 
 .\!bg-white{
@@ -3659,6 +3683,18 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-highlight{
+  --tw-gradient-from: #f3ea28 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(243 234 40 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[\#633294\]{
+  --tw-gradient-from: #633294 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(99 50 148 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-\[\#0f172a\]{
   --tw-gradient-to: #0f172a var(--tw-gradient-to-position);
 }
@@ -3685,6 +3721,10 @@ video {
 
 .to-transparent{
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.to-\[\#395dc4\]{
+  --tw-gradient-to: #395dc4 var(--tw-gradient-to-position);
 }
 
 .decoration-slice{
@@ -4378,6 +4418,14 @@ video {
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-\[60px\]{
+  font-size: 60px;
+}
+
+.text-\[46px\]{
+  font-size: 46px;
 }
 
 .font-bold{
@@ -5978,14 +6026,6 @@ svg path {
 
   .sm\:mt-5{
     margin-top: 1.25rem;
-  }
-
-  .sm\:block{
-    display: block;
-  }
-
-  .sm\:hidden{
-    display: none;
   }
 
   .sm\:w-1\/2{

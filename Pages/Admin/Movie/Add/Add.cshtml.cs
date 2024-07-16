@@ -38,9 +38,6 @@ namespace the_movie_hub.Pages.Admin.Movie
       [BindProperty]
       public required string Note { get; set; }
 
-
-
-
       public IEnumerable<Models.Main.Genre> Genres { get; set; } = [];
 
       public void OnGet()

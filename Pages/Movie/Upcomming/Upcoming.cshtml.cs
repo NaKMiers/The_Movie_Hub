@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Movie.MovieUpcoming
@@ -15,7 +14,7 @@ namespace the_movie_hub.Pages.Movie.MovieUpcoming
     // Methods
     public void OnGet()
     {
-      Movies = db.Movies.Where(m => m.Active == false);
+      Movies = db.Movies.Where(m => m.Active == true && m.ReleaseDate > DateOnly.FromDateTime(DateTime.Today));
     }
   }
 }

@@ -251,25 +251,21 @@ namespace the_movie_hub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MovieId")
+                    b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("MovieId1")
+                    b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PaymentMethod")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoomId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("RoomId1")
+                    b.Property<Guid>("RoomId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("SeatId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("SeatId1")
+                    b.Property<Guid>("SeatId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("StartAt")
@@ -278,40 +274,31 @@ namespace the_movie_hub.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TheaterId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("TheaterId1")
+                    b.Property<Guid>("TheaterId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("TicketTypeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("TicketTypeId1")
+                    b.Property<Guid>("TicketTypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float?>("Total")
+                    b.Property<float>("Total")
                         .HasColumnType("real");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("UserId1")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId1");
+                    b.HasIndex("MovieId");
 
-                    b.HasIndex("RoomId1");
+                    b.HasIndex("RoomId");
 
-                    b.HasIndex("SeatId1");
+                    b.HasIndex("SeatId");
 
-                    b.HasIndex("TheaterId1");
+                    b.HasIndex("TheaterId");
 
-                    b.HasIndex("TicketTypeId1");
+                    b.HasIndex("TicketTypeId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tickets");
                 });
@@ -323,7 +310,6 @@ namespace the_movie_hub.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Label")
@@ -472,27 +458,37 @@ namespace the_movie_hub.Migrations
                 {
                     b.HasOne("the_movie_hub.Models.Main.Movie", "Movie")
                         .WithMany()
-                        .HasForeignKey("MovieId1");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("the_movie_hub.Models.Main.Room", "Room")
                         .WithMany()
-                        .HasForeignKey("RoomId1");
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("the_movie_hub.Models.Main.Seat", "Seat")
                         .WithMany("Tickets")
-                        .HasForeignKey("SeatId1");
+                        .HasForeignKey("SeatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("the_movie_hub.Models.Main.Theater", "Theater")
                         .WithMany()
-                        .HasForeignKey("TheaterId1");
+                        .HasForeignKey("TheaterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("the_movie_hub.Models.Main.TicketType", "TicketType")
                         .WithMany()
-                        .HasForeignKey("TicketTypeId1");
+                        .HasForeignKey("TicketTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.HasOne("the_movie_hub.Models.Main.User", "User")
+                    b.HasOne("the_movie_hub.Models.Main.User", null)
                         .WithMany("Tickets")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Movie");
 
@@ -503,8 +499,6 @@ namespace the_movie_hub.Migrations
                     b.Navigation("Theater");
 
                     b.Navigation("TicketType");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("the_movie_hub.Models.Main.TicketType", b =>

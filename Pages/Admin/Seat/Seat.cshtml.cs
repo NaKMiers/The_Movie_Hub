@@ -74,6 +74,12 @@ namespace the_movie_hub.Pages.Admin.Seat
             IsAvailable = true
          };
 
+         // increase room capacity
+         if (Room != null)
+         {
+            Room.Capacity++;
+         }
+
          db.Seats.Add(seat);
          db.SaveChanges();
 
@@ -90,6 +96,12 @@ namespace the_movie_hub.Pages.Admin.Seat
          {
             db.Seats.Remove(seat);
             db.SaveChanges();
+         }
+
+         // decrease room capacity
+         if (Room != null)
+         {
+            Room.Capacity--;
          }
 
          // redirect to the same page

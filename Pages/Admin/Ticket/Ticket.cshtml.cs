@@ -15,8 +15,13 @@ namespace the_movie_hub.Pages.Admin.Ticket
     // Methods
     public void OnGet()
     {
-      // get all tickets include movie, theater
-      Tickets = db.Tickets.Include(t => t.Movie).Include(t => t.Theater);
+      // get all tickets include movie, theater, seat
+      Tickets = db.Tickets
+        .Include(t => t.Movie)
+        .Include(t => t.Theater)
+        .Include(t => t.TicketType)
+        .Include(t => t.Room)
+        .Include(t => t.Seat);
     }
 
     public void OnPostDelete(string Id)

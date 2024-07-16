@@ -14,7 +14,7 @@ namespace the_movie_hub.Pages.Movie.MovieShowing
     // Methods
     public void OnGet()
     {
-      Movies = db.Movies.Where(m => m.Active == true);
+      Movies = db.Movies.Where(m => m.Active == true && m.ReleaseDate <= DateOnly.FromDateTime(DateTime.Today));
     }
   }
 }

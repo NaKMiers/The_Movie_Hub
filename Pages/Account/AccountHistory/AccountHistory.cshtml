@@ -1,0 +1,143 @@
+﻿@page "/account/account-history"
+
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models
+@using Newtonsoft.Json
+@using the_movie_hub.Models.Main
+@model the_movie_hub.Pages.Account.AccountHistory.AccountHistoryModel
+@using System.Globalization
+
+@{
+  Layout = "_Layout";
+  ViewData["Title"] = "Account Profile";
+  string? session = HttpContext.Session.GetString("User");
+  var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
+
+  if (user == null)
+  {
+    Response.Redirect("/Login");
+    return;
+  }
+}
+
+<div class="min-h-screen bg-gradient-radial from-[#36c] to-[#0f172a] px-21">
+  <div class="max-w-1200 mx-auto text-dark pt-[50px] pb-[100px]">
+    <div class="flex flex-col md:flex-row gap-x-21 gap-y-10">
+      @* Sidebar *@
+      <div class="relative md:max-w-[276px] w-full text-white">
+        <div class="sticky top-[150px] rounded-lg shadow-lg p-4 bg-gradient-to-r from-[#639] to-[#36c] ">
+          @* Avatar *@
+          <div class="flex gap-3">
+            @if (user != null && user.Avatar != null)
+            {
+              <div class="w-[42px] h-[42px] aspect-square overflow-hidden rounded-full shadow-lg">
+                <img src="~/uploads/@user.Avatar" alt="avatar" class="w-full h-full object-cover" />
+              </div>
+            }
+            else
+            {
+              <svg fill="#fff" class="h-[42px] wiggle group-hover:fill-highlight trans-200"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
+              </svg>
+            }
+            <div class="-mt-1">
+              <div class="font-semibold">@user?.FullName</div>
+              <form id="avatarForm" method="post" enctype="multipart/form-data" asp-page-handler="ChangeAvatar">
+                <label class="about-user-action text-xs underline cursor-pointer" for="avatarInput">Thay đổi ảnh
+                  đại</label>
+                <input type="file" id="avatarInput" asp-for="Avatar" accept="image/*" style="display: none;"
+                  onchange="submitForm()">
+                using System.Globalization;
+              </form>
+            </div>
+          </div>
+
+          <button
+            class="bg-highlight h-9 w-full rounded-md font-body tracking-wider flex items-center justify-center text-black mt-4">
+            C'Friends
+          </button>
+
+          <div class="flex flex-col gap-1 mt-4">
+            <p>Tích điểm <span class="text-highlight">C'Friends</span></p>
+            <div class="rounded-lg bg-slate-400 w-full h-2"></div>
+            <p>0/10K</p>
+          </div>
+
+          <div class="border-t mt-4 mb-4 border-slate-500"></div>
+
+          <ul>
+            <li>
+              <a href="/account/account-profile" class="h-[45px] flex items-center pl-3">Thông tin khách hàng</a>
+            </li>
+            <li class="text-highlight border-l-2 border-highlight">
+              <a href="/account/account-history" class="h-[45px] flex items-center pl-3">Lịch sử mua hàng</a>
+            </li>
+          </ul>
+
+          <div class="border-t mt-4 mb-4 border-slate-500"></div>
+
+          <a href="/logout" class="text-highlight">Đăng xuất</a>
+        </div>
+      </div>
+
+      @* Main *@
+      <div class="flex-1">
+        <h1 class="font-body tracking-wider uppercase text-3xl text-white">Lịch sử mua vé</h1>
+
+        @if (Model.Tickets.Any() == false)
+        {
+          <p class="text-white mt-6 text-center text-lg">Chưa có lịch sử mua vé. <a href='/'
+              class="text-highlight underline underline-offset-1">Quay lại</a></p>
+        }
+        else
+        {
+          <div>
+            <p class="text-white mt-6 text-center text-lg">Số vé đã mua: @Model.Tickets.Count()</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              @foreach (var ticket in Model.Tickets)
+              {
+                <div class="rounded-lg shadow-lg border-dark border-2 p-21 bg-white">
+                  <p class="flex gap-2">
+                    <span>Ngày xem:</span>
+                    <span>@ticket.StartAt</span>
+                  </p>
+
+                  <div class="flex mt-4">
+                    <div>
+                      <div
+                        class="max-w-[200px] relative w-full aspect-[2/3] rounded-lg overflow-hidden shadow-md shadow-highlight">
+                        <img class="w-full h-full object-cover" src="~/uploads/@ticket.Movie.Image" alt="thumbnail">
+                      </div>
+                      <p class="font-semibold text-center mt-2">@ticket.Movie.Title</p>
+                    </div>
+                    <div class="flex-1 px-21 tracking-wider">
+                      <p>Rạp: @ticket.Theater.Name</p>
+                      <p>Phòng: @ticket.Room.Name</p>
+                      <p>Loại vé: @ticket.TicketType.Label</p>
+                      <p>Phương thức thanh toán: @ticket.PaymentMethod</p>
+
+                      <p class="font-bold text-xl mt-2">Tổng: <span class="text-nowrap">@ticket.Total.ToString("C0", new
+                      CultureInfo("vi-VN"))</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function submitForm() {
+    document.getElementById('avatarForm').submit();
+  }
+</script>

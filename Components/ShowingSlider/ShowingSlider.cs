@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
 using the_movie_hub.Models.Main;
 using the_movie_hub.Models.ViewModels;
 

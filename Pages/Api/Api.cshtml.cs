@@ -69,10 +69,26 @@ namespace the_movie_hub.Pages.Api
                          ShowTimes = rt.Select(s => new ShowtimeViewModel
                          {
                            Id = s.Id.ToString(),
-                           Time = s.StartAt.ToString("HH:mm")
+                           Time = s.StartAt.ToString("HH:mm"),
+                           Date = s.StartAt
                          }).ToList()
                        }).ToList()
                }).ToList();
+
+      // show list theaters
+      foreach (var theater in theaters)
+      {
+        Console.WriteLine(theater.Name);
+        foreach (var roomType in theater.RoomTypeShowTimes)
+        {
+          Console.WriteLine(roomType.Title);
+          foreach (var showTime in roomType.ShowTimes)
+          {
+            Console.WriteLine(showTime.Date);
+          }
+        }
+      }
+
 
       return new JsonResult(new { theaters, message = "Successfully" });
     }

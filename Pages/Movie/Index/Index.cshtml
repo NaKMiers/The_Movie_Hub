@@ -9,6 +9,38 @@
     ViewData["Title"] = "Movie";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Movie</h1>
+<div class="min-h-screen pt-4 px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
+    <div class="max-w-1200 mx-auto">
+        @* Showing Movies *@
+        <div class="max-w-1200 mx-auto">
+            <h1 class="font-body tracking-wider text-[40px] text-center">Phim Đang Chiếu</h1>
+
+            @await Component.InvokeAsync("ShowingSlider", new { Movies = Model.OnGoingMovies })
+
+            <div class="flex justify-center mt-8">
+                <a href='/movie/showing'
+                    class="relative min-w-[234px] h-[40px] rounded-md px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group border-2 text-highlight border-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                        XEM THÊM
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        @* Upcomming Movies *@
+        <div class="max-w-1200 mx-auto mt-28">
+            <h1 class="font-body tracking-wider text-[40px] text-center">Phim Sắp Chiếu</h1>
+
+            @await Component.InvokeAsync("UpcomingSlider", new { Movies = Model.UpComingMovies })
+
+            <div class="flex justify-center mt-8">
+                <a href='/movie/upcoming'
+                    class="relative min-w-[234px] h-[40px] rounded-md px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group border-2 text-highlight border-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                    <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                        XEM THÊM
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

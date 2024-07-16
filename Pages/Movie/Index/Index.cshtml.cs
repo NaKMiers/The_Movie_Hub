@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using the_movie_hub.Models.Main;
 
 namespace the_movie_hub.Pages.Movie.Index
@@ -16,10 +15,11 @@ namespace the_movie_hub.Pages.Movie.Index
     // Methods
     public void OnGet()
     {
-      OnGoingMovies = db.Movies.Where(m => m.Active == true);
-      OnGoingMovies = [.. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies, .. OnGoingMovies,];
-      UpComingMovies = db.Movies.Where(m => m.Active == false);
-      UpComingMovies = [.. UpComingMovies, .. UpComingMovies, .. UpComingMovies, .. UpComingMovies, .. UpComingMovies, .. UpComingMovies,];
+      // Get on going movies (active = true, release date <= today)
+      OnGoingMovies = db.Movies.Where(m => m.Active == true && m.ReleaseDate <= DateOnly.FromDateTime(DateTime.Today));
+
+      // Get on upcoming movies (active = true, release date > today)
+      UpComingMovies = db.Movies.Where(m => m.Active == true && m.ReleaseDate > DateOnly.FromDateTime(DateTime.Today));
     }
   }
 }

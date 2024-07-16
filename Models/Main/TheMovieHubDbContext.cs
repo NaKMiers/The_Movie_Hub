@@ -40,5 +40,17 @@ public partial class TheMovieHubDbContext : DbContext
             .WithMany(t => t.ShowTimes)
             .HasForeignKey(s => s.TheaterId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Ticket>()
+            .HasOne(t => t.TicketType)
+            .WithMany()
+            .HasForeignKey(t => t.TicketTypeId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Ticket>()
+        .HasOne(t => t.Theater)
+        .WithMany()
+        .HasForeignKey(t => t.TheaterId)
+        .OnDelete(DeleteBehavior.Restrict);
     }
 }

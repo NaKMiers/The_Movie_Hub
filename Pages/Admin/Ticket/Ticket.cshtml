@@ -24,13 +24,13 @@
 
         <table class="w-full bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
           <thead class="bg-gray-100 text-gray-700">
-            <tr>
+            <tr class="text-nowrap">
+              <th class="py-2 px-4 text-left">Email</th>
               <th class="py-2 px-4 text-left">ID</th>
               <th class="py-2 px-4 text-left">Movie</th>
               <th class="py-2 px-4 text-left">Ticket Type</th>
               <th class="py-2 px-4 text-left">Theater</th>
               <th class="py-2 px-4 text-left">Room</th>
-              <th class="py-2 px-4 text-left">Seat</th>
               <th class="py-2 px-4 text-left">Start</th>
               <th class="py-2 px-4 text-left">Total</th>
               <th class="py-2 px-4 text-left">Payment</th>
@@ -42,12 +42,12 @@
             @foreach (var item in Model.Tickets)
             {
               <tr>
+                <td class="py-2 px-4">@item.Email</td>
                 <td class="py-2 px-4">@item.Id</td>
-                <td class="py-2 px-4">@item.MovieId</td>
-                <td class="py-2 px-4">@item.TicketTypeId</td>
-                <td class="py-2 px-4">@item.TheaterId</td>
-                <td class="py-2 px-4">@item.RoomId</td>
-                <td class="py-2 px-4">@item.Seat</td>
+                <td class="py-2 px-4">@item.Movie?.Title</td>
+                <td class="py-2 px-4">@item.TicketType?.Label</td>
+                <td class="py-2 px-4">@item.Theater?.Name</td>
+                <td class="py-2 px-4">@item.Room?.Name</td>
                 <td class="py-2 px-4">@item.StartAt</td>
                 <td class="py-2 px-4">@item.Total</td>
                 <td class="py-2 px-4">@item.PaymentMethod</td>

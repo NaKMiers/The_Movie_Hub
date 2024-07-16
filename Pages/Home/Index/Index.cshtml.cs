@@ -15,8 +15,12 @@ namespace the_movie_hub.Pages.Home.Index
     // Methods
     public void OnGet()
     {
-      OnGoingMovies = db.Movies.Where(m => m.Active == true);
-      UpComingMovies = db.Movies.Where(m => m.Active == false);
+      // Get on going movies (active = true, release date <= today)
+      OnGoingMovies = db.Movies.Where(m => m.Active == true && m.ReleaseDate <= DateOnly.FromDateTime(DateTime.Today));
+
+
+      // Get on upcoming movies (active = true, release date > today)
+      UpComingMovies = db.Movies.Where(m => m.Active == true && m.ReleaseDate > DateOnly.FromDateTime(DateTime.Today));
     }
   }
 }

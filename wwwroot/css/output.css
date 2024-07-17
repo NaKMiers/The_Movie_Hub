@@ -1959,6 +1959,11 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.translate-x-1{
+  --tw-translate-x: 0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .translate-x-full{
   --tw-translate-x: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -5521,6 +5526,38 @@ svg path {
 
 .swiper-pagination-bullet {
   background: #4f46e5;
+}
+
+/* float down and up animation for notify */
+
+@keyframes float-down {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+
+  10% {
+    transform: translateY(80px);
+    opacity: 1;
+  }
+
+  65% {
+    transform: translateY(80px);
+    opacity: 1;
+  }
+
+  99% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+.float-down {
+  animation: float-down 1.5s ease-in forwards;
 }
 
 @media (min-width: 640px){

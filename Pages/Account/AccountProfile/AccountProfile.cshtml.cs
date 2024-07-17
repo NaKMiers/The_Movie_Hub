@@ -58,7 +58,7 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       Birthday = user.Birthday;
     }
 
-    public async Task OnPostChangeAvatarAsync()
+    public async Task<IActionResult> OnPostChangeAvatarAsync()
     {
       // get userId from the session
       string? session = HttpContext.Session.GetString("User");
@@ -68,7 +68,7 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       {
         // redirect to the login page
         Response.Redirect("/Login");
-        return;
+        return Page();
       }
 
       var updateUser = db.Users.FirstOrDefault(t => t.Id.ToString() == user.Id.ToString());
@@ -76,7 +76,7 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       if (updateUser == null)
       {
         Response.Redirect("/Account/Account-Profile");
-        return;
+        return Page();
       }
 
       // upload file, file must be an image
@@ -111,9 +111,16 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       // update the session
       HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
 
+      // Set success message
+      TempData["SuccessMessage"] = "Đổi ảnh đại diện thành công!";
+      FullName = user.FullName;
+      Email = user.Email;
+      Phone = user.Phone;
+      Birthday = user.Birthday;
+
+
       // redirect to the user page
-      Response.Redirect("/Account/Account-Profile");
-      return;
+      return Page();
     }
 
     public async Task<IActionResult> OnPostUpdateInfo()
@@ -138,7 +145,6 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       }
 
 
-
       // Ensure user properties are not null before assigning
       updateUser.FullName = FullName;
       updateUser.Email = Email;
@@ -151,20 +157,14 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       // update the session
       HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
 
-      // redirect to the user page
-      Response.Redirect("/Account/Account-Profile");
+      // Set success message
+      TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
+
       return Page();
     }
 
     public async Task<IActionResult> OnPostChangePassword()
     {
-      // check if the new password and confirm password are the same
-      if (NewPassword != ConfirmPassword)
-      {
-        ModelState.AddModelError("Password", "Mật khẩu không khớp");
-        return Page();
-      }
-
       // get userId from the session
       string? session = HttpContext.Session.GetString("User");
       var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
@@ -176,6 +176,23 @@ namespace the_movie_hub.Pages.Account.AccountProfile
         return Page();
       }
 
+      // check if the new password and confirm password are the same
+      if (NewPassword != ConfirmPassword)
+      {
+        // Ensure user properties are not null before assigning
+        FullName = user.FullName;
+        Email = user.Email;
+        Phone = user.Phone;
+        Birthday = user.Birthday;
+
+        ModelState.AddModelError("Password", "Mật khẩu không khớp");
+        return Page();
+      }
+
+
+
+
+
       var updateUser = db.Users.FirstOrDefault(t => t.Id.ToString() == user.Id.ToString());
       if (updateUser == null)
       {
@@ -185,6 +202,12 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       // check if the old password is correct
       if (updateUser.Password != OldPassword)
       {
+        // Ensure user properties are not null before assigning
+        FullName = user.FullName;
+        Email = user.Email;
+        Phone = user.Phone;
+        Birthday = user.Birthday;
+
         ModelState.AddModelError("Password", "Mật khẩu cũ không đúng");
         return Page();
       }
@@ -192,6 +215,12 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       // check if the new password is the same as the old password
       if (updateUser.Password == NewPassword)
       {
+        // Ensure user properties are not null before assigning
+        FullName = user.FullName;
+        Email = user.Email;
+        Phone = user.Phone;
+        Birthday = user.Birthday;
+
         ModelState.AddModelError("Password", "Mật khẩu mới không được trùng với mật khẩu cũ");
         return Page();
       }
@@ -200,11 +229,17 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       updateUser.Password = NewPassword;
       await db.SaveChangesAsync();
 
+      // Ensure user properties are not null before assigning
+      FullName = user.FullName;
+      Email = user.Email;
+      Phone = user.Phone;
+      Birthday = user.Birthday;
+
       // update the session
       HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
 
-      // redirect to the user page
-      Response.Redirect("/Account/Account-Profile");
+      // Set success message
+      TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
       return Page();
     }
   }

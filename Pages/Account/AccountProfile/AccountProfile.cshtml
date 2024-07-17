@@ -22,6 +22,17 @@
 
 <div class="min-h-screen bg-gradient-radial from-[#36c] to-[#0f172a] px-21">
   <div class="max-w-1200 mx-auto text-dark pt-[50px] pb-[100px]">
+    @if (TempData["SuccessMessage"] != null)
+    {
+
+      <div class="float-down fixed z-50 top-0 w-full flex items-center justify-center">
+        <div class="bg-green-400 text-white px-8 py-3 rounded-lg shadow-lg">
+          @TempData["SuccessMessage"]
+        </div>
+      </div>
+    }
+
+
     <div class="flex flex-col md:flex-row gap-x-21 gap-y-10">
       @* Sidebar *@
       <div class="relative md:max-w-[276px] w-full text-white">

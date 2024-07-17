@@ -181,3 +181,30 @@ svg path {
 .swiper-pagination-bullet {
   background: #4f46e5;
 }
+
+/* float down and up animation for notify */
+@keyframes float-down {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(80px);
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(80px);
+    opacity: 1;
+  }
+  99% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+
+.float-down {
+  animation: float-down 1.5s ease-in forwards;
+}

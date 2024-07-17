@@ -89,6 +89,9 @@ namespace the_movie_hub.Pages.Auth.Register
 
       HttpContext.Session.SetString("User", JsonConvert.SerializeObject(newUser));
 
+      // Set success message
+      TempData["SuccessMessage"] = "Đăng nhập thành công!";
+
       Response.Redirect("/");
       return Page();
     }

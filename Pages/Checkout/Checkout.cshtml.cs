@@ -84,7 +84,8 @@ namespace the_movie_hub.Pages.Checkout
           StartAt = DateTime.Parse(showTimeCheckout.date),
           Total = total,
           PaymentMethod = paymentMethod,
-          Status = "Pending"
+          Status = "Pending",
+          CreatedAt = DateTime.Now,
         };
 
         // seat to be booked

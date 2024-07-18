@@ -239,7 +239,6 @@ namespace the_movie_hub.Migrations
                     Total = table.Column<float>(type: "real", nullable: false),
                     PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -274,11 +273,6 @@ namespace the_movie_hub.Migrations
                         principalTable: "TicketTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Tickets_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -345,11 +339,6 @@ namespace the_movie_hub.Migrations
                 name: "IX_Tickets_TicketTypeId",
                 table: "Tickets",
                 column: "TicketTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tickets_UserId",
-                table: "Tickets",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TicketTypes_RoomTypeId",

@@ -8,32 +8,12 @@
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.User.UserModel;
 
-@* <div class="text-center max-w-1200 mx-auto py-8 px-21 rounded-lg text-white bg-slate-700">
-<h1 value="">Users (@Model.Users.Count())</h1>
-<a href="/Admin">Admin</a>
 
-<div class="flex flex-col gap-4 text-left">
-@foreach (var user in Model.Users)
-{
-<div class="flex gap-3">
-<div class="flex gap-2">
-<span>@user.FullName</span> -
-<span>@user.Username</span> -
-</div>
-
-<form method="post">
-<input type="hidden" name="Id" value="@user.Id" />
-<button asp-page-handler="Delete" style="color: red">Delete</button>
-</form>
-</div>
-}
-</div>
-</div> *@
 <div class="p-21">
     <div class="p-21 bg-white text-dark rounded-lg shadow-lg overflow-x-scroll">
         <h2 class="text-2xl font-bold mb-6">Danh sách người dùng</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             @foreach (var user in @Model.Users)
             {
                 <div class="bg-white border border-dark p-2 rounded-lg shadow-lg">

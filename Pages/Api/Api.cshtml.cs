@@ -107,6 +107,13 @@ namespace the_movie_hub.Pages.Api
         return new JsonResult(new { message = "Room not found" });
       }
 
+      Console.WriteLine("99873917398127912737192873");
+
+      if (room.RoomType == null)
+      {
+        return new JsonResult(new { message = "Room type not found" });
+      }
+
       var ticketTypes = db.TicketTypes
           .Where(t => t.RoomTypeId.ToString() == room.RoomType.Id.ToString())
         .ToList();

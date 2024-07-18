@@ -1,0 +1,92 @@
+﻿@page "/Movie/Upcoming"
+@{
+  Layout = "_Layout";
+  ViewData["Title"] = "Movie Upcoming";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.EntityFrameworkCore
+@using the_movie_hub.Models;
+@model the_movie_hub.Pages.Movie.MovieUpcoming.MovieUpcomingModel
+
+<div class="min-h-screen pt-16 px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
+  <div class="max-w-1200 mx-auto">
+    <h1 class="font-body tracking-wider text-[40px] text-center">Phim Sắp Chiếu</h1>
+
+    <div class="grid grid-cols-4 gap-x-5 gap-y-16 mt-12">
+      @foreach (var movie in Model.Movies)
+      {
+        <div>
+          <a href='/movie/@movie.Id' class="group flex flex-col gap-5 cursor-pointer">
+            @* Thumbnail *@
+            <div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden shadow-md shadow-highlight">
+              <img class="w-full h-full object-cover" src="~/uploads/@movie.Image" alt="thumbnail">
+
+              <div
+                class="group-hover:opacity-100 opacity-0 trans-300 absolute top-0 left-0 p-6 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="w-full">
+                  <p
+                    class="text-left font-semibold text-lg trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                    @movie.Title </p>
+
+                  <div
+                    class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-5">
+                    <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/tag.svg">
+                    <p class="text-sm">
+                      @foreach (var genre in movie.MovieGenres)
+                      {
+                        <span>@genre.Genre.Title</span>
+                      }
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-3">
+                    <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                    <p class="text-sm">
+                      @movie.Duration'
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-3">
+                    <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                    <p class="text-sm">
+                      @movie.Country'
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex opacity-0 trans-500 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 text-lg gap-2 mt-3">
+                    <img class="h-4" loading="lazy" decoding="async" data-nimg="fill" src="~/images/clock.svg">
+                    <p class="text-sm">
+                      Lồng tiếng
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            @* Title *@
+            <h2 class="text-lg text-center tracking-wider font-semibold">@movie.Title</h2>
+
+            @* Action Buttons *@
+            <div class="flex gap-4 justify-between mt-4">
+              <div class="flex items-center justify-center gap-2 text-nowrap">
+                <div class="w-6 h-6 border rounded-full aspect-square p-0.5 flex items-center justify-center">
+                  <img class=" object-cover" src="~/images/ic-play-circle-red.svg" alt="play">
+                </div>
+                <a href="/" class="underline underline-offset-2 text-sm">Xem trailer</a>
+              </div>
+              <a href='/movie/@movie.Id'
+                class="flex-1 relative h-[40px] rounded-md text-dark px-2.5 flex gap-2.5 overflow-hidden items-center justify-center group bg-highlight after:absolute after:top-0 after:left-0 after:-translate-x-full after:bg-gradient-to-r after:from-[#639] after:to-[#36c] after:w-full after:h-full after:transition-all after:duration-300 hover:after:translate-x-0 group">
+                <span class="uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10">
+                  ĐẶT VÉ NGAY
+                </span>
+              </a>
+            </div>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</div>

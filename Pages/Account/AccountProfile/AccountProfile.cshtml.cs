@@ -108,7 +108,7 @@ namespace the_movie_hub.Pages.Account.AccountProfile
       // update the user by id
       await db.SaveChangesAsync();
 
-      // update the session
+      // update the session 
       HttpContext.Session.SetString("User", JsonConvert.SerializeObject(updateUser));
 
       // Set success message

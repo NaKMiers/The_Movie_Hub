@@ -87,7 +87,7 @@
       <div class="flex-1">
         <h1 class="font-body tracking-wider uppercase text-3xl text-white">Lịch sử mua vé</h1>
 
-        @if (Model.Tickets.Any() == false)
+        @if (Model.GroupedTickets.Any() == false)
         {
           <p class="text-white mt-6 text-center text-lg">Chưa có lịch sử mua vé. <a href='/'
               class="text-highlight underline underline-offset-1">Quay lại</a></p>
@@ -95,32 +95,46 @@
         else
         {
           <div>
-            <p class="text-white mt-6 text-center text-lg">Số vé đã mua: @Model.Tickets.Count()</p>
+            <p class="text-white mt-6 text-center text-lg">Số vé đã mua: @Model.TicketCount</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-              @foreach (var ticket in Model.Tickets)
+              @foreach (var group in Model.GroupedTickets)
               {
                 <div class="rounded-lg shadow-lg border-dark border-2 p-21 bg-white">
-                  <p class="flex gap-2">
-                    <span>Ngày xem:</span>
-                    <span>@ticket.StartAt</span>
+                  <p class="flex gap-2 text-slate-400">
+                    <span>Ngày Đặt Vé:</span>
+                    <span>@group.CreatedAt</span>
+                  </p>
+                  <p class="flex gap-2 text-slate-500">
+                    <span>Ngày Chiếu:</span>
+                    <span>@group.Tickets.First().StartAt</span>
                   </p>
 
                   <div class="flex mt-4">
                     <div>
                       <div
                         class="max-w-[200px] relative w-full aspect-[2/3] rounded-lg overflow-hidden shadow-md shadow-highlight">
-                        <img class="w-full h-full object-cover" src="~/uploads/@ticket.Movie.Image" alt="thumbnail">
+                        <img class="w-full h-full object-cover" src="~/uploads/@group.Tickets.First().Movie.Image"
+                          alt="thumbnail">
                       </div>
-                      <p class="font-semibold text-center mt-2">@ticket.Movie.Title</p>
+                      <p class="font-semibold text-center mt-2">@group.Tickets.First().Movie.Title</p>
                     </div>
-                    <div class="flex-1 px-21 tracking-wider">
-                      <p>Rạp: @ticket.Theater.Name</p>
-                      <p>Phòng: @ticket.Room.Name</p>
-                      <p>Loại vé: @ticket.TicketType.Label</p>
-                      <p>Phương thức thanh toán: @ticket.PaymentMethod</p>
+                    <div class="flex-1 px-21 tracking-wider flex flex-col gap-1.5">
+                      <p>Rạp: @group.Tickets.First().Theater.Name</p>
+                      <p>Phòng: @group.Tickets.First().Room.Name</p>
 
-                      <p class="font-bold text-xl mt-2">Tổng: <span class="text-nowrap">@ticket.Total.ToString("C0", new
+                      @for (int i = 0; i < group.Tickets.Count(); i++)
+                      {
+                        <p class="text-sm text-nowrap">Vé @(i + 1): @group.Tickets[i].TicketType.Label | Ghế
+                          @group.Tickets[i].Seat.SeatRow-@group.Tickets[i].Seat.SeatColumn
+                        </p>
+                      }
+
+                      <p>Phương thức thanh toán: <span
+                          class="font-semibold text-lg text-green-500">@group.Tickets.First().PaymentMethod</span></p>
+
+                      <p class="font-bold text-xl mt-2">Tổng: <span
+                          class="text-nowrap">@group.Tickets.First().Total.ToString("C0", new
                       CultureInfo("vi-VN"))</span>
                       </p>
                     </div>

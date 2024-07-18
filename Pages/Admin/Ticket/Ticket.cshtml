@@ -3,6 +3,7 @@
 @using Microsoft.EntityFrameworkCore
 @using the_movie_hub.Models;
 @model the_movie_hub.Pages.Admin.Ticket.TicketModel
+@using System.Globalization
 @{
   Layout = "_AdminLayout";
   ViewData["Title"] = "Admin - Ticket";
@@ -20,50 +21,64 @@
 
       @* Body *@
       <div class="mt-8">
-        <h1 class="text-2xl font-bold mb-4">Danh sách vé</h1>
+        <h1 class="font-body tracking-wider uppercase text-3xl text-white">Danh sách vé</h1>
 
-        <table class="w-full bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-          <thead class="bg-gray-100 text-gray-700">
-            <tr class="text-nowrap">
-              <th class="py-2 px-4 text-left">Email</th>
-              <th class="py-2 px-4 text-left">ID</th>
-              <th class="py-2 px-4 text-left">Movie</th>
-              <th class="py-2 px-4 text-left">Ticket Type</th>
-              <th class="py-2 px-4 text-left">Theater</th>
-              <th class="py-2 px-4 text-left">Room</th>
-              <th class="py-2 px-4 text-left">Start</th>
-              <th class="py-2 px-4 text-left">Total</th>
-              <th class="py-2 px-4 text-left">Payment</th>
-              <th class="py-2 px-4 text-left">Status</th>
-              <th class="py-2 px-4 text-left">_</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach (var item in Model.Tickets)
-            {
-              <tr>
-                <td class="py-2 px-4">@item.Email</td>
-                <td class="py-2 px-4">@item.Id</td>
-                <td class="py-2 px-4">@item.Movie?.Title</td>
-                <td class="py-2 px-4">@item.TicketType?.Label</td>
-                <td class="py-2 px-4">@item.Theater?.Name</td>
-                <td class="py-2 px-4">@item.Room?.Name</td>
-                <td class="py-2 px-4">@item.StartAt</td>
-                <td class="py-2 px-4">@item.Total</td>
-                <td class="py-2 px-4">@item.PaymentMethod</td>
-                <td class="py-2 px-4">@item.Status</td>
+        @if (Model.GroupedTickets.Any() == false)
+        {
+          <p class="text-white mt-6 text-center text-lg">
+            <a href='/' class="text-highlight underline underline-offset-1">Quay lại</a>
+          </p>
+        }
+        else
+        {
+          <div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
+              @foreach (var group in Model.GroupedTickets)
+              {
+                <div class="rounded-lg shadow-lg border-dark border-2 p-21 bg-white">
+                  <p class="flex gap-2 text-slate-400">
+                    <span>Ngày Đặt Vé:</span>
+                    <span>@group.CreatedAt</span>
+                  </p>
+                  <p class="flex gap-2 text-slate-500">
+                    <span>Ngày Chiếu:</span>
+                    <span>@group.Tickets.First().StartAt</span>
+                  </p>
 
-                <td class="py-2 px-4">
-                  <a href='/Admin/Ticket/@item.Id/Edit' class="text-indigo-600 hover:text-indigo-900">Sửa</a>
-                  <form method="post">
-                    <input type="hidden" name="Id" value="@item.Id" />
-                    <button asp-page-handler="Delete" style="color: red">Delete</button>
-                  </form>
-                </td>
-              </tr>
-            }
-          </tbody>
-        </table>
+                  <div class="flex mt-4">
+                    <div>
+                      <div
+                        class="max-w-[200px] relative w-full aspect-[2/3] rounded-lg overflow-hidden shadow-md shadow-highlight">
+                        <img class="w-full h-full object-cover" src="~/uploads/@group.Tickets.First().Movie.Image"
+                          alt="thumbnail">
+                      </div>
+                      <p class="font-semibold text-center mt-2">@group.Tickets.First().Movie.Title</p>
+                    </div>
+                    <div class="flex-1 px-21 tracking-wider flex flex-col gap-1.5">
+                      <p>Rạp: @group.Tickets.First().Theater.Name</p>
+                      <p>Phòng: @group.Tickets.First().Room.Name</p>
+
+                      @for (int i = 0; i < group.Tickets.Count(); i++)
+                      {
+                        <p class="text-sm text-nowrap">Vé @(i + 1): @group.Tickets[i].TicketType.Label | Ghế
+                          @group.Tickets[i].Seat.SeatRow-@group.Tickets[i].Seat.SeatColumn
+                        </p>
+                      }
+
+                      <p>Phương thức thanh toán: <span
+                          class="font-semibold text-lg text-green-500">@group.Tickets.First().PaymentMethod</span></p>
+
+                      <p class="font-bold text-xl mt-2">Tổng: <span
+                          class="text-nowrap">@group.Tickets.First().Total.ToString("C0", new
+                      CultureInfo("vi-VN"))</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
       </div>
     </div>
   </div>

@@ -24,15 +24,15 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 uppercase text-nowrap">
         <a href='/book-tickets/@Model.Id'
-          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-highlight p-2.5 h-[60px]">
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] @(Model.Status == null ? "border-highlight" : "border-transparent") p-2.5 h-[60px]">
           Phim Đang Chiếu
         </a>
         <a href='/book-tickets/@Model.Id?status=coming-soon'
-          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-transparent p-2.5 h-[60px]">
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] @(Model.Status == "coming-soon" ? "border-highlight" : "border-transparent") p-2.5 h-[60px]">
           Phim Sắp Chiếu
         </a>
         <a href='/book-tickets/@Model.Id?status=special'
-          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] border-transparent p-2.5 h-[60px]">
+          class="flex items-center font-body tracking-wider text-lg justify-center border-b-[4px] @(Model.Status == "special" ? "border-highlight" : "border-transparent") p-2.5 h-[60px]">
           Suất Chiếu Đặc Biệt
         </a>
       </div>
@@ -99,9 +99,10 @@
                           <div class="flex gap-2">
                             @foreach (var showTime in roomTypeShowTime.Value)
                             {
-                              <button class="border rounded-md p-1.5 text-nowrap text-xs">
+                              <a href='/Movie/@group.Movie.Id'
+                                class="border rounded-md p-1.5 text-nowrap text-xs hover:bg-highlight hover:text-dark trans-200">
                                 @showTime.StartAt.ToShortTimeString()
-                              </button>
+                              </a>
                             }
                           </div>
 

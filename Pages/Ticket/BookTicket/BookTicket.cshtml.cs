@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using the_movie_hub.Models.Main;
-using the_movie_hub.Pages.Checkout;
 
 namespace the_movie_hub.Pages.Ticket.BookTicket
 {

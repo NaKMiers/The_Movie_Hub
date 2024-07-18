@@ -5,6 +5,8 @@ $(function () {
   const prevStepBtn = $('#prev-step-btn')
   const nextStepBtn = $('#next-step-btn')
 
+  let order = null
+
   let selectedPaymentMethod = ''
   const paymentMethods = $('input[name="payment-method"]')
   paymentMethods.change(function () {
@@ -15,7 +17,7 @@ $(function () {
 
   const checkSelectedPaymentMethod = () => {
     const paymentMethod = $('input[name="payment-method"]:checked').val()
-    return !!paymentMethod
+    return paymentMethod
   }
 
   const updateStep = () => {
@@ -55,6 +57,12 @@ $(function () {
           Thanh Toán
         </span>`
       )
+    } else if (curStep === 3) {
+      nextStepBtn.html(
+        `<span class='uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10'>
+          Xác nhận thanh toán
+        </span>`
+      )
     } else {
       nextStepBtn.html(
         `<span class='uppercase font-body text-sm tracking-widest group-hover:text-light trans-300 z-10'>
@@ -69,6 +77,84 @@ $(function () {
     if (curStep < 3) {
       curStep++
       updateStep()
+
+      if (curStep === 3) {
+        const step3Form = $('#step-3-form')
+        console.log('step3Form: ', step3Form)
+
+        if (selectedPaymentMethod === 'momo') {
+          console.log('momo')
+          console.log('order', order)
+          const momoHtml = `
+            <div class="border border-highlight bg-dark-100 px-4 py-2 rounded-md mb-1">
+              <p class="text-lg">Số tài khoản Momo: <span
+                  class="text-pink-500 font-semibold cursor-pointer">0899320427</span>
+              </p>
+              <p class="text-lg">Nội dung chuyển khoản: <span class="text-orange-400 cursor-pointer">${
+                order.orderId
+              }</span>
+              </p>
+              <p class="text-lg">Số tiền cần chuyển: <span class="text-green-500 cursor-pointer">${order.total.toLocaleString(
+                'vi-VN',
+                {
+                  style: 'currency',
+                  currency: 'VND',
+                }
+              )}</span>
+              </p>
+            </div>
+
+            <div class="flex justify-center">
+              <div class='relative flex justify-center max-w-[350px] rounded-lg shadow-medium duration-300 transition hover:-translate-y-2 overflow-hidden'>
+                <img class="w-full h-full" src="/images/momo-qr.jpg" height="700" width="350" alt='momo-qr' />
+                <img class='absolute rounded-lg top-[56%] left-1/2 -translate-x-1/2 -translate-y-[50%] w-[58%]'
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=2|99|0899320427|||0|0|${
+                    order.total
+                  }|${order.orderId}|transfer_p2p"
+                  alt='momo-qr' />
+              </div>
+            </div>
+          `
+
+          step3Form.html(momoHtml)
+        } else if (selectedPaymentMethod === 'banking') {
+          console.log('banking')
+
+          const bankingHtml = `
+            <div class="border border-highlight bg-dark-100 px-4 py-2 rounded-md mb-1">
+              <p>Ngân hàng: <span class="text-green-400 font-semibold cursor-pointer">Vietcombank</span></p>
+              <p class="text-lg">Số tài khoản: <span class="text-pink-500 font-semibold cursor-pointer">1040587211</span>
+              </p>
+              <p class="text-lg">Nội dung chuyển khoản: <span class="text-orange-400 cursor-pointer">${
+                order.orderId
+              }</span>
+              </p>
+              <p class="text-lg">Số tiền cần chuyển: <span class="text-green-500 cursor-pointer">${order.total.toLocaleString(
+                'vi-VN',
+                {
+                  style: 'currency',
+                  currency: 'VND',
+                }
+              )}</span>
+              </p>
+            </div>
+
+            <div class="flex justify-center">
+              <div
+                class='relative flex justify-center max-w-[350px] rounded-lg shadow-medium duration-300 transition hover:-translate-y-2 overflow-hidden'>
+                <img class="w-full h-full" src="/images/banking-qr.jpg" height="700" width="350" alt='momo-qr' />
+                <img class='absolute rounded-lg top-[41%] left-1/2 -translate-x-1/2 -translate-y-[50%] w-[47%]'
+                  src="https://img.vietqr.io/image/970436-1040587211-eeua38J.jpg?amount=${
+                    order.total
+                  }&addInfo=${encodeURI(order.orderId)}&accountName=Nguyen Anh Khoa"
+                  alt='momo-qr' />
+              </div>
+            </div>
+          `
+
+          step3Form.html(bankingHtml)
+        }
+      }
     }
   }
 
@@ -115,6 +201,11 @@ $(function () {
       if (checkSelectedPaymentMethod()) {
         handleCheckout()
       }
+    } else if (curStep === 3) {
+      alert('Đặt vé thành công')
+
+      localStorage.removeItem('ticket')
+      window.location.href = '/'
     }
   })
 
@@ -150,13 +241,17 @@ $(function () {
       type: 'GET',
       data: data,
       success: function (data) {
-        // show success message
-        alert('Đặt vé thành công')
+        const { url, order: ord } = data
 
-        // remove ticket from local storage
-        localStorage.removeItem('ticket')
+        // vn-pay payment
+        if (url) {
+          localStorage.removeItem('ticket')
+          return (window.location.href = url)
+        }
 
-        window.location.href = '/'
+        order = ord
+
+        nextStep()
       },
       error: function (xhr, status, error) {
         console.error('Error', xhr, status, error)

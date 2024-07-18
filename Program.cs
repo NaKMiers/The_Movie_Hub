@@ -2,6 +2,7 @@ using the_movie_hub.Models.Main;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using the_movie_hub.Middlewares;
+using the_movie_hub.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<TheMovieHubDbContext>(options =>
 
 // config session
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {

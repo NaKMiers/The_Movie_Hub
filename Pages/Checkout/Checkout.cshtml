@@ -8,6 +8,7 @@
 @using the_movie_hub.Models
 @using Newtonsoft.Json
 @model the_movie_hub.Pages.Checkout.CheckoutModel
+
 @{
   string? session = HttpContext.Session.GetString("User");
   var user = session != null ? JsonConvert.DeserializeObject<User>(session) : null;
@@ -15,6 +16,27 @@
 
 <div class="p-21 min-h-screen px-21 pb-28 bg-gradient-to-b from-[#0f172a] to-[#283247]">
   <div class="max-w-1200">
+    @if (TempData["SuccessMessage"] != null)
+    {
+
+      <div class="float-down fixed z-50 left-0 top-0 w-full flex items-center justify-center">
+        <div class="bg-green-400 text-white px-8 py-3 rounded-lg shadow-lg">
+          @TempData["SuccessMessage"]
+        </div>
+      </div>
+    }
+
+    @if (TempData["FailMessage"] != null)
+    {
+
+      <div class="float-down fixed z-50 left-0 top-0 w-full flex items-center justify-center">
+        <div class="bg-rose-400 text-white px-8 py-3 rounded-lg shadow-lg">
+          @TempData["FailMessage"]
+        </div>
+      </div>
+    }
+
+
     <h1 class="font-body text-[32px] uppercase">Trang Thanh Toán</h1>
 
     <div class="flex items-center gap-3 mt-8">
@@ -70,27 +92,32 @@
           </div>
 
           <div>
-            <input id="payment-method--atm" type="radio" data-value="atm" class="peer" name="payment-method" hidden>
-            <label for="payment-method--atm"
+            <input id="payment-method--banking" type="radio" data-value="banking" class="peer" name="payment-method"
+              hidden>
+            <label for="payment-method--banking"
               class="peer-checked:bg-white peer-checked:text-dark w-full flex gap-2 px-8 py-5 cursor-pointer items-center border-2 border-white rounded-md hover:bg-white hover:text-dark trans-300">
               <div class="w-12">
                 <img class="h-8" src="~/images/mastercard.png" alt="banking">
               </div>
-              <span>Thanh toán thẻ nội địa</span>
+              <span>Thanh toán ngân hàng</span>
             </label>
           </div>
 
           <div>
-            <input id="payment-method--visa" type="radio" data-value="visa" class="peer" name="payment-method" hidden>
-            <label for="payment-method--visa"
+            <input id="payment-method--vn-pay" type="radio" data-value="vn-pay" class="peer" name="payment-method"
+              hidden>
+            <label for="payment-method--vn-pay"
               class="peer-checked:bg-white peer-checked:text-dark w-full flex gap-2 px-8 py-5 cursor-pointer items-center border-2 border-white rounded-md hover:bg-white hover:text-dark trans-300">
               <div class="w-12">
-                <img class="h-8" src="~/images/mastercard.png" alt="banking">
+                <img class="h-7" src="~/images/vnpay.webp" alt="vn-pay">
               </div>
-              <span>Thanh toán thẻ quốc tế</span>
+              <span>Thanh toán VNPAY</span>
             </label>
           </div>
         </div>
+
+        @* Step 3 *@
+        <div id="step-3-form" class="checkout__step hidden flex-col gap-5"></div>
 
         @* Next - Prev *@
         <div class="flex gap-8 mt-8">
@@ -143,7 +170,7 @@
 
         <div class="flex justify-between gap-3 border-t-2 border-dotted border-white pt-3">
           <span class="text-highlight text-[20px]">SỐ TIỀN CẦN THANH TOÁN</span>
-          <span class="font-semibold text-[26px]" id="checkout__total">130.000VND</span>
+          <span class="font-semibold text-[26px]" id="checkout__total"></span>
         </div>
       </div>
     </div>

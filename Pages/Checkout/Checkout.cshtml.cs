@@ -1,8 +1,12 @@
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.ObjectPool;
 using Newtonsoft.Json;
 using the_movie_hub.Models.Main;
+using the_movie_hub.Models.ViewModels;
+using the_movie_hub.Services;
 
 namespace the_movie_hub.Pages.Checkout
 {
@@ -29,10 +33,11 @@ namespace the_movie_hub.Pages.Checkout
     public string id;
   }
 
-  public class CheckoutModel(TheMovieHubDbContext db) : PageModel
+  public class CheckoutModel(TheMovieHubDbContext db, IVnPayService vnPayService) : PageModel
   {
     // Database context
     private readonly TheMovieHubDbContext db = db;
+    private readonly IVnPayService _vnPayService = vnPayService;
 
     // Methods
     public IActionResult OnGetCheckout(string fullName, string phone, string email, string movieId, string roomId, string showTimeId, string theaterId, string ticketTypes, string seats, string showTime, float total, string paymentMethod)
@@ -98,9 +103,59 @@ namespace the_movie_hub.Pages.Checkout
         db.Tickets.Add(newTicket);
       }
 
+      string url = "";
+      if (paymentMethod == "vn-pay")
+      {
+        var vnPayModel = new VnPaymentRequestModel
+        {
+          Amount = total,
+          CreatedDate = DateTime.Now,
+          Description = $"{email} - {phone}",
+          FullName = fullName,
+          OrderId = Guid.NewGuid().ToString(),
+        };
+
+        url = _vnPayService.CreatePaymentUrl(HttpContext, vnPayModel);
+      }
+
       db.SaveChanges();
 
-      return new JsonResult(new { message = "Successfully" });
+      // create random order id int
+      var random = new Random();
+      var orderId = random.Next(10000, 99999);
+
+      var order = new
+      {
+        fullName,
+        phone,
+        email,
+        movieId,
+        roomId,
+        showTimeId,
+        theaterId,
+        total,
+        paymentMethod,
+        orderId,
+      };
+
+      return new JsonResult(new { url, order, message = "Successfully" });
+    }
+
+    public IActionResult OnGetPaymentCallBack()
+    {
+      var response = _vnPayService.PaymentExecute(Request.Query);
+
+      // show response
+      Console.WriteLine("response:" + response.VnPayResponseCode);
+
+      if (response == null || response.VnPayResponseCode != "00")
+      {
+        TempData["FailMessage"] = "Thanh toán thất bại";
+        return Page();
+      }
+
+      TempData["SuccessMessage"] = "Đặt vé thành công";
+      return Page();
     }
   }
 }

@@ -40,10 +40,10 @@ namespace the_movie_hub.Pages.Admin.Ticket
                 .Include(t => t.Room)
                 .Include(t => t.Seat)
                 .AsEnumerable()
-                .GroupBy(t => t.CreatedAt.Date)
+                .GroupBy(t => t.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"))
                 .Select(g => new GroupedTickets
                 {
-                    CreatedAt = g.Key,
+                    CreatedAt = DateTime.Parse(g.Key),
                     Tickets = [.. g]
                 })
                 .OrderByDescending(g => g.CreatedAt)];
